@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34407.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConciliacionBancaria", "ConciliacionBancaria\ConciliacionBancaria.csproj", "{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaPresentacion", "ConciliacionBancaria\CapaPresentacion.csproj", "{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{AD753EA9-E62F-4B47-B7E0-7707533A08D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "CapaNegocio\CapaNegocio.csproj", "{5B7F6A76-EA77-4C7B-99A7-6765345E2CC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD753EA9-E62F-4B47-B7E0-7707533A08D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD753EA9-E62F-4B47-B7E0-7707533A08D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD753EA9-E62F-4B47-B7E0-7707533A08D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD753EA9-E62F-4B47-B7E0-7707533A08D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B7F6A76-EA77-4C7B-99A7-6765345E2CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7F6A76-EA77-4C7B-99A7-6765345E2CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7F6A76-EA77-4C7B-99A7-6765345E2CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7F6A76-EA77-4C7B-99A7-6765345E2CC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
