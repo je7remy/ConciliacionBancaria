@@ -16,7 +16,7 @@ namespace ConciliacionBancaria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Conciliacion_Bancaria());
+            Application.Run(new ConciliacionBancaria());
         }
     }
 }

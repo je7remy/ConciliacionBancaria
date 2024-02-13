@@ -10,7 +10,7 @@ using System.Data.Sql;
 
 namespace CapaDatos
 {
-    // Clase para manejar la conexión y operaciones con la tabla de bancos en la base de datos
+    // Clase para manejar la conexión y operaciones con la tabla de cuenta bancarias en la base de datos
     public class CDCuentasBancarias
     {
         // Campos privados para almacenar los datos de la cuenta bancaria
