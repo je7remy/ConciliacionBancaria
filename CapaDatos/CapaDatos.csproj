@@ -56,6 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaPresentacionConexion.cs" />
+    <Compile Include="CDBancos.cs" />
+    <Compile Include="CDCatalogos.cs" />
+    <Compile Include="CDConciliacionBancaria.cs" />
+    <Compile Include="CDConfiguracion.cs" />
+    <Compile Include="CDCuentasBancarias.cs" />
+    <Compile Include="CDEmpresas.cs" />
+    <Compile Include="CDTransaccionesBancarias.cs" />
+    <Compile Include="CDTransaccionesInternas.cs" />
+    <Compile Include="CDUsuarios.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
