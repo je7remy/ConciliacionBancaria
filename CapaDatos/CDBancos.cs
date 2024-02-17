@@ -23,10 +23,8 @@ namespace CapaDatos
 
         }
 
-        public string Insertar(string nombre, string direccion)
-        {
-            throw new NotImplementedException();
-        }
+
+
 
         // Constructor con parámetros para inicializar los campos de la clase
         public CDBancos(int BancosID, string Nombre, string Direccion)
@@ -50,10 +48,7 @@ namespace CapaDatos
             set { dNombre = value; }
         }
 
-        public string Actualizar(int bancosID, string nombre, string direccion)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         // Propiedad para obtener o establecer la dirección del banco
         public string Direccion
@@ -64,7 +59,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar un nuevo banco en la base de datos
-        public string Insertar(CDBancos objBancos)
+        public string Insertar(string nombre, string direccion)
         {
             try
             {
@@ -77,8 +72,8 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del banco
-                        micomando.Parameters.AddWithValue("@Nombre", objBancos.dNombre);
-                        micomando.Parameters.AddWithValue("@Direccion", objBancos.dDireccion);
+                        micomando.Parameters.AddWithValue("@Nombre", Nombre);
+                        micomando.Parameters.AddWithValue("@Direccion", Direccion);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -99,7 +94,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un banco en la base de datos
-        public string Actualizar(int bancosID, CDBancos objBancos)
+        public string Actualizar(int bancosID, string nombre, string direccion)
         {
             try
             {
@@ -112,9 +107,9 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización del banco
-                        micomando.Parameters.AddWithValue("@BancosID", objBancos.dBancosID);
-                        micomando.Parameters.AddWithValue("@Nombre", objBancos.dNombre);
-                        micomando.Parameters.AddWithValue("@Direccion", objBancos.dDireccion);
+                        micomando.Parameters.AddWithValue("@BancosID", BancosID);
+                        micomando.Parameters.AddWithValue("@Nombre", Nombre);
+                        micomando.Parameters.AddWithValue("@Direccion", Direccion);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();

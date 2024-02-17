@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
+
 using CapaDatos;
 
 namespace CapaNegocio

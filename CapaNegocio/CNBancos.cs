@@ -7,21 +7,22 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
+
 using CapaDatos;
 
 namespace CapaNegocio
 {
    public class CNBancos
     {
-        public static string Insertar(string Nombre, string Direccion)
+        public static string Insertar(string nombre, string direccion)
         {
             try
             {
                 // Creamos una instancia de la clase CDBancos
                 CDBancos objBancos = new CDBancos();
 
-                // Llamamos al método Insertar de la capa de datos pasándole los parámetros recibidos
-                return objBancos.Insertar(Nombre, Direccion);
+                // Llamamos al método InsertarBanco de la capa de datos pasándole los parámetros recibidos
+                return objBancos.Insertar(nombre, direccion);
             }
             catch (Exception ex)
             {
@@ -30,15 +31,15 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int BancosID, string Nombre, string Direccion)
+        public static string Actualizar(int bancosID, string nombre, string direccion)
         {
             try
             {
                 // Creamos una instancia de la clase CDBancos
                 CDBancos objBancos = new CDBancos();
 
-                // Llamamos al método Actualizar de la capa de datos pasándole los parámetros recibidos
-                return objBancos.Actualizar(BancosID, Nombre, Direccion);
+                // Llamamos al método ActualizarBanco de la capa de datos pasándole los parámetros recibidos
+                return objBancos.Actualizar(bancosID, nombre, direccion);
             }
             catch (Exception ex)
             {
@@ -47,7 +48,7 @@ namespace CapaNegocio
             }
         }
 
-        public static DataTable ObtenerBancoPorID(int BancosID)
+        public static DataTable ObtenerBancoPorID(int bancosID)
         {
             try
             {
@@ -55,7 +56,7 @@ namespace CapaNegocio
                 CDBancos objBancos = new CDBancos();
 
                 // Llamamos al método ObtenerBancoPorID de la capa de datos
-                return objBancos.ObtenerBancoPorID(BancosID);
+                return objBancos.ObtenerBancoPorID(bancosID);
             }
             catch (Exception ex)
             {
