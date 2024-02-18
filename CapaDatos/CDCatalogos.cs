@@ -63,7 +63,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar un nuevo catálogo en la base de datos
-        public string Insertar(CDCatalogos objCatalogo)
+        public string Insertar(string Nombre, string Descripcion, string OtrosDetalles)
         {
             try
             {
@@ -76,9 +76,9 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del catálogo
-                        micomando.Parameters.AddWithValue("@Nombre", objCatalogo.dNombre);
-                        micomando.Parameters.AddWithValue("@Descripcion", objCatalogo.dDescripcion);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objCatalogo.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@Nombre", Nombre);
+                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -99,7 +99,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un catálogo en la base de datos
-        public string Actualizar(CDCatalogos objCatalogo)
+        public string Actualizar(int CatalogoID, string Nombre, string Descripcion, string OtrosDetalles)
         {
             try
             {
@@ -112,10 +112,10 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización del catálogo
-                        micomando.Parameters.AddWithValue("@CatalogoID", objCatalogo.dCatalogoID);
-                        micomando.Parameters.AddWithValue("@Nombre", objCatalogo.dNombre);
-                        micomando.Parameters.AddWithValue("@Descripcion", objCatalogo.dDescripcion);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objCatalogo.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@CatalogoID", CatalogoID);
+                        micomando.Parameters.AddWithValue("@Nombre", Nombre);
+                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();

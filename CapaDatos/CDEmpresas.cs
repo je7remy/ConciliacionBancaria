@@ -71,7 +71,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva empresa en la base de datos
-        public string Insertar(CDEmpresas objEmpresa)
+        public string Insertar(string NombreEmpresa, string Direccion, string InformacionContacto, string OtrosDetalles)
         {
             try
             {
@@ -84,10 +84,10 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción de la empresa
-                        micomando.Parameters.AddWithValue("@NombreEmpresa", objEmpresa.dNombreEmpresa);
-                        micomando.Parameters.AddWithValue("@Direccion", objEmpresa.dDireccion);
-                        micomando.Parameters.AddWithValue("@InformacionContacto", objEmpresa.dInformacionContacto);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objEmpresa.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@NombreEmpresa", NombreEmpresa);
+                        micomando.Parameters.AddWithValue("@Direccion", Direccion);
+                        micomando.Parameters.AddWithValue("@InformacionContacto", InformacionContacto);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -108,7 +108,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de una empresa en la base de datos
-        public string Actualizar(CDEmpresas objEmpresa)
+        public string Actualizar(int EmpresaID, string NombreEmpresa, string Direccion, string InformacionContacto, string OtrosDetalles)
         {
             try
             {
@@ -121,11 +121,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización de la empresa
-                        micomando.Parameters.AddWithValue("@EmpresaID", objEmpresa.dEmpresaID);
-                        micomando.Parameters.AddWithValue("@NombreEmpresa", objEmpresa.dNombreEmpresa);
-                        micomando.Parameters.AddWithValue("@Direccion", objEmpresa.dDireccion);
-                        micomando.Parameters.AddWithValue("@InformacionContacto", objEmpresa.dInformacionContacto);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objEmpresa.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@EmpresaID", EmpresaID);
+                        micomando.Parameters.AddWithValue("@NombreEmpresa", NombreEmpresa);
+                        micomando.Parameters.AddWithValue("@Direccion", Direccion);
+                        micomando.Parameters.AddWithValue("@InformacionContacto", InformacionContacto);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();

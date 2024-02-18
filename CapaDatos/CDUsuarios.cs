@@ -79,7 +79,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar un nuevo usuario en la base de datos
-        public string Insertar(CDUsuarios objUsuario)
+        public string Insertar( string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
         {
             try
             {
@@ -92,11 +92,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del usuario
-                        micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.dNombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", objUsuario.dContraseña);
-                        micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.dCorreoElectronico);
-                        micomando.Parameters.AddWithValue("@Rol", objUsuario.dRol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objUsuario.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@Contraseña", Contraseña);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -117,7 +117,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un usuario en la base de datos
-        public string Actualizar(CDUsuarios objUsuario)
+        public string Actualizar(int UsuarioID, string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
         {
             try
             {
@@ -130,12 +130,12 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización del usuario
-                        micomando.Parameters.AddWithValue("@UsuarioID", objUsuario.dUsuarioID);
-                        micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.dNombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", objUsuario.dContraseña);
-                        micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.dCorreoElectronico);
-                        micomando.Parameters.AddWithValue("@Rol", objUsuario.dRol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objUsuario.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@Contraseña", Contraseña);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
