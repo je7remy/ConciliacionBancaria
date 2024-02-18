@@ -80,7 +80,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva transacción bancaria en la base de datos
-        public string Insertar(CDTransaccionesBancarias objTransaccion)
+        public string Insertar(int cuentaID, DateTime fecha, string descripcion, decimal monto, string tipo)
         {
             try
             {
@@ -93,11 +93,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción de la transacción bancaria
-                        micomando.Parameters.AddWithValue("@CuentaID", objTransaccion.dCuentaID);
-                        micomando.Parameters.AddWithValue("@Fecha", objTransaccion.dFecha);
-                        micomando.Parameters.AddWithValue("@Descripcion", objTransaccion.dDescripcion);
-                        micomando.Parameters.AddWithValue("@Monto", objTransaccion.dMonto);
-                        micomando.Parameters.AddWithValue("@Tipo", objTransaccion.dTipo);
+                        micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
+                        micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
+                        micomando.Parameters.AddWithValue("@Monto", Monto);
+                        micomando.Parameters.AddWithValue("@Tipo", Tipo);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -118,7 +118,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de una transacción bancaria en la base de datos
-        public string Actualizar(CDTransaccionesBancarias objTransaccion)
+        public string Actualizar(int transaccionBancariaID, DateTime fecha, string descripcion, decimal monto, string tipo)
         {
             try
             {
@@ -131,11 +131,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización de la transacción bancaria
-                        micomando.Parameters.AddWithValue("@TransaccionBancariaID", objTransaccion.dTransaccionBancariaID);
-                        micomando.Parameters.AddWithValue("@Fecha", objTransaccion.dFecha);
-                        micomando.Parameters.AddWithValue("@Descripcion", objTransaccion.dDescripcion);
-                        micomando.Parameters.AddWithValue("@Monto", objTransaccion.dMonto);
-                        micomando.Parameters.AddWithValue("@Tipo", objTransaccion.dTipo);
+                        micomando.Parameters.AddWithValue("@TransaccionBancariaID", TransaccionBancariaID);
+                        micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
+                        micomando.Parameters.AddWithValue("@Monto", Monto);
+                        micomando.Parameters.AddWithValue("@Tipo", Tipo);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -156,7 +156,7 @@ namespace CapaDatos
         }
 
         // Método para obtener los datos de una transacción bancaria por su ID
-        public DataTable ObtenerTransaccionPorID(int TransaccionBancariaID)
+        public DataTable ObtenerTransaccionBancariaPorID(int TransaccionBancariaID)
         {
             try
             {

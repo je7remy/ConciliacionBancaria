@@ -79,7 +79,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva conciliación bancaria en la base de datos
-        public string Insertar(CDConciliacionBancaria objConciliacion)
+        public string Insertar(int CuentaID, DateTime Fecha, decimal SaldoContable, decimal SaldoBancario, decimal Diferencia)
         {
             try
             {
@@ -92,11 +92,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción de la conciliación bancaria
-                        micomando.Parameters.AddWithValue("@CuentaID", objConciliacion.dCuentaID);
-                        micomando.Parameters.AddWithValue("@Fecha", objConciliacion.dFecha);
-                        micomando.Parameters.AddWithValue("@SaldoContable", objConciliacion.dSaldoContable);
-                        micomando.Parameters.AddWithValue("@SaldoBancario", objConciliacion.dSaldoBancario);
-                        micomando.Parameters.AddWithValue("@Diferencia", objConciliacion.dDiferencia);
+                        micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
+                        micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
+                        micomando.Parameters.AddWithValue("@SaldoBancario", SaldoBancario);
+                        micomando.Parameters.AddWithValue("@Diferencia", Diferencia);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -117,7 +117,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de una conciliación bancaria en la base de datos
-        public string Actualizar(CDConciliacionBancaria objConciliacion)
+        public string Actualizar(int ConciliacionID, DateTime Fecha, decimal SaldoContable, decimal SaldoBancario, decimal Diferencia)
         {
             try
             {
@@ -130,11 +130,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización de la conciliación bancaria
-                        micomando.Parameters.AddWithValue("@ConciliacionID", objConciliacion.dConciliacionID);
-                        micomando.Parameters.AddWithValue("@Fecha", objConciliacion.dFecha);
-                        micomando.Parameters.AddWithValue("@SaldoContable", objConciliacion.dSaldoContable);
-                        micomando.Parameters.AddWithValue("@SaldoBancario", objConciliacion.dSaldoBancario);
-                        micomando.Parameters.AddWithValue("@Diferencia", objConciliacion.dDiferencia);
+                        micomando.Parameters.AddWithValue("@ConciliacionID", ConciliacionID);
+                        micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
+                        micomando.Parameters.AddWithValue("@SaldoBancario", SaldoBancario);
+                        micomando.Parameters.AddWithValue("@Diferencia", Diferencia);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -155,7 +155,7 @@ namespace CapaDatos
         }
 
         // Método para obtener los datos de una conciliación bancaria por su ID
-        public DataTable ObtenerConciliacionPorID(int ConciliacionID)
+        public DataTable ObtenerConciliacionBancariaPorID(int ConciliacionID)
         {
             try
             {
