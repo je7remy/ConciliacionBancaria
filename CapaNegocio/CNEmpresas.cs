@@ -11,10 +11,9 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-   public class CNEmpresas
+    public class CNEmpresas
     {
-
-        public static string Insertar(string nombreEmpresa, string direccion, string informacionContacto, string otrosDetalles)
+        public static string Insertar(string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
         {
             try
             {
@@ -22,7 +21,7 @@ namespace CapaNegocio
                 CDEmpresas objEmpresas = new CDEmpresas();
 
                 // Llamamos al método InsertarEmpresa de la capa de datos pasándole los parámetros recibidos
-                return objEmpresas.Insertar(nombreEmpresa, direccion, informacionContacto, otrosDetalles);
+                return objEmpresas.Insertar(nombreEmpresa, direccion, informacionContacto, telefono, correo, estado);
             }
             catch (Exception ex)
             {
@@ -31,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int empresaID, string nombreEmpresa, string direccion, string informacionContacto, string otrosDetalles)
+        public static string Actualizar(int empresaID, string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
         {
             try
             {
@@ -39,7 +38,7 @@ namespace CapaNegocio
                 CDEmpresas objEmpresas = new CDEmpresas();
 
                 // Llamamos al método ActualizarEmpresa de la capa de datos pasándole los parámetros recibidos
-                return objEmpresas.Actualizar(empresaID, nombreEmpresa, direccion, informacionContacto, otrosDetalles);
+                return objEmpresas.Actualizar(empresaID, nombreEmpresa, direccion, informacionContacto, telefono, correo, estado);
             }
             catch (Exception ex)
             {
@@ -65,6 +64,5 @@ namespace CapaNegocio
                 throw new Exception("Error al obtener la empresa por ID.", ex);
             }
         }
-
     }
 }

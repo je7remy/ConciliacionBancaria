@@ -11,10 +11,10 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-   public class CNCatalogos
+    public class CNCatalogos
     {
 
-        public static string Insertar(string nombre, string descripcion, string otrosDetalles)
+        public static string Insertar(string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace CapaNegocio
                 CDCatalogos objCatalogos = new CDCatalogos();
 
                 // Llamamos al método InsertarCatalogo de la capa de datos pasándole los parámetros recibidos
-                return objCatalogos.Insertar(nombre, descripcion, otrosDetalles);
+                return objCatalogos.Insertar(nombre, descripcion, cuentasPadres, origen, balance, estado);
             }
             catch (Exception ex)
             {
@@ -31,7 +31,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int catalogoID, string nombre, string descripcion, string otrosDetalles)
+        public static string Actualizar(int catalogoID, string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace CapaNegocio
                 CDCatalogos objCatalogos = new CDCatalogos();
 
                 // Llamamos al método ActualizarCatalogo de la capa de datos pasándole los parámetros recibidos
-                return objCatalogos.Actualizar(catalogoID, nombre, descripcion, otrosDetalles);
+                return objCatalogos.Actualizar(catalogoID, nombre, descripcion, cuentasPadres, origen, balance, estado);
             }
             catch (Exception ex)
             {

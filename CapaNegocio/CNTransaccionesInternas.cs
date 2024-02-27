@@ -11,11 +11,9 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-     public class CNTransaccionesInternas
+    public class CNTransaccionesInternas
     {
-
-
-        public static string Insertar(int clienteID, int cuentaID, DateTime fecha, string descripcion, decimal monto, string tipo)
+        public static string Insertar(int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string estado, string observacion)
         {
             try
             {
@@ -23,7 +21,7 @@ namespace CapaNegocio
                 CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
 
                 // Llamamos al método InsertarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Insertar(clienteID, cuentaID, fecha, descripcion, monto, tipo);
+                return objTransaccionesInternas.Insertar(usuarioID, bancoID, cuentaID, clienteID, fecha, descripcion, monto, tipo, estado, observacion);
             }
             catch (Exception ex)
             {
@@ -32,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int transaccionID, DateTime fecha, string descripcion, decimal monto, string tipo)
+        public static string Actualizar(int transaccionID, DateTime fecha, string descripcion, decimal monto, string tipo, string estado, string observacion)
         {
             try
             {
@@ -40,7 +38,7 @@ namespace CapaNegocio
                 CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
 
                 // Llamamos al método ActualizarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Actualizar(transaccionID, fecha, descripcion, monto, tipo);
+                return objTransaccionesInternas.Actualizar(transaccionID, fecha, descripcion, monto, tipo, estado, observacion);
             }
             catch (Exception ex)
             {
@@ -66,7 +64,5 @@ namespace CapaNegocio
                 throw new Exception("Error al obtener la transacción interna por ID.", ex);
             }
         }
-
-
     }
 }

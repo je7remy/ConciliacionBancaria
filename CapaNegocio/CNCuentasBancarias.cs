@@ -12,10 +12,9 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-   public class CNCuentasBancarias
+    public class CNCuentasBancarias
     {
-
-        public static string Insertar(int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial)
+        public static string Insertar(int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
         {
             try
             {
@@ -23,7 +22,7 @@ namespace CapaNegocio
                 CDCuentasBancarias objCuentasBancarias = new CDCuentasBancarias();
 
                 // Llamamos al método Insertar de la capa de datos pasándole los parámetros recibidos
-                return objCuentasBancarias.Insertar(clienteID, tipoCuenta, numeroCuenta, saldoInicial);
+                return objCuentasBancarias.Insertar(bancoID, clienteID, tipoCuenta, numeroCuenta, saldoInicial, fechaApertura, moneda, debito, credito, estado, observacion);
             }
             catch (Exception ex)
             {
@@ -32,7 +31,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int cuentaID, string tipoCuenta, string numeroCuenta, decimal saldoInicial)
+        public static string Actualizar(int cuentaID, int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
         {
             try
             {
@@ -40,7 +39,7 @@ namespace CapaNegocio
                 CDCuentasBancarias objCuentasBancarias = new CDCuentasBancarias();
 
                 // Llamamos al método Actualizar de la capa de datos pasándole los parámetros recibidos
-                return objCuentasBancarias.Actualizar(cuentaID, tipoCuenta, numeroCuenta, saldoInicial);
+                return objCuentasBancarias.Actualizar(cuentaID, bancoID, clienteID, tipoCuenta, numeroCuenta, saldoInicial, fechaApertura, moneda, debito, credito, estado, observacion);
             }
             catch (Exception ex)
             {

@@ -10,15 +10,17 @@ using System.Data.Sql;
 
 namespace CapaDatos
 {
-    // Clase para manejar la conexión y operaciones con la tabla de catalogos en la base de datos
+    // Clase para manejar la conexión y operaciones con la tabla de catálogos en la base de datos
     public class CDCatalogos
     {
-
         // Campos privados para almacenar los datos del catálogo
         private int dCatalogoID;
         private string dNombre;
         private string dDescripcion;
-        private string dOtrosDetalles;
+        private string dCuentasPadres;
+        private string dOrigen;
+        private decimal dBalance;
+        private string dEstado;
 
         // Constructor predeterminado de la clase
         public CDCatalogos()
@@ -27,12 +29,15 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDCatalogos(int CatalogoID, string Nombre, string Descripcion, string OtrosDetalles)
+        public CDCatalogos(int CatalogoID, string Nombre, string Descripcion, string CuentasPadres, string Origen, decimal Balance, string Estado)
         {
             dCatalogoID = CatalogoID;
             dNombre = Nombre;
             dDescripcion = Descripcion;
-            dOtrosDetalles = OtrosDetalles;
+            dCuentasPadres = CuentasPadres;
+            dOrigen = Origen;
+            dBalance = Balance;
+            dEstado = Estado;
         }
 
         #region Métodos Get y Set
@@ -54,16 +59,34 @@ namespace CapaDatos
             get { return dDescripcion; }
             set { dDescripcion = value; }
         }
-        // Propiedad para obtener o establecer otros detalles del catálogo
-        public string OtrosDetalles
+        // Propiedad para obtener o establecer las cuentas padres del catálogo
+        public string CuentasPadres
         {
-            get { return dOtrosDetalles; }
-            set { dOtrosDetalles = value; }
+            get { return dCuentasPadres; }
+            set { dCuentasPadres = value; }
+        }
+        // Propiedad para obtener o establecer el origen del catálogo
+        public string Origen
+        {
+            get { return dOrigen; }
+            set { dOrigen = value; }
+        }
+        // Propiedad para obtener o establecer el balance del catálogo
+        public decimal Balance
+        {
+            get { return dBalance; }
+            set { dBalance = value; }
+        }
+        // Propiedad para obtener o establecer el estado del catálogo
+        public string Estado
+        {
+            get { return dEstado; }
+            set { dEstado = value; }
         }
         #endregion
 
         // Método para insertar un nuevo catálogo en la base de datos
-        public string Insertar(string Nombre, string Descripcion, string OtrosDetalles)
+        public string Insertar(string Nombre, string Descripcion, string CuentasPadres, string Origen, decimal Balance, string Estado)
         {
             try
             {
@@ -78,7 +101,10 @@ namespace CapaDatos
                         // Se añaden los parámetros necesarios para la inserción del catálogo
                         micomando.Parameters.AddWithValue("@Nombre", Nombre);
                         micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@CuentasPadres", CuentasPadres);
+                        micomando.Parameters.AddWithValue("@Origen", Origen);
+                        micomando.Parameters.AddWithValue("@Balance", Balance);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -99,7 +125,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un catálogo en la base de datos
-        public string Actualizar(int CatalogoID, string Nombre, string Descripcion, string OtrosDetalles)
+        public string Actualizar(int CatalogoID, string Nombre, string Descripcion, string CuentasPadres, string Origen, decimal Balance, string Estado)
         {
             try
             {
@@ -115,7 +141,10 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@CatalogoID", CatalogoID);
                         micomando.Parameters.AddWithValue("@Nombre", Nombre);
                         micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@CuentasPadres", CuentasPadres);
+                        micomando.Parameters.AddWithValue("@Origen", Origen);
+                        micomando.Parameters.AddWithValue("@Balance", Balance);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -169,6 +198,5 @@ namespace CapaDatos
                 throw new Exception("Error al intentar obtener datos del catálogo por ID.", ex);
             }
         }
-
     }
 }

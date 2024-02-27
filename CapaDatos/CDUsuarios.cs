@@ -17,10 +17,10 @@ namespace CapaDatos
         // Campos privados para almacenar los datos del usuario
         private int dUsuarioID;
         private string dNombreUsuario;
-        private string dContraseña;
+        private string dContraseñaHash;
         private string dCorreoElectronico;
         private string dRol;
-        private string dOtrosDetalles;
+        private string dEstado;
 
         // Constructor predeterminado de la clase
         public CDUsuarios()
@@ -29,14 +29,14 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDUsuarios(int UsuarioID, string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
+        public CDUsuarios(int UsuarioID, string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             dUsuarioID = UsuarioID;
             dNombreUsuario = NombreUsuario;
-            dContraseña = Contraseña;
+            dContraseñaHash = ContraseñaHash;
             dCorreoElectronico = CorreoElectronico;
             dRol = Rol;
-            dOtrosDetalles = OtrosDetalles;
+            dEstado = Estado;
         }
 
         #region Métodos Get y Set
@@ -52,11 +52,11 @@ namespace CapaDatos
             get { return dNombreUsuario; }
             set { dNombreUsuario = value; }
         }
-        // Propiedad para obtener o establecer la contraseña del usuario
-        public string Contraseña
+        // Propiedad para obtener o establecer el hash de la contraseña del usuario
+        public string ContraseñaHash
         {
-            get { return dContraseña; }
-            set { dContraseña = value; }
+            get { return dContraseñaHash; }
+            set { dContraseñaHash = value; }
         }
         // Propiedad para obtener o establecer el correo electrónico del usuario
         public string CorreoElectronico
@@ -70,16 +70,16 @@ namespace CapaDatos
             get { return dRol; }
             set { dRol = value; }
         }
-        // Propiedad para obtener o establecer otros detalles del usuario
-        public string OtrosDetalles
+        // Propiedad para obtener o establecer el estado del usuario
+        public string Estado
         {
-            get { return dOtrosDetalles; }
-            set { dOtrosDetalles = value; }
+            get { return dEstado; }
+            set { dEstado = value; }
         }
         #endregion
 
         // Método para insertar un nuevo usuario en la base de datos
-        public string Insertar( string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
+        public string Insertar(string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             try
             {
@@ -93,10 +93,10 @@ namespace CapaDatos
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del usuario
                         micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", Contraseña);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
                         micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
                         micomando.Parameters.AddWithValue("@Rol", Rol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -117,7 +117,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un usuario en la base de datos
-        public string Actualizar(int UsuarioID, string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
+        public string Actualizar(int UsuarioID, string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             try
             {
@@ -132,10 +132,10 @@ namespace CapaDatos
                         // Se añaden los parámetros necesarios para la actualización del usuario
                         micomando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
                         micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", Contraseña);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
                         micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
                         micomando.Parameters.AddWithValue("@Rol", Rol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
