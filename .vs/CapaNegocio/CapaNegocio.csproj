@@ -42,6 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CNBancos.cs" />
+    <Compile Include="CNCatalogos.cs" />
+    <Compile Include="CNConciliacionBancaria.cs" />
+    <Compile Include="CNCuentasBancarias.cs" />
+    <Compile Include="CNEmpresas.cs" />
+    <Compile Include="CNTransaccionesInternas.cs" />
+    <Compile Include="CNUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

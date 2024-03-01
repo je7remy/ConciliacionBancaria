@@ -14,8 +14,16 @@ namespace CapaDatos
     public class CDBancos
     {
         // Campos privados para almacenar los datos del banco
-        private int dBancosID;
-        private string dNombre, dDireccion;
+        private int dBancoID;
+        private int dCatalogoID;
+        private string dNombre;
+        private string dSucursal;
+        private string dDireccion;
+        private string dEstado;
+        private string dTelefono;
+        private string dCorreo;
+        private string dOficialCuentas;
+        private string dObservaciones;
 
         // Constructor predeterminado de la clase
         public CDBancos()
@@ -24,19 +32,32 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDBancos(int BancosID, string Nombre, string Direccion)
+        public CDBancos(int BancoID, int CatalogoID, string Nombre, string Sucursal, string Direccion, string Estado, string Telefono, string Correo, string OficialCuentas, string Observaciones)
         {
-            dBancosID = BancosID;
+            dBancoID = BancoID;
+            dCatalogoID = CatalogoID;
             dNombre = Nombre;
+            dSucursal = Sucursal;
             dDireccion = Direccion;
+            dEstado = Estado;
+            dTelefono = Telefono;
+            dCorreo = Correo;
+            dOficialCuentas = OficialCuentas;
+            dObservaciones = Observaciones;
         }
 
         #region Métodos Get y Set
         // Propiedad para obtener o establecer el ID del banco
-        public int BancosID
+        public int BancoID
         {
-            get { return dBancosID; }
-            set { dBancosID = value; }
+            get { return dBancoID; }
+            set { dBancoID = value; }
+        }
+        // Propiedad para obtener o establecer el ID del catálogo asociado al banco
+        public int CatalogoID
+        {
+            get { return dCatalogoID; }
+            set { dCatalogoID = value; }
         }
         // Propiedad para obtener o establecer el nombre del banco
         public string Nombre
@@ -44,16 +65,52 @@ namespace CapaDatos
             get { return dNombre; }
             set { dNombre = value; }
         }
+        // Propiedad para obtener o establecer la sucursal del banco
+        public string Sucursal
+        {
+            get { return dSucursal; }
+            set { dSucursal = value; }
+        }
         // Propiedad para obtener o establecer la dirección del banco
         public string Direccion
         {
             get { return dDireccion; }
             set { dDireccion = value; }
         }
+        // Propiedad para obtener o establecer el estado del banco
+        public string Estado
+        {
+            get { return dEstado; }
+            set { dEstado = value; }
+        }
+        // Propiedad para obtener o establecer el teléfono del banco
+        public string Telefono
+        {
+            get { return dTelefono; }
+            set { dTelefono = value; }
+        }
+        // Propiedad para obtener o establecer el correo del banco
+        public string Correo
+        {
+            get { return dCorreo; }
+            set { dCorreo = value; }
+        }
+        // Propiedad para obtener o establecer el oficial de cuentas del banco
+        public string OficialCuentas
+        {
+            get { return dOficialCuentas; }
+            set { dOficialCuentas = value; }
+        }
+        // Propiedad para obtener o establecer las observaciones del banco
+        public string Observaciones
+        {
+            get { return dObservaciones; }
+            set { dObservaciones = value; }
+        }
         #endregion
 
         // Método para insertar un nuevo banco en la base de datos
-        public string Insertar(CDBancos objBancos)
+        public string Insertar(string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
             try
             {
@@ -66,8 +123,14 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del banco
-                        micomando.Parameters.AddWithValue("@Nombre", objBancos.dNombre);
-                        micomando.Parameters.AddWithValue("@Direccion", objBancos.dDireccion);
+                        micomando.Parameters.AddWithValue("@Nombre", nombre);
+                        micomando.Parameters.AddWithValue("@Sucursal", sucursal);
+                        micomando.Parameters.AddWithValue("@Direccion", direccion);
+                        micomando.Parameters.AddWithValue("@Estado", estado);
+                        micomando.Parameters.AddWithValue("@Telefono", telefono);
+                        micomando.Parameters.AddWithValue("@Correo", correo);
+                        micomando.Parameters.AddWithValue("@Oficial_de_cuentas", oficialCuentas);
+                        micomando.Parameters.AddWithValue("@Observaciones", observaciones);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -88,7 +151,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un banco en la base de datos
-        public string Actualizar(CDBancos objBancos)
+        public string Actualizar(int bancoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
             try
             {
@@ -101,9 +164,15 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización del banco
-                        micomando.Parameters.AddWithValue("@BancosID", objBancos.dBancosID);
-                        micomando.Parameters.AddWithValue("@Nombre", objBancos.dNombre);
-                        micomando.Parameters.AddWithValue("@Direccion", objBancos.dDireccion);
+                        micomando.Parameters.AddWithValue("@BancoID", bancoID);
+                        micomando.Parameters.AddWithValue("@Nombre", nombre);
+                        micomando.Parameters.AddWithValue("@Sucursal", sucursal);
+                        micomando.Parameters.AddWithValue("@Direccion", direccion);
+                        micomando.Parameters.AddWithValue("@Estado", estado);
+                        micomando.Parameters.AddWithValue("@Telefono", telefono);
+                        micomando.Parameters.AddWithValue("@Correo", correo);
+                        micomando.Parameters.AddWithValue("@Oficial_de_cuentas", oficialCuentas);
+                        micomando.Parameters.AddWithValue("@Observaciones", observaciones);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -123,32 +192,21 @@ namespace CapaDatos
             }
         }
 
-        // Método para obtener los datos de un banco por su ID
-        public DataTable ObtenerBancoPorID(int BancosID)
+        // Método utilizado para obtener un DataTable con los datos de un banco por su ID
+        public DataTable ObtenerBancoPorID(int bancoID)
         {
             try
             {
                 // Se crea un objeto DataTable para almacenar los resultados de la consulta
                 DataTable dt = new DataTable();
 
-                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
-                {
-                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de obtención por ID
-                    using (SqlCommand micomando = new SqlCommand("ObtenerBancoPorID", sqlCon))
-                    {
-                        // Se especifica que el comando es un procedimiento almacenado
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        // Se añade el parámetro necesario para la consulta por ID
-                        micomando.Parameters.AddWithValue("@BancosID", BancosID);
+                // Se instancia un objeto de la clase CDBancos
+                CDBancos objBanco = new CDBancos();
 
-                        // Se crea un adaptador de datos para ejecutar la consulta y llenar el DataTable
-                        SqlDataAdapter adapter = new SqlDataAdapter(micomando);
-                        adapter.Fill(dt);
-                    }
-                }
+                // Se llena el DataTable con los datos del banco correspondiente al ID proporcionado
+                dt = objBanco.ObtenerBancoPorID(bancoID);
 
-                // Se retorna el DataTable con los datos obtenidos
+                // Se retorna el DataTable con los datos adquiridos
                 return dt;
             }
             catch (Exception ex)
@@ -157,5 +215,6 @@ namespace CapaDatos
                 throw new Exception("Error al intentar obtener datos del banco por ID.", ex);
             }
         }
+
     }
 }

@@ -17,10 +17,10 @@ namespace CapaDatos
         // Campos privados para almacenar los datos del usuario
         private int dUsuarioID;
         private string dNombreUsuario;
-        private string dContraseña;
+        private string dContraseñaHash;
         private string dCorreoElectronico;
         private string dRol;
-        private string dOtrosDetalles;
+        private string dEstado;
 
         // Constructor predeterminado de la clase
         public CDUsuarios()
@@ -29,14 +29,14 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDUsuarios(int UsuarioID, string NombreUsuario, string Contraseña, string CorreoElectronico, string Rol, string OtrosDetalles)
+        public CDUsuarios(int UsuarioID, string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             dUsuarioID = UsuarioID;
             dNombreUsuario = NombreUsuario;
-            dContraseña = Contraseña;
+            dContraseñaHash = ContraseñaHash;
             dCorreoElectronico = CorreoElectronico;
             dRol = Rol;
-            dOtrosDetalles = OtrosDetalles;
+            dEstado = Estado;
         }
 
         #region Métodos Get y Set
@@ -52,11 +52,11 @@ namespace CapaDatos
             get { return dNombreUsuario; }
             set { dNombreUsuario = value; }
         }
-        // Propiedad para obtener o establecer la contraseña del usuario
-        public string Contraseña
+        // Propiedad para obtener o establecer el hash de la contraseña del usuario
+        public string ContraseñaHash
         {
-            get { return dContraseña; }
-            set { dContraseña = value; }
+            get { return dContraseñaHash; }
+            set { dContraseñaHash = value; }
         }
         // Propiedad para obtener o establecer el correo electrónico del usuario
         public string CorreoElectronico
@@ -70,16 +70,16 @@ namespace CapaDatos
             get { return dRol; }
             set { dRol = value; }
         }
-        // Propiedad para obtener o establecer otros detalles del usuario
-        public string OtrosDetalles
+        // Propiedad para obtener o establecer el estado del usuario
+        public string Estado
         {
-            get { return dOtrosDetalles; }
-            set { dOtrosDetalles = value; }
+            get { return dEstado; }
+            set { dEstado = value; }
         }
         #endregion
 
         // Método para insertar un nuevo usuario en la base de datos
-        public string Insertar(CDUsuarios objUsuario)
+        public string Insertar(string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             try
             {
@@ -92,11 +92,11 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción del usuario
-                        micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.dNombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", objUsuario.dContraseña);
-                        micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.dCorreoElectronico);
-                        micomando.Parameters.AddWithValue("@Rol", objUsuario.dRol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objUsuario.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -117,7 +117,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de un usuario en la base de datos
-        public string Actualizar(CDUsuarios objUsuario)
+        public string Actualizar(int UsuarioID, string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
             try
             {
@@ -130,12 +130,12 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización del usuario
-                        micomando.Parameters.AddWithValue("@UsuarioID", objUsuario.dUsuarioID);
-                        micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.dNombreUsuario);
-                        micomando.Parameters.AddWithValue("@Contraseña", objUsuario.dContraseña);
-                        micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.dCorreoElectronico);
-                        micomando.Parameters.AddWithValue("@Rol", objUsuario.dRol);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", objUsuario.dOtrosDetalles);
+                        micomando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -155,32 +155,21 @@ namespace CapaDatos
             }
         }
 
-        // Método para obtener los datos de un usuario por su ID
-        public DataTable ObtenerUsuarioPorID(int UsuarioID)
+        // Método utilizado para obtener un DataTable con los datos de un usuario por su ID
+        public DataTable ObtenerUsuarioPorID(int usuarioID)
         {
             try
             {
                 // Se crea un objeto DataTable para almacenar los resultados de la consulta
                 DataTable dt = new DataTable();
 
-                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
-                {
-                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de obtención por ID
-                    using (SqlCommand micomando = new SqlCommand("ObtenerUsuarioPorID", sqlCon))
-                    {
-                        // Se especifica que el comando es un procedimiento almacenado
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        // Se añade el parámetro necesario para la consulta por ID
-                        micomando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
+                // Se instancia un objeto de la clase CDUsuario 
+                CDUsuarios objUsuario = new CDUsuarios();
 
-                        // Se crea un adaptador de datos para ejecutar la consulta y llenar el DataTable
-                        SqlDataAdapter adapter = new SqlDataAdapter(micomando);
-                        adapter.Fill(dt);
-                    }
-                }
+                // Se llena el DataTable con los datos del usuario correspondiente al ID proporcionado
+                dt = objUsuario.ObtenerUsuarioPorID(usuarioID);
 
-                // Se retorna el DataTable con los datos obtenidos
+                // Se retorna el DataTable con los datos adquiridos
                 return dt;
             }
             catch (Exception ex)
@@ -189,6 +178,6 @@ namespace CapaDatos
                 throw new Exception("Error al intentar obtener datos del usuario por ID.", ex);
             }
         }
-
     }
+
 }
