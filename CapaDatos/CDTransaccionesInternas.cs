@@ -23,7 +23,6 @@ namespace CapaDatos
         private string dDescripcion;
         private decimal dMonto;
         private string dTipo;
-        private string dEstado;
         private string dObservacion;
 
         // Constructor predeterminado de la clase
@@ -33,7 +32,7 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDTransaccionesInternas(int TransaccionID, int UsuarioID, int BancoID, int CuentaID, int ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Estado, string Observacion)
+        public CDTransaccionesInternas(int TransaccionID, int UsuarioID, int BancoID, int CuentaID, int ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Observacion)
         {
             dTransaccionID = TransaccionID;
             dUsuarioID = UsuarioID;
@@ -44,7 +43,6 @@ namespace CapaDatos
             dDescripcion = Descripcion;
             dMonto = Monto;
             dTipo = Tipo;
-            dEstado = Estado;
             dObservacion = Observacion;
         }
 
@@ -103,12 +101,7 @@ namespace CapaDatos
             get { return dTipo; }
             set { dTipo = value; }
         }
-        // Propiedad para obtener o establecer el estado de la transacción interna
-        public string Estado
-        {
-            get { return dEstado; }
-            set { dEstado = value; }
-        }
+  
         // Propiedad para obtener o establecer la observación de la transacción interna
         public string Observacion
         {
@@ -118,7 +111,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva transacción interna en la base de datos
-        public string Insertar(int UsuarioID, int BancoID, int CuentaID, int ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Estado, string Observacion)
+        public string Insertar(int UsuarioID, int BancoID, int CuentaID, int ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Observacion)
         {
             try
             {
@@ -139,7 +132,6 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
                         micomando.Parameters.AddWithValue("@Monto", Monto);
                         micomando.Parameters.AddWithValue("@Tipo", Tipo);
-                        micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@Observacion", Observacion);
 
                         // Se abre la conexión a la base de datos
@@ -161,7 +153,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de una transacción interna en la base de datos
-        public string Actualizar(int TransaccionID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Estado, string Observacion)
+        public string Actualizar(int TransaccionID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Observacion)
         {
             try
             {
@@ -179,7 +171,6 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
                         micomando.Parameters.AddWithValue("@Monto", Monto);
                         micomando.Parameters.AddWithValue("@Tipo", Tipo);
-                        micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@Observacion", Observacion);
 
                         // Se abre la conexión a la base de datos

@@ -13,7 +13,7 @@ namespace CapaNegocio
 {
     public class CNTransaccionesInternas
     {
-        public static string Insertar(int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string estado, string observacion)
+        public static string Insertar(int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace CapaNegocio
                 CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
 
                 // Llamamos al método InsertarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Insertar(usuarioID, bancoID, cuentaID, clienteID, fecha, descripcion, monto, tipo, estado, observacion);
+                return objTransaccionesInternas.Insertar(usuarioID, bancoID, cuentaID, clienteID, fecha, descripcion, monto, tipo, observacion);
             }
             catch (Exception ex)
             {
@@ -30,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int transaccionID, DateTime fecha, string descripcion, decimal monto, string tipo, string estado, string observacion)
+        public static string Actualizar(int transaccionID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace CapaNegocio
                 CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
 
                 // Llamamos al método ActualizarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Actualizar(transaccionID, fecha, descripcion, monto, tipo, estado, observacion);
+                return objTransaccionesInternas.Actualizar(transaccionID, fecha, descripcion, monto, tipo, observacion);
             }
             catch (Exception ex)
             {

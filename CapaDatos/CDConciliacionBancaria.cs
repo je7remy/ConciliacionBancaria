@@ -17,6 +17,7 @@ namespace CapaDatos
         private int dConciliacionID;
         private int dCuentaID;
         private DateTime dFecha;
+        private string dEstado;
         private decimal dSaldoContable;
         private decimal dSaldoBancario;
 
@@ -27,11 +28,12 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDConciliacionBancaria(int ConciliacionID, int CuentaID, DateTime Fecha, decimal SaldoContable, decimal SaldoBancario)
+        public CDConciliacionBancaria(int ConciliacionID, int CuentaID, DateTime Fecha, string Estado, decimal SaldoContable, decimal SaldoBancario)
         {
             dConciliacionID = ConciliacionID;
             dCuentaID = CuentaID;
             dFecha = Fecha;
+            dEstado = Estado;
             dSaldoContable = SaldoContable;
             dSaldoBancario = SaldoBancario;
         }
@@ -55,6 +57,12 @@ namespace CapaDatos
             get { return dFecha; }
             set { dFecha = value; }
         }
+        // Propiedad para obtener o establecer el Estado de la conciliación bancaria
+        public string Estado
+        {
+            get { return dEstado; }
+            set { dEstado = value; }
+        }
         // Propiedad para obtener o establecer el saldo contable de la conciliación bancaria
         public decimal SaldoContable
         {
@@ -75,7 +83,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva conciliación bancaria en la base de datos
-        public string Insertar(int CuentaID, DateTime Fecha, decimal SaldoContable, decimal SaldoBancario)
+        public string Insertar(int CuentaID, DateTime Fecha, string Estado, decimal SaldoContable, decimal SaldoBancario)
         {
             try
             {
@@ -85,6 +93,7 @@ namespace CapaDatos
                     {
                         micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
                         micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
                         micomando.Parameters.AddWithValue("@SaldoBancario", SaldoBancario);
 
@@ -102,7 +111,7 @@ namespace CapaDatos
             }
         }
 
-        public string Actualizar(int ConciliacionID, DateTime Fecha, decimal SaldoContable, decimal SaldoBancario)
+        public string Actualizar(int ConciliacionID, DateTime Fecha, string Estado, decimal SaldoContable, decimal SaldoBancario)
         {
             try
             {
@@ -112,6 +121,7 @@ namespace CapaDatos
                     {
                         micomando.Parameters.AddWithValue("@ConciliacionID", ConciliacionID);
                         micomando.Parameters.AddWithValue("@Fecha", Fecha);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
                         micomando.Parameters.AddWithValue("@SaldoBancario", SaldoBancario);
 

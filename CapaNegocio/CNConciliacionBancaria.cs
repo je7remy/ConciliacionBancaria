@@ -13,7 +13,7 @@ namespace CapaNegocio
 {
     public class CNConciliacionBancaria
     {
-        public static string Insertar(int cuentaID, DateTime fecha, decimal saldoContable, decimal saldoBancario)
+        public static string Insertar(int cuentaID, DateTime fecha, string Estado, decimal saldoContable, decimal saldoBancario)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace CapaNegocio
                 CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
 
                 // Llamamos al método InsertarConciliacionBancaria de la capa de datos pasándole los parámetros recibidos
-                return objConciliacionBancaria.Insertar(cuentaID, fecha, saldoContable, saldoBancario);
+                return objConciliacionBancaria.Insertar(cuentaID, fecha, Estado, saldoContable, saldoBancario);
             }
             catch (Exception ex)
             {
@@ -30,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int conciliacionID, DateTime fecha, decimal saldoContable, decimal saldoBancario)
+        public static string Actualizar(int conciliacionID, DateTime fecha, string Estado, decimal saldoContable, decimal saldoBancario)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace CapaNegocio
                 CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
 
                 // Llamamos al método ActualizarConciliacionBancaria de la capa de datos pasándole los parámetros recibidos
-                return objConciliacionBancaria.Actualizar(conciliacionID, fecha, saldoContable, saldoBancario);
+                return objConciliacionBancaria.Actualizar(conciliacionID, fecha, Estado, saldoContable, saldoBancario);
             }
             catch (Exception ex)
             {
