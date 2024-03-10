@@ -10,9 +10,9 @@ using System.Data.Sql;
 
 namespace CapaDatos
 {
-    /// <summary>
+   
     /// Clase para manejar la conexión y operaciones con la tabla de empresas en la base de datos.
-    /// </summary>
+    
     public class CDEmpresas
     {
         // Campos privados para almacenar los datos de la empresa
@@ -110,11 +110,25 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Correo", dCorreo);
                         micomando.Parameters.AddWithValue("@Estado", dEstado);
 
+
+
+                        SqlParameter outputParam = new SqlParameter("@EmpresaID", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
+                        micomando.Parameters.Add(outputParam);
+
                         sqlCon.Open();
                         int rowsAffected = micomando.ExecuteNonQuery();
 
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
+                        // Lee el valor devuelto por el procedimiento almacenado
+                        int newEmpresaID = Convert.ToInt32(outputParam.Value);
+
+                        CDEmpresas nuevaEmpresa = new CDEmpresas(newEmpresaID, NombreEmpresa, Direccion, InformacionContacto, Telefono, Correo, Estado);
+
+
+                        // Se retorna un mensaje indicando el resultado de la operación
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente! Transacción ID: " + newEmpresaID :
+                                                    "No se pudo insertar correctamente los nuevos datos!";
+
                     }
                 }
             }

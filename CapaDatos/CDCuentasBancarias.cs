@@ -10,9 +10,9 @@ using System.Data.Sql;
 
 namespace CapaDatos
 {
-    /// <summary>
+    
     /// Clase para manejar la conexión y operaciones con la tabla de cuentas bancarias en la base de datos.
-    /// </summary>
+   
     public class CDCuentasBancarias
     {
         // Campos privados para almacenar los datos de la cuenta bancaria
@@ -160,11 +160,26 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Estado", dEstado);
                         micomando.Parameters.AddWithValue("@Observacion", dObservacion);
 
+
+
+
+                        SqlParameter outputParam = new SqlParameter("@CuentaID", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
+                        micomando.Parameters.Add(outputParam);
+
                         sqlCon.Open();
                         int rowsAffected = micomando.ExecuteNonQuery();
 
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
+                        // Lee el valor devuelto por el procedimiento almacenado
+                        int newCuentaBancariaID = Convert.ToInt32(outputParam.Value);
+
+                        CDCuentasBancarias nuevaCuentaBancaria = new CDCuentasBancarias(newCuentaBancariaID, BancoID, ClienteID, TipoCuenta, NumeroCuenta, SaldoInicial, FechaApertura, Moneda, Debito, Credito, Estado, Observacion);
+
+                        // Se retorna un mensaje indicando el resultado de la operación
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente! Transacción ID: " + newCuentaBancariaID :
+                                                    "No se pudo insertar correctamente los nuevos datos!";
+
+
                     }
                 }
             }

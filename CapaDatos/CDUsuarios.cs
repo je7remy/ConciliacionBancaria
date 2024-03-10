@@ -98,14 +98,23 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Rol", Rol);
                         micomando.Parameters.AddWithValue("@Estado", Estado);
 
-                        // Se abre la conexión a la base de datos
+
+
+                        SqlParameter outputParam = new SqlParameter("@UsuarioID", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
+                        micomando.Parameters.Add(outputParam);
+
                         sqlCon.Open();
-                        // Se ejecuta el comando y se obtiene el número de filas afectadas
                         int rowsAffected = micomando.ExecuteNonQuery();
 
+                        // Lee el valor devuelto por el procedimiento almacenado
+                        int newUsuarioID = Convert.ToInt32(outputParam.Value);
+
+                        CDUsuarios nuevoUsuario = new CDUsuarios(newUsuarioID, NombreUsuario, ContraseñaHash, CorreoElectronico, Rol, Estado);
+
                         // Se retorna un mensaje indicando el resultado de la operación
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente! Transacción ID: " + newUsuarioID :
+                                                    "No se pudo insertar correctamente los nuevos datos!";
                     }
                 }
             }

@@ -134,14 +134,24 @@ namespace CapaDatos
                         micomando.Parameters.AddWithValue("@Tipo", Tipo);
                         micomando.Parameters.AddWithValue("@Observacion", Observacion);
 
+                        // Se agrega un parámetro de salida para obtener el ID de la transacción insertada
+                        SqlParameter outputParam = new SqlParameter("@TransaccionID", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
+                        micomando.Parameters.Add(outputParam);
+
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
                         // Se ejecuta el comando y se obtiene el número de filas afectadas
                         int rowsAffected = micomando.ExecuteNonQuery();
 
+                        // Se obtiene el ID de la transacción insertada
+                        int newTransaccionID = Convert.ToInt32(outputParam.Value);
+
+                        CDTransaccionesInternas nuevaTransaccion = new CDTransaccionesInternas(newTransaccionID, UsuarioID, BancoID, CuentaID, ClienteID, Fecha, Descripcion, Monto, Tipo, Observacion);
+
                         // Se retorna un mensaje indicando el resultado de la operación
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente! Transacción ID: " + newTransaccionID :
+                                                    "No se pudo insertar correctamente los nuevos datos!";
                     }
                 }
             }

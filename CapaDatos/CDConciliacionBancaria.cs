@@ -91,17 +91,34 @@ namespace CapaDatos
                 {
                     using (SqlCommand micomando = new SqlCommand("InsertarConciliacionBancaria", sqlCon))
                     {
+                        // Se especifica que el comando es un procedimiento almacenado
+                        micomando.CommandType = CommandType.StoredProcedure;
+
                         micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
                         micomando.Parameters.AddWithValue("@Fecha", Fecha);
                         micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
                         micomando.Parameters.AddWithValue("@SaldoBancario", SaldoBancario);
 
+
+
+                        // Agrega el parámetro de salida @ConciliacionID
+                        SqlParameter outputParam = new SqlParameter("@ConciliacionID", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
+                        micomando.Parameters.Add(outputParam);
+
                         sqlCon.Open();
                         int rowsAffected = micomando.ExecuteNonQuery();
 
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
+                        // Lee el valor devuelto por el procedimiento almacenado
+                        int newConciliacionID = Convert.ToInt32(outputParam.Value);
+
+                        // Asigna el nuevo ID a la instancia de CDConciliacionBancaria
+                        CDConciliacionBancaria nuevaConciliacionBancaria = new CDConciliacionBancaria(newConciliacionID, CuentaID, Fecha, Estado, SaldoContable, SaldoBancario);
+
+                        // Se retorna un mensaje indicando el resultado de la operación
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente! Transacción ID: " + newConciliacionID :
+                                                    "No se pudo insertar correctamente los nuevos datos!";
                     }
                 }
             }
@@ -111,7 +128,7 @@ namespace CapaDatos
             }
         }
 
-        public string Actualizar(int ConciliacionID, DateTime Fecha, string Estado, decimal SaldoContable, decimal SaldoBancario)
+        public string Actualizar(int ConciliacionID, int CuentaID, DateTime Fecha, string Estado, decimal SaldoContable, decimal SaldoBancario)
         {
             try
             {
@@ -120,6 +137,7 @@ namespace CapaDatos
                     using (SqlCommand micomando = new SqlCommand("ActualizarConciliacionBancaria", sqlCon))
                     {
                         micomando.Parameters.AddWithValue("@ConciliacionID", ConciliacionID);
+                        micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
                         micomando.Parameters.AddWithValue("@Fecha", Fecha);
                         micomando.Parameters.AddWithValue("@Estado", Estado);
                         micomando.Parameters.AddWithValue("@SaldoContable", SaldoContable);
