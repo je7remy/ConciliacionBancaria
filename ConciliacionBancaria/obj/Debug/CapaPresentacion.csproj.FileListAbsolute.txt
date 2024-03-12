@@ -1,0 +1,5 @@
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FConciliacionBancaria.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.Properties.Resources.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache

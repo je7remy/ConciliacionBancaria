@@ -136,6 +136,8 @@ namespace CapaDatos
                 {
                     using (SqlCommand micomando = new SqlCommand("ActualizarConciliacionBancaria", sqlCon))
                     {
+                        // Se especifica que el comando es un procedimiento almacenado
+                        micomando.CommandType = CommandType.StoredProcedure;
                         micomando.Parameters.AddWithValue("@ConciliacionID", ConciliacionID);
                         micomando.Parameters.AddWithValue("@CuentaID", CuentaID);
                         micomando.Parameters.AddWithValue("@Fecha", Fecha);

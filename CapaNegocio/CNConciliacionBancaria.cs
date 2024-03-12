@@ -30,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-        public static string Actualizar(int conciliacionID, DateTime fecha, string Estado, decimal saldoContable, decimal saldoBancario)
+        public static string Actualizar(int conciliacionID, int cuentaID, DateTime fecha, string Estado, decimal saldoContable, decimal saldoBancario)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace CapaNegocio
                 CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
 
                 // Llamamos al método ActualizarConciliacionBancaria de la capa de datos pasándole los parámetros recibidos
-                return objConciliacionBancaria.Actualizar(conciliacionID, fecha, Estado, saldoContable, saldoBancario);
+                return objConciliacionBancaria.Actualizar(conciliacionID, cuentaID, fecha, Estado, saldoContable, saldoBancario);
             }
             catch (Exception ex)
             {

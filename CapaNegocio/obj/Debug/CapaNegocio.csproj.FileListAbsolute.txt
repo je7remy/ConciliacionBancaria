@@ -1,0 +1,2 @@
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache

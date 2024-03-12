@@ -14,9 +14,9 @@ using System.Data.SqlTypes;
 using CapaNegocio;
 namespace ConciliacionBancaria
 {
-    public partial class ConciliacionBancaria : Form
+    public partial class FConciliacionBancaria : Form
     {
-        public ConciliacionBancaria()
+        public FConciliacionBancaria()
         {
             InitializeComponent();
         }
@@ -24,6 +24,11 @@ namespace ConciliacionBancaria
         private void Conciliacion_Bancaria_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

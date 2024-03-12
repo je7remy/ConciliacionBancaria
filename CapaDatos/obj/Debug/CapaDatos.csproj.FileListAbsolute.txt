@@ -1,0 +1,8 @@
+C:\c#\ConciliacionBancaria\CapaDatos\bin\Debug\ConciliacionBancaria.mdf
+C:\c#\ConciliacionBancaria\CapaDatos\bin\Debug\ConciliacionBancaria_log.ldf
+C:\c#\ConciliacionBancaria\CapaDatos\bin\Debug\CapaDatos.dll
+C:\c#\ConciliacionBancaria\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\c#\ConciliacionBancaria\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\c#\ConciliacionBancaria\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\c#\ConciliacionBancaria\CapaDatos\obj\Debug\CapaDatos.dll
+C:\c#\ConciliacionBancaria\CapaDatos\obj\Debug\CapaDatos.pdb
