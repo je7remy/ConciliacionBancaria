@@ -30,5 +30,15 @@ namespace ConciliacionBancaria
         {
             Application.Exit();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           statusStrip1.Items[1].Text = "Fecha/Hora: " + DateTime.Now.ToString();
+        }
     }
 }

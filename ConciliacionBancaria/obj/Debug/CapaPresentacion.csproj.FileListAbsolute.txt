@@ -3,3 +3,13 @@ C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.F
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.Properties.Resources.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria.exe.config
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria.exe
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria.pdb
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\CapaNegocio.dll
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\CapaDatos.dll
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\CapaNegocio.pdb
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\CapaDatos.pdb
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.exe
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.pdb
