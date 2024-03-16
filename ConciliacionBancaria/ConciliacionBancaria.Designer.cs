@@ -120,8 +120,8 @@ namespace ConciliacionBancaria
             this.empresasToolStripMenuItem,
             this.catálogosToolStripMenuItem});
             this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
-            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.movimientoToolStripMenuItem.Text = "&Movimientos";
+            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.movimientoToolStripMenuItem.Text = "&Mantenimientos";
             // 
             // bancosYOrganizacionesToolStripMenuItem
             // 

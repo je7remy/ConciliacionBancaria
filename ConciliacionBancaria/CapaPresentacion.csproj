@@ -80,10 +80,19 @@
     <Compile Include="ConciliacionBancaria.Designer.cs">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConciliacionBancariaPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConciliacionBancariaPrueba.Designer.cs">
+      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConciliacionBancariaPrueba.resx">
+      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
