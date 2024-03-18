@@ -527,7 +527,7 @@ namespace ConciliacionBancaria
             // 
             this.backupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("backupToolStripMenuItem.Image")));
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.backupToolStripMenuItem.Text = "&Backup";
             this.backupToolStripMenuItem.ToolTipText = "Copia de seguridad del sistema";
             // 
@@ -535,20 +535,20 @@ namespace ConciliacionBancaria
             // 
             this.restaurarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("restaurarToolStripMenuItem.Image")));
             this.restaurarToolStripMenuItem.Name = "restaurarToolStripMenuItem";
-            this.restaurarToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.restaurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.restaurarToolStripMenuItem.Text = "&Restaurar";
             this.restaurarToolStripMenuItem.ToolTipText = "Restaurar copia de seguridad";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // cuentasDeUsuarioToolStripMenuItem
             // 
             this.cuentasDeUsuarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cuentasDeUsuarioToolStripMenuItem.Image")));
             this.cuentasDeUsuarioToolStripMenuItem.Name = "cuentasDeUsuarioToolStripMenuItem";
-            this.cuentasDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.cuentasDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cuentasDeUsuarioToolStripMenuItem.Text = "Cuentas de &Usuario";
             this.cuentasDeUsuarioToolStripMenuItem.ToolTipText = "Gestion de las cuentas de usuarios";
             // 
@@ -556,7 +556,7 @@ namespace ConciliacionBancaria
             // 
             this.registrarEmpresaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("registrarEmpresaToolStripMenuItem.Image")));
             this.registrarEmpresaToolStripMenuItem.Name = "registrarEmpresaToolStripMenuItem";
-            this.registrarEmpresaToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.registrarEmpresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarEmpresaToolStripMenuItem.Text = "Registrar &Empresa";
             this.registrarEmpresaToolStripMenuItem.ToolTipText = "Registrar los datos de la empresa";
             // 
@@ -574,7 +574,7 @@ namespace ConciliacionBancaria
             this.contenidoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contenidoToolStripMenuItem.Image")));
             this.contenidoToolStripMenuItem.Name = "contenidoToolStripMenuItem";
             this.contenidoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contenidoToolStripMenuItem.Text = "&Contenido";
             this.contenidoToolStripMenuItem.ToolTipText = "Mostrar la ayuda del sistema";
             // 
@@ -582,7 +582,7 @@ namespace ConciliacionBancaria
             // 
             this.acercaDeToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("acercaDeToolStripMenuItem1.Image")));
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
-            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem1.Text = "&Acerca de...";
             this.acercaDeToolStripMenuItem1.ToolTipText = "Mostrar informacion sobre el sistema";
             // 
