@@ -37,10 +37,21 @@ namespace ConciliacionBancaria
             this.iconrestaurar = new System.Windows.Forms.PictureBox();
             this.iconminimizar = new System.Windows.Forms.PictureBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnlogoInicio = new System.Windows.Forms.PictureBox();
             this.btnMantesicierto = new System.Windows.Forms.Button();
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.bunifuPanel7 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.btnAcerca = new System.Windows.Forms.Button();
+            this.btnContenido = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.bunifuPanel6 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnCuentasdeusuario = new System.Windows.Forms.Button();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnCopia = new System.Windows.Forms.Button();
+            this.btnSeguridad = new System.Windows.Forms.Button();
             this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
             this.btnNavegador = new System.Windows.Forms.Button();
             this.btnCalendario = new System.Windows.Forms.Button();
@@ -49,6 +60,12 @@ namespace ConciliacionBancaria
             this.btnEditor = new System.Windows.Forms.Button();
             this.btnUtilidades = new System.Windows.Forms.Button();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnConsultas = new System.Windows.Forms.Button();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.btnConciliacion = new System.Windows.Forms.Button();
@@ -65,52 +82,35 @@ namespace ConciliacionBancaria
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.bunifuPanel11 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel10 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel9 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel8 = new Bunifu.UI.WinForms.BunifuPanel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblhora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuToolTip1 = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
-            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.btnSeguridad = new System.Windows.Forms.Button();
-            this.bunifuPanel6 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.btnCopia = new System.Windows.Forms.Button();
-            this.btnRestaurar = new System.Windows.Forms.Button();
-            this.btnCuentasdeusuario = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnAyuda = new System.Windows.Forms.Button();
-            this.bunifuPanel7 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.btnContenido = new System.Windows.Forms.Button();
-            this.btnAcerca = new System.Windows.Forms.Button();
-            this.bunifuPanel8 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel9 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel10 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel11 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).BeginInit();
             this.BarraTitulo.SuspendLayout();
+            this.bunifuPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnlogoInicio)).BeginInit();
             this.MenuVertical.SuspendLayout();
+            this.bunifuPanel7.SuspendLayout();
+            this.bunifuPanel6.SuspendLayout();
             this.bunifuPanel5.SuspendLayout();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
             this.bunifuPanelSubmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelContenedor.SuspendLayout();
-            this.bunifuPanel4.SuspendLayout();
-            this.bunifuPanel6.SuspendLayout();
-            this.bunifuPanel7.SuspendLayout();
-            this.bunifuPanel8.SuspendLayout();
-            this.bunifuPanel9.SuspendLayout();
-            this.bunifuPanel10.SuspendLayout();
             this.bunifuPanel11.SuspendLayout();
+            this.bunifuPanel10.SuspendLayout();
+            this.bunifuPanel9.SuspendLayout();
+            this.bunifuPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -199,11 +199,33 @@ namespace ConciliacionBancaria
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1485, 45);
+            this.BarraTitulo.Size = new System.Drawing.Size(1366, 45);
             this.BarraTitulo.TabIndex = 4;
             this.bunifuToolTip1.SetToolTip(this.BarraTitulo, "");
             this.bunifuToolTip1.SetToolTipIcon(this.BarraTitulo, null);
             this.bunifuToolTip1.SetToolTipTitle(this.BarraTitulo, "");
+            // 
+            // bunifuPanel4
+            // 
+            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
+            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BorderRadius = 3;
+            this.bunifuPanel4.BorderThickness = 1;
+            this.bunifuPanel4.Controls.Add(this.iconcerrar);
+            this.bunifuPanel4.Controls.Add(this.iconmaximizar);
+            this.bunifuPanel4.Controls.Add(this.iconrestaurar);
+            this.bunifuPanel4.Controls.Add(this.iconminimizar);
+            this.bunifuPanel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuPanel4.Location = new System.Drawing.Point(1258, 0);
+            this.bunifuPanel4.Name = "bunifuPanel4";
+            this.bunifuPanel4.ShowBorders = true;
+            this.bunifuPanel4.Size = new System.Drawing.Size(108, 45);
+            this.bunifuPanel4.TabIndex = 6;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel4, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel4, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel4, "");
             // 
             // bunifuCustomLabel1
             // 
@@ -275,11 +297,227 @@ namespace ConciliacionBancaria
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 45);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(250, 960);
+            this.MenuVertical.Size = new System.Drawing.Size(250, 723);
             this.MenuVertical.TabIndex = 3;
             this.bunifuToolTip1.SetToolTip(this.MenuVertical, "");
             this.bunifuToolTip1.SetToolTipIcon(this.MenuVertical, null);
             this.bunifuToolTip1.SetToolTipTitle(this.MenuVertical, "");
+            // 
+            // bunifuPanel7
+            // 
+            this.bunifuPanel7.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel7.BackgroundImage")));
+            this.bunifuPanel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel7.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel7.BorderRadius = 3;
+            this.bunifuPanel7.BorderThickness = 1;
+            this.bunifuPanel7.Controls.Add(this.btnAcerca);
+            this.bunifuPanel7.Controls.Add(this.btnContenido);
+            this.bunifuPanel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuPanel7.Location = new System.Drawing.Point(0, 1305);
+            this.bunifuPanel7.Name = "bunifuPanel7";
+            this.bunifuPanel7.ShowBorders = true;
+            this.bunifuPanel7.Size = new System.Drawing.Size(233, 84);
+            this.bunifuPanel7.TabIndex = 38;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel7, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel7, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel7, "");
+            // 
+            // btnAcerca
+            // 
+            this.btnAcerca.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAcerca.FlatAppearance.BorderSize = 0;
+            this.btnAcerca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcerca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcerca.ForeColor = System.Drawing.Color.White;
+            this.btnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAcerca.Location = new System.Drawing.Point(0, 40);
+            this.btnAcerca.Name = "btnAcerca";
+            this.btnAcerca.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnAcerca.Size = new System.Drawing.Size(233, 40);
+            this.btnAcerca.TabIndex = 11;
+            this.btnAcerca.Text = "Acerca de...";
+            this.btnAcerca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnAcerca, "Mostrar informacion sobre el sistema");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnAcerca, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnAcerca, "");
+            this.btnAcerca.UseVisualStyleBackColor = true;
+            this.btnAcerca.Click += new System.EventHandler(this.btnAcerca_Click);
+            // 
+            // btnContenido
+            // 
+            this.btnContenido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnContenido.FlatAppearance.BorderSize = 0;
+            this.btnContenido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnContenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContenido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContenido.ForeColor = System.Drawing.Color.White;
+            this.btnContenido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContenido.Location = new System.Drawing.Point(0, 0);
+            this.btnContenido.Name = "btnContenido";
+            this.btnContenido.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnContenido.Size = new System.Drawing.Size(233, 40);
+            this.btnContenido.TabIndex = 10;
+            this.btnContenido.Text = "Contenido";
+            this.btnContenido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnContenido, "Mostrar la ayuda del sistema");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnContenido, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnContenido, "");
+            this.btnContenido.UseVisualStyleBackColor = true;
+            this.btnContenido.Click += new System.EventHandler(this.btnContenido_Click);
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAyuda.FlatAppearance.BorderSize = 0;
+            this.btnAyuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAyuda.ForeColor = System.Drawing.Color.White;
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAyuda.Location = new System.Drawing.Point(0, 1265);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(233, 40);
+            this.btnAyuda.TabIndex = 40;
+            this.btnAyuda.Text = "     Ayuda";
+            this.bunifuToolTip1.SetToolTip(this.btnAyuda, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnAyuda, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnAyuda, "");
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click_1);
+            // 
+            // bunifuPanel6
+            // 
+            this.bunifuPanel6.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel6.BackgroundImage")));
+            this.bunifuPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel6.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel6.BorderRadius = 3;
+            this.bunifuPanel6.BorderThickness = 1;
+            this.bunifuPanel6.Controls.Add(this.btnRegistrar);
+            this.bunifuPanel6.Controls.Add(this.btnCuentasdeusuario);
+            this.bunifuPanel6.Controls.Add(this.btnRestaurar);
+            this.bunifuPanel6.Controls.Add(this.btnCopia);
+            this.bunifuPanel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuPanel6.Location = new System.Drawing.Point(0, 1086);
+            this.bunifuPanel6.Name = "bunifuPanel6";
+            this.bunifuPanel6.ShowBorders = true;
+            this.bunifuPanel6.Size = new System.Drawing.Size(233, 179);
+            this.bunifuPanel6.TabIndex = 38;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel6, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel6, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel6, "");
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(0, 120);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnRegistrar.Size = new System.Drawing.Size(233, 40);
+            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.Text = "Registrar Empresa";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnRegistrar, "Registrar los datos de la empresa");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnRegistrar, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnRegistrar, "");
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // btnCuentasdeusuario
+            // 
+            this.btnCuentasdeusuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCuentasdeusuario.FlatAppearance.BorderSize = 0;
+            this.btnCuentasdeusuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCuentasdeusuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentasdeusuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCuentasdeusuario.ForeColor = System.Drawing.Color.White;
+            this.btnCuentasdeusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCuentasdeusuario.Location = new System.Drawing.Point(0, 80);
+            this.btnCuentasdeusuario.Name = "btnCuentasdeusuario";
+            this.btnCuentasdeusuario.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnCuentasdeusuario.Size = new System.Drawing.Size(233, 40);
+            this.btnCuentasdeusuario.TabIndex = 9;
+            this.btnCuentasdeusuario.Text = "Cuentas de Usuario";
+            this.btnCuentasdeusuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnCuentasdeusuario, "Gestion de las cuentas de usuarios");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnCuentasdeusuario, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnCuentasdeusuario, "");
+            this.btnCuentasdeusuario.UseVisualStyleBackColor = true;
+            this.btnCuentasdeusuario.Click += new System.EventHandler(this.btnCuentasdeusuario_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRestaurar.FlatAppearance.BorderSize = 0;
+            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestaurar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestaurar.ForeColor = System.Drawing.Color.White;
+            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestaurar.Location = new System.Drawing.Point(0, 40);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnRestaurar.Size = new System.Drawing.Size(233, 40);
+            this.btnRestaurar.TabIndex = 8;
+            this.btnRestaurar.Text = "Restaurar";
+            this.btnRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnRestaurar, "Restaurar copia de seguridad");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnRestaurar, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnRestaurar, "");
+            this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // btnCopia
+            // 
+            this.btnCopia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCopia.FlatAppearance.BorderSize = 0;
+            this.btnCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopia.ForeColor = System.Drawing.Color.White;
+            this.btnCopia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopia.Location = new System.Drawing.Point(0, 0);
+            this.btnCopia.Name = "btnCopia";
+            this.btnCopia.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.btnCopia.Size = new System.Drawing.Size(233, 40);
+            this.btnCopia.TabIndex = 7;
+            this.btnCopia.Text = "Backup";
+            this.btnCopia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.btnCopia, "Copia de seguridad del sistema");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnCopia, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnCopia, "");
+            this.btnCopia.UseVisualStyleBackColor = true;
+            this.btnCopia.Click += new System.EventHandler(this.btnCopia_Click);
+            // 
+            // btnSeguridad
+            // 
+            this.btnSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSeguridad.FlatAppearance.BorderSize = 0;
+            this.btnSeguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeguridad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguridad.ForeColor = System.Drawing.Color.White;
+            this.btnSeguridad.Image = ((System.Drawing.Image)(resources.GetObject("btnSeguridad.Image")));
+            this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeguridad.Location = new System.Drawing.Point(0, 1046);
+            this.btnSeguridad.Name = "btnSeguridad";
+            this.btnSeguridad.Size = new System.Drawing.Size(233, 40);
+            this.btnSeguridad.TabIndex = 39;
+            this.btnSeguridad.Text = "     Seguridad";
+            this.bunifuToolTip1.SetToolTip(this.btnSeguridad, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnSeguridad, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnSeguridad, "");
+            this.btnSeguridad.UseVisualStyleBackColor = true;
+            this.btnSeguridad.Click += new System.EventHandler(this.btnSeguridad_Click_1);
             // 
             // bunifuPanel5
             // 
@@ -315,7 +553,7 @@ namespace ConciliacionBancaria
             this.btnNavegador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNavegador.Location = new System.Drawing.Point(0, 160);
             this.btnNavegador.Name = "btnNavegador";
-            this.btnNavegador.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnNavegador.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnNavegador.Size = new System.Drawing.Size(233, 40);
             this.btnNavegador.TabIndex = 8;
             this.btnNavegador.Text = "Navegador Web";
@@ -337,7 +575,7 @@ namespace ConciliacionBancaria
             this.btnCalendario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCalendario.Location = new System.Drawing.Point(0, 120);
             this.btnCalendario.Name = "btnCalendario";
-            this.btnCalendario.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnCalendario.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnCalendario.Size = new System.Drawing.Size(233, 40);
             this.btnCalendario.TabIndex = 7;
             this.btnCalendario.Text = "Calendario";
@@ -359,7 +597,7 @@ namespace ConciliacionBancaria
             this.btnReproductor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReproductor.Location = new System.Drawing.Point(0, 80);
             this.btnReproductor.Name = "btnReproductor";
-            this.btnReproductor.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnReproductor.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnReproductor.Size = new System.Drawing.Size(233, 40);
             this.btnReproductor.TabIndex = 6;
             this.btnReproductor.Text = "Reproductor multimedia";
@@ -381,7 +619,7 @@ namespace ConciliacionBancaria
             this.btnCalculadora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCalculadora.Location = new System.Drawing.Point(0, 40);
             this.btnCalculadora.Name = "btnCalculadora";
-            this.btnCalculadora.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnCalculadora.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnCalculadora.Size = new System.Drawing.Size(233, 40);
             this.btnCalculadora.TabIndex = 5;
             this.btnCalculadora.Text = "Calculadora";
@@ -403,7 +641,7 @@ namespace ConciliacionBancaria
             this.btnEditor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditor.Location = new System.Drawing.Point(0, 0);
             this.btnEditor.Name = "btnEditor";
-            this.btnEditor.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnEditor.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnEditor.Size = new System.Drawing.Size(233, 40);
             this.btnEditor.TabIndex = 4;
             this.btnEditor.Text = "Editor de textos";
@@ -459,6 +697,138 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel1, null);
             this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel1, "");
             // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(0, 200);
+            this.button7.Name = "button7";
+            this.button7.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button7.Size = new System.Drawing.Size(233, 40);
+            this.button7.TabIndex = 46;
+            this.button7.Text = "Catalogos";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button7, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button7, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button7, "");
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(0, 160);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button6.Size = new System.Drawing.Size(233, 40);
+            this.button6.TabIndex = 45;
+            this.button6.Text = "Empresa";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button6, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button6, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button6, "");
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(0, 120);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button5.Size = new System.Drawing.Size(233, 40);
+            this.button5.TabIndex = 44;
+            this.button5.Text = "Usuarios";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button5, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button5, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button5, "");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(0, 80);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button4.Size = new System.Drawing.Size(233, 40);
+            this.button4.TabIndex = 43;
+            this.button4.Text = "Transacciones Internas";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button4, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button4, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button4, "");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(0, 40);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button3.Size = new System.Drawing.Size(233, 40);
+            this.button3.TabIndex = 42;
+            this.button3.Text = "Cuentas Bancarias";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button3, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button3, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button3, "");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button2.Size = new System.Drawing.Size(233, 40);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "Bancos";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button2, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button2, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button2, "");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // btnConsultas
             // 
             this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
@@ -510,7 +880,7 @@ namespace ConciliacionBancaria
             this.btnConciliacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConciliacion.Location = new System.Drawing.Point(0, 0);
             this.btnConciliacion.Name = "btnConciliacion";
-            this.btnConciliacion.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnConciliacion.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnConciliacion.Size = new System.Drawing.Size(233, 40);
             this.btnConciliacion.TabIndex = 8;
             this.btnConciliacion.Text = "Conciliacion bancaria";
@@ -577,7 +947,7 @@ namespace ConciliacionBancaria
             this.btnCatalogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCatalogo.Location = new System.Drawing.Point(0, 200);
             this.btnCatalogo.Name = "btnCatalogo";
-            this.btnCatalogo.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnCatalogo.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnCatalogo.Size = new System.Drawing.Size(233, 40);
             this.btnCatalogo.TabIndex = 7;
             this.btnCatalogo.Text = "Catalogos";
@@ -599,7 +969,7 @@ namespace ConciliacionBancaria
             this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpresa.Location = new System.Drawing.Point(0, 160);
             this.btnEmpresa.Name = "btnEmpresa";
-            this.btnEmpresa.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnEmpresa.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnEmpresa.Size = new System.Drawing.Size(233, 40);
             this.btnEmpresa.TabIndex = 6;
             this.btnEmpresa.Text = "Empresa";
@@ -621,7 +991,7 @@ namespace ConciliacionBancaria
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuario.Location = new System.Drawing.Point(0, 120);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnUsuario.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnUsuario.Size = new System.Drawing.Size(233, 40);
             this.btnUsuario.TabIndex = 5;
             this.btnUsuario.Text = "Usuarios";
@@ -643,7 +1013,7 @@ namespace ConciliacionBancaria
             this.BtnTransacciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTransacciones.Location = new System.Drawing.Point(0, 80);
             this.BtnTransacciones.Name = "BtnTransacciones";
-            this.BtnTransacciones.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.BtnTransacciones.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.BtnTransacciones.Size = new System.Drawing.Size(233, 40);
             this.BtnTransacciones.TabIndex = 4;
             this.BtnTransacciones.Text = "Transacciones Internas";
@@ -665,7 +1035,7 @@ namespace ConciliacionBancaria
             this.btnCuentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCuentas.Location = new System.Drawing.Point(0, 40);
             this.btnCuentas.Name = "btnCuentas";
-            this.btnCuentas.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnCuentas.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnCuentas.Size = new System.Drawing.Size(233, 40);
             this.btnCuentas.TabIndex = 3;
             this.btnCuentas.Text = "Cuentas Bancarias";
@@ -687,7 +1057,7 @@ namespace ConciliacionBancaria
             this.btnBancos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBancos.Location = new System.Drawing.Point(0, 0);
             this.btnBancos.Name = "btnBancos";
-            this.btnBancos.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
+            this.btnBancos.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnBancos.Size = new System.Drawing.Size(233, 40);
             this.btnBancos.TabIndex = 2;
             this.btnBancos.Text = "Bancos";
@@ -763,11 +1133,89 @@ namespace ConciliacionBancaria
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 45);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1485, 960);
+            this.panelContenedor.Size = new System.Drawing.Size(1366, 723);
             this.panelContenedor.TabIndex = 5;
             this.bunifuToolTip1.SetToolTip(this.panelContenedor, "");
             this.bunifuToolTip1.SetToolTipIcon(this.panelContenedor, null);
             this.bunifuToolTip1.SetToolTipTitle(this.panelContenedor, "");
+            // 
+            // bunifuPanel11
+            // 
+            this.bunifuPanel11.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel11.BackgroundImage")));
+            this.bunifuPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel11.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel11.BorderRadius = 3;
+            this.bunifuPanel11.BorderThickness = 1;
+            this.bunifuPanel11.Controls.Add(this.bunifuPanel10);
+            this.bunifuPanel11.Location = new System.Drawing.Point(1109, 633);
+            this.bunifuPanel11.Name = "bunifuPanel11";
+            this.bunifuPanel11.ShowBorders = true;
+            this.bunifuPanel11.Size = new System.Drawing.Size(233, 130);
+            this.bunifuPanel11.TabIndex = 35;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel11, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel11, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel11, "");
+            // 
+            // bunifuPanel10
+            // 
+            this.bunifuPanel10.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel10.BackgroundImage")));
+            this.bunifuPanel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel10.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel10.BorderRadius = 3;
+            this.bunifuPanel10.BorderThickness = 1;
+            this.bunifuPanel10.Controls.Add(this.pictureBox2);
+            this.bunifuPanel10.Controls.Add(this.lblcorreo);
+            this.bunifuPanel10.Controls.Add(this.lbluser);
+            this.bunifuPanel10.Controls.Add(this.lblusuario);
+            this.bunifuPanel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuPanel10.Location = new System.Drawing.Point(58, 0);
+            this.bunifuPanel10.Name = "bunifuPanel10";
+            this.bunifuPanel10.ShowBorders = true;
+            this.bunifuPanel10.Size = new System.Drawing.Size(175, 130);
+            this.bunifuPanel10.TabIndex = 34;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel10, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel10, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel10, "");
+            // 
+            // bunifuPanel9
+            // 
+            this.bunifuPanel9.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel9.BackgroundImage")));
+            this.bunifuPanel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel9.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel9.BorderRadius = 3;
+            this.bunifuPanel9.BorderThickness = 1;
+            this.bunifuPanel9.Controls.Add(this.bunifuPanel8);
+            this.bunifuPanel9.Location = new System.Drawing.Point(992, 3);
+            this.bunifuPanel9.Name = "bunifuPanel9";
+            this.bunifuPanel9.ShowBorders = true;
+            this.bunifuPanel9.Size = new System.Drawing.Size(344, 199);
+            this.bunifuPanel9.TabIndex = 33;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel9, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel9, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel9, "");
+            // 
+            // bunifuPanel8
+            // 
+            this.bunifuPanel8.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel8.BackgroundImage")));
+            this.bunifuPanel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel8.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel8.BorderRadius = 3;
+            this.bunifuPanel8.BorderThickness = 1;
+            this.bunifuPanel8.Controls.Add(this.lblFecha);
+            this.bunifuPanel8.Controls.Add(this.lblhora);
+            this.bunifuPanel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuPanel8.Location = new System.Drawing.Point(16, 0);
+            this.bunifuPanel8.Name = "bunifuPanel8";
+            this.bunifuPanel8.ShowBorders = true;
+            this.bunifuPanel8.Size = new System.Drawing.Size(328, 199);
+            this.bunifuPanel8.TabIndex = 32;
+            this.bunifuToolTip1.SetToolTip(this.bunifuPanel8, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel8, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel8, "");
             // 
             // lblFecha
             // 
@@ -843,454 +1291,6 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.ToolTipPosition = new System.Drawing.Point(0, 0);
             this.bunifuToolTip1.ToolTipTitle = null;
             // 
-            // bunifuPanel4
-            // 
-            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
-            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BorderRadius = 3;
-            this.bunifuPanel4.BorderThickness = 1;
-            this.bunifuPanel4.Controls.Add(this.iconcerrar);
-            this.bunifuPanel4.Controls.Add(this.iconmaximizar);
-            this.bunifuPanel4.Controls.Add(this.iconrestaurar);
-            this.bunifuPanel4.Controls.Add(this.iconminimizar);
-            this.bunifuPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuPanel4.Location = new System.Drawing.Point(1377, 0);
-            this.bunifuPanel4.Name = "bunifuPanel4";
-            this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(108, 45);
-            this.bunifuPanel4.TabIndex = 6;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel4, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel4, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel4, "");
-            // 
-            // btnSeguridad
-            // 
-            this.btnSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSeguridad.FlatAppearance.BorderSize = 0;
-            this.btnSeguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeguridad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeguridad.ForeColor = System.Drawing.Color.White;
-            this.btnSeguridad.Image = ((System.Drawing.Image)(resources.GetObject("btnSeguridad.Image")));
-            this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(0, 1046);
-            this.btnSeguridad.Name = "btnSeguridad";
-            this.btnSeguridad.Size = new System.Drawing.Size(233, 40);
-            this.btnSeguridad.TabIndex = 39;
-            this.btnSeguridad.Text = "     Seguridad";
-            this.bunifuToolTip1.SetToolTip(this.btnSeguridad, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnSeguridad, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnSeguridad, "");
-            this.btnSeguridad.UseVisualStyleBackColor = true;
-            this.btnSeguridad.Click += new System.EventHandler(this.btnSeguridad_Click_1);
-            // 
-            // bunifuPanel6
-            // 
-            this.bunifuPanel6.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel6.BackgroundImage")));
-            this.bunifuPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel6.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel6.BorderRadius = 3;
-            this.bunifuPanel6.BorderThickness = 1;
-            this.bunifuPanel6.Controls.Add(this.btnRegistrar);
-            this.bunifuPanel6.Controls.Add(this.btnCuentasdeusuario);
-            this.bunifuPanel6.Controls.Add(this.btnRestaurar);
-            this.bunifuPanel6.Controls.Add(this.btnCopia);
-            this.bunifuPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel6.Location = new System.Drawing.Point(0, 1086);
-            this.bunifuPanel6.Name = "bunifuPanel6";
-            this.bunifuPanel6.ShowBorders = true;
-            this.bunifuPanel6.Size = new System.Drawing.Size(233, 179);
-            this.bunifuPanel6.TabIndex = 38;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel6, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel6, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel6, "");
-            // 
-            // btnCopia
-            // 
-            this.btnCopia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCopia.FlatAppearance.BorderSize = 0;
-            this.btnCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopia.ForeColor = System.Drawing.Color.White;
-            this.btnCopia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopia.Location = new System.Drawing.Point(0, 0);
-            this.btnCopia.Name = "btnCopia";
-            this.btnCopia.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnCopia.Size = new System.Drawing.Size(233, 40);
-            this.btnCopia.TabIndex = 7;
-            this.btnCopia.Text = "Backup";
-            this.btnCopia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnCopia, "Copia de seguridad del sistema");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnCopia, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnCopia, "");
-            this.btnCopia.UseVisualStyleBackColor = true;
-            this.btnCopia.Click += new System.EventHandler(this.btnCopia_Click);
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRestaurar.FlatAppearance.BorderSize = 0;
-            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestaurar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestaurar.ForeColor = System.Drawing.Color.White;
-            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestaurar.Location = new System.Drawing.Point(0, 40);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnRestaurar.Size = new System.Drawing.Size(233, 40);
-            this.btnRestaurar.TabIndex = 8;
-            this.btnRestaurar.Text = "Restaurar";
-            this.btnRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnRestaurar, "Restaurar copia de seguridad");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnRestaurar, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnRestaurar, "");
-            this.btnRestaurar.UseVisualStyleBackColor = true;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
-            // 
-            // btnCuentasdeusuario
-            // 
-            this.btnCuentasdeusuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCuentasdeusuario.FlatAppearance.BorderSize = 0;
-            this.btnCuentasdeusuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCuentasdeusuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuentasdeusuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuentasdeusuario.ForeColor = System.Drawing.Color.White;
-            this.btnCuentasdeusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCuentasdeusuario.Location = new System.Drawing.Point(0, 80);
-            this.btnCuentasdeusuario.Name = "btnCuentasdeusuario";
-            this.btnCuentasdeusuario.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnCuentasdeusuario.Size = new System.Drawing.Size(233, 40);
-            this.btnCuentasdeusuario.TabIndex = 9;
-            this.btnCuentasdeusuario.Text = "Cuentas de Usuario";
-            this.btnCuentasdeusuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnCuentasdeusuario, "Gestion de las cuentas de usuarios");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnCuentasdeusuario, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnCuentasdeusuario, "");
-            this.btnCuentasdeusuario.UseVisualStyleBackColor = true;
-            this.btnCuentasdeusuario.Click += new System.EventHandler(this.btnCuentasdeusuario_Click);
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(0, 120);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnRegistrar.Size = new System.Drawing.Size(233, 40);
-            this.btnRegistrar.TabIndex = 10;
-            this.btnRegistrar.Text = "Registrar Empresa";
-            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnRegistrar, "Registrar los datos de la empresa");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnRegistrar, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnRegistrar, "");
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // btnAyuda
-            // 
-            this.btnAyuda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAyuda.FlatAppearance.BorderSize = 0;
-            this.btnAyuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAyuda.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAyuda.ForeColor = System.Drawing.Color.White;
-            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
-            this.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAyuda.Location = new System.Drawing.Point(0, 1265);
-            this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(233, 40);
-            this.btnAyuda.TabIndex = 40;
-            this.btnAyuda.Text = "     Ayuda";
-            this.bunifuToolTip1.SetToolTip(this.btnAyuda, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnAyuda, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnAyuda, "");
-            this.btnAyuda.UseVisualStyleBackColor = true;
-            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click_1);
-            // 
-            // bunifuPanel7
-            // 
-            this.bunifuPanel7.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel7.BackgroundImage")));
-            this.bunifuPanel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel7.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel7.BorderRadius = 3;
-            this.bunifuPanel7.BorderThickness = 1;
-            this.bunifuPanel7.Controls.Add(this.btnAcerca);
-            this.bunifuPanel7.Controls.Add(this.btnContenido);
-            this.bunifuPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel7.Location = new System.Drawing.Point(0, 1305);
-            this.bunifuPanel7.Name = "bunifuPanel7";
-            this.bunifuPanel7.ShowBorders = true;
-            this.bunifuPanel7.Size = new System.Drawing.Size(233, 84);
-            this.bunifuPanel7.TabIndex = 38;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel7, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel7, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel7, "");
-            // 
-            // btnContenido
-            // 
-            this.btnContenido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContenido.FlatAppearance.BorderSize = 0;
-            this.btnContenido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnContenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContenido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContenido.ForeColor = System.Drawing.Color.White;
-            this.btnContenido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContenido.Location = new System.Drawing.Point(0, 0);
-            this.btnContenido.Name = "btnContenido";
-            this.btnContenido.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnContenido.Size = new System.Drawing.Size(233, 40);
-            this.btnContenido.TabIndex = 10;
-            this.btnContenido.Text = "Contenido";
-            this.btnContenido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnContenido, "Mostrar la ayuda del sistema");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnContenido, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnContenido, "");
-            this.btnContenido.UseVisualStyleBackColor = true;
-            this.btnContenido.Click += new System.EventHandler(this.btnContenido_Click);
-            // 
-            // btnAcerca
-            // 
-            this.btnAcerca.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAcerca.FlatAppearance.BorderSize = 0;
-            this.btnAcerca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcerca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcerca.ForeColor = System.Drawing.Color.White;
-            this.btnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcerca.Location = new System.Drawing.Point(0, 40);
-            this.btnAcerca.Name = "btnAcerca";
-            this.btnAcerca.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.btnAcerca.Size = new System.Drawing.Size(233, 40);
-            this.btnAcerca.TabIndex = 11;
-            this.btnAcerca.Text = "Acerca de...";
-            this.btnAcerca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.btnAcerca, "Mostrar informacion sobre el sistema");
-            this.bunifuToolTip1.SetToolTipIcon(this.btnAcerca, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.btnAcerca, "");
-            this.btnAcerca.UseVisualStyleBackColor = true;
-            this.btnAcerca.Click += new System.EventHandler(this.btnAcerca_Click);
-            // 
-            // bunifuPanel8
-            // 
-            this.bunifuPanel8.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel8.BackgroundImage")));
-            this.bunifuPanel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel8.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel8.BorderRadius = 3;
-            this.bunifuPanel8.BorderThickness = 1;
-            this.bunifuPanel8.Controls.Add(this.lblFecha);
-            this.bunifuPanel8.Controls.Add(this.lblhora);
-            this.bunifuPanel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuPanel8.Location = new System.Drawing.Point(2, 0);
-            this.bunifuPanel8.Name = "bunifuPanel8";
-            this.bunifuPanel8.ShowBorders = true;
-            this.bunifuPanel8.Size = new System.Drawing.Size(328, 199);
-            this.bunifuPanel8.TabIndex = 32;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel8, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel8, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel8, "");
-            // 
-            // bunifuPanel9
-            // 
-            this.bunifuPanel9.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel9.BackgroundImage")));
-            this.bunifuPanel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel9.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel9.BorderRadius = 3;
-            this.bunifuPanel9.BorderThickness = 1;
-            this.bunifuPanel9.Controls.Add(this.bunifuPanel8);
-            this.bunifuPanel9.Location = new System.Drawing.Point(1154, 3);
-            this.bunifuPanel9.Name = "bunifuPanel9";
-            this.bunifuPanel9.ShowBorders = true;
-            this.bunifuPanel9.Size = new System.Drawing.Size(330, 199);
-            this.bunifuPanel9.TabIndex = 33;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel9, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel9, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel9, "");
-            // 
-            // bunifuPanel10
-            // 
-            this.bunifuPanel10.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel10.BackgroundImage")));
-            this.bunifuPanel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel10.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel10.BorderRadius = 3;
-            this.bunifuPanel10.BorderThickness = 1;
-            this.bunifuPanel10.Controls.Add(this.pictureBox2);
-            this.bunifuPanel10.Controls.Add(this.lblcorreo);
-            this.bunifuPanel10.Controls.Add(this.lbluser);
-            this.bunifuPanel10.Controls.Add(this.lblusuario);
-            this.bunifuPanel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuPanel10.Location = new System.Drawing.Point(58, 0);
-            this.bunifuPanel10.Name = "bunifuPanel10";
-            this.bunifuPanel10.ShowBorders = true;
-            this.bunifuPanel10.Size = new System.Drawing.Size(175, 130);
-            this.bunifuPanel10.TabIndex = 34;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel10, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel10, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel10, "");
-            // 
-            // bunifuPanel11
-            // 
-            this.bunifuPanel11.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel11.BackgroundImage")));
-            this.bunifuPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel11.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel11.BorderRadius = 3;
-            this.bunifuPanel11.BorderThickness = 1;
-            this.bunifuPanel11.Controls.Add(this.bunifuPanel10);
-            this.bunifuPanel11.Location = new System.Drawing.Point(1253, 863);
-            this.bunifuPanel11.Name = "bunifuPanel11";
-            this.bunifuPanel11.ShowBorders = true;
-            this.bunifuPanel11.Size = new System.Drawing.Size(233, 130);
-            this.bunifuPanel11.TabIndex = 35;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel11, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel11, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel11, "");
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button2.Size = new System.Drawing.Size(233, 40);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "Bancos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button2, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button2, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button2, "");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 40);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button3.Size = new System.Drawing.Size(233, 40);
-            this.button3.TabIndex = 42;
-            this.button3.Text = "Cuentas Bancarias";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button3, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button3, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button3, "");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 80);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button4.Size = new System.Drawing.Size(233, 40);
-            this.button4.TabIndex = 43;
-            this.button4.Text = "Transacciones Internas";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button4, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button4, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button4, "");
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 120);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button5.Size = new System.Drawing.Size(233, 40);
-            this.button5.TabIndex = 44;
-            this.button5.Text = "Usuarios";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button5, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button5, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button5, "");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 160);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button6.Size = new System.Drawing.Size(233, 40);
-            this.button6.TabIndex = 45;
-            this.button6.Text = "Empresa";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button6, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button6, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button6, "");
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 200);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(45, 4, 4, 4);
-            this.button7.Size = new System.Drawing.Size(233, 40);
-            this.button7.TabIndex = 46;
-            this.button7.Text = "Catalogos";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button7, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button7, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button7, "");
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // FConciliacionBancariaPrueba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1298,7 +1298,7 @@ namespace ConciliacionBancaria
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1485, 1005);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.BarraTitulo);
@@ -1318,23 +1318,23 @@ namespace ConciliacionBancaria
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
+            this.bunifuPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnlogoInicio)).EndInit();
             this.MenuVertical.ResumeLayout(false);
+            this.bunifuPanel7.ResumeLayout(false);
+            this.bunifuPanel6.ResumeLayout(false);
             this.bunifuPanel5.ResumeLayout(false);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel2.ResumeLayout(false);
             this.bunifuPanelSubmenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelContenedor.ResumeLayout(false);
-            this.bunifuPanel4.ResumeLayout(false);
-            this.bunifuPanel6.ResumeLayout(false);
-            this.bunifuPanel7.ResumeLayout(false);
-            this.bunifuPanel8.ResumeLayout(false);
-            this.bunifuPanel8.PerformLayout();
-            this.bunifuPanel9.ResumeLayout(false);
+            this.bunifuPanel11.ResumeLayout(false);
             this.bunifuPanel10.ResumeLayout(false);
             this.bunifuPanel10.PerformLayout();
-            this.bunifuPanel11.ResumeLayout(false);
+            this.bunifuPanel9.ResumeLayout(false);
+            this.bunifuPanel8.ResumeLayout(false);
+            this.bunifuPanel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
