@@ -199,11 +199,12 @@ namespace ConciliacionBancaria
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1366, 45);
+            this.BarraTitulo.Size = new System.Drawing.Size(1340, 45);
             this.BarraTitulo.TabIndex = 4;
             this.bunifuToolTip1.SetToolTip(this.BarraTitulo, "");
             this.bunifuToolTip1.SetToolTipIcon(this.BarraTitulo, null);
             this.bunifuToolTip1.SetToolTipTitle(this.BarraTitulo, "");
+            this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             // 
             // bunifuPanel4
             // 
@@ -218,7 +219,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel4.Controls.Add(this.iconrestaurar);
             this.bunifuPanel4.Controls.Add(this.iconminimizar);
             this.bunifuPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuPanel4.Location = new System.Drawing.Point(1258, 0);
+            this.bunifuPanel4.Location = new System.Drawing.Point(1232, 0);
             this.bunifuPanel4.Name = "bunifuPanel4";
             this.bunifuPanel4.ShowBorders = true;
             this.bunifuPanel4.Size = new System.Drawing.Size(108, 45);
@@ -231,9 +232,9 @@ namespace ConciliacionBancaria
             // 
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(590, 1);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(473, 1);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(378, 39);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(400, 39);
             this.bunifuCustomLabel1.TabIndex = 5;
             this.bunifuCustomLabel1.Text = "Conciliacion Bancaria";
             this.bunifuToolTip1.SetToolTip(this.bunifuCustomLabel1, "");
@@ -297,7 +298,7 @@ namespace ConciliacionBancaria
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 45);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(250, 723);
+            this.MenuVertical.Size = new System.Drawing.Size(250, 675);
             this.MenuVertical.TabIndex = 3;
             this.bunifuToolTip1.SetToolTip(this.MenuVertical, "");
             this.bunifuToolTip1.SetToolTipIcon(this.MenuVertical, null);
@@ -317,7 +318,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel7.Location = new System.Drawing.Point(0, 1305);
             this.bunifuPanel7.Name = "bunifuPanel7";
             this.bunifuPanel7.ShowBorders = true;
-            this.bunifuPanel7.Size = new System.Drawing.Size(233, 84);
+            this.bunifuPanel7.Size = new System.Drawing.Size(233, 90);
             this.bunifuPanel7.TabIndex = 38;
             this.bunifuToolTip1.SetToolTip(this.bunifuPanel7, "");
             this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel7, null);
@@ -1133,7 +1134,7 @@ namespace ConciliacionBancaria
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 45);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1366, 723);
+            this.panelContenedor.Size = new System.Drawing.Size(1340, 675);
             this.panelContenedor.TabIndex = 5;
             this.bunifuToolTip1.SetToolTip(this.panelContenedor, "");
             this.bunifuToolTip1.SetToolTipIcon(this.panelContenedor, null);
@@ -1148,7 +1149,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel11.BorderRadius = 3;
             this.bunifuPanel11.BorderThickness = 1;
             this.bunifuPanel11.Controls.Add(this.bunifuPanel10);
-            this.bunifuPanel11.Location = new System.Drawing.Point(1109, 633);
+            this.bunifuPanel11.Location = new System.Drawing.Point(1109, 628);
             this.bunifuPanel11.Name = "bunifuPanel11";
             this.bunifuPanel11.ShowBorders = true;
             this.bunifuPanel11.Size = new System.Drawing.Size(233, 130);
@@ -1298,7 +1299,7 @@ namespace ConciliacionBancaria
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1340, 720);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.BarraTitulo);
