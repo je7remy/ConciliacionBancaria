@@ -499,7 +499,7 @@ namespace ConciliacionBancaria
 
             formularioDialogo.FormBorderStyle = FormBorderStyle.None;
             formularioDialogo.BackColor = Color.WhiteSmoke;
-            formularioDialogo.Size = new Size(233, 120); // Ajustar la altura para acomodar dos botones
+            formularioDialogo.Size = new Size(233, 80); // Ajustar la altura para acomodar dos botones
 
             // Crear botón "Datos Generales"
             Button btnDatosGenerales = new Button();
@@ -683,29 +683,314 @@ namespace ConciliacionBancaria
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+            // Crear formulario de diálogo personalizado
+            Form formularioDialogo = new Form();
+            formularioDialogo.StartPosition = FormStartPosition.Manual;
+
+            // Obtener la ubicación del botón en la pantalla
+            Point buttonLocation = button5.PointToScreen(Point.Empty);
+
+            // Ajustar la ubicación del formulario de diálogo para que aparezca al lado del botón
+            formularioDialogo.Location = new Point(buttonLocation.X + button5.Width, buttonLocation.Y);
+
+            formularioDialogo.FormBorderStyle = FormBorderStyle.None;
+            formularioDialogo.BackColor = Color.WhiteSmoke;
+            formularioDialogo.Size = new Size(233, 80);
+
+            // Crear botón "Datos Generales"
+            Button btnDatosGenerales = new Button();
+            btnDatosGenerales.Text = "Datos Generales";
+            btnDatosGenerales.Size = new Size(formularioDialogo.Width, 40);
+            btnDatosGenerales.Location = new Point(0, 0);
+            btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224);
+            btnDatosGenerales.ForeColor = Color.White;
+            btnDatosGenerales.FlatStyle = FlatStyle.Flat;
+            btnDatosGenerales.FlatAppearance.BorderSize = 0;
+            btnDatosGenerales.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnDatosGenerales.MouseEnter += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(45, 45, 48); };
+            btnDatosGenerales.MouseLeave += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224); };
+            btnDatosGenerales.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.Yes;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioDatosGenerales1();
+            };
+
+            // Agregar hint al botón "Datos Generales"
+            ToolTip toolTipDatosGenerales = new ToolTip();
+            toolTipDatosGenerales.SetToolTip(btnDatosGenerales, "Visualizar e imprimir informaciones generales de los usuarios");
+
+
+            // Crear botón "Por Rol"
+            Button btnPorRol = new Button();
+            btnPorRol.Text = "Por Rol";
+            btnPorRol.Size = new Size(formularioDialogo.Width, 40);
+            btnPorRol.Location = new Point(0, 40);
+            btnPorRol.BackColor = Color.FromArgb(75, 177, 224);
+            btnPorRol.ForeColor = Color.White;
+            btnPorRol.FlatStyle = FlatStyle.Flat;
+            btnPorRol.FlatAppearance.BorderSize = 0;
+            btnPorRol.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnPorRol.MouseEnter += (s, args) => { btnPorRol.BackColor = Color.FromArgb(45, 45, 48); };
+            btnPorRol.MouseLeave += (s, args) => { btnPorRol.BackColor = Color.FromArgb(75, 177, 224); };
+            btnPorRol.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.No;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioPorRol();
+            };
+
+            // Agregar hint al botón "Por Rol"
+            ToolTip toolTipPorRol = new ToolTip();
+            toolTipPorRol.SetToolTip(btnPorRol, "Visualizar e imprimir informaciones de los usuarios por rol");
+
+            // Agregar botones al formulario
+            formularioDialogo.Controls.Add(btnDatosGenerales);
+            formularioDialogo.Controls.Add(btnPorRol);
+
+            // Suscribirse al evento Click de los botones para cerrar el formulario
+            btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
+            btnPorRol.Click += (s, args) => formularioDialogo.Close();
+
+            // Mostrar el formulario
+            formularioDialogo.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void MostrarFormularioDatosGenerales2()
         {
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+            // Aquí puedes mostrar el formulario correspondiente a los datos generales
+            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
+            formDatosGenerales.Show();
         }
+
+        private void MostrarFormularioPorRol()
+        {
+            // Aquí puedes mostrar el formulario correspondiente al estado
+            FConciliacionBancaria formPorRol = new FConciliacionBancaria();
+            formPorRol.Show();
+        }
+    
+
+        private void button6_Click(object sender, EventArgs e)
+        { // Crear formulario de diálogo personalizado
+            Form formularioDialogo = new Form();
+            formularioDialogo.StartPosition = FormStartPosition.Manual;
+
+            // Obtener la ubicación del botón en la pantalla
+            Point buttonLocation = button6.PointToScreen(Point.Empty);
+
+            // Ajustar la ubicación del formulario de diálogo para que aparezca al lado del botón
+            formularioDialogo.Location = new Point(buttonLocation.X + button6.Width, buttonLocation.Y);
+
+            formularioDialogo.FormBorderStyle = FormBorderStyle.None;
+            formularioDialogo.BackColor = Color.WhiteSmoke;
+            formularioDialogo.Size = new Size(233, 80);
+
+            // Crear botón "Datos Generales"
+            Button btnDatosGenerales = new Button();
+            btnDatosGenerales.Text = "Datos Generales";
+            btnDatosGenerales.Size = new Size(formularioDialogo.Width, 40);
+            btnDatosGenerales.Location = new Point(0, 0);
+            btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224);
+            btnDatosGenerales.ForeColor = Color.White;
+            btnDatosGenerales.FlatStyle = FlatStyle.Flat;
+            btnDatosGenerales.FlatAppearance.BorderSize = 0;
+            btnDatosGenerales.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnDatosGenerales.MouseEnter += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(45, 45, 48); };
+            btnDatosGenerales.MouseLeave += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224); };
+            btnDatosGenerales.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.Yes;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioDatosGenerales();
+            };
+
+            // Agregar hint al botón "Datos Generales"
+            ToolTip toolTipDatosGenerales = new ToolTip();
+            toolTipDatosGenerales.SetToolTip(btnDatosGenerales, "Visualizar e imprimir informaciones generales de las empresas");
+
+
+            // Crear botón "Por Ubicación"
+            Button btnPorUbicacion = new Button();
+            btnPorUbicacion.Text = "Por Ubicación";
+            btnPorUbicacion.Size = new Size(formularioDialogo.Width, 40);
+            btnPorUbicacion.Location = new Point(0, 40);
+            btnPorUbicacion.BackColor = Color.FromArgb(75, 177, 224);
+            btnPorUbicacion.ForeColor = Color.White;
+            btnPorUbicacion.FlatStyle = FlatStyle.Flat;
+            btnPorUbicacion.FlatAppearance.BorderSize = 0;
+            btnPorUbicacion.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnPorUbicacion.MouseEnter += (s, args) => { btnPorUbicacion.BackColor = Color.FromArgb(45, 45, 48); };
+            btnPorUbicacion.MouseLeave += (s, args) => { btnPorUbicacion.BackColor = Color.FromArgb(75, 177, 224); };
+            btnPorUbicacion.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.No;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioPorUbicacion();
+            };
+
+            // Agregar hint al botón "Por Ubicación"
+            ToolTip toolTipPorUbicacion = new ToolTip();
+            toolTipPorUbicacion.SetToolTip(btnPorUbicacion, "Visualizar e imprimir informaciones de las empresas por ubicación");
+
+            // Agregar botones al formulario
+            formularioDialogo.Controls.Add(btnDatosGenerales);
+            formularioDialogo.Controls.Add(btnPorUbicacion);
+
+            // Suscribirse al evento Click de los botones para cerrar el formulario
+            btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
+            btnPorUbicacion.Click += (s, args) => formularioDialogo.Close();
+
+            // Mostrar el formulario
+            formularioDialogo.Show();
+        }
+
+        private void MostrarFormularioDatosGenerale()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a los datos generales
+            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
+            formDatosGenerales.Show();
+        }
+
+        private void MostrarFormularioPorUbicacion()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a la ubicación
+            FConciliacionBancaria formPorUbicacion = new FConciliacionBancaria();
+            formPorUbicacion.Show();
+        }
+    
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+            // Crear formulario de diálogo personalizado
+            Form formularioDialogo = new Form();
+            formularioDialogo.StartPosition = FormStartPosition.Manual;
+
+            // Obtener la ubicación del botón en la pantalla
+            Point buttonLocation = btnCatalogo.PointToScreen(Point.Empty);
+
+            // Ajustar la ubicación del formulario de diálogo para que aparezca al lado del botón
+            formularioDialogo.Location = new Point(buttonLocation.X + btnCatalogo.Width, buttonLocation.Y);
+
+            formularioDialogo.FormBorderStyle = FormBorderStyle.None;
+            formularioDialogo.BackColor = Color.WhiteSmoke;
+            formularioDialogo.Size = new Size(233, 120);
+
+            // Crear botón "Reporte de Conciliación Bancaria"
+            Button btnReporteConciliacion = new Button();
+            btnReporteConciliacion.Text = "Reporte de Conciliación Bancaria";
+            btnReporteConciliacion.Size = new Size(formularioDialogo.Width, 40);
+            btnReporteConciliacion.Location = new Point(0, 0);
+            btnReporteConciliacion.BackColor = Color.FromArgb(75, 177, 224);
+            btnReporteConciliacion.ForeColor = Color.White;
+            btnReporteConciliacion.FlatStyle = FlatStyle.Flat;
+            btnReporteConciliacion.FlatAppearance.BorderSize = 0;
+            btnReporteConciliacion.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnReporteConciliacion.MouseEnter += (s, args) => { btnReporteConciliacion.BackColor = Color.FromArgb(45, 45, 48); };
+            btnReporteConciliacion.MouseLeave += (s, args) => { btnReporteConciliacion.BackColor = Color.FromArgb(75, 177, 224); };
+            btnReporteConciliacion.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.Yes;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioConciliacionBancaria();
+            };
+
+            // Agregar hint al botón "Reporte de Conciliación Bancaria"
+            ToolTip toolTipReporteConciliacion = new ToolTip();
+            toolTipReporteConciliacion.SetToolTip(btnReporteConciliacion, "Visualizar e imprimir informaciones generales de las conciliaciones bancarias");
+
+
+            // Crear botón "Reporte de Transacciones no Conciliadas"
+            Button btnReporteTransacciones = new Button();
+            btnReporteTransacciones.Text = "Reporte de Transacciones no Conciliadas";
+            btnReporteTransacciones.Size = new Size(formularioDialogo.Width, 40);
+            btnReporteTransacciones.Location = new Point(0, 40);
+            btnReporteTransacciones.BackColor = Color.FromArgb(75, 177, 224);
+            btnReporteTransacciones.ForeColor = Color.White;
+            btnReporteTransacciones.FlatStyle = FlatStyle.Flat;
+            btnReporteTransacciones.FlatAppearance.BorderSize = 0;
+            btnReporteTransacciones.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnReporteTransacciones.MouseEnter += (s, args) => { btnReporteTransacciones.BackColor = Color.FromArgb(45, 45, 48); };
+            btnReporteTransacciones.MouseLeave += (s, args) => { btnReporteTransacciones.BackColor = Color.FromArgb(75, 177, 224); };
+            btnReporteTransacciones.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.No;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioTransaccionesNoConciliadas();
+            };
+
+            // Agregar hint al botón "Reporte de Transacciones no Conciliadas"
+            ToolTip toolTipReporteTransacciones = new ToolTip();
+            toolTipReporteTransacciones.SetToolTip(btnReporteTransacciones, "Visualizar e imprimir informaciones de las conciliaciones bancarias no conciliadas");
+
+            // Crear botón "Reporte de Discrepancias"
+            Button btnReporteDiscrepancias = new Button();
+            btnReporteDiscrepancias.Text = "Reporte de Discrepancias";
+            btnReporteDiscrepancias.Size = new Size(formularioDialogo.Width, 40);
+            btnReporteDiscrepancias.Location = new Point(0, 80);
+            btnReporteDiscrepancias.BackColor = Color.FromArgb(75, 177, 224);
+            btnReporteDiscrepancias.ForeColor = Color.White;
+            btnReporteDiscrepancias.FlatStyle = FlatStyle.Flat;
+            btnReporteDiscrepancias.FlatAppearance.BorderSize = 0;
+            btnReporteDiscrepancias.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnReporteDiscrepancias.MouseEnter += (s, args) => { btnReporteDiscrepancias.BackColor = Color.FromArgb(45, 45, 48); };
+            btnReporteDiscrepancias.MouseLeave += (s, args) => { btnReporteDiscrepancias.BackColor = Color.FromArgb(75, 177, 224); };
+            btnReporteDiscrepancias.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.Cancel;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioDiscrepancias();
+            };
+
+            // Agregar hint al botón "Reporte de Discrepancias"
+            ToolTip toolTipReporteDiscrepancias = new ToolTip();
+            toolTipReporteDiscrepancias.SetToolTip(btnReporteDiscrepancias, "Visualizar e imprimir informaciones generales de las discrepancias en las conciliaciones bancarias");
+
+            // Agregar botones al formulario
+            formularioDialogo.Controls.Add(btnReporteConciliacion);
+            formularioDialogo.Controls.Add(btnReporteTransacciones);
+            formularioDialogo.Controls.Add(btnReporteDiscrepancias);
+
+            // Suscribirse al evento Click de los botones para cerrar el formulario
+            btnReporteConciliacion.Click += (s, args) => formularioDialogo.Close();
+            btnReporteTransacciones.Click += (s, args) => formularioDialogo.Close();
+            btnReporteDiscrepancias.Click += (s, args) => formularioDialogo.Close();
+
+            // Mostrar el formulario
+            formularioDialogo.Show();
         }
 
-        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        private void MostrarFormularioConciliacionBancaria()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a la conciliación bancaria
+            FConciliacionBancaria formConciliacion = new FConciliacionBancaria();
+            formConciliacion.Show();
+        }
+
+        private void MostrarFormularioTransaccionesNoConciliadas()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a las transacciones no conciliadas
+            FConciliacionBancaria formTransacciones = new FConciliacionBancaria();
+            formTransacciones.Show();
+        }
+
+        private void MostrarFormularioDiscrepancias()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a las discrepancias
+            FConciliacionBancaria formDiscrepancias = new FConciliacionBancaria();
+            formDiscrepancias.Show();
+        }
+
+    
+
+    private void BarraTitulo_Paint(object sender, PaintEventArgs e)
         {
 
         }
