@@ -1,6 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+//Agregamos lo siguiente para utilizar SQL
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+
+using CapaNegocio;
 
 namespace ConciliacionBancaria
 {
@@ -120,7 +131,12 @@ namespace ConciliacionBancaria
 
         private void iconcerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Menu Principal?", "Cerrar Conciliacion Bancaria", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close(); // Cierra el formulario si el usuario confirma
+            }
+
+
         }
 
         private void iconmaximizar_Click(object sender, EventArgs e)
@@ -178,9 +194,11 @@ namespace ConciliacionBancaria
 
         private void btnBancos_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMBancos formularioFMBancos = new FMBancos();
+
+            // Mostrar el formulario
+            formularioFMBancos.Show();
             hideSubMenu();
         }
 
@@ -454,12 +472,27 @@ namespace ConciliacionBancaria
             formularioDialogo.Controls.Add(btnDatosGenerales);
             formularioDialogo.Controls.Add(btnPorEstado);
 
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
+
             // Suscribirse al evento Click de los botones para cerrar el formulario
             btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
             btnPorEstado.Click += (s, args) => formularioDialogo.Close();
 
             // Mostrar el formulario
             formularioDialogo.Show();
+
+
+
+
+
+
+
+
+         
         }
 
         private void MostrarFormularioDatosGenerales()
@@ -553,6 +586,12 @@ namespace ConciliacionBancaria
             formularioDialogo.Controls.Add(btnDatosGenerales);
             formularioDialogo.Controls.Add(btnPorTipo);
 
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
+
             // Suscribirse al evento Click de los botones para cerrar el formulario
             btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
             btnPorTipo.Click += (s, args) => formularioDialogo.Close();
@@ -634,6 +673,12 @@ namespace ConciliacionBancaria
                 // Agregar botón al formulario
                 formularioDialogo.Controls.Add(btn);
             }
+
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
 
             // Suscribirse al evento Click de los botones para cerrar el formulario
             foreach (Control control in formularioDialogo.Controls)
@@ -750,6 +795,14 @@ namespace ConciliacionBancaria
             formularioDialogo.Controls.Add(btnDatosGenerales);
             formularioDialogo.Controls.Add(btnPorRol);
 
+
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
+
+
             // Suscribirse al evento Click de los botones para cerrar el formulario
             btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
             btnPorRol.Click += (s, args) => formularioDialogo.Close();
@@ -841,6 +894,13 @@ namespace ConciliacionBancaria
             formularioDialogo.Controls.Add(btnDatosGenerales);
             formularioDialogo.Controls.Add(btnPorUbicacion);
 
+
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
+
             // Suscribirse al evento Click de los botones para cerrar el formulario
             btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
             btnPorUbicacion.Click += (s, args) => formularioDialogo.Close();
@@ -871,10 +931,10 @@ namespace ConciliacionBancaria
             formularioDialogo.StartPosition = FormStartPosition.Manual;
 
             // Obtener la ubicación del botón en la pantalla
-            Point buttonLocation = btnCatalogo.PointToScreen(Point.Empty);
+            Point buttonLocation = button7.PointToScreen(Point.Empty);
 
             // Ajustar la ubicación del formulario de diálogo para que aparezca al lado del botón
-            formularioDialogo.Location = new Point(buttonLocation.X + btnCatalogo.Width, buttonLocation.Y);
+            formularioDialogo.Location = new Point(buttonLocation.X + button7.Width, buttonLocation.Y);
 
             formularioDialogo.FormBorderStyle = FormBorderStyle.None;
             formularioDialogo.BackColor = Color.WhiteSmoke;
@@ -957,6 +1017,12 @@ namespace ConciliacionBancaria
             formularioDialogo.Controls.Add(btnReporteConciliacion);
             formularioDialogo.Controls.Add(btnReporteTransacciones);
             formularioDialogo.Controls.Add(btnReporteDiscrepancias);
+
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
 
             // Suscribirse al evento Click de los botones para cerrar el formulario
             btnReporteConciliacion.Click += (s, args) => formularioDialogo.Close();

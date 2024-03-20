@@ -74,6 +74,12 @@
     <Compile Include="ConciliacionBancaria.Designer.cs">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMBancos.Designer.cs">
+      <DependentUpon>FMBancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConciliacionBancariaPrueba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMBancos.resx">
+      <DependentUpon>FMBancos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConciliacionBancariaPrueba.resx">
       <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
