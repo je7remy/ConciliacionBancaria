@@ -15,9 +15,9 @@ using CapaNegocio;
 
 namespace ConciliacionBancaria
 {
-    public partial class FMBancos : Form
+    public partial class FMCuentas_Bancarias : Form
     {
-        public FMBancos()
+        public FMCuentas_Bancarias()
         {
             InitializeComponent();
            
@@ -48,10 +48,15 @@ namespace ConciliacionBancaria
 
         private void Bsalir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Matenimiento Bancos?", "Cerrar Bancos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Matenimiento Cuentas Bancarias?", "Cerrar Cuentas Bancarias", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close(); // Cierra el formulario si el usuario confirma
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

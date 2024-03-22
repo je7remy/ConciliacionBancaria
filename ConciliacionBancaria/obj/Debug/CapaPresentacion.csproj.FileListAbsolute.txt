@@ -21,3 +21,4 @@ C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\Bunifu.UI.WinForms.1.5
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.exe.licenses
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FConciliacionBancariaPrueba.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMBancos.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMCuentas_Bancarias.resources

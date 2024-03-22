@@ -141,17 +141,24 @@ namespace ConciliacionBancaria
 
         private void iconmaximizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            iconrestaurar.Visible = true;
-            iconmaximizar.Visible = false;
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                iconrestaurar.Visible = true;
+                iconmaximizar.Visible = false;
+            }
         }
 
         private void iconrestaurar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            iconrestaurar.Visible = false;
-            iconmaximizar.Visible = true;
+            if (this.WindowState != FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Normal;
+                iconrestaurar.Visible = false;
+                iconmaximizar.Visible = true;
+            }
         }
+
 
         private void iconminimizar_Click(object sender, EventArgs e)
         {
@@ -204,9 +211,11 @@ namespace ConciliacionBancaria
 
         private void btnCuentas_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMCuentas_Bancarias formularioFMCuentas_Bancarias = new FMCuentas_Bancarias();
+
+            // Mostrar el formulario
+            formularioFMCuentas_Bancarias.Show();
             hideSubMenu();
         }
 

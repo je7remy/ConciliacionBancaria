@@ -1,7 +1,7 @@
 ﻿
 namespace ConciliacionBancaria
 {
-    partial class FMBancos
+    partial class FMCuentas_Bancarias
     {
         /// <summary>
         /// Required designer variable.
@@ -29,28 +29,27 @@ namespace ConciliacionBancaria
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMBancos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMCuentas_Bancarias));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.textBoxsucursal = new System.Windows.Forms.TextBox();
-            this.textBoxnombre = new System.Windows.Forms.TextBox();
+            this.textBoxtipodecuenta = new System.Windows.Forms.TextBox();
+            this.textBoxclienteid = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxdireccion = new System.Windows.Forms.TextBox();
+            this.textBoxnumerodecuenta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxestado = new System.Windows.Forms.TextBox();
+            this.textBoxsaldoinicial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxtelefono = new System.Windows.Forms.TextBox();
+            this.textBoxfechadeapertura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxcorreo = new System.Windows.Forms.TextBox();
+            this.textBoxmoneda = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxoficialdecuentas = new System.Windows.Forms.TextBox();
+            this.textBoxdebito = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxobservaciones = new System.Windows.Forms.TextBox();
-            this.textBoxbanco = new System.Windows.Forms.TextBox();
+            this.textBoxcuentaid = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxcatalogoid = new System.Windows.Forms.TextBox();
+            this.textBoxbancoid = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Pbotones = new System.Windows.Forms.Panel();
             this.Bnuevo = new System.Windows.Forms.Button();
@@ -59,6 +58,11 @@ namespace ConciliacionBancaria
             this.Bcancelar = new System.Windows.Forms.Button();
             this.Beditar = new System.Windows.Forms.Button();
             this.Bguardar = new System.Windows.Forms.Button();
+            this.textBoxestado = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxcredito = new System.Windows.Forms.TextBox();
+            this.textBoxobservacion = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -78,27 +82,28 @@ namespace ConciliacionBancaria
             // 
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(644, 3);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(451, 3);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(142, 39);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(335, 39);
             this.bunifuCustomLabel1.TabIndex = 5;
-            this.bunifuCustomLabel1.Text = "Bancos";
+            this.bunifuCustomLabel1.Text = "Cuentas Bancarias";
             // 
-            // textBoxsucursal
+            // textBoxtipodecuenta
             // 
-            this.textBoxsucursal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxsucursal.Location = new System.Drawing.Point(754, 237);
-            this.textBoxsucursal.Name = "textBoxsucursal";
-            this.textBoxsucursal.Size = new System.Drawing.Size(251, 39);
-            this.textBoxsucursal.TabIndex = 17;
+            this.textBoxtipodecuenta.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxtipodecuenta.Location = new System.Drawing.Point(814, 237);
+            this.textBoxtipodecuenta.Name = "textBoxtipodecuenta";
+            this.textBoxtipodecuenta.Size = new System.Drawing.Size(251, 39);
+            this.textBoxtipodecuenta.TabIndex = 17;
             // 
-            // textBoxnombre
+            // textBoxclienteid
             // 
-            this.textBoxnombre.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxnombre.Location = new System.Drawing.Point(292, 237);
-            this.textBoxnombre.Name = "textBoxnombre";
-            this.textBoxnombre.Size = new System.Drawing.Size(251, 39);
-            this.textBoxnombre.TabIndex = 16;
+            this.textBoxclienteid.Enabled = false;
+            this.textBoxclienteid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxclienteid.Location = new System.Drawing.Point(292, 237);
+            this.textBoxclienteid.Name = "textBoxclienteid";
+            this.textBoxclienteid.Size = new System.Drawing.Size(251, 39);
+            this.textBoxclienteid.TabIndex = 16;
             // 
             // label4
             // 
@@ -106,9 +111,9 @@ namespace ConciliacionBancaria
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(621, 240);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 31);
+            this.label4.Size = new System.Drawing.Size(185, 31);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Sucursal";
+            this.label4.Text = "Tipo de Cuenta";
             // 
             // label3
             // 
@@ -116,17 +121,17 @@ namespace ConciliacionBancaria
             this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(89, 240);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 31);
+            this.label3.Size = new System.Drawing.Size(131, 31);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Cliente ID";
             // 
-            // textBoxdireccion
+            // textBoxnumerodecuenta
             // 
-            this.textBoxdireccion.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxdireccion.Location = new System.Drawing.Point(222, 295);
-            this.textBoxdireccion.Name = "textBoxdireccion";
-            this.textBoxdireccion.Size = new System.Drawing.Size(251, 39);
-            this.textBoxdireccion.TabIndex = 19;
+            this.textBoxnumerodecuenta.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxnumerodecuenta.Location = new System.Drawing.Point(314, 295);
+            this.textBoxnumerodecuenta.Name = "textBoxnumerodecuenta";
+            this.textBoxnumerodecuenta.Size = new System.Drawing.Size(251, 39);
+            this.textBoxnumerodecuenta.TabIndex = 19;
             // 
             // label1
             // 
@@ -134,17 +139,17 @@ namespace ConciliacionBancaria
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(89, 298);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 31);
+            this.label1.Size = new System.Drawing.Size(222, 31);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Direccion ";
+            this.label1.Text = "Numero de Cuenta";
             // 
-            // textBoxestado
+            // textBoxsaldoinicial
             // 
-            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxestado.Location = new System.Drawing.Point(754, 295);
-            this.textBoxestado.Name = "textBoxestado";
-            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
-            this.textBoxestado.TabIndex = 21;
+            this.textBoxsaldoinicial.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxsaldoinicial.Location = new System.Drawing.Point(814, 295);
+            this.textBoxsaldoinicial.Name = "textBoxsaldoinicial";
+            this.textBoxsaldoinicial.Size = new System.Drawing.Size(251, 39);
+            this.textBoxsaldoinicial.TabIndex = 21;
             // 
             // label2
             // 
@@ -152,93 +157,82 @@ namespace ConciliacionBancaria
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(621, 298);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 31);
+            this.label2.Size = new System.Drawing.Size(160, 31);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Estado";
+            this.label2.Text = "Saldo Inicial";
             // 
-            // textBoxtelefono
+            // textBoxfechadeapertura
             // 
-            this.textBoxtelefono.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtelefono.Location = new System.Drawing.Point(222, 358);
-            this.textBoxtelefono.Name = "textBoxtelefono";
-            this.textBoxtelefono.Size = new System.Drawing.Size(251, 39);
-            this.textBoxtelefono.TabIndex = 23;
+            this.textBoxfechadeapertura.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxfechadeapertura.Location = new System.Drawing.Point(314, 356);
+            this.textBoxfechadeapertura.Name = "textBoxfechadeapertura";
+            this.textBoxfechadeapertura.Size = new System.Drawing.Size(251, 39);
+            this.textBoxfechadeapertura.TabIndex = 23;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(89, 361);
+            this.label5.Location = new System.Drawing.Point(89, 359);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 31);
+            this.label5.Size = new System.Drawing.Size(223, 31);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Telefono";
+            this.label5.Text = "Fecha de Apertura";
             // 
-            // textBoxcorreo
+            // textBoxmoneda
             // 
-            this.textBoxcorreo.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcorreo.Location = new System.Drawing.Point(754, 358);
-            this.textBoxcorreo.Name = "textBoxcorreo";
-            this.textBoxcorreo.Size = new System.Drawing.Size(251, 39);
-            this.textBoxcorreo.TabIndex = 25;
+            this.textBoxmoneda.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxmoneda.Location = new System.Drawing.Point(754, 356);
+            this.textBoxmoneda.Name = "textBoxmoneda";
+            this.textBoxmoneda.Size = new System.Drawing.Size(251, 39);
+            this.textBoxmoneda.TabIndex = 25;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(621, 361);
+            this.label6.Location = new System.Drawing.Point(621, 359);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 31);
+            this.label6.Size = new System.Drawing.Size(104, 31);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Correo";
+            this.label6.Text = "Moneda";
             // 
-            // textBoxoficialdecuentas
+            // textBoxdebito
             // 
-            this.textBoxoficialdecuentas.Enabled = false;
-            this.textBoxoficialdecuentas.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxoficialdecuentas.Location = new System.Drawing.Point(314, 425);
-            this.textBoxoficialdecuentas.Name = "textBoxoficialdecuentas";
-            this.textBoxoficialdecuentas.Size = new System.Drawing.Size(251, 39);
-            this.textBoxoficialdecuentas.TabIndex = 27;
+            this.textBoxdebito.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxdebito.Location = new System.Drawing.Point(314, 421);
+            this.textBoxdebito.Name = "textBoxdebito";
+            this.textBoxdebito.Size = new System.Drawing.Size(251, 39);
+            this.textBoxdebito.TabIndex = 27;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(89, 433);
+            this.label7.Location = new System.Drawing.Point(89, 429);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(219, 31);
+            this.label7.Size = new System.Drawing.Size(91, 31);
             this.label7.TabIndex = 26;
-            this.label7.Text = "Oficial de cuentas";
+            this.label7.Text = "Debito";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(621, 433);
+            this.label8.Location = new System.Drawing.Point(621, 429);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 31);
+            this.label8.Size = new System.Drawing.Size(99, 31);
             this.label8.TabIndex = 28;
-            this.label8.Text = "Observaciones";
+            this.label8.Text = "Credito";
             // 
-            // textBoxobservaciones
+            // textBoxcuentaid
             // 
-            this.textBoxobservaciones.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxobservaciones.Location = new System.Drawing.Point(627, 485);
-            this.textBoxobservaciones.Multiline = true;
-            this.textBoxobservaciones.Name = "textBoxobservaciones";
-            this.textBoxobservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxobservaciones.Size = new System.Drawing.Size(713, 100);
-            this.textBoxobservaciones.TabIndex = 30;
-            // 
-            // textBoxbanco
-            // 
-            this.textBoxbanco.Enabled = false;
-            this.textBoxbanco.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxbanco.Location = new System.Drawing.Point(292, 179);
-            this.textBoxbanco.Name = "textBoxbanco";
-            this.textBoxbanco.Size = new System.Drawing.Size(251, 39);
-            this.textBoxbanco.TabIndex = 32;
+            this.textBoxcuentaid.Enabled = false;
+            this.textBoxcuentaid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcuentaid.Location = new System.Drawing.Point(292, 179);
+            this.textBoxcuentaid.Name = "textBoxcuentaid";
+            this.textBoxcuentaid.Size = new System.Drawing.Size(251, 39);
+            this.textBoxcuentaid.TabIndex = 32;
             // 
             // label9
             // 
@@ -246,18 +240,18 @@ namespace ConciliacionBancaria
             this.label9.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(89, 182);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 31);
+            this.label9.Size = new System.Drawing.Size(130, 31);
             this.label9.TabIndex = 31;
-            this.label9.Text = "Banco ID";
+            this.label9.Text = "Cuenta ID";
             // 
-            // textBoxcatalogoid
+            // textBoxbancoid
             // 
-            this.textBoxcatalogoid.Enabled = false;
-            this.textBoxcatalogoid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcatalogoid.Location = new System.Drawing.Point(814, 179);
-            this.textBoxcatalogoid.Name = "textBoxcatalogoid";
-            this.textBoxcatalogoid.Size = new System.Drawing.Size(251, 39);
-            this.textBoxcatalogoid.TabIndex = 34;
+            this.textBoxbancoid.Enabled = false;
+            this.textBoxbancoid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxbancoid.Location = new System.Drawing.Point(814, 179);
+            this.textBoxbancoid.Name = "textBoxbancoid";
+            this.textBoxbancoid.Size = new System.Drawing.Size(251, 39);
+            this.textBoxbancoid.TabIndex = 34;
             // 
             // label10
             // 
@@ -265,9 +259,9 @@ namespace ConciliacionBancaria
             this.label10.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(621, 182);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(154, 31);
+            this.label10.Size = new System.Drawing.Size(121, 31);
             this.label10.TabIndex = 33;
-            this.label10.Text = "Catalogo ID";
+            this.label10.Text = "Banco ID";
             // 
             // Pbotones
             // 
@@ -281,7 +275,7 @@ namespace ConciliacionBancaria
             this.Pbotones.Controls.Add(this.Bguardar);
             this.Pbotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Pbotones.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pbotones.Location = new System.Drawing.Point(0, 661);
+            this.Pbotones.Location = new System.Drawing.Point(0, 649);
             this.Pbotones.Name = "Pbotones";
             this.Pbotones.Size = new System.Drawing.Size(1340, 100);
             this.Pbotones.TabIndex = 35;
@@ -415,33 +409,84 @@ namespace ConciliacionBancaria
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bguardar.UseVisualStyleBackColor = false;
             // 
-            // FMBancos
+            // textBoxestado
+            // 
+            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxestado.Location = new System.Drawing.Point(314, 489);
+            this.textBoxestado.Name = "textBoxestado";
+            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
+            this.textBoxestado.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(89, 497);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 31);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Estado";
+            // 
+            // textBoxcredito
+            // 
+            this.textBoxcredito.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcredito.Location = new System.Drawing.Point(754, 426);
+            this.textBoxcredito.Name = "textBoxcredito";
+            this.textBoxcredito.Size = new System.Drawing.Size(251, 39);
+            this.textBoxcredito.TabIndex = 38;
+            // 
+            // textBoxobservacion
+            // 
+            this.textBoxobservacion.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxobservacion.Location = new System.Drawing.Point(785, 494);
+            this.textBoxobservacion.Multiline = true;
+            this.textBoxobservacion.Name = "textBoxobservacion";
+            this.textBoxobservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxobservacion.Size = new System.Drawing.Size(470, 100);
+            this.textBoxobservacion.TabIndex = 39;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(621, 497);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(157, 31);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "Observacion";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // FMCuentas_Bancarias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1340, 761);
-            this.Controls.Add(this.Pbotones);
-            this.Controls.Add(this.textBoxcatalogoid);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBoxbanco);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBoxobservaciones);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxoficialdecuentas);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxcorreo);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBoxtelefono);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBoxobservacion);
+            this.Controls.Add(this.textBoxcredito);
             this.Controls.Add(this.textBoxestado);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.Pbotones);
+            this.Controls.Add(this.textBoxbancoid);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBoxcuentaid);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBoxdebito);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBoxmoneda);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBoxfechadeapertura);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxsaldoinicial);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxdireccion);
+            this.Controls.Add(this.textBoxnumerodecuenta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxsucursal);
-            this.Controls.Add(this.textBoxnombre);
+            this.Controls.Add(this.textBoxtipodecuenta);
+            this.Controls.Add(this.textBoxclienteid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BarraTitulo);
@@ -452,7 +497,7 @@ namespace ConciliacionBancaria
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FMBancos";
+            this.Name = "FMCuentas_Bancarias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bancos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -467,25 +512,24 @@ namespace ConciliacionBancaria
         #endregion
         private System.Windows.Forms.Panel BarraTitulo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.TextBox textBoxsucursal;
-        private System.Windows.Forms.TextBox textBoxnombre;
+        private System.Windows.Forms.TextBox textBoxtipodecuenta;
+        private System.Windows.Forms.TextBox textBoxclienteid;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxdireccion;
+        private System.Windows.Forms.TextBox textBoxnumerodecuenta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxestado;
+        private System.Windows.Forms.TextBox textBoxsaldoinicial;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxtelefono;
+        private System.Windows.Forms.TextBox textBoxfechadeapertura;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxcorreo;
+        private System.Windows.Forms.TextBox textBoxmoneda;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxoficialdecuentas;
+        private System.Windows.Forms.TextBox textBoxdebito;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxobservaciones;
-        private System.Windows.Forms.TextBox textBoxbanco;
+        private System.Windows.Forms.TextBox textBoxcuentaid;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxcatalogoid;
+        private System.Windows.Forms.TextBox textBoxbancoid;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel Pbotones;
         private System.Windows.Forms.Button Bnuevo;
@@ -494,5 +538,10 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button Bcancelar;
         private System.Windows.Forms.Button Beditar;
         private System.Windows.Forms.Button Bguardar;
+        private System.Windows.Forms.TextBox textBoxestado;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxcredito;
+        private System.Windows.Forms.TextBox textBoxobservacion;
+        private System.Windows.Forms.Label label12;
     }
 }
