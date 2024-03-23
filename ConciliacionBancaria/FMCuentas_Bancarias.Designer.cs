@@ -499,7 +499,7 @@ namespace ConciliacionBancaria
             this.MinimizeBox = false;
             this.Name = "FMCuentas_Bancarias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bancos";
+            this.Text = "Cuentas Bancarias";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FMBancos_Load);
             this.BarraTitulo.ResumeLayout(false);

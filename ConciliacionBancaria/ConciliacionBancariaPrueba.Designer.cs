@@ -973,7 +973,7 @@ namespace ConciliacionBancaria
             this.btnEmpresa.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnEmpresa.Size = new System.Drawing.Size(233, 40);
             this.btnEmpresa.TabIndex = 6;
-            this.btnEmpresa.Text = "Empresa";
+            this.btnEmpresa.Text = "Empresas";
             this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuToolTip1.SetToolTip(this.btnEmpresa, "Crear y Modificar datos de las empresas");
             this.bunifuToolTip1.SetToolTipIcon(this.btnEmpresa, null);

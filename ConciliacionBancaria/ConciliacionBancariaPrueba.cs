@@ -221,35 +221,44 @@ namespace ConciliacionBancaria
 
         private void BtnTransacciones_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMTransacciones_Internas formularioFMTransacciones_Internas = new FMTransacciones_Internas();
+
+            // Mostrar el formulario
+            formularioFMTransacciones_Internas.Show();
             hideSubMenu();
         }
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMUsuarios formularioFMUsuarios = new FMUsuarios();
+
+            // Mostrar el formulario
+            formularioFMUsuarios.Show();
             hideSubMenu();
         }
 
         private void btnEmpresa_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMEmpresas formularioFMEmpresas = new FMEmpresas();
+
+            // Mostrar el formulario
+            formularioFMEmpresas.Show();
             hideSubMenu();
         }
 
         private void btnCatalogo_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            // Instanciar el formulario FMBancos
+            FMCatalogos formularioFMCatalogos = new FMCatalogos();
+
+            // Mostrar el formulario
+            formularioFMCatalogos.Show();
             hideSubMenu();
         }
+    
 
         private void button1_Click(object sender, EventArgs e)
         {

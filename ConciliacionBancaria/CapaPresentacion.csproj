@@ -74,6 +74,30 @@
     <Compile Include="ConciliacionBancaria.Designer.cs">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMCatalogos.Designer.cs">
+      <DependentUpon>FMCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMEmpresas.Designer.cs">
+      <DependentUpon>FMEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMUsuarios.Designer.cs">
+      <DependentUpon>FMUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMTransacciones_Internas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMTransacciones_Internas.Designer.cs">
+      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMCuentas_Bancarias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +120,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMCatalogos.resx">
+      <DependentUpon>FMCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMEmpresas.resx">
+      <DependentUpon>FMEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMUsuarios.resx">
+      <DependentUpon>FMUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMTransacciones_Internas.resx">
+      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMCuentas_Bancarias.resx">
       <DependentUpon>FMCuentas_Bancarias.cs</DependentUpon>
