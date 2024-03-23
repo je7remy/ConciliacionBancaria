@@ -26,3 +26,5 @@ C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.F
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMUsuarios.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMEmpresas.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMCatalogos.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria.mdf
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria_log.ldf

@@ -131,11 +131,7 @@ namespace ConciliacionBancaria
 
         private void iconcerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Menu Principal?", "Cerrar Conciliacion Bancaria", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close(); // Cierra el formulario si el usuario confirma
-            }
-
+            this.Close();
 
         }
 
@@ -1077,6 +1073,20 @@ namespace ConciliacionBancaria
     private void BarraTitulo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FConciliacionBancariaPrueba_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Menu Principal?", "Cerrar Conciliacion Bancaria", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario si el usuario selecciona "No"
+            }
+            // No es necesario cerrar el formulario aquí ya que se cerrará automáticamente si e.Cancel se mantiene como false.
         }
     }
 }

@@ -1139,6 +1139,7 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.SetToolTip(this.panelContenedor, "");
             this.bunifuToolTip1.SetToolTipIcon(this.panelContenedor, null);
             this.bunifuToolTip1.SetToolTipTitle(this.panelContenedor, "");
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // bunifuPanel11
             // 
@@ -1313,6 +1314,7 @@ namespace ConciliacionBancaria
             this.Name = "FConciliacionBancariaPrueba";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conciliacion Bancaria";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FConciliacionBancariaPrueba_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
