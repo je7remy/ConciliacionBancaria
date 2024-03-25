@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 
+
 namespace CapaDatos
 {
     // Clase para manejar la conexión y operaciones con la tabla de usuarios en la base de datos

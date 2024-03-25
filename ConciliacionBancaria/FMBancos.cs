@@ -10,6 +10,8 @@ using System.Windows.Forms;
 //Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using CapaNegocio;
+using CapaDatos;
+
 
 
 namespace ConciliacionBancaria
@@ -41,30 +43,39 @@ namespace ConciliacionBancaria
 
         private void CargarCatalogos()
         {
-            string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;
-            AttachDbFilename = C:\C#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-Integrated Security = True"; // Reemplaza esto con tu cadena de conexión
-            string query = "ObtenerCatalogos"; // Nombre del procedimiento almacenado
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.CommandType = CommandType.StoredProcedure;
+                string query = "ObtenerCatalogos";
 
-                connection.Open();
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
-                // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
-                DataTable dt = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dt);
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
 
-                // Asigna el DataTable como origen de datos para el ComboBox
-                textBoxcatalogoid.DisplayMember = "Nombre";
-                textBoxcatalogoid.ValueMember = "CatalogoID";
-                textBoxcatalogoid.DataSource = dt;
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxcatalogoid.DisplayMember = "Nombre";
+                        textBoxcatalogoid.ValueMember = "CatalogoID";
+                        textBoxcatalogoid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar catálogos: " + ex.Message);
             }
         }
-
 
 
         private void FMBancos_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,7 +93,7 @@ Integrated Security = True"; // Reemplaza esto con tu cadena de conexión
 
         public void LimpiaObjetos()
         {
-            textBoxbanco.Clear();
+            //textBoxbanco.Clear();
             textBoxcatalogoid.SelectedIndex = -1;
             textBoxcorreo.Clear();
             textBoxdireccion.Clear();
@@ -118,8 +129,8 @@ Integrated Security = True"; // Reemplaza esto con tu cadena de conexión
             HabilitaBotones();
             textBoxnombre.Focus();
 
-            // Obtener el último ID insertado y asignarlo al textBoxbanco
-            int ultimoIDInsertado = ObtenerUltimoBancoIDInsertado();
+            //// Obtener el último ID insertado y asignarlo al textBoxbanco
+            int ultimoIDInsertado = ObtenerUltimoIDInsertado("Bancos");
             textBoxbanco.Text = (ultimoIDInsertado + 1).ToString();
         }
 
@@ -127,64 +138,145 @@ Integrated Security = True"; // Reemplaza esto con tu cadena de conexión
         {
             try
             {
-                if (string.IsNullOrEmpty(textBoxbanco.Text) ||
-                string.IsNullOrEmpty(textBoxcatalogoid.Text) ||
-                string.IsNullOrEmpty(textBoxcorreo.Text) ||
-                string.IsNullOrEmpty(textBoxdireccion.Text) ||
-                string.IsNullOrEmpty(textBoxestado.Text) ||
-                string.IsNullOrEmpty(textBoxnombre.Text) ||
-                string.IsNullOrEmpty(textBoxobservaciones.Text) ||
-                string.IsNullOrEmpty(textBoxoficialdecuentas.Text) || //cambiar esto a como esta en el pdf pendejo
-                string.IsNullOrEmpty(textBoxsucursal.Text) ||
-                string.IsNullOrEmpty(textBoxtelefono.Text))
+                if (string.IsNullOrEmpty(textBoxbanco.Text))
                 {
-                    MessageBox.Show("Todos los campos son obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Debe indicar el nombre del Banco!");
+                    textBoxbanco.Focus();
+                    return; // Agregamos un return aquí para salir del método si un campo está vacío
+                }
+                else if (string.IsNullOrEmpty(textBoxcatalogoid.Text))
+                {
+                    MessageBox.Show("Debe indicar el ID del Catálogo!");
+                    textBoxcatalogoid.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxcorreo.Text))
+                {
+                    MessageBox.Show("Debe indicar el Correo del Suplidor!");
+                    textBoxcorreo.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxdireccion.Text))
+                {
+                    MessageBox.Show("Debe indicar la Dirección del Suplidor!");
+                    textBoxdireccion.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxestado.Text))
+                {
+                    MessageBox.Show("Debe indicar el Estado!");
+                    textBoxestado.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxnombre.Text))
+                {
+                    MessageBox.Show("Debe indicar el Nombre del Suplidor!");
+                    textBoxnombre.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxobservaciones.Text))
+                {
+                    MessageBox.Show("Debe indicar Observaciones!");
+                    textBoxobservaciones.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxoficialdecuentas.Text))
+                {
+                    MessageBox.Show("Debe indicar el Oficial de Cuentas!");
+                    textBoxoficialdecuentas.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxsucursal.Text))
+                {
+                    MessageBox.Show("Debe indicar la Sucursal!");
+                    textBoxsucursal.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(textBoxtelefono.Text))
+                {
+                    MessageBox.Show("Debe indicar el Teléfono!");
+                    textBoxtelefono.Focus();
                     return;
                 }
 
-                MessageBox.Show("voy a guardar");
+                string mensaje = "";
 
-                if (Program.nuevo)
+
+                // Obteniendo el CatalogoID
+                int CatalogoID;
+
+                if (textBoxcatalogoid.SelectedItem != null && textBoxcatalogoid.SelectedItem is DataRowView)
                 {
-                    mensaje = CNBancos.Insertar(textBoxnombre.Text, textBoxsucursal.Text,
-                                                  textBoxdireccion.Text, textBoxestado.Text,
-                                                  textBoxtelefono.Text, textBoxcorreo.Text,
-                                                  textBoxoficialdecuentas.Text, textBoxobservaciones.Text);
+                    DataRowView selectedRow = textBoxcatalogoid.SelectedItem as DataRowView;
 
-                    int ultimoIDInsertado = ObtenerUltimoBancoIDInsertado();
-                    if (ultimoIDInsertado > 0)
+                    // Intenta convertir el valor de la columna "Id_Catalogo" a un entero
+                    if (selectedRow.Row["CatalogoID"] != null && int.TryParse(selectedRow.Row["CatalogoID"].ToString(), out CatalogoID))
                     {
-                        textBoxbanco.Text = ultimoIDInsertado.ToString();
-                        textBoxbanco.Text = (ultimoIDInsertado + 1).ToString();
+                        // La conversión fue exitosa, ahora puedes usar el valor del CatalogoID
+                      //  MessageBox.Show("Los datos del banco han sido guardados correctamente.", "Éxito al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
+                    else
+                    {
+                        // La conversión falló, el valor de "Id_Catalogo" no es un número entero válido
+                       MessageBox.Show("El valor del ID del Catálogo no es un número entero válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+                    if (Program.nuevo)
+                    {
+                        mensaje = CNBancos.Insertar(CatalogoID, textBoxnombre.Text, textBoxsucursal.Text,
+                                                      textBoxdireccion.Text, textBoxestado.Text,
+                                                      textBoxtelefono.Text, textBoxcorreo.Text,
+                                                      textBoxoficialdecuentas.Text, textBoxobservaciones.Text);
+
+                        int ultimoIDInsertado;
+                        if (int.TryParse(textBoxcatalogoid.Text, out ultimoIDInsertado))
+                        {
+                            if (ultimoIDInsertado > 0)
+                            {
+                                textBoxbanco.Text = ultimoIDInsertado.ToString();
+                                textBoxbanco.Text = (ultimoIDInsertado + 1).ToString();
+                            }
+                            else
+                            {
+                              
+                                return;
+                            }
+                        }
+                     
+                    }
+                    else
+                    {
+                        mensaje = CNBancos.Actualizar(Program.BancoID, textBoxnombre.Text,
+                                                       textBoxsucursal.Text, textBoxdireccion.Text,
+                                                       textBoxestado.Text, textBoxtelefono.Text,
+                                                       textBoxcorreo.Text, textBoxoficialdecuentas.Text,
+                                                       textBoxobservaciones.Text);
+
+                    }
+
+                    MessageBox.Show(mensaje, "Mensaje de Conciliacion Bancaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Program.nuevo = false;
+                    Program.modificar = false;
+                    HabilitaBotones();
+                    LimpiaObjetos();
                 }
+
                 else
                 {
-                    mensaje = CNBancos.Actualizar(Program.BancoID, textBoxnombre.Text,
-                                                   textBoxsucursal.Text, textBoxdireccion.Text,
-                                                   textBoxestado.Text, textBoxtelefono.Text,
-                                                   textBoxcorreo.Text, textBoxoficialdecuentas.Text,
-                                                   textBoxobservaciones.Text);
-
+                    MessageBox.Show("Debe seleccionar un catálogo válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-
             }
-
-
-
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al insertar banco: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            } 
-
-           MessageBox.Show(mensaje, "Mensaje de Conciliacion Bancaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            Program.nuevo = false;
-            Program.modificar = false;
-            HabilitaBotones();
-            LimpiaObjetos();
+            }
         }
+
 
         private void Bcancelar_Click(object sender, EventArgs e)
         {
@@ -251,28 +343,47 @@ Integrated Security = True"; // Reemplaza esto con tu cadena de conexión
 
 
 
-        private int ObtenerUltimoBancoIDInsertado()
+      
+        private void ObtenerUltimoIDInsertado()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;Integrated Security=True";
-            string query = "SELECT IDENT_CURRENT('Bancos') AS UltimoID";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    return Convert.ToInt32(result);
-                }
-                else
-                {
-                    return 0;
-                }
+                // Llamada al método con el nombre de la tabla "Bancos"
+                int ultimoID = ObtenerUltimoIDInsertado("Bancos");
+
+                // Aquí puedes usar el último ID obtenido como desees, por ejemplo, mostrarlo en un MessageBox
+                MessageBox.Show("Último ID insertado para la tabla 'Bancos': " + ultimoID);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al obtener el último ID insertado: " + ex.Message);
             }
         }
 
+        public static int ObtenerUltimoIDInsertado(string tabla)
+        {
+            using (SqlConnection connection = CapaPresentacionConexion.ObtenerConexion())
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerUltimoIDInsertado", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    command.Parameters.AddWithValue("@Tabla", tabla);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
 
 
         private void HabilitaBotones()
