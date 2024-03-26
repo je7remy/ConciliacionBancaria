@@ -1,0 +1,11 @@
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\ConciliacionBancaria.mdf
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\ConciliacionBancaria_log.ldf
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\c#\ConciliacionBancaria\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\c#\ConciliacionBancaria\CapaNegocio\obj\Debug\CapaNegocio.pdb

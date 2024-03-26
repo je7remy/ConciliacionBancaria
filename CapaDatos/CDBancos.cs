@@ -164,81 +164,68 @@ namespace CapaDatos
 
 
 
-        // Método para actualizar los datos de un banco en la base de datos
-        public string Actualizar(int bancoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
+        // Método para actualizar los datos del Banco. Recibirá el objeto objBanco como parámetro
+        public string Actualizar(CDBancos objBanco)
         {
+            string mensaje = "";
+            SqlConnection sqlCon = new SqlConnection();
             try
             {
-                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
-                {
-                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de actualización
-                    using (SqlCommand micomando = new SqlCommand("ActualizarBanco", sqlCon))
-                    {
-                        // Se especifica que el comando es un procedimiento almacenado
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        // Se añaden los parámetros necesarios para la actualización del banco
-                        micomando.Parameters.AddWithValue("@BancoID", bancoID);
-                        micomando.Parameters.AddWithValue("@Nombre", nombre);
-                        micomando.Parameters.AddWithValue("@Sucursal", sucursal);
-                        micomando.Parameters.AddWithValue("@Direccion", direccion);
-                        micomando.Parameters.AddWithValue("@Estado", estado);
-                        micomando.Parameters.AddWithValue("@Telefono", telefono);
-                        micomando.Parameters.AddWithValue("@Correo", correo);
-                        micomando.Parameters.AddWithValue("@Oficial_de_cuentas", oficialCuentas);
-                        micomando.Parameters.AddWithValue("@Observaciones", observaciones);
-
-                        // Se abre la conexión a la base de datos
-                        sqlCon.Open();
-                        // Se ejecuta el comando y se obtiene el número de filas afectadas
-                        int rowsAffected = micomando.ExecuteNonQuery();
-
-                        // Se retorna un mensaje indicando el resultado de la operación
-                        return rowsAffected == 1 ? "Actualización de datos completada correctamente!" :
-                                                   "No se pudo actualizar correctamente los datos!";
-                    }
-                }
+                sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
+                SqlCommand micomando = new SqlCommand("ActualizarBanco", sqlCon); // Suponiendo que el procedimiento almacenado se llama BancoActualizar
+                sqlCon.Open();
+                micomando.CommandType = CommandType.StoredProcedure;
+                micomando.Parameters.AddWithValue("@BancoID", objBanco.BancoID);
+                micomando.Parameters.AddWithValue("@CatalogoID", objBanco.CatalogoID);
+                micomando.Parameters.AddWithValue("@Nombre", objBanco.Nombre);
+                micomando.Parameters.AddWithValue("@Sucursal", objBanco.Sucursal);
+                micomando.Parameters.AddWithValue("@Direccion", objBanco.Direccion);
+                micomando.Parameters.AddWithValue("@Estado", objBanco.Estado);
+                micomando.Parameters.AddWithValue("@Telefono", objBanco.Telefono);
+                micomando.Parameters.AddWithValue("@Correo", objBanco.Correo);
+                micomando.Parameters.AddWithValue("@Oficial_de_cuentas", objBanco.OficialCuentas);
+                micomando.Parameters.AddWithValue("@Observaciones", objBanco.Observaciones);
+                mensaje = micomando.ExecuteNonQuery() == 1 ? "Datos actualizados correctamente!" :
+                    "No se pudo actualizar correctamente los datos!";
             }
             catch (Exception ex)
             {
-                // Se lanza una excepción con un mensaje descriptivo y la excepción original
-                throw new Exception("Error al intentar actualizar datos del banco.", ex);
+                mensaje = ex.Message;
             }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                    sqlCon.Close();
+            }
+            return mensaje;
         }
+
 
         // Método para obtener los datos de un banco por su ID
         public DataTable ObtenerBancoPorID(int bancoID)
         {
+            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Banco
+            SqlDataReader leerDatos; // Creamos el DataReader
             try
             {
-                // Se crea un objeto DataTable para almacenar los resultados de la consulta
-                DataTable dt = new DataTable();
-
-                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
+                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
                 {
-                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de obtención por ID
-                    using (SqlCommand micomando = new SqlCommand("ObtenerBancoPorID", sqlCon))
-                    {
-                        // Se especifica que el comando es un procedimiento almacenado
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        // Se añade el parámetro necesario para la consulta por ID
-                        micomando.Parameters.AddWithValue("@BancoID", bancoID);
-
-                        // Se crea un adaptador de datos para ejecutar la consulta y llenar el DataTable
-                        SqlDataAdapter adapter = new SqlDataAdapter(micomando);
-                        adapter.Fill(dt);
-                    }
+                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
+                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
+                    sqlCon.Open(); // Se abre la conexión
+                    sqlCmd.CommandText = "ObtenerBancoPorID"; // Nombre del Proc. Almacenado a usar
+                    sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
+                    sqlCmd.Parameters.AddWithValue("@bancoID", bancoID); // Se pasa el ID del banco a buscar
+                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
+                    dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
+                    sqlCon.Close(); // Se cierra la conexión
                 }
-
-                // Se retorna el DataTable con los datos obtenidos
-                return dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Se lanza una excepción con un mensaje descriptivo y la excepción original
-                throw new Exception("Error al intentar obtener datos del banco por ID.", ex);
+                dt = null; // Si ocurre algún error se anula el DataTable
             }
+            return dt; // Se retorna el DataTable según lo ocurrido arriba
         }
     }
-}
+    }

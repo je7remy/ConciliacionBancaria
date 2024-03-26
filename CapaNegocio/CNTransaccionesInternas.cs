@@ -13,56 +13,97 @@ namespace CapaNegocio
 {
     public class CNTransaccionesInternas
     {
-        public static string Insertar(int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
+        public static string Insertar(int TransaccionID, int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
+            string mensaje = "";
+            // Creamos un nuevo objeto de tipo CDBancos
+            CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+
             try
             {
-                // Creamos una instancia de la clase CDTransaccionesInternas
-                CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+                // Preparamos los datos para insertar una nueva transacción
+                objTransaccionesInternas.TransaccionID = TransaccionID;
+                objTransaccionesInternas.UsuarioID = usuarioID;
+                objTransaccionesInternas.BancoID = bancoID;
+                objTransaccionesInternas.CuentaID = cuentaID;
+                objTransaccionesInternas.ClienteID = clienteID;
+                objTransaccionesInternas.Fecha = fecha;
+                objTransaccionesInternas.Descripcion = descripcion;
+                objTransaccionesInternas.Monto = monto;
+                objTransaccionesInternas.Tipo = tipo;
+                objTransaccionesInternas.Observacion = observacion;
 
-                // Llamamos al método InsertarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Insertar(usuarioID, bancoID, cuentaID, clienteID, fecha, descripcion, monto, tipo, observacion);
+                // Llamamos al método Insertar del Banco pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+                mensaje = objTransaccionesInternas.Insertar(objTransaccionesInternas);
             }
             catch (Exception ex)
             {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al insertar la transacción interna: " + ex.Message;
+                mensaje = "Error al insertar la transacción: " + ex.Message;
             }
+
+            return mensaje;
         }
 
-        public static string Actualizar(int transaccionID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
+
+        public static string Actualizar(int TransaccionID, int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
+            string mensaje = "";
+            // Creamos un nuevo objeto de tipo CDBancos
+            CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+
             try
             {
-                // Creamos una instancia de la clase CDTransaccionesInternas
-                CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+                // Preparamos los datos para insertar una nueva transacción
+                objTransaccionesInternas.TransaccionID = TransaccionID;
+                objTransaccionesInternas.UsuarioID = usuarioID;
+                objTransaccionesInternas.BancoID = bancoID;
+                objTransaccionesInternas.CuentaID = cuentaID;
+                objTransaccionesInternas.ClienteID = clienteID;
+                objTransaccionesInternas.Fecha = fecha;
+                objTransaccionesInternas.Descripcion = descripcion;
+                objTransaccionesInternas.Monto = monto;
+                objTransaccionesInternas.Tipo = tipo;
+                objTransaccionesInternas.Observacion = observacion;
 
-                // Llamamos al método ActualizarTransaccionInterna de la capa de datos pasándole los parámetros recibidos
-                return objTransaccionesInternas.Actualizar(transaccionID, fecha, descripcion, monto, tipo, observacion);
+                // Llamamos al método Insertar del Banco pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+                mensaje = objTransaccionesInternas.Actualizar(objTransaccionesInternas);
             }
             catch (Exception ex)
             {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al actualizar la transacción interna: " + ex.Message;
+                mensaje = "Error al insertar la transacción: " + ex.Message;
             }
+
+            return mensaje;
         }
+
+
+
 
         public static DataTable ObtenerTransaccionInternaPorID(int transaccionID)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDTransaccionesInternas
-                CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+            // Llamada al método estático ObtenerTransaccionInternaPorID de la clase CNTransaccionesInternas
+            DataTable dt = CNTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
 
-                // Llamamos al método ObtenerTransaccionInternaPorID de la capa de datos
-                return objTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
-                throw new Exception("Error al obtener la transacción interna por ID.", ex);
-            }
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
         }
+
+        //public static DataTable ObtenerTransaccionInternaPorID(int transaccionID)
+        //{
+        //    try
+        //    {
+        //        // Creamos una instancia de la clase CDTransaccionesInternas
+        //        CDTransaccionesInternas objTransaccionesInternas = new CDTransaccionesInternas();
+
+        //        // Llamamos al método ObtenerTransaccionInternaPorID de la capa de datos
+        //        return objTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejar la excepción o propagarla hacia arriba según sea necesario
+        //        // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
+        //        throw new Exception("Error al obtener la transacción interna por ID.", ex);
+        //    }
+        //}
     }
 }
