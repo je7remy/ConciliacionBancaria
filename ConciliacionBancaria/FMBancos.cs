@@ -232,7 +232,7 @@ namespace ConciliacionBancaria
                                                       textBoxoficialdecuentas.Text, textBoxobservaciones.Text);
 
                         int ultimoIDInsertado;
-                        if (int.TryParse(textBoxcatalogoid.Text, out ultimoIDInsertado))
+                        if (int.TryParse(textBoxbanco.Text, out ultimoIDInsertado))
                         {
                             if (ultimoIDInsertado > 0)
                             {

@@ -13,13 +13,13 @@ using CapaDatos;
 namespace CapaNegocio
 {
     public class CNCuentasBancarias
-    {
-        public static string Insertar(int cuentaID, int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
+    {//int cuentaID,
+        public static string Insertar( int bancoID, string clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
         {
             CDCuentasBancarias objCuentasBancarias = new CDCuentasBancarias();
 
             // Preparamos los datos para insertar una nueva cuenta bancaria
-            objCuentasBancarias.CuentaID = cuentaID;
+          //  objCuentasBancarias.CuentaID = cuentaID;
             objCuentasBancarias.BancoID = bancoID; // Agregamos el argumento bancoID aquí
             objCuentasBancarias.ClienteID = clienteID;
             objCuentasBancarias.TipoCuenta = tipoCuenta;
@@ -39,7 +39,7 @@ namespace CapaNegocio
 
 
 
-        public static string Actualizar(int cuentaID, int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
+        public static string Actualizar(int cuentaID, int bancoID, string clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
               {
             CDCuentasBancarias objCuentasBancarias = new CDCuentasBancarias();
 
@@ -60,6 +60,8 @@ namespace CapaNegocio
             // Llamamos al método Insertar de la clase CDCuentasBancarias pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
             return objCuentasBancarias.Actualizar(objCuentasBancarias);
         }
+
+
 
         public static DataTable ObtenerCuentaBancariaPorID(int cuentaID)
         {

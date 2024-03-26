@@ -51,14 +51,14 @@ namespace ConciliacionBancaria
             Program.nuevo = false;
             Program.modificar = false;
             HabilitaBotones();
-            CargarCatalogos();
+            CargarBancos();
         }
 
-        private void CargarCatalogos()
+        private void CargarBancos()
         {
             try
             {
-                string query = "ObtenerCatalogos";
+                string query = "ObtenerBancos";
 
                 // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
                 SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
@@ -77,16 +77,16 @@ namespace ConciliacionBancaria
                         }
 
                         // Asigna el DataTable como origen de datos para el ComboBox
-                        //////textBoxcatalogoid.DisplayMember = "Nombre";
-                        //////textBoxcatalogoid.ValueMember = "CatalogoID";
-                        //////textBoxcatalogoid.DataSource = dt;
+                        textBoxbancoid.DisplayMember = "Nombre";
+                        textBoxbancoid.ValueMember = "BancooID";
+                        textBoxbancoid.DataSource = dt;
                     }
                 } // La conexión se cerrará automáticamente al salir del bloque using
             }
             catch (Exception ex)
             {
                 // Manejo de excepciones
-                MessageBox.Show("Error al cargar catálogos: " + ex.Message);
+                MessageBox.Show("Error al cargar bancos: " + ex.Message);
             }
         }
 
@@ -105,11 +105,17 @@ namespace ConciliacionBancaria
             textBoxbancoid.SelectedIndex = -1;
             textBoxnumerodecuenta.Clear();
             textBoxsaldoinicial.Clear();
-            textBoxfechadeapertura.Clear();
+            textBoxfechadeapertura.CustomFormat = "dd/MM/yyyy";
+            textBoxfechadeapertura.Format = DateTimePickerFormat.Custom;
+
+            if (textBoxfechadeapertura.Value == DateTime.MinValue)
+            {
+                textBoxfechadeapertura.Text = "01/01/1750";
+            }
             textBoxmoneda.Clear();
             textBoxdebito.Clear();
             textBoxcredito.Clear();
-            textBoxestado.Clear();
+            textBoxestado.SelectedIndex = -1;
             textBoxobservacion.Clear();
         }
 
@@ -117,6 +123,7 @@ namespace ConciliacionBancaria
         private void HabilitaControles(bool valor)
         {
             textBoxcuentaid.ReadOnly = !valor;
+            textBoxclienteid.Enabled = valor;
             textBoxcredito.Enabled = valor;
             textBoxdebito.Enabled = valor;
             textBoxestado.Enabled = valor;
@@ -127,7 +134,7 @@ namespace ConciliacionBancaria
             textBoxsaldoinicial.Enabled = valor;
             textBoxtipodecuenta.Enabled = valor;
             if (Program.nuevo)
-                textBoxclienteid.SelectedIndex = 0;
+               
             textBoxbancoid.SelectedIndex = 0;
         }
 
@@ -176,91 +183,201 @@ namespace ConciliacionBancaria
             Program.modificar = false;
             HabilitaBotones();
             textBoxtipodecuenta.Focus();
+
+
+            //// Obtener el último ID insertado y asignarlo al textBoxbanco
+            int ultimoIDInsertado = ObtenerUltimoIDInsertado("CuentasBancarias");
+            textBoxcuentaid.Text = (ultimoIDInsertado +1).ToString();
         }
 
         private void Bguardar_Click(object sender, EventArgs e)
         {
-            //Validamos los datos requeridos antes de Insertar o Actualizar
-            if (textBoxclienteid.SelectedIndex == -1) //Si el combobox está en el valor por defecto (-1) mostrar un error y ubicar el cursor en dicho combobox
+            try
             {
-                MessageBox.Show("Debe seleccionar el ID del Cliente!");
-                textBoxclienteid.Focus();
-            }
-            else if (textBoxcuentaid.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar el número de Cuenta!");
-                textBoxcuentaid.Focus();
-            }
-            else if (textBoxtipodecuenta.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar el tipo de Cuenta!");
-                textBoxtipodecuenta.Focus();
-            }
-            else if (textBoxbancoid.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar el ID del Banco!");
-                textBoxbancoid.Focus();
-            }
-            else if (textBoxnumerodecuenta.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar el número de Cuenta!");
-                textBoxnumerodecuenta.Focus();
-            }
-            else if (textBoxsaldoinicial.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar el saldo inicial!");
-                textBoxsaldoinicial.Focus();
-            }
-            else if (textBoxfechadeapertura.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar la fecha de apertura!");
-                textBoxfechadeapertura.Focus();
-            }
-            else if (textBoxmoneda.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar la moneda!");
-                textBoxmoneda.Focus();
-            }
-            else if (textBoxdebito.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar los débitos!");
-                textBoxdebito.Focus();
-            }
-            else if (textBoxcredito.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar los créditos!");
-                textBoxcredito.Focus();
-            }
-            else if (textBoxestado.Text == String.Empty)
-            {
-                MessageBox.Show("Debe indicar el estado!");
-                textBoxestado.Focus();
-            }
-            else
-            {
-                //Si todo es correcto procede a Insertar o actualizar según corresponda
-                if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos
+                //Validamos los datos requeridos antes de Insertar o Actualizar
+                if (textBoxclienteid.Text == String.Empty) //Si el combobox está en el valor por defecto (-1) mostrar un error y ubicar el cursor en dicho combobox
                 {
-                    //Se llama al método Insertar de la clase CDCuentas de la capa de negocio
-                    //pasándole como parámetros los valores leídos en los controles del formulario.
-                    //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
-                    mensaje = CDCuentasBancarias.Insertar(Program.CuentaID, int.Parse(textBoxclienteid.SelectedItem.ToString()), textBoxcuentaid.Text, textBoxtipodecuenta.Text,
-                        int.Parse(textBoxbancoid.SelectedItem.ToString()), textBoxnumerodecuenta.Text, decimal.Parse(textBoxsaldoinicial.Text),
-                        textBoxfechadeapertura.Text, textBoxmoneda.Text, decimal.Parse(textBoxdebito.Text), decimal.Parse(textBoxcredito.Text),
-                        textBoxestado.Text, textBoxobservacion.Text);
+                    MessageBox.Show("Debe seleccionar el ID del Cliente!");
+                    textBoxclienteid.Focus();
                 }
-                else //de lo contrario se Modificarán los datos del registro correspondiente
+                else if (textBoxcuentaid.Text == String.Empty)
                 {
-                    //Se llama al método Actualizar de la clase CDCuentas de la capa de negocio
-                    //pasándole como parámetros los valores leídos en los controles del formulario.
-                    //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
-                    mensaje = CDCuentasBancarias.Actualizar(Program.CuentaID, int.Parse(textBoxclienteid.SelectedItem.ToString()), textBoxcuentaid.Text, textBoxtipodecuenta.Text,
-                         int.Parse(textBoxbancoid.SelectedItem.ToString()), textBoxnumerodecuenta.Text, decimal.Parse(textBoxsaldoinicial.Text),
-                         textBoxfechadeapertura.Text, textBoxmoneda.Text, decimal.Parse(textBoxdebito.Text), decimal.Parse(textBoxcredito.Text),
-                         textBoxestado.Text, textBoxobservacion.Text);
+                    MessageBox.Show("Debe indicar el número de Cuenta!");
+                    textBoxcuentaid.Focus();
                 }
+                else if (textBoxtipodecuenta.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar el tipo de Cuenta!");
+                    textBoxtipodecuenta.Focus();
+                }
+                else if (textBoxbancoid.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el ID del Banco!");
+                    textBoxbancoid.Focus();
+                }
+                else if (textBoxnumerodecuenta.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar el número de Cuenta!");
+                    textBoxnumerodecuenta.Focus();
+                }
+                else if (textBoxsaldoinicial.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar el saldo inicial!");
+                    textBoxsaldoinicial.Focus();
+                }
+                else if (textBoxfechadeapertura.Value == null)
+                {
+                    MessageBox.Show("Debe indicar la fecha de apertura!");
+                    textBoxfechadeapertura.Focus();
+                }
+                else if (textBoxmoneda.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar la moneda!");
+                    textBoxmoneda.Focus();
+                }
+                else if (textBoxdebito.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar los débitos!");
+                    textBoxdebito.Focus();
+                }
+                else if (textBoxcredito.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar los créditos!");
+                    textBoxcredito.Focus();
+                }
+                else if (textBoxestado.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar el estado!");
+                    textBoxestado.Focus();
+                }
+                else
+                {
+                    string mensaje = "";
+
+
+                    // Obteniendo el BancoID
+                    int BancoID;
+
+                    if (textBoxbancoid.SelectedItem != null && textBoxbancoid.SelectedItem is DataRowView)
+                    {
+                        DataRowView selectedRow = textBoxbancoid.SelectedItem as DataRowView;
+
+                        // Intenta convertir el valor de la columna "Id_Catalogo" a un entero
+                        if (selectedRow.Row["BancoID"] != null && int.TryParse(selectedRow.Row["BancoID"].ToString(), out BancoID))
+                        {
+                            // La conversión fue exitosa, ahora puedes usar el valor del CatalogoID
+                            //  MessageBox.Show("Los datos del banco han sido guardados correctamente.", "Éxito al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        else
+                        {
+                            // La conversión falló, el valor de "Id_Catalogo" no es un número entero válido
+                            MessageBox.Show("El valor del ID del Banco no es un número entero válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        int SaldoInicial, Debito, Credito;
+
+
+                        if (!int.TryParse(textBoxsaldoinicial.Text, out SaldoInicial))
+                        {
+                            MessageBox.Show("El valor ingresado para el Saldo Inicial no es válido.");
+                            return;
+                        }
+                        if (!int.TryParse(textBoxdebito.Text, out Debito))
+                        {
+                            MessageBox.Show("El valor ingresado para el Débito no es válido.");
+                            return;
+                        }
+                        if (!int.TryParse(textBoxcredito.Text, out Credito))
+                        {
+                            MessageBox.Show("El valor ingresado para el Crédito no es válido.");
+                            return;
+                        }
+
+
+                        //Si todo es correcto procede a Insertar o actualizar según corresponda
+                        if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos
+                        {
+                            //Se llama al método Insertar de la clase CDCuentas de la capa de negocio
+                            //pasándole como parámetros los valores leídos en los controles del formulario.
+                            //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
+                            mensaje = CNCuentasBancarias.Insertar(
+
+                               BancoID,
+                               textBoxclienteid.Text,
+                               textBoxtipodecuenta.Text,
+                               textBoxnumerodecuenta.Text,
+                               SaldoInicial,
+                               textBoxfechadeapertura.Value,
+                               textBoxmoneda.Text,
+                               Debito,
+                               Credito,
+                               textBoxestado.Text,
+                               textBoxobservacion.Text
+
+                           );
+
+
+                            int ultimoIDInsertado;
+                            if (int.TryParse(textBoxcuentaid.Text, out ultimoIDInsertado))
+                            {
+                                if (ultimoIDInsertado > 0)
+                                {
+                                    textBoxcuentaid.Text = ultimoIDInsertado.ToString();
+                                    textBoxcuentaid.Text = (ultimoIDInsertado + 1).ToString();
+                                }
+                                else
+                                {
+
+                                    return;
+                                }
+                            }
+
+                        }
+                        else //de lo contrario se Modificarán los datos del registro correspondiente
+                        {
+                            //Se llama al método Actualizar de la clase CDCuentas de la capa de negocio
+                            //pasándole como parámetros los valores leídos en los controles del formulario.
+                            //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
+                            mensaje = CNCuentasBancarias.Actualizar(Program.CuentaID,
+
+                               BancoID,
+                               textBoxclienteid.Text,
+                               textBoxtipodecuenta.Text,
+                               textBoxnumerodecuenta.Text,
+                               SaldoInicial,
+                               textBoxfechadeapertura.Value,
+                               textBoxmoneda.Text,
+                               Debito,
+                               Credito,
+                               textBoxestado.Text,
+                               textBoxobservacion.Text
+
+                           );
+                        }
+
+                        MessageBox.Show(mensaje, "Mensaje de Conciliacion Bancaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Program.nuevo = false;
+                        Program.modificar = false;
+                        HabilitaBotones();
+                        LimpiaObjetos();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un catálogo válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al insertar banco: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    
 
         private void Bcancelar_Click(object sender, EventArgs e)
         {
@@ -310,14 +427,17 @@ namespace ConciliacionBancaria
         {
             int cuentaID = Program.CuentaID; // Obtener el ID de la cuenta de Program
 
-            // Llamada al método ObtenerCuentaPorID de la clase CDClientes
-            DataTable dt = CDCuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+            // Crear una instancia de CDCuentasBancarias
+            CDCuentasBancarias cuentasBancarias = new CDCuentasBancarias();
+
+            // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias
+            DataTable dt = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
 
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
 
-                textBoxclienteid.SelectedIndex = -1;
+                textBoxclienteid.Text = row["ClienteID"].ToString();
                 textBoxcuentaid.Text = row["CuentaID"].ToString();
                 textBoxtipodecuenta.Text = row["TipoDeCuenta"].ToString();
                 textBoxbancoid.SelectedIndex = -1;
@@ -332,20 +452,67 @@ namespace ConciliacionBancaria
             }
             else
             {
-                textBoxclienteid.SelectedIndex = -1;
-                textBoxcuentaid.Clear();
-                textBoxtipodecuenta.Clear();
+                textBoxclienteid.Text = "";
+                textBoxcuentaid.Text = "";
+                textBoxtipodecuenta.Text = "";
                 textBoxbancoid.SelectedIndex = -1;
-                textBoxnumerodecuenta.Clear();
-                textBoxsaldoinicial.Clear();
-                textBoxfechadeapertura.Clear();
-                textBoxmoneda.Clear();
-                textBoxdebito.Clear();
-                textBoxcredito.Clear();
-                textBoxestado.Clear();
-                textBoxobservacion.Clear();
+                textBoxnumerodecuenta.Text = "";
+                textBoxsaldoinicial.Text = "";
+                textBoxfechadeapertura.Text = "";
+                textBoxmoneda.Text = "";
+                textBoxdebito.Text = "";
+                textBoxcredito.Text = "";
+                textBoxestado.Text = "";
+                textBoxobservacion.Text = "";
             }
         }
 
+
+
+        private void ObtenerUltimoIDInsertado()
+        {
+            try
+            {
+                // Llamada al método con el nombre de la tabla "Bancos"
+                int ultimoID = ObtenerUltimoIDInsertado("CuentasBancarias");
+
+                // Aquí puedes usar el último ID obtenido como desees, por ejemplo, mostrarlo en un MessageBox
+                MessageBox.Show("Último ID insertado para la tabla 'CuentasBancarias': " + ultimoID);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al obtener el último ID insertado: " + ex.Message);
+            }
+        }
+
+        public static int ObtenerUltimoIDInsertado(string tabla)
+        {
+            using (SqlConnection connection = CapaPresentacionConexion.ObtenerConexion())
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerUltimoIDInsertado", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@Tabla", tabla);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

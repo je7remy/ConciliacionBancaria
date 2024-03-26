@@ -18,7 +18,7 @@ namespace CapaDatos
         // Campos privados para almacenar los datos de la cuenta bancaria
         private int dCuentaID;
         private int dBancoID;
-        private int dClienteID;
+        private string dClienteID;
         private string dTipoCuenta;
         private string dNumeroCuenta;
         private decimal dSaldoInicial;
@@ -36,7 +36,7 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDCuentasBancarias(int CuentaID, int BancoID, int ClienteID, string TipoCuenta, string NumeroCuenta, decimal SaldoInicial, DateTime FechaApertura, string Moneda, decimal Debito, decimal Credito, string Estado, string Observacion)
+        public CDCuentasBancarias(int CuentaID, int BancoID, string ClienteID, string TipoCuenta, string NumeroCuenta, decimal SaldoInicial, DateTime FechaApertura, string Moneda, decimal Debito, decimal Credito, string Estado, string Observacion)
         {
             dCuentaID = CuentaID;
             dBancoID = BancoID;
@@ -69,7 +69,7 @@ namespace CapaDatos
         }
 
         // Propiedad para obtener o establecer el ID del cliente asociado a la cuenta bancaria
-        public int ClienteID
+        public string ClienteID
         {
             get { return dClienteID; }
             set { dClienteID = value; }
@@ -139,7 +139,7 @@ namespace CapaDatos
         }
 
         // Método para insertar una nueva Cuenta. Recibirá el objeto objCuenta como parámetro
-        public string Insertar(CDCuentasBancarias objCuenta)
+        public string Insertar(CDCuentasBancarias objCuentasBancarias)
         {
             string mensaje = "";
             // Creamos un nuevo objeto de tipo SqlConnection
@@ -162,18 +162,18 @@ namespace CapaDatos
                  * Los nombres que aparecen al lado son las propiedades del objeto objCuenta que se pasará 
                  * como parámetro con los valores deseados. 
                  */
-                micomando.Parameters.AddWithValue("@CuentaID", objCuenta.CuentaID);
-                micomando.Parameters.AddWithValue("@BancoID", objCuenta.BancoID);
-                micomando.Parameters.AddWithValue("@ClienteID", objCuenta.ClienteID);
-                micomando.Parameters.AddWithValue("@TipoCuenta", objCuenta.TipoCuenta);
-                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuenta.NumeroCuenta);
-                micomando.Parameters.AddWithValue("@SaldoInicial", objCuenta.SaldoInicial);
-                micomando.Parameters.AddWithValue("@FechaApertura", objCuenta.FechaApertura);
-                micomando.Parameters.AddWithValue("@Moneda", objCuenta.Moneda);
-                micomando.Parameters.AddWithValue("@Debito", objCuenta.Debito);
-                micomando.Parameters.AddWithValue("@Credito", objCuenta.Credito);
-                micomando.Parameters.AddWithValue("@Estado", objCuenta.Estado);
-                micomando.Parameters.AddWithValue("@Observacion", objCuenta.Observacion);
+                micomando.Parameters.AddWithValue("@CuentaID", objCuentasBancarias.CuentaID);
+                micomando.Parameters.AddWithValue("@BancoID", objCuentasBancarias.BancoID);
+                micomando.Parameters.AddWithValue("@ClienteID", objCuentasBancarias.ClienteID);
+                micomando.Parameters.AddWithValue("@TipoCuenta", objCuentasBancarias.TipoCuenta);
+                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuentasBancarias.NumeroCuenta);
+                micomando.Parameters.AddWithValue("@SaldoInicial", objCuentasBancarias.SaldoInicial);
+                micomando.Parameters.AddWithValue("@FechaApertura", objCuentasBancarias.FechaApertura);
+                micomando.Parameters.AddWithValue("@Moneda", objCuentasBancarias.Moneda);
+                micomando.Parameters.AddWithValue("@Debito", objCuentasBancarias.Debito);
+                micomando.Parameters.AddWithValue("@Credito", objCuentasBancarias.Credito);
+                micomando.Parameters.AddWithValue("@Estado", objCuentasBancarias.Estado);
+                micomando.Parameters.AddWithValue("@Observacion", objCuentasBancarias.Observacion);
 
                 // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
                 // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
@@ -195,7 +195,7 @@ namespace CapaDatos
 
 
         // Método para insertar una nueva Cuenta. Recibirá el objeto objCuenta como parámetro
-        public string Actualizar(CDCuentasBancarias objCuenta)
+        public string Actualizar(CDCuentasBancarias objCuentasBancarias)
         {
             string mensaje = "";
             // Creamos un nuevo objeto de tipo SqlConnection
@@ -218,18 +218,18 @@ namespace CapaDatos
                  * Los nombres que aparecen al lado son las propiedades del objeto objCuenta que se pasará 
                  * como parámetro con los valores deseados. 
                  */
-                micomando.Parameters.AddWithValue("@CuentaID", objCuenta.CuentaID);
-                micomando.Parameters.AddWithValue("@BancoID", objCuenta.BancoID);
-                micomando.Parameters.AddWithValue("@ClienteID", objCuenta.ClienteID);
-                micomando.Parameters.AddWithValue("@TipoCuenta", objCuenta.TipoCuenta);
-                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuenta.NumeroCuenta);
-                micomando.Parameters.AddWithValue("@SaldoInicial", objCuenta.SaldoInicial);
-                micomando.Parameters.AddWithValue("@FechaApertura", objCuenta.FechaApertura);
-                micomando.Parameters.AddWithValue("@Moneda", objCuenta.Moneda);
-                micomando.Parameters.AddWithValue("@Debito", objCuenta.Debito);
-                micomando.Parameters.AddWithValue("@Credito", objCuenta.Credito);
-                micomando.Parameters.AddWithValue("@Estado", objCuenta.Estado);
-                micomando.Parameters.AddWithValue("@Observacion", objCuenta.Observacion);
+                micomando.Parameters.AddWithValue("@CuentaID", objCuentasBancarias.CuentaID);
+                micomando.Parameters.AddWithValue("@BancoID", objCuentasBancarias.BancoID);
+                micomando.Parameters.AddWithValue("@ClienteID", objCuentasBancarias.ClienteID);
+                micomando.Parameters.AddWithValue("@TipoCuenta", objCuentasBancarias.TipoCuenta);
+                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuentasBancarias.NumeroCuenta);
+                micomando.Parameters.AddWithValue("@SaldoInicial", objCuentasBancarias.SaldoInicial);
+                micomando.Parameters.AddWithValue("@FechaApertura", objCuentasBancarias.FechaApertura);
+                micomando.Parameters.AddWithValue("@Moneda", objCuentasBancarias.Moneda);
+                micomando.Parameters.AddWithValue("@Debito", objCuentasBancarias.Debito);
+                micomando.Parameters.AddWithValue("@Credito", objCuentasBancarias.Credito);
+                micomando.Parameters.AddWithValue("@Estado", objCuentasBancarias.Estado);
+                micomando.Parameters.AddWithValue("@Observacion", objCuentasBancarias.Observacion);
 
                 // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
                 // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
@@ -248,6 +248,8 @@ namespace CapaDatos
             // Devolvemos el mensaje correspondiente de acuerdo a lo que haya resultado del comando
             return mensaje;
         }
+
+     
 
         public DataTable ObtenerCuentaBancariaPorID(int cuentaID)
         {
@@ -274,5 +276,7 @@ namespace CapaDatos
             }
             return dt; // Se retorna el DataTable según lo ocurrido arriba
         }
+
+      
     }
 }
