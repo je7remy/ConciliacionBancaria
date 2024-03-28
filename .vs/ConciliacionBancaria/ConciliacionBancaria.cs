@@ -14,9 +14,9 @@ using System.Data.SqlTypes;
 using CapaNegocio;
 namespace ConciliacionBancaria
 {
-    public partial class ConciliacionBancaria : Form
+    public partial class FConciliacionBancaria : Form
     {
-        public ConciliacionBancaria()
+        public FConciliacionBancaria()
         {
             InitializeComponent();
         }
@@ -24,6 +24,21 @@ namespace ConciliacionBancaria
         private void Conciliacion_Bancaria_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           statusStrip1.Items[1].Text = "Fecha/Hora: " + DateTime.Now.ToString();
         }
     }
 }

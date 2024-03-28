@@ -32,14 +32,12 @@ namespace ConciliacionBancaria
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMCuentas_Bancarias));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.textBoxtipodecuenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxnumerodecuenta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxsaldoinicial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxfechadeapertura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxmoneda = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,13 +54,15 @@ namespace ConciliacionBancaria
             this.Bcancelar = new System.Windows.Forms.Button();
             this.Beditar = new System.Windows.Forms.Button();
             this.Bguardar = new System.Windows.Forms.Button();
-            this.textBoxestado = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxcredito = new System.Windows.Forms.TextBox();
             this.textBoxobservacion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxclienteid = new System.Windows.Forms.ComboBox();
             this.textBoxbancoid = new System.Windows.Forms.ComboBox();
+            this.textBoxfechadeapertura = new System.Windows.Forms.DateTimePicker();
+            this.textBoxestado = new System.Windows.Forms.ComboBox();
+            this.textBoxtipodecuenta = new System.Windows.Forms.ComboBox();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -88,14 +88,6 @@ namespace ConciliacionBancaria
             this.bunifuCustomLabel1.TabIndex = 5;
             this.bunifuCustomLabel1.Text = "Cuentas Bancarias";
             // 
-            // textBoxtipodecuenta
-            // 
-            this.textBoxtipodecuenta.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtipodecuenta.Location = new System.Drawing.Point(814, 237);
-            this.textBoxtipodecuenta.Name = "textBoxtipodecuenta";
-            this.textBoxtipodecuenta.Size = new System.Drawing.Size(251, 39);
-            this.textBoxtipodecuenta.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -112,9 +104,9 @@ namespace ConciliacionBancaria
             this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(89, 240);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 31);
+            this.label3.Size = new System.Drawing.Size(106, 31);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Cliente ID";
+            this.label3.Text = "Clientes";
             // 
             // textBoxnumerodecuenta
             // 
@@ -151,14 +143,6 @@ namespace ConciliacionBancaria
             this.label2.Size = new System.Drawing.Size(160, 31);
             this.label2.TabIndex = 20;
             this.label2.Text = "Saldo Inicial";
-            // 
-            // textBoxfechadeapertura
-            // 
-            this.textBoxfechadeapertura.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxfechadeapertura.Location = new System.Drawing.Point(314, 356);
-            this.textBoxfechadeapertura.Name = "textBoxfechadeapertura";
-            this.textBoxfechadeapertura.Size = new System.Drawing.Size(251, 39);
-            this.textBoxfechadeapertura.TabIndex = 23;
             // 
             // label5
             // 
@@ -241,9 +225,9 @@ namespace ConciliacionBancaria
             this.label10.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(621, 182);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 31);
+            this.label10.Size = new System.Drawing.Size(96, 31);
             this.label10.TabIndex = 33;
-            this.label10.Text = "Banco ID";
+            this.label10.Text = "Bancos";
             // 
             // Pbotones
             // 
@@ -396,14 +380,6 @@ namespace ConciliacionBancaria
             this.Bguardar.UseVisualStyleBackColor = false;
             this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
             // 
-            // textBoxestado
-            // 
-            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxestado.Location = new System.Drawing.Point(314, 489);
-            this.textBoxestado.Name = "textBoxestado";
-            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
-            this.textBoxestado.TabIndex = 37;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -451,8 +427,16 @@ namespace ConciliacionBancaria
             this.textBoxclienteid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxclienteid.FormattingEnabled = true;
             this.textBoxclienteid.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
+            "Alejandro Cruz",
+            "Natalia Vega",
+            "Javier Rojas",
+            "Valentina Morales",
+            "Mateo Herrera",
+            "Sofía Díaz",
+            "Daniel Mendoza",
+            "Camila Fernández",
+            "Diego Ortiz",
+            "Luciana Gómez"});
             this.textBoxclienteid.Location = new System.Drawing.Point(314, 237);
             this.textBoxclienteid.Name = "textBoxclienteid";
             this.textBoxclienteid.Size = new System.Drawing.Size(251, 39);
@@ -473,6 +457,49 @@ namespace ConciliacionBancaria
             this.textBoxbancoid.Size = new System.Drawing.Size(251, 39);
             this.textBoxbancoid.TabIndex = 42;
             // 
+            // textBoxfechadeapertura
+            // 
+            this.textBoxfechadeapertura.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxfechadeapertura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.textBoxfechadeapertura.Location = new System.Drawing.Point(314, 359);
+            this.textBoxfechadeapertura.Name = "textBoxfechadeapertura";
+            this.textBoxfechadeapertura.Size = new System.Drawing.Size(251, 39);
+            this.textBoxfechadeapertura.TabIndex = 43;
+            // 
+            // textBoxestado
+            // 
+            this.textBoxestado.BackColor = System.Drawing.Color.White;
+            this.textBoxestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxestado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxestado.FormattingEnabled = true;
+            this.textBoxestado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.textBoxestado.Location = new System.Drawing.Point(314, 494);
+            this.textBoxestado.Name = "textBoxestado";
+            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
+            this.textBoxestado.TabIndex = 44;
+            this.textBoxestado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // textBoxtipodecuenta
+            // 
+            this.textBoxtipodecuenta.AutoCompleteCustomSource.AddRange(new string[] {
+            "Corriente",
+            "Ahorros"});
+            this.textBoxtipodecuenta.BackColor = System.Drawing.Color.White;
+            this.textBoxtipodecuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxtipodecuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxtipodecuenta.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxtipodecuenta.FormattingEnabled = true;
+            this.textBoxtipodecuenta.Items.AddRange(new object[] {
+            "Corriente",
+            "Ahorros"});
+            this.textBoxtipodecuenta.Location = new System.Drawing.Point(814, 237);
+            this.textBoxtipodecuenta.Name = "textBoxtipodecuenta";
+            this.textBoxtipodecuenta.Size = new System.Drawing.Size(251, 39);
+            this.textBoxtipodecuenta.TabIndex = 45;
+            // 
             // FMCuentas_Bancarias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -481,12 +508,14 @@ namespace ConciliacionBancaria
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.textBoxtipodecuenta);
+            this.Controls.Add(this.textBoxestado);
+            this.Controls.Add(this.textBoxfechadeapertura);
             this.Controls.Add(this.textBoxbancoid);
             this.Controls.Add(this.textBoxclienteid);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBoxobservacion);
             this.Controls.Add(this.textBoxcredito);
-            this.Controls.Add(this.textBoxestado);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Pbotones);
             this.Controls.Add(this.label10);
@@ -497,13 +526,11 @@ namespace ConciliacionBancaria
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxmoneda);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBoxfechadeapertura);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxsaldoinicial);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxnumerodecuenta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxtipodecuenta);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BarraTitulo);
@@ -531,14 +558,12 @@ namespace ConciliacionBancaria
         #endregion
         private System.Windows.Forms.Panel BarraTitulo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.TextBox textBoxtipodecuenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxnumerodecuenta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxsaldoinicial;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxfechadeapertura;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxmoneda;
         private System.Windows.Forms.Label label6;
@@ -555,12 +580,14 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button Bcancelar;
         private System.Windows.Forms.Button Beditar;
         private System.Windows.Forms.Button Bguardar;
-        private System.Windows.Forms.TextBox textBoxestado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBoxcredito;
         private System.Windows.Forms.TextBox textBoxobservacion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox textBoxclienteid;
         private System.Windows.Forms.ComboBox textBoxbancoid;
+        private System.Windows.Forms.DateTimePicker textBoxfechadeapertura;
+        private System.Windows.Forms.ComboBox textBoxestado;
+        private System.Windows.Forms.ComboBox textBoxtipodecuenta;
     }
 }

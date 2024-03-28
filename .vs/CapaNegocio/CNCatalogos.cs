@@ -14,57 +14,70 @@ namespace CapaNegocio
     public class CNCatalogos
     {
 
-        public static string Insertar(string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
+        public static string Insertar(int catalogoID, string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDCatalogos
-                CDCatalogos objCatalogos = new CDCatalogos();
+            CDCatalogos objCatalogo = new CDCatalogos();
+            // Preparamos los datos para insertar un nuevo catálogo
+            objCatalogo.CatalogoID = catalogoID;
+            objCatalogo.Nombre = nombre;
+            objCatalogo.Descripcion = descripcion;
+            objCatalogo.CuentasPadres = cuentasPadres;
+            objCatalogo.Origen = origen;
+            objCatalogo.Balance = balance;
+            objCatalogo.Estado = estado;
 
-                // Llamamos al método InsertarCatalogo de la capa de datos pasándole los parámetros recibidos
-                return objCatalogos.Insertar(nombre, descripcion, cuentasPadres, origen, balance, estado);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al insertar el catálogo: " + ex.Message;
-            }
+            // Llamamos al método Insertar del Catalogo pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+            return objCatalogo.Insertar(objCatalogo);
         }
 
         public static string Actualizar(int catalogoID, string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDCatalogos
-                CDCatalogos objCatalogos = new CDCatalogos();
+            CDCatalogos objCatalogo = new CDCatalogos();
+            // Preparamos los datos para insertar un nuevo catálogo
+            objCatalogo.CatalogoID = catalogoID;
+            objCatalogo.Nombre = nombre;
+            objCatalogo.Descripcion = descripcion;
+            objCatalogo.CuentasPadres = cuentasPadres;
+            objCatalogo.Origen = origen;
+            objCatalogo.Balance = balance;
+            objCatalogo.Estado = estado;
 
-                // Llamamos al método ActualizarCatalogo de la capa de datos pasándole los parámetros recibidos
-                return objCatalogos.Actualizar(catalogoID, nombre, descripcion, cuentasPadres, origen, balance, estado);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al actualizar el catálogo: " + ex.Message;
-            }
+            // Llamamos al método Insertar del Catalogo pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+            return objCatalogo.Actualizar(objCatalogo);
         }
+
+
+
+
+
 
         public static DataTable ObtenerCatalogoPorID(int catalogoID)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDCatalogos
-                CDCatalogos objCatalogos = new CDCatalogos();
+            // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
+            DataTable dt = CNCatalogos.ObtenerCatalogoPorID(catalogoID);
 
-                // Llamamos al método ObtenerCatalogoPorID de la capa de datos
-                return objCatalogos.ObtenerCatalogoPorID(catalogoID);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
-                throw new Exception("Error al obtener el catálogo por ID.", ex);
-            }
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
         }
+
+
+        //public static DataTable ObtenerCatalogoPorID(int catalogoID)
+        //{
+        //    try
+        //    {
+        //        // Creamos una instancia de la clase CDCatalogos
+        //        CDCatalogos objCatalogos = new CDCatalogos();
+
+        //        // Llamamos al método ObtenerCatalogoPorID de la capa de datos
+        //        return objCatalogos.ObtenerCatalogoPorID(catalogoID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejar la excepción o propagarla hacia arriba según sea necesario
+        //        // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
+        //        throw new Exception("Error al obtener el catálogo por ID.", ex);
+        //    }
+        //}
 
     }
 }

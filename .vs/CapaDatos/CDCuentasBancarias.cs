@@ -10,15 +10,15 @@ using System.Data.Sql;
 
 namespace CapaDatos
 {
-    /// <summary>
+    
     /// Clase para manejar la conexión y operaciones con la tabla de cuentas bancarias en la base de datos.
-    /// </summary>
+   
     public class CDCuentasBancarias
     {
         // Campos privados para almacenar los datos de la cuenta bancaria
         private int dCuentaID;
         private int dBancoID;
-        private int dClienteID;
+        private string dClienteID;
         private string dTipoCuenta;
         private string dNumeroCuenta;
         private decimal dSaldoInicial;
@@ -36,7 +36,7 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDCuentasBancarias(int CuentaID, int BancoID, int ClienteID, string TipoCuenta, string NumeroCuenta, decimal SaldoInicial, DateTime FechaApertura, string Moneda, decimal Debito, decimal Credito, string Estado, string Observacion)
+        public CDCuentasBancarias(int CuentaID, int BancoID, string ClienteID, string TipoCuenta, string NumeroCuenta, decimal SaldoInicial, DateTime FechaApertura, string Moneda, decimal Debito, decimal Credito, string Estado, string Observacion)
         {
             dCuentaID = CuentaID;
             dBancoID = BancoID;
@@ -69,7 +69,7 @@ namespace CapaDatos
         }
 
         // Propiedad para obtener o establecer el ID del cliente asociado a la cuenta bancaria
-        public int ClienteID
+        public string ClienteID
         {
             get { return dClienteID; }
             set { dClienteID = value; }
@@ -138,93 +138,145 @@ namespace CapaDatos
             set { dObservacion = value; }
         }
 
-        // Método para insertar una nueva cuenta bancaria en la base de datos
-        public string Insertar(int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
+        // Método para insertar una nueva Cuenta. Recibirá el objeto objCuenta como parámetro
+        public string Insertar(CDCuentasBancarias objCuentasBancarias)
         {
+            string mensaje = "";
+            // Creamos un nuevo objeto de tipo SqlConnection
+            SqlConnection sqlCon = new SqlConnection();
+            // Trataremos de hacer algunas operaciones con la tabla
             try
             {
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
-                {
-                    using (SqlCommand micomando = new SqlCommand("InsertarCuentaBancaria", sqlCon))
-                    {
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        micomando.Parameters.AddWithValue("@BancoID", dBancoID);
-                        micomando.Parameters.AddWithValue("@ClienteID", dClienteID);
-                        micomando.Parameters.AddWithValue("@TipoCuenta", dTipoCuenta);
-                        micomando.Parameters.AddWithValue("@NumeroCuenta", dNumeroCuenta);
-                        micomando.Parameters.AddWithValue("@SaldoInicial", dSaldoInicial);
-                        micomando.Parameters.AddWithValue("@FechaApertura", dFechaApertura);
-                        micomando.Parameters.AddWithValue("@Moneda", dMoneda);
-                        micomando.Parameters.AddWithValue("@Debito", dDebito);
-                        micomando.Parameters.AddWithValue("@Credito", dCredito);
-                        micomando.Parameters.AddWithValue("@Estado", dEstado);
-                        micomando.Parameters.AddWithValue("@Observacion", dObservacion);
+                // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
+                sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
+                // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso CuentaInsertar
+                SqlCommand micomando = new SqlCommand("InsertarCuentaBancaria", sqlCon);
+                sqlCon.Open(); // Abrimos la conexión
+                               // Indicamos que se ejecutará un procedimiento almacenado
+                micomando.CommandType = CommandType.StoredProcedure;
 
-                        sqlCon.Open();
-                        int rowsAffected = micomando.ExecuteNonQuery();
+                /* Enviamos los parámetros al procedimiento almacenado.
+                 * Los nombres que aparecen con el signo @ delante son los parámetros que hemos
+                 * creado en el procedimiento almacenado de la base de datos y debemos escribirlos tal cual 
+                 * aparecen en dicho procedimiento almacenado (respetar mayúsculas y minúsculas).
+                 * Los nombres que aparecen al lado son las propiedades del objeto objCuenta que se pasará 
+                 * como parámetro con los valores deseados. 
+                 */
+                micomando.Parameters.AddWithValue("@CuentaID", objCuentasBancarias.CuentaID);
+                micomando.Parameters.AddWithValue("@BancoID", objCuentasBancarias.BancoID);
+                micomando.Parameters.AddWithValue("@ClienteID", objCuentasBancarias.ClienteID);
+                micomando.Parameters.AddWithValue("@TipoCuenta", objCuentasBancarias.TipoCuenta);
+                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuentasBancarias.NumeroCuenta);
+                micomando.Parameters.AddWithValue("@SaldoInicial", objCuentasBancarias.SaldoInicial);
+                micomando.Parameters.AddWithValue("@FechaApertura", objCuentasBancarias.FechaApertura);
+                micomando.Parameters.AddWithValue("@Moneda", objCuentasBancarias.Moneda);
+                micomando.Parameters.AddWithValue("@Debito", objCuentasBancarias.Debito);
+                micomando.Parameters.AddWithValue("@Credito", objCuentasBancarias.Credito);
+                micomando.Parameters.AddWithValue("@Estado", objCuentasBancarias.Estado);
+                micomando.Parameters.AddWithValue("@Observacion", objCuentasBancarias.Observacion);
 
-                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
-                                                   "No se pudo insertar correctamente los nuevos datos!";
-                    }
-                }
+                // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
+                // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
+                mensaje = micomando.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
             }
-            catch (Exception ex)
+            catch (Exception ex) // Si ocurre algún error, lo capturamos y mostramos el mensaje
             {
-                throw new Exception("Error al intentar insertar datos de la cuenta bancaria.", ex);
+                mensaje = ex.Message;
             }
+            finally // Luego de realizar el proceso de forma correcta o no 
+            {
+                // Cerramos la conexión si está abierta
+                if (sqlCon.State == ConnectionState.Open)
+                    sqlCon.Close();
+            }
+            // Devolvemos el mensaje correspondiente de acuerdo a lo que haya resultado del comando
+            return mensaje;
         }
 
-        // Método para actualizar los datos de una cuenta bancaria en la base de datos
-        public string Actualizar(int cuentaID, int bancoID, int clienteID, string tipoCuenta, string numeroCuenta, decimal saldoInicial, DateTime fechaApertura, string moneda, decimal debito, decimal credito, string estado, string observacion)
+
+        // Método para insertar una nueva Cuenta. Recibirá el objeto objCuenta como parámetro
+        public string Actualizar(CDCuentasBancarias objCuentasBancarias)
         {
+            string mensaje = "";
+            // Creamos un nuevo objeto de tipo SqlConnection
+            SqlConnection sqlCon = new SqlConnection();
+            // Trataremos de hacer algunas operaciones con la tabla
             try
             {
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
-                {
-                    using (SqlCommand micomando = new SqlCommand("ActualizarCuentaBancaria", sqlCon))
-                    {
-                        micomando.CommandType = CommandType.StoredProcedure;
-                        micomando.Parameters.AddWithValue("@CuentaID", dCuentaID);
-                        micomando.Parameters.AddWithValue("@TipoCuenta", dTipoCuenta);
-                        micomando.Parameters.AddWithValue("@NumeroCuenta", dNumeroCuenta);
-                        micomando.Parameters.AddWithValue("@SaldoInicial", dSaldoInicial);
+                // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
+                sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
+                // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso CuentaInsertar
+                SqlCommand micomando = new SqlCommand("ActualizarCuentaBancaria", sqlCon);
+                sqlCon.Open(); // Abrimos la conexión
+                               // Indicamos que se ejecutará un procedimiento almacenado
+                micomando.CommandType = CommandType.StoredProcedure;
 
-                        sqlCon.Open();
-                        int rowsAffected = micomando.ExecuteNonQuery();
+                /* Enviamos los parámetros al procedimiento almacenado.
+                 * Los nombres que aparecen con el signo @ delante son los parámetros que hemos
+                 * creado en el procedimiento almacenado de la base de datos y debemos escribirlos tal cual 
+                 * aparecen en dicho procedimiento almacenado (respetar mayúsculas y minúsculas).
+                 * Los nombres que aparecen al lado son las propiedades del objeto objCuenta que se pasará 
+                 * como parámetro con los valores deseados. 
+                 */
+                micomando.Parameters.AddWithValue("@CuentaID", objCuentasBancarias.CuentaID);
+                micomando.Parameters.AddWithValue("@BancoID", objCuentasBancarias.BancoID);
+                micomando.Parameters.AddWithValue("@ClienteID", objCuentasBancarias.ClienteID);
+                micomando.Parameters.AddWithValue("@TipoCuenta", objCuentasBancarias.TipoCuenta);
+                micomando.Parameters.AddWithValue("@NumeroCuenta", objCuentasBancarias.NumeroCuenta);
+                micomando.Parameters.AddWithValue("@SaldoInicial", objCuentasBancarias.SaldoInicial);
+                micomando.Parameters.AddWithValue("@FechaApertura", objCuentasBancarias.FechaApertura);
+                micomando.Parameters.AddWithValue("@Moneda", objCuentasBancarias.Moneda);
+                micomando.Parameters.AddWithValue("@Debito", objCuentasBancarias.Debito);
+                micomando.Parameters.AddWithValue("@Credito", objCuentasBancarias.Credito);
+                micomando.Parameters.AddWithValue("@Estado", objCuentasBancarias.Estado);
+                micomando.Parameters.AddWithValue("@Observacion", objCuentasBancarias.Observacion);
 
-                        return rowsAffected == 1 ? "Actualización de datos completada correctamente!" :
-                                                   "No se pudo actualizar correctamente los datos!";
-                    }
-                }
+                // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
+                // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
+                mensaje = micomando.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
             }
-            catch (Exception ex)
+            catch (Exception ex) // Si ocurre algún error, lo capturamos y mostramos el mensaje
             {
-                throw new Exception("Error al intentar actualizar datos de la cuenta bancaria.", ex);
+                mensaje = ex.Message;
             }
+            finally // Luego de realizar el proceso de forma correcta o no 
+            {
+                // Cerramos la conexión si está abierta
+                if (sqlCon.State == ConnectionState.Open)
+                    sqlCon.Close();
+            }
+            // Devolvemos el mensaje correspondiente de acuerdo a lo que haya resultado del comando
+            return mensaje;
         }
-        // Método utilizado para obtener un DataTable con los datos de una cuenta bancaria por su ID
+
+     
+
         public DataTable ObtenerCuentaBancariaPorID(int cuentaID)
         {
+            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos de la cuenta bancaria
+            SqlDataReader leerDatos; // Creamos el DataReader
             try
             {
-                // Se crea un objeto DataTable para almacenar los resultados de la consulta
-                DataTable dt = new DataTable();
-
-                // Se instancia un objeto de la clase CDCuentasBancarias
-                CDCuentasBancarias objCuentaBancaria = new CDCuentasBancarias();
-
-                // Se llena el DataTable con los datos de la cuenta bancaria correspondiente al ID proporcionado
-                dt = objCuentaBancaria.ObtenerCuentaBancariaPorID(cuentaID);
-
-                // Se retorna el DataTable con los datos adquiridos
-                return dt;
+                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
+                {
+                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
+                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
+                    sqlCon.Open(); // Se abre la conexión
+                    sqlCmd.CommandText = "ObtenerCuentaBancariaPorID"; // Nombre del Proc. Almacenado a usar
+                    sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
+                    sqlCmd.Parameters.AddWithValue("@CuentaID", cuentaID); // Se pasa el ID de la cuenta bancaria a buscar
+                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
+                    dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
+                    sqlCon.Close(); // Se cierra la conexión
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Se lanza una excepción con un mensaje descriptivo y la excepción original
-                throw new Exception("Error al intentar obtener datos de la cuenta bancaria por ID.", ex);
+                dt = null; // Si ocurre algún error se anula el DataTable
             }
+            return dt; // Se retorna el DataTable según lo ocurrido arriba
         }
 
+      
     }
 }

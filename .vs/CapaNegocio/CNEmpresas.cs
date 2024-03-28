@@ -13,56 +13,68 @@ namespace CapaNegocio
 {
     public class CNEmpresas
     {
-        public static string Insertar(string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
+        public static string Insertar(int empresaID, string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDEmpresas
-                CDEmpresas objEmpresas = new CDEmpresas();
+            CDEmpresas objEmpresa = new CDEmpresas();
+            // Preparamos los datos para insertar una nueva empresa
+            objEmpresa.EmpresaID = empresaID;
+            objEmpresa.NombreEmpresa = nombreEmpresa;
+            objEmpresa.Direccion = direccion;
+            objEmpresa.InformacionContacto = informacionContacto;
+            objEmpresa.Telefono = telefono;
+            objEmpresa.Correo = correo;
+            objEmpresa.Estado = estado;
 
-                // Llamamos al método InsertarEmpresa de la capa de datos pasándole los parámetros recibidos
-                return objEmpresas.Insertar(nombreEmpresa, direccion, informacionContacto, telefono, correo, estado);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al insertar la empresa: " + ex.Message;
-            }
+            // Llamamos al método Insertar del Empresa pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+            return objEmpresa.Insertar(objEmpresa);
         }
 
         public static string Actualizar(int empresaID, string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDEmpresas
-                CDEmpresas objEmpresas = new CDEmpresas();
+            CDEmpresas objEmpresa = new CDEmpresas();
+            // Preparamos los datos para insertar una nueva empresa
+            objEmpresa.EmpresaID = empresaID;
+            objEmpresa.NombreEmpresa = nombreEmpresa;
+            objEmpresa.Direccion = direccion;
+            objEmpresa.InformacionContacto = informacionContacto;
+            objEmpresa.Telefono = telefono;
+            objEmpresa.Correo = correo;
+            objEmpresa.Estado = estado;
 
-                // Llamamos al método ActualizarEmpresa de la capa de datos pasándole los parámetros recibidos
-                return objEmpresas.Actualizar(empresaID, nombreEmpresa, direccion, informacionContacto, telefono, correo, estado);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                return "Error al actualizar la empresa: " + ex.Message;
-            }
+            // Llamamos al método Insertar del Empresa pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
+            return objEmpresa.Insertar(objEmpresa);
         }
+
+
+
+
 
         public static DataTable ObtenerEmpresaPorID(int empresaID)
         {
-            try
-            {
-                // Creamos una instancia de la clase CDEmpresas
-                CDEmpresas objEmpresas = new CDEmpresas();
+            // Llamada al método estático ObtenerEmpresaPorID de la clase CNEmpresas
+            DataTable dt = CNEmpresas.ObtenerEmpresaPorID(empresaID);
 
-                // Llamamos al método ObtenerEmpresaPorID de la capa de datos
-                return objEmpresas.ObtenerEmpresaPorID(empresaID);
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción o propagarla hacia arriba según sea necesario
-                // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
-                throw new Exception("Error al obtener la empresa por ID.", ex);
-            }
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
         }
+
+
+        //public static DataTable ObtenerEmpresaPorID(int empresaID)
+        //{
+        //    try
+        //    {
+        //        // Creamos una instancia de la clase CDEmpresas
+        //        CDEmpresas objEmpresas = new CDEmpresas();
+
+        //        // Llamamos al método ObtenerEmpresaPorID de la capa de datos
+        //        return objEmpresas.ObtenerEmpresaPorID(empresaID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejar la excepción o propagarla hacia arriba según sea necesario
+        //        // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
+        //        throw new Exception("Error al obtener la empresa por ID.", ex);
+        //    }
+        //}
     }
 }

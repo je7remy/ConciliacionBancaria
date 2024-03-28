@@ -80,7 +80,7 @@ namespace ConciliacionBancaria
             // 
             this.textBoxusuarioid.Enabled = false;
             this.textBoxusuarioid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxusuarioid.Location = new System.Drawing.Point(296, 113);
+            this.textBoxusuarioid.Location = new System.Drawing.Point(413, 204);
             this.textBoxusuarioid.Name = "textBoxusuarioid";
             this.textBoxusuarioid.Size = new System.Drawing.Size(251, 39);
             this.textBoxusuarioid.TabIndex = 17;
@@ -88,7 +88,7 @@ namespace ConciliacionBancaria
             // textBoxnombre
             // 
             this.textBoxnombre.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxnombre.Location = new System.Drawing.Point(818, 113);
+            this.textBoxnombre.Location = new System.Drawing.Point(913, 204);
             this.textBoxnombre.Name = "textBoxnombre";
             this.textBoxnombre.Size = new System.Drawing.Size(251, 39);
             this.textBoxnombre.TabIndex = 16;
@@ -97,7 +97,7 @@ namespace ConciliacionBancaria
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(93, 116);
+            this.label4.Location = new System.Drawing.Point(188, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 31);
             this.label4.TabIndex = 15;
@@ -107,7 +107,7 @@ namespace ConciliacionBancaria
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(615, 116);
+            this.label3.Location = new System.Drawing.Point(710, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 31);
             this.label3.TabIndex = 14;
@@ -116,7 +116,7 @@ namespace ConciliacionBancaria
             // textBoxcontraseña
             // 
             this.textBoxcontraseña.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcontraseña.Location = new System.Drawing.Point(318, 206);
+            this.textBoxcontraseña.Location = new System.Drawing.Point(413, 346);
             this.textBoxcontraseña.Name = "textBoxcontraseña";
             this.textBoxcontraseña.Size = new System.Drawing.Size(251, 39);
             this.textBoxcontraseña.TabIndex = 19;
@@ -125,7 +125,7 @@ namespace ConciliacionBancaria
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 209);
+            this.label1.Location = new System.Drawing.Point(188, 349);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 31);
             this.label1.TabIndex = 18;
@@ -134,7 +134,7 @@ namespace ConciliacionBancaria
             // textBoxcorreo
             // 
             this.textBoxcorreo.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcorreo.Location = new System.Drawing.Point(818, 206);
+            this.textBoxcorreo.Location = new System.Drawing.Point(913, 346);
             this.textBoxcorreo.Name = "textBoxcorreo";
             this.textBoxcorreo.Size = new System.Drawing.Size(251, 39);
             this.textBoxcorreo.TabIndex = 21;
@@ -143,7 +143,7 @@ namespace ConciliacionBancaria
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(625, 209);
+            this.label2.Location = new System.Drawing.Point(720, 349);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 31);
             this.label2.TabIndex = 20;
@@ -152,7 +152,7 @@ namespace ConciliacionBancaria
             // textBoxrol
             // 
             this.textBoxrol.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxrol.Location = new System.Drawing.Point(318, 290);
+            this.textBoxrol.Location = new System.Drawing.Point(413, 485);
             this.textBoxrol.Name = "textBoxrol";
             this.textBoxrol.Size = new System.Drawing.Size(251, 39);
             this.textBoxrol.TabIndex = 23;
@@ -161,7 +161,7 @@ namespace ConciliacionBancaria
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(93, 293);
+            this.label5.Location = new System.Drawing.Point(188, 488);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 31);
             this.label5.TabIndex = 22;
@@ -170,7 +170,7 @@ namespace ConciliacionBancaria
             // textBoxestado
             // 
             this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxestado.Location = new System.Drawing.Point(818, 293);
+            this.textBoxestado.Location = new System.Drawing.Point(913, 488);
             this.textBoxestado.Name = "textBoxestado";
             this.textBoxestado.Size = new System.Drawing.Size(251, 39);
             this.textBoxestado.TabIndex = 25;
@@ -179,7 +179,7 @@ namespace ConciliacionBancaria
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(625, 293);
+            this.label6.Location = new System.Drawing.Point(720, 488);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 31);
             this.label6.TabIndex = 24;
@@ -197,7 +197,7 @@ namespace ConciliacionBancaria
             this.Pbotones.Controls.Add(this.Bguardar);
             this.Pbotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Pbotones.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pbotones.Location = new System.Drawing.Point(0, 427);
+            this.Pbotones.Location = new System.Drawing.Point(0, 629);
             this.Pbotones.Name = "Pbotones";
             this.Pbotones.Size = new System.Drawing.Size(1340, 100);
             this.Pbotones.TabIndex = 35;
@@ -338,7 +338,7 @@ namespace ConciliacionBancaria
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1340, 527);
+            this.ClientSize = new System.Drawing.Size(1340, 729);
             this.Controls.Add(this.Pbotones);
             this.Controls.Add(this.textBoxestado);
             this.Controls.Add(this.label6);

@@ -10,20 +10,24 @@ using System.Windows.Forms;
 //Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-
+using CapaDatos;
 using CapaNegocio;
 
 namespace ConciliacionBancaria
 {
     public partial class FMTransacciones_Internas : Form
     {
+
+        // Variables globales
+        public string mensaje = "";
+
         public FMTransacciones_Internas()
         {
             InitializeComponent();
-           
+
         }
 
-      
+
         private void iconcerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Matenimiento Bancos?", "Cerrar Bancos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -34,7 +38,7 @@ namespace ConciliacionBancaria
 
         }
 
-      
+
 
         private void iconminimizar_Click(object sender, EventArgs e)
         {
@@ -43,20 +47,588 @@ namespace ConciliacionBancaria
 
         private void FMBancos_Load(object sender, EventArgs e)
         {
+            Program.nuevo = false;
+            Program.modificar = false;
+            HabilitaBotones();
+            LimpiaObjetos();
+            CargarBancos();
+            CargarCuentas();
+            CargarUsuario();
+        }
 
+        private void CargarBancos()
+        {
+            try
+            {
+                string query = "ObtenerBancos";
+
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
+
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxbancoid.DisplayMember = "Nombre";
+                        textBoxbancoid.ValueMember = "BancoID";
+                        textBoxbancoid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar bancos: " + ex.Message);
+            }
+        }
+
+
+
+        private void CargarCuentas()
+        {
+            try
+            {
+                string query = "ObtenerCuentas";
+
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
+
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxcuentaid.DisplayMember = "TipoCuenta";
+                        textBoxcuentaid.ValueMember = "CuentaID";
+                        textBoxcuentaid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar Cuentas: " + ex.Message);
+            }
+        }
+
+
+
+        private void CargarUsuario()
+        {
+            try
+            {
+                string query = "ObtenerUsuarios";
+
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
+
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxusuarioid.DisplayMember = "NombreUsuario";
+                        textBoxusuarioid.ValueMember = "UsuarioID";
+                        textBoxusuarioid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar Usuario: " + ex.Message);
+            }
         }
 
         private void Bsalir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Matenimiento Transacciones Internas?", "Cerrar Transacciones Internas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            this.Close();
+        }
+
+
+        public void LimpiaObjetos()
+        {
+
+
+            textBoxbancoid.SelectedIndex = -1;
+            textBoxclienteid.SelectedIndex = -1;
+            textBoxcuentaid.SelectedIndex = -1;
+            textBoxdescripcion.Clear();
+            textBoxfecha.CustomFormat = "dd/MM/yyyy";
+            textBoxfecha.Format = DateTimePickerFormat.Custom;
+            textBoxmonto.Clear();
+            textBoxobservacion.Clear();
+            textBoxtipo.SelectedIndex = -1;
+            textBoxtransaccionid.Clear();
+            textBoxusuarioid.SelectedIndex = -1;
+
+            if (textBoxfecha.Value == DateTime.MinValue)
             {
-                this.Close(); // Cierra el formulario si el usuario confirma
+                textBoxfecha.Text = "01/01/1750";
+            }
+
+        }
+
+
+        private void HabilitaControles(bool valor)
+        {
+            textBoxtransaccionid.ReadOnly = !valor;
+            textBoxbancoid.Enabled = valor;
+            textBoxclienteid.Enabled = valor;
+            textBoxcuentaid.Enabled = valor;
+            textBoxdescripcion.Enabled = valor;
+            textBoxfecha.Enabled = valor;
+            textBoxmonto.Enabled = valor;
+            textBoxobservacion.Enabled = valor;
+            textBoxobservacion.Enabled = valor;
+            textBoxtipo.Enabled = valor;
+            textBoxusuarioid.Enabled = valor;
+            if (Program.nuevo)
+
+                textBoxbancoid.SelectedIndex = 0;
+        }
+
+
+
+        private void HabilitaBotones()
+        {
+            if (Program.nuevo || Program.modificar)
+            {
+                HabilitaControles(true);
+                Bnuevo.Enabled = false;
+                Bguardar.Enabled = true;
+                Beditar.Enabled = false;
+                Bbuscar.Enabled = false;
+                Bcancelar.Enabled = true;
+            }
+            else
+            {
+                HabilitaControles(false);
+                Bnuevo.Enabled = true;
+                Bguardar.Enabled = false;
+                Beditar.Enabled = false;
+                Bbuscar.Enabled = true;
+                Bcancelar.Enabled = false;
             }
         }
+
+
+
 
         private void label12_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void FMTransacciones_Internas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro de que deseas cerrar el Mantenimiento Transacciones Internas?", "Cerrar Transacciones Internas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Bnuevo_Click(object sender, EventArgs e)
+        {
+            LimpiaObjetos();
+            Program.nuevo = true;
+            Program.modificar = false;
+            HabilitaBotones();
+            textBoxfecha.Focus();
+
+
+            //// Obtener el último ID insertado y asignarlo al textBoxbanco
+            int ultimoIDInsertado = ObtenerUltimoIDInsertado("TransaccionesInternas");
+            textBoxtransaccionid.Text = (ultimoIDInsertado + 1).ToString();
+            //+ 1
+        }
+
+
+        private void Bguardar_Click(object sender, EventArgs e)
+        {
+           
+                //Validamos los datos requeridos antes de Insertar o Actualizar
+                if (textBoxtransaccionid.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe seleccionar el ID de la Transacción!");
+                    textBoxtransaccionid.Focus();
+                }
+                else if (textBoxclienteid.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el Cliente!");
+                    textBoxclienteid.Focus();
+                }
+                else if (textBoxtipo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el Tipo de Transacción!");
+                    textBoxtipo.Focus();
+                }
+                else if (textBoxbancoid.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el ID del Banco!");
+                    textBoxbancoid.Focus();
+                }
+                else if (textBoxdescripcion.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar la Descripción de la Transacción!");
+                    textBoxdescripcion.Focus();
+                }
+                else if (textBoxmonto.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe indicar el Monto!");
+                    textBoxmonto.Focus();
+                }
+                else if (textBoxfecha.Value == null)
+                {
+                    MessageBox.Show("Debe indicar la Fecha!");
+                    textBoxfecha.Focus();
+                }
+                else if (textBoxusuarioid.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el ID del Usuario!");
+                    textBoxusuarioid.Focus();
+                }
+                else if (textBoxcuentaid.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el ID de la Cuenta!");
+                    textBoxcuentaid.Focus();
+                }
+                else if (textBoxmonto.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe seleccionar el Monto");
+                    textBoxmonto.Focus();
+                }
+                else if (textBoxobservacion.Text == String.Empty)
+                {
+                    MessageBox.Show("Debe seleccionar la Observacion");
+                    textBoxobservacion.Focus();
+                }
+                else
+                {
+                    string mensaje = "";
+
+                    int BancoID =0;
+
+                    // Obteniendo BancoID
+                    if (textBoxbancoid.SelectedItem != null && textBoxbancoid.SelectedItem is DataRowView)
+                    {
+                        DataRowView selectedRow = textBoxbancoid.SelectedItem as DataRowView;
+                        if (selectedRow.Row["BancoID"] != null && int.TryParse(selectedRow.Row["BancoID"].ToString(), out BancoID))
+                        {
+                            // La conversión fue exitosa
+                        }
+                        else
+                        {
+                            // Manejar el error de conversión
+                            MessageBox.Show("Error al convertir el ID del Banco a entero.");
+                            return;
+                        }
+                    }
+
+                    // Obteniendo CuentaID
+                    int CuentaID = 0;
+                    if (textBoxcuentaid.SelectedItem != null && textBoxcuentaid.SelectedItem is DataRowView)
+                    {
+                        DataRowView selectedRow = textBoxcuentaid.SelectedItem as DataRowView;
+                        if (selectedRow.Row["CuentaID"] != null && int.TryParse(selectedRow.Row["CuentaID"].ToString(), out CuentaID))
+                        {
+                            // La conversión fue exitosa
+                        }
+                        else
+                        {
+                            // Manejar el error de conversión
+                            MessageBox.Show("Error al convertir el ID de la Cuenta a entero.");
+                            return;
+                        }
+                    }
+
+                    // Obteniendo UsuarioID
+                    int UsuarioID = 0;
+                    if (textBoxusuarioid.SelectedItem != null && textBoxusuarioid.SelectedItem is DataRowView)
+                    {
+                        DataRowView selectedRow = textBoxusuarioid.SelectedItem as DataRowView;
+                        if (selectedRow.Row["UsuarioID"] != null && int.TryParse(selectedRow.Row["UsuarioID"].ToString(), out UsuarioID))
+                        {
+                            // La conversión fue exitosa
+                        }
+                        else
+                        {
+                            // Manejar el error de conversión
+                            MessageBox.Show("Error al convertir el ID del Usuario a entero.");
+                            return;
+                        }
+                    }
+
+
+                    // Repite el mismo proceso para CuentaID y UsuarioID
+
+                    // Continúa con tu lógica después de asegurarte de que todos los IDs se han obtenido correctamente.
+
+
+                    // Obteniendo el monto
+                    decimal Monto = 0;                    
+                    if (textBoxmonto.Text == String.Empty || !decimal.TryParse(textBoxmonto.Text, out Monto))
+                    {
+                        MessageBox.Show("El valor ingresado para el Monto no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+
+                //string ClienteID = string.Empty;
+                //if (textBoxclienteid.SelectedItem != null && textBoxclienteid.SelectedItem is DataRowView)
+                //{
+                //    DataRowView selectedRow = textBoxclienteid.SelectedItem as DataRowView;
+                //    if (selectedRow.Row["ClienteID"] != null)
+                //    {
+                //        ClienteID = selectedRow.Row["ClienteID"].ToString();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("El ID del Cliente seleccionado no es válido.");
+                //        return;
+                //    }
+                //}
+
+
+                if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos
+                    {
+                        //Se llama al método Insertar de la clase CDCuentas de la capa de negocio
+                        //pasándole como parámetros los valores leídos en los controles del formulario.
+                        //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
+                        mensaje = CNTransaccionesInternas.Insertar(
+                           UsuarioID,
+                           BancoID,
+                           CuentaID,
+                           //   textBoxclienteid.Text,
+                           textBoxclienteid.Text,
+                           textBoxfecha.Value,
+                           textBoxdescripcion.Text,
+                           Monto,
+                           textBoxtipo.Text,
+                           textBoxobservacion.Text
+                          
+                       );
+
+
+                        int ultimoIDInsertado;
+                        if (int.TryParse(textBoxtransaccionid.Text, out ultimoIDInsertado))
+                        {
+                            if (ultimoIDInsertado > 0)
+                            {
+                                textBoxtransaccionid.Text = ultimoIDInsertado.ToString();
+                                textBoxtransaccionid.Text = (ultimoIDInsertado + 1).ToString();
+                            }
+                            else
+                            {
+
+                                return;
+                            }
+                        }
+
+
+                    }
+                    else //de lo contrario se Modificarán los datos del registro correspondiente
+                    {
+                        //Se llama al método Actualizar de la clase CDCuentas de la capa de negocio
+                        //pasándole como parámetros los valores leídos en los controles del formulario.
+                        //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
+                        mensaje = CNTransaccionesInternas.Actualizar(Program.TransaccionID,
+                          
+                           UsuarioID,
+                           BancoID,
+                           CuentaID,
+                           //textBoxclienteid.Text,
+                           textBoxclienteid.Text,
+                           textBoxfecha.Value,
+                           textBoxdescripcion.Text,
+                           Monto,
+                           textBoxtipo.Text,
+                           textBoxobservacion.Text
+
+                       );
+                    }
+
+
+
+
+
+
+
+                  MessageBox.Show(mensaje, "Mensaje de Transacciones Internas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show($"Transacción exitosa. Detalles: {mensaje}", "Mensaje de Transacciones Internas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //    MessageBox.Show($"Error al insertar Transacciones Internas: {ex.Message}. Caja de texto: {ex.TargetSite.Name}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show($"Error al insertar Transacciones Internas. Método: {System.Reflection.MethodBase.GetCurrentMethod().Name}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //  MessageBox.Show($"Error al insertar Transacciones Internas: {ex.Message}. Caja de texto: {System.Reflection.MethodBase.GetCurrentMethod().Name}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                    Program.nuevo = false;
+                    Program.modificar = false;
+                    HabilitaBotones();
+                    LimpiaObjetos();
+                }
+            }
+
+
+        private void Bcancelar_Click(object sender, EventArgs e)
+        {
+            Program.nuevo = false;
+            Program.modificar = false;
+            HabilitaBotones(); //Habilita los objetos y botones correspondientes
+            LimpiaObjetos(); //Llama al método LimpiaObjetos
+        }
+
+        private void Beditar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxtransaccionid.Text))
+            {
+                MessageBox.Show("Debe seleccionar una Transacciones Internas para modificar sus datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Program.modificar = true;
+            HabilitaBotones();
+        }
+
+        private void FMTransacciones_Internas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Bbuscar_Click(object sender, EventArgs e)
+        {
+            if (Program.modificar)
+            {
+                RecuperaDatos();
+                Beditar_Click(sender, e);
+            }
+            else
+            {
+                LimpiaObjetos();
+                Bbuscar.Focus();
+            }
+        }
+
+        public void RecuperaDatos()
+        {
+            int transaccionID = Program.TransaccionID; // Obtener el ID de la transacción de Program
+
+            // Crear una instancia de CDCuentas
+            CDTransaccionesInternas cuentas = new CDTransaccionesInternas();
+
+            // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentas
+            DataTable dt = cuentas.ObtenerTransaccionInternaPorID(transaccionID);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                textBoxtransaccionid.Text = row["TransaccionID"].ToString();
+                textBoxclienteid.Text = row["ClienteID"].ToString();
+                int tipoDeTransaccion;
+                if (int.TryParse(row.Field<string>("TipoDeTransaccion"), out tipoDeTransaccion))
+                {
+                    textBoxtipo.SelectedIndex = tipoDeTransaccion;
+                }
+                else
+                {
+                    textBoxtipo.SelectedIndex = -1;
+                }
+                // Asignación de valores recuperados a variables
+                textBoxbancoid.SelectedIndex = row.Table.Columns.Contains("BancoID") ? row.Field<int>("BancoID") : -1;
+                textBoxusuarioid.SelectedIndex = row.Table.Columns.Contains("UsuarioID") ? row.Field<int>("UsuarioID") : -1;
+                textBoxdescripcion.Text = row["Descripcion"].ToString();
+                textBoxmonto.Text = row["Monto"].ToString();
+                textBoxfecha.Value = row.Table.Columns.Contains("Fecha") ? DateTime.Parse(row.Field<string>("Fecha")) : DateTime.MinValue;
+                textBoxobservacion.Text = row["Observacion"].ToString();
+            }
+            else
+            {
+                textBoxtransaccionid.Text = "";
+                textBoxclienteid.Text = "";
+                textBoxtipo.SelectedIndex = -1;
+                textBoxbancoid.SelectedIndex = -1;
+                textBoxdescripcion.Text = "";
+                textBoxmonto.Text = "";
+                textBoxfecha.Value = DateTime.MinValue;
+                textBoxusuarioid.SelectedIndex = -1;
+                textBoxobservacion.Text = "";
+            }
+        }
+
+
+        private void ObtenerUltimoIDInsertado()
+        {
+            try
+            {
+                // Llamada al método con el nombre de la tabla "Bancos"
+                int ultimoID = ObtenerUltimoIDInsertado("TransaccionesInternas");
+
+                // Aquí puedes usar el último ID obtenido como desees, por ejemplo, mostrarlo en un MessageBox
+                MessageBox.Show("Último ID insertado para la tabla 'TransaccionesInternas': " + ultimoID);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al obtener el último ID insertado: " + ex.Message);
+            }
+        }
+
+        public static int ObtenerUltimoIDInsertado(string tabla)
+        {
+            using (SqlConnection connection = CapaPresentacionConexion.ObtenerConexion())
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerUltimoIDInsertado", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@Tabla", tabla);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
     }
-}
+    }
