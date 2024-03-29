@@ -13,11 +13,11 @@ namespace CapaNegocio
 {
     public class CNUsuarios
     {
-        public static string Insertar(int usuarioID, string nombreUsuario, string contraseñaHash, string correoElectronico, string rol, string estado)
+        public static string Insertar(string nombreUsuario, string contraseñaHash, string correoElectronico, string rol, string estado)
         {
             CDUsuarios objUsuario = new CDUsuarios();
             // Preparamos los datos para insertar un nuevo usuario
-            objUsuario.UsuarioID = usuarioID;
+         //   objUsuario.UsuarioID = usuarioID;
             objUsuario.NombreUsuario = nombreUsuario;
             objUsuario.ContraseñaHash = contraseñaHash;
             objUsuario.CorreoElectronico = correoElectronico;
