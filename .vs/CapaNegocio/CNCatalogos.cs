@@ -14,11 +14,11 @@ namespace CapaNegocio
     public class CNCatalogos
     {
 
-        public static string Insertar(int catalogoID, string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
+        public static string Insertar( string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
             CDCatalogos objCatalogo = new CDCatalogos();
             // Preparamos los datos para insertar un nuevo catálogo
-            objCatalogo.CatalogoID = catalogoID;
+           // objCatalogo.CatalogoID = catalogoID;
             objCatalogo.Nombre = nombre;
             objCatalogo.Descripcion = descripcion;
             objCatalogo.CuentasPadres = cuentasPadres;

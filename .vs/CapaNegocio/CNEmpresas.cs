@@ -13,11 +13,11 @@ namespace CapaNegocio
 {
     public class CNEmpresas
     {
-        public static string Insertar(int empresaID, string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
+        public static string Insertar( string nombreEmpresa, string direccion, string informacionContacto, string telefono, string correo, string estado)
         {
             CDEmpresas objEmpresa = new CDEmpresas();
             // Preparamos los datos para insertar una nueva empresa
-            objEmpresa.EmpresaID = empresaID;
+           // objEmpresa.EmpresaID = empresaID;
             objEmpresa.NombreEmpresa = nombreEmpresa;
             objEmpresa.Direccion = direccion;
             objEmpresa.InformacionContacto = informacionContacto;

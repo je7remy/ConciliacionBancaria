@@ -32,7 +32,6 @@ namespace ConciliacionBancaria
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMCatalogos));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.textBoxcuentaspadres = new System.Windows.Forms.TextBox();
             this.textBoxnombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@ namespace ConciliacionBancaria
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxbalance = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxestado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxcatalogoid = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,6 +51,8 @@ namespace ConciliacionBancaria
             this.Bcancelar = new System.Windows.Forms.Button();
             this.Beditar = new System.Windows.Forms.Button();
             this.Bguardar = new System.Windows.Forms.Button();
+            this.textBoxcuentaspadres = new System.Windows.Forms.ComboBox();
+            this.textBoxestado = new System.Windows.Forms.ComboBox();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -77,14 +77,6 @@ namespace ConciliacionBancaria
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(384, 48);
             this.bunifuCustomLabel1.TabIndex = 5;
             this.bunifuCustomLabel1.Text = "Catalogos";
-            // 
-            // textBoxcuentaspadres
-            // 
-            this.textBoxcuentaspadres.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcuentaspadres.Location = new System.Drawing.Point(814, 266);
-            this.textBoxcuentaspadres.Name = "textBoxcuentaspadres";
-            this.textBoxcuentaspadres.Size = new System.Drawing.Size(251, 39);
-            this.textBoxcuentaspadres.TabIndex = 17;
             // 
             // textBoxnombre
             // 
@@ -149,14 +141,6 @@ namespace ConciliacionBancaria
             this.label2.Size = new System.Drawing.Size(105, 31);
             this.label2.TabIndex = 20;
             this.label2.Text = "Balance";
-            // 
-            // textBoxestado
-            // 
-            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxestado.Location = new System.Drawing.Point(292, 426);
-            this.textBoxestado.Name = "textBoxestado";
-            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
-            this.textBoxestado.TabIndex = 23;
             // 
             // label5
             // 
@@ -244,6 +228,7 @@ namespace ConciliacionBancaria
             this.Bnuevo.Text = "&Nuevo";
             this.Bnuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bnuevo.UseVisualStyleBackColor = false;
+            this.Bnuevo.Click += new System.EventHandler(this.Bnuevo_Click);
             // 
             // Bsalir
             // 
@@ -287,6 +272,7 @@ namespace ConciliacionBancaria
             this.Bbuscar.Text = "&Buscar";
             this.Bbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bbuscar.UseVisualStyleBackColor = false;
+            this.Bbuscar.Click += new System.EventHandler(this.Bbuscar_Click);
             // 
             // Bcancelar
             // 
@@ -308,6 +294,7 @@ namespace ConciliacionBancaria
             this.Bcancelar.Text = "&Cancelar";
             this.Bcancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bcancelar.UseVisualStyleBackColor = false;
+            this.Bcancelar.Click += new System.EventHandler(this.Bcancelar_Click);
             // 
             // Beditar
             // 
@@ -329,6 +316,7 @@ namespace ConciliacionBancaria
             this.Beditar.Text = "&Editar";
             this.Beditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Beditar.UseVisualStyleBackColor = false;
+            this.Beditar.Click += new System.EventHandler(this.Beditar_Click);
             // 
             // Bguardar
             // 
@@ -350,6 +338,46 @@ namespace ConciliacionBancaria
             this.Bguardar.Text = "&Guardar";
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bguardar.UseVisualStyleBackColor = false;
+            this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
+            // 
+            // textBoxcuentaspadres
+            // 
+            this.textBoxcuentaspadres.AutoCompleteCustomSource.AddRange(new string[] {
+            "Gastos",
+            "Ingresos",
+            "Activo",
+            "Pasivo",
+            "Capital"});
+            this.textBoxcuentaspadres.BackColor = System.Drawing.Color.White;
+            this.textBoxcuentaspadres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxcuentaspadres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxcuentaspadres.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcuentaspadres.FormattingEnabled = true;
+            this.textBoxcuentaspadres.Items.AddRange(new object[] {
+            "Gastos",
+            "Ingresos",
+            "Activo",
+            "Pasivo",
+            "Capital"});
+            this.textBoxcuentaspadres.Location = new System.Drawing.Point(814, 266);
+            this.textBoxcuentaspadres.Name = "textBoxcuentaspadres";
+            this.textBoxcuentaspadres.Size = new System.Drawing.Size(251, 39);
+            this.textBoxcuentaspadres.TabIndex = 37;
+            // 
+            // textBoxestado
+            // 
+            this.textBoxestado.BackColor = System.Drawing.Color.White;
+            this.textBoxestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxestado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxestado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxestado.FormattingEnabled = true;
+            this.textBoxestado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.textBoxestado.Location = new System.Drawing.Point(292, 426);
+            this.textBoxestado.Name = "textBoxestado";
+            this.textBoxestado.Size = new System.Drawing.Size(251, 39);
+            this.textBoxestado.TabIndex = 38;
             // 
             // FMCatalogos
             // 
@@ -359,18 +387,18 @@ namespace ConciliacionBancaria
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.textBoxestado);
+            this.Controls.Add(this.textBoxcuentaspadres);
             this.Controls.Add(this.Pbotones);
             this.Controls.Add(this.textBoxdescripcion);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBoxcatalogoid);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBoxestado);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxbalance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxorigen);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxcuentaspadres);
             this.Controls.Add(this.textBoxnombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -386,7 +414,9 @@ namespace ConciliacionBancaria
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMCatalogos_FormClosing);
             this.Load += new System.EventHandler(this.FMBancos_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FMCatalogos_KeyDown);
             this.BarraTitulo.ResumeLayout(false);
             this.Pbotones.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -397,7 +427,6 @@ namespace ConciliacionBancaria
         #endregion
         private System.Windows.Forms.Panel BarraTitulo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.TextBox textBoxcuentaspadres;
         private System.Windows.Forms.TextBox textBoxnombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -405,7 +434,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxbalance;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxestado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxcatalogoid;
         private System.Windows.Forms.Label label9;
@@ -418,5 +446,7 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button Bcancelar;
         private System.Windows.Forms.Button Beditar;
         private System.Windows.Forms.Button Bguardar;
+        private System.Windows.Forms.ComboBox textBoxcuentaspadres;
+        private System.Windows.Forms.ComboBox textBoxestado;
     }
 }
