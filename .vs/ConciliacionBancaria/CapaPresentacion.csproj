@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusquedaBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaBancos.Designer.cs">
+      <DependentUpon>BusquedaBancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConciliacionBancaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BusquedaBancos.resx">
+      <DependentUpon>BusquedaBancos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </EmbeddedResource>

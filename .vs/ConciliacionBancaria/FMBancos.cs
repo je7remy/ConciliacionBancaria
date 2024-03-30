@@ -24,7 +24,8 @@ namespace ConciliacionBancaria
         public FMBancos()
         {
             InitializeComponent();
-           
+         
+
         }
 
         private void iconminimizar_Click(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace ConciliacionBancaria
             HabilitaBotones();
             CargarCatalogos();
             LimpiaObjetos();
-        }
+                   }
 
 
         private void CargarCatalogos()
@@ -321,6 +322,9 @@ namespace ConciliacionBancaria
                 LimpiaObjetos();
                 Bbuscar.Focus();
             }
+
+            BusquedaBancos busqueda_Bancos = new BusquedaBancos();
+            busqueda_Bancos.ShowDialog();
         }
 
         public void RecuperaDatos()

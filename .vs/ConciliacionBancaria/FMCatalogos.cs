@@ -127,6 +127,13 @@ namespace ConciliacionBancaria
         {
             try
             {
+
+                if (string.IsNullOrEmpty(textBoxcuentaspadres.Text))
+                {
+                    MessageBox.Show("Debe indicar el nombre de la cuenta padre!");
+                    textBoxcuentaspadres.Focus();
+                    return;
+                }
                 if (string.IsNullOrEmpty(textBoxnombre.Text))
                 {
                     MessageBox.Show("Debe indicar el nombre de la cuenta!");
@@ -274,7 +281,7 @@ namespace ConciliacionBancaria
 
                     textBoxbalance.Text = row["Balance"].ToString();
                     textBoxcatalogoid.Text = row["CatalogoID"].ToString();
-                    textBoxcuentaspadres.SelectedItem = row["Cuentas_padres"].ToString();
+                    textBoxcuentaspadres.SelectedItem = row["CuentasPadres"].ToString();
                     textBoxdescripcion.Text = row["Descripcion"].ToString();
                     textBoxestado.SelectedItem = row["Estado"].ToString();
                     textBoxnombre.Text = row["Nombre"].ToString();

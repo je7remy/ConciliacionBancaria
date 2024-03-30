@@ -28,3 +28,4 @@ C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.F
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.FMCatalogos.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria.mdf
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\bin\Debug\ConciliacionBancaria_log.ldf
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.BusquedaBancos.resources

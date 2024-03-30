@@ -113,7 +113,7 @@ namespace CapaDatos
                 micomando.Parameters.AddWithValue("@CatalogoID", objCatalogo.CatalogoID);
                 micomando.Parameters.AddWithValue("@Nombre", objCatalogo.Nombre);
                 micomando.Parameters.AddWithValue("@Descripcion", objCatalogo.Descripcion);
-                micomando.Parameters.AddWithValue("@CuentasPadres", objCatalogo.CuentasPadres);
+                micomando.Parameters.AddWithValue("@Cuentas_padres", objCatalogo.CuentasPadres);
                 micomando.Parameters.AddWithValue("@Origen", objCatalogo.Origen);
                 micomando.Parameters.AddWithValue("@Balance", objCatalogo.Balance);
                 micomando.Parameters.AddWithValue("@Estado", objCatalogo.Estado);
@@ -165,7 +165,7 @@ namespace CapaDatos
                 micomando.Parameters.AddWithValue("@CatalogoID", objCatalogo.CatalogoID);
                 micomando.Parameters.AddWithValue("@Nombre", objCatalogo.Nombre);
                 micomando.Parameters.AddWithValue("@Descripcion", objCatalogo.Descripcion);
-                micomando.Parameters.AddWithValue("@CuentasPadres", objCatalogo.CuentasPadres);
+                micomando.Parameters.AddWithValue("@Cuentas_padres", objCatalogo.CuentasPadres);
                 micomando.Parameters.AddWithValue("@Origen", objCatalogo.Origen);
                 micomando.Parameters.AddWithValue("@Balance", objCatalogo.Balance);
                 micomando.Parameters.AddWithValue("@Estado", objCatalogo.Estado);

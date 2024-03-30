@@ -51,27 +51,42 @@ namespace CapaNegocio
 
         public static DataTable ObtenerBancoPorID(int bancoID)
         {
-            // Llamada al método estático ObtenerBancoPorID de la clase CNBancos
-            DataTable dt = CNBancos.ObtenerBancoPorID(bancoID);
+            // Crear una instancia de la clase CDBancos
+            CDBancos dbBancos = new CDBancos();
+
+            // Llamada al método no estático ObtenerBancoPorID de la instancia dbBancos
+            DataTable dt = dbBancos.ObtenerBancoPorID(bancoID);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;
         }
 
-        //public DataTable ObtenerBancoPorID(int bancoID)
-        //{
-        //    // Crear una instancia de CDBanco
-        //    CDBancos objCDBanco = new CDBancos();
 
-        //    // Crear un nuevo DataTable
-        //    DataTable dt = new DataTable();
 
-        //    // Llenar el DataTable con todos los datos devueltos por el método ObtenerBancoPorID
-        //    dt = ObtenerBancoPorID(bancoID);
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerBanco()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM Bancos";
 
-        //    // Retornar el DataTable con los datos adquiridos
-        //    return dt;
-        //}
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
+
+
+
 
 
     }
