@@ -38,28 +38,37 @@ namespace ConciliacionBancaria
             Program.nuevo = false;
             Program.modificar = false;
             HabilitaBotones();
-            CargarCatalogos();
+         //   CargarCatalogos();
             LimpiaObjetos();
-                   }
+            ObtenerCatalogos();
 
 
-        private void CargarCatalogos()
+        }
+
+
+
+
+
+        public DataTable ObtenerCatalogos()
         {
             try
             {
+                // Defina la consulta para obtener los datos del catálogo
                 string query = "ObtenerCatalogos";
 
                 // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
-                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                using (SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion())
                 {
+                    // Crea un nuevo comando SQL con la consulta y el tipo de comando
                     using (SqlCommand command = new SqlCommand(query, sqlCon))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
+                        // Abre la conexión y ejecuta la consulta
                         sqlCon.Open();
                         DataTable dt = new DataTable();
 
-                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados de la consulta
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
                             adapter.Fill(dt);
@@ -69,15 +78,73 @@ namespace ConciliacionBancaria
                         textBoxcatalogoid.DisplayMember = "Nombre";
                         textBoxcatalogoid.ValueMember = "CatalogoID";
                         textBoxcatalogoid.DataSource = dt;
+
+                        // Obtiene el nombre del catálogo de Program y lo convierte a string
+                        string selectedCatalogoNombre = Program.CatalogoID.ToString();
+                        textBoxcatalogoid.Text = selectedCatalogoNombre;
+
+                        return dt; // Devuelve el DataTable con los datos del catálogo
                     }
-                } // La conexión se cerrará automáticamente al salir del bloque using
+                }
             }
             catch (Exception ex)
             {
                 // Manejo de excepciones
                 MessageBox.Show("Error al cargar catálogos: " + ex.Message);
+                return null; // Agrega este return para manejar todas las rutas de acceso del código
             }
         }
+
+
+
+
+
+
+        //public void CargarCatalogos()
+        //{
+        //    try
+        //    {
+        //        string query = "ObtenerCatalogos";
+
+        //        // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+        //        using (SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion())
+        //        {
+        //            using (SqlCommand command = new SqlCommand(query, sqlCon))
+        //            {
+        //                command.CommandType = CommandType.StoredProcedure;
+
+        //                sqlCon.Open();
+        //                DataTable dt = new DataTable();
+
+        //                // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+        //                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+        //                {
+        //                    adapter.Fill(dt);
+        //                }
+
+        //                // Asigna el DataTable como origen de datos para el ComboBox
+        //                textBoxcatalogoid.DisplayMember = "CatalogoID";
+        //                textBoxcatalogoid.ValueMember = "CatalogoID";
+        //                textBoxcatalogoid.DataSource = dt;
+
+
+        //                // Obtiene el nombre del catálogo de Program y lo convierte a string
+        //                string selectedCatalogoNombre = Program.CatalogoID.ToString();
+        //                textBoxcatalogoid.Text = selectedCatalogoNombre;
+
+        //            } 
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejo de excepciones
+        //        MessageBox.Show("Error al cargar catálogos: " + ex.Message);
+        //    }
+        //}
+
+
+
+
 
 
         private void FMBancos_FormClosing(object sender, FormClosingEventArgs e)
@@ -207,7 +274,9 @@ namespace ConciliacionBancaria
 
 
                 // Obteniendo el CatalogoID
+
                 int CatalogoID;
+                Program.CatalogoID = CatalogoID = 0;
 
                 if (textBoxcatalogoid.SelectedItem != null && textBoxcatalogoid.SelectedItem is DataRowView)
                 {
@@ -217,13 +286,13 @@ namespace ConciliacionBancaria
                     if (selectedRow.Row["CatalogoID"] != null && int.TryParse(selectedRow.Row["CatalogoID"].ToString(), out CatalogoID))
                     {
                         // La conversión fue exitosa, ahora puedes usar el valor del CatalogoID
-                      //  MessageBox.Show("Los datos del banco han sido guardados correctamente.", "Éxito al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //  MessageBox.Show("Los datos del banco han sido guardados correctamente.", "Éxito al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                     else
                     {
                         // La conversión falló, el valor de "Id_Catalogo" no es un número entero válido
-                       MessageBox.Show("El valor del ID del Catálogo no es un número entero válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El valor del ID del Catálogo no es un número entero válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -252,8 +321,8 @@ namespace ConciliacionBancaria
                      
                     }
                     else
-                    {
-                        mensaje = CNBancos.Actualizar(Program.BancoID, textBoxnombre.Text,
+                    {//CatalogoID
+                        mensaje = CNBancos.Actualizar(Program.BancoID, CatalogoID, textBoxnombre.Text,
                                                        textBoxsucursal.Text, textBoxdireccion.Text,
                                                        textBoxestado.Text, textBoxtelefono.Text,
                                                        textBoxcorreo.Text, textBoxoficialdecuentas.Text,
@@ -312,6 +381,9 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+            BusquedaBancos busqueda_Bancos = new BusquedaBancos();
+            busqueda_Bancos.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -319,12 +391,15 @@ namespace ConciliacionBancaria
             }
             else
             {
+
                 LimpiaObjetos();
                 Bbuscar.Focus();
             }
 
-            BusquedaBancos busqueda_Bancos = new BusquedaBancos();
-            busqueda_Bancos.ShowDialog();
+          
+
+
+           
         }
 
         public void RecuperaDatos()
@@ -339,7 +414,8 @@ namespace ConciliacionBancaria
                 DataRow row = dt.Rows[0]; // Obtener la primera fila de los resultados
 
                 textBoxbanco.Text = row["BancoID"].ToString();
-                textBoxcatalogoid.Text = row["CatalogoID"].ToString();
+
+                textBoxcatalogoid.SelectedValue = Convert.ToInt32(row["CatalogoID"]);
                 textBoxcorreo.Text = row["Correo"].ToString();
                 textBoxdireccion.Text = row["Direccion"].ToString();
                 textBoxestado.Text = row["Estado"].ToString();
@@ -366,6 +442,10 @@ namespace ConciliacionBancaria
                 textBoxtelefono.Text = "";
             }
         }
+
+
+
+
 
 
 

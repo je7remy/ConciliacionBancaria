@@ -172,7 +172,7 @@ namespace CapaDatos
 
                 // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
                 // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
-                mensaje = micomando.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
+                mensaje = micomando.ExecuteNonQuery() == 1 ? "Actualizacion de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
             }
             catch (Exception ex) // Si ocurre algún error, lo capturamos y mostramos el mensaje
             {

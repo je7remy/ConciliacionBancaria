@@ -260,6 +260,8 @@ namespace ConciliacionBancaria
 
                     // Obteniendo el BancoID
                     int BancoID;
+                    Program.BancoID = BancoID =0;
+                   
 
                     if (textBoxbancoid.SelectedItem != null && textBoxbancoid.SelectedItem is DataRowView)
                     {
@@ -279,20 +281,20 @@ namespace ConciliacionBancaria
                             return;
                         }
 
-                        int SaldoInicial, Debito, Credito;
+                        decimal SaldoInicial, Debito, Credito;
 
 
-                        if (!int.TryParse(textBoxsaldoinicial.Text, out SaldoInicial))
+                        if (!decimal.TryParse(textBoxsaldoinicial.Text, out SaldoInicial))
                         {
                             MessageBox.Show("El valor ingresado para el Saldo Inicial no es válido.");
                             return;
                         }
-                        if (!int.TryParse(textBoxdebito.Text, out Debito))
+                        if (!decimal.TryParse(textBoxdebito.Text, out Debito))
                         {
                             MessageBox.Show("El valor ingresado para el Débito no es válido.");
                             return;
                         }
-                        if (!int.TryParse(textBoxcredito.Text, out Credito))
+                        if (!decimal.TryParse(textBoxcredito.Text, out Credito))
                         {
                             MessageBox.Show("El valor ingresado para el Crédito no es válido.");
                             return;
@@ -413,6 +415,10 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+
+            BusquedaCuentasBancarias busqueda_Bancos = new BusquedaCuentasBancarias();
+            busqueda_Bancos.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -442,11 +448,11 @@ namespace ConciliacionBancaria
 
                 textBoxclienteid.Text = row["ClienteID"].ToString();
                 textBoxcuentaid.Text = row["CuentaID"].ToString();
-                textBoxtipodecuenta.Text = row["TipoDeCuenta"].ToString();
-                textBoxbancoid.SelectedIndex = -1;
-                textBoxnumerodecuenta.Text = row["NumeroDeCuenta"].ToString();
+                textBoxtipodecuenta.Text = row["TipoCuenta"].ToString();
+                textBoxbancoid.Text = row["BancoID"].ToString();
+                textBoxnumerodecuenta.Text = row["NumeroCuenta"].ToString();
                 textBoxsaldoinicial.Text = row["SaldoInicial"].ToString();
-                textBoxfechadeapertura.Text = row["FechaDeApertura"].ToString();
+                textBoxfechadeapertura.Text = row["FechaApertura"].ToString();
                 textBoxmoneda.Text = row["Moneda"].ToString();
                 textBoxdebito.Text = row["Debito"].ToString();
                 textBoxcredito.Text = row["Credito"].ToString();

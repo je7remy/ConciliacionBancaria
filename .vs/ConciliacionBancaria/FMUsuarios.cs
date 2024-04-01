@@ -230,6 +230,9 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+            BusquedaUsuarios BusquedaUsuarios = new BusquedaUsuarios();
+            BusquedaUsuarios.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -244,27 +247,27 @@ namespace ConciliacionBancaria
 
         public void RecuperaDatos()
         {
-            int usuarioID = Program.UsuarioID; // Obtener el ID del usuario de Program
+            int usuarioID = Program.UsuarioID;
 
-            // Llamada al método estático ObtenerUsuarioPorID de la clase CNusuarios
             DataTable dt = CNUsuarios.ObtenerUsuarioPorID(usuarioID);
 
             if (dt.Rows.Count > 0)
             {
-                DataRow row = dt.Rows[0]; // Obtener la primera fila de los resultados
+             
 
+                DataRow row = dt.Rows[0];
                 textBoxusuarioid.Text = row["UsuarioID"].ToString();
-                textBoxnombre.Text = row["Nombre"].ToString();
-                textBoxcorreo.Text = row["Correo"].ToString();
+                textBoxnombre.Text = row["NombreUsuario"].ToString(); // This line is likely causing the issue
+                textBoxcorreo.Text = row["CorreoElectronico"].ToString();
                 textBoxrol.Text = row["Rol"].ToString();
                 textBoxestado.Text = row["Estado"].ToString();
-                textBoxcontraseña.Text = row["Contraseña"].ToString();
+                textBoxcontraseña.Text = row["ContraseñaHash"].ToString();
             }
             else
             {
-                // Manejar el caso en el que no se encuentren datos para el ID proporcionado
-                // Por ejemplo, mostrar un mensaje de error o limpiar los campos
-                // Aquí se muestra un ejemplo de cómo limpiar los campos:
+                // Handle the case when no data is found for the provided ID
+                // For example, display an error message or clear the fields
+                // Here's an example of how to clear the fields:
                 textBoxusuarioid.Text = "";
                 textBoxnombre.Text = "";
                 textBoxcorreo.Text = "";

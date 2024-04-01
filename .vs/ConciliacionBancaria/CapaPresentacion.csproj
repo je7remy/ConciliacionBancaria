@@ -68,6 +68,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusquedaCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaCatalogos.Designer.cs">
+      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaEmpresas.Designer.cs">
+      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaUsuarios.Designer.cs">
+      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaTransaccionesInternas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaTransaccionesInternas.Designer.cs">
+      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaCuentasBancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaCuentasBancarias.Designer.cs">
+      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusquedaBancos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +154,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BusquedaCatalogos.resx">
+      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaEmpresas.resx">
+      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaUsuarios.resx">
+      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaTransaccionesInternas.resx">
+      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaCuentasBancarias.resx">
+      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusquedaBancos.resx">
       <DependentUpon>BusquedaBancos.cs</DependentUpon>
     </EmbeddedResource>

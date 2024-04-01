@@ -216,6 +216,11 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+
+
+            BusquedaEmpresas BusquedaEmpresas = new BusquedaEmpresas();
+            BusquedaEmpresas.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -262,10 +267,10 @@ namespace ConciliacionBancaria
 
                 textBoxcorreo.Text = row["Correo"].ToString();
                 textBoxdireccion.Text = row["Direccion"].ToString();
-                textBoxempresa.Text = row["Empresa"].ToString(); // Reemplaza "Empresa" con el nombre de la columna que contiene los datos de la empresa en la tabla
+                textBoxempresa.Text = row["EmpresaID"].ToString(); // Reemplaza "Empresa" con el nombre de la columna que contiene los datos de la empresa en la tabla
                 textBoxestado.SelectedItem = row["Estado"].ToString(); // Establece el elemento seleccionado en el ComboBox según el valor del campo "Estado" en la tabla
                 textBoxinoinformacion.Text = row["InformacionContacto"].ToString(); // Reemplaza "Info_Ino" con el nombre de la columna que contiene la información enooinformación en la tabla
-                textBoxnombre.Text = row["Nombre"].ToString();
+                textBoxnombre.Text = row["NombreEmpresa"].ToString();
                 textBoxtelefono.Text = row["Telefono"].ToString();
             }
             else

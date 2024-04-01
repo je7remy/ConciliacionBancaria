@@ -44,18 +44,40 @@ namespace CapaNegocio
         }
 
 
-
+       
 
         public static DataTable ObtenerUsuarioPorID(int usuarioID)
         {
+            CDUsuarios dbUsuarios = new CDUsuarios();
+
             // Llamada al método estático ObtenerUsuarioPorID de la clase CNUsuarios
-            DataTable dt = CNUsuarios.ObtenerUsuarioPorID(usuarioID);
+            DataTable dt = dbUsuarios.ObtenerUsuarioPorID(usuarioID);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;
         }
 
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerUsuario()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM Usuarios";
 
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
         //public static DataTable ObtenerUsuarioPorID(int usuarioID)
         //{
         //    try

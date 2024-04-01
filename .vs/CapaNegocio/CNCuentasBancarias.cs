@@ -65,13 +65,40 @@ namespace CapaNegocio
 
         public static DataTable ObtenerCuentaBancariaPorID(int cuentaID)
         {
+            CDCuentasBancarias dbcuentas = new CDCuentasBancarias();
             // Llamada al método estático ObtenerBancoPorID de la clase CNBancos
             // y se cambia el nombre del método y parámetro por los correspondientes a Cuenta
-            DataTable dt = CNCuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+            DataTable dt = dbcuentas.ObtenerCuentaBancariaPorID(cuentaID);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;
         }
+
+
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerCuenta()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM CuentasBancarias";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
+
+
 
     }
 }

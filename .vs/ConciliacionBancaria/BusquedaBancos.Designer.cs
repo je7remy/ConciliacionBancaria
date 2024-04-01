@@ -32,20 +32,21 @@ namespace ConciliacionBancaria
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusquedaBancos));
             this.DGVDatos = new System.Windows.Forms.DataGridView();
             this.PInformacion = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Tbuscar = new System.Windows.Forms.TextBox();
             this.LInformacion = new System.Windows.Forms.Label();
             this.PBotones = new System.Windows.Forms.Panel();
-            this.PTitulo = new System.Windows.Forms.Panel();
-            this.LTitulo = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.BAceptar = new System.Windows.Forms.Button();
             this.BCancelar = new System.Windows.Forms.Button();
             this.BUltimo = new System.Windows.Forms.Button();
             this.BSiguiente = new System.Windows.Forms.Button();
             this.BAnterior = new System.Windows.Forms.Button();
             this.BPrimero = new System.Windows.Forms.Button();
+            this.PTitulo = new System.Windows.Forms.Panel();
+            this.LTitulo = new System.Windows.Forms.Label();
             this.LCantMov = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.PInformacion.SuspendLayout();
             this.PBotones.SuspendLayout();
@@ -61,7 +62,7 @@ namespace ConciliacionBancaria
             this.DGVDatos.Location = new System.Drawing.Point(0, 200);
             this.DGVDatos.Name = "DGVDatos";
             this.DGVDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVDatos.Size = new System.Drawing.Size(1347, 331);
+            this.DGVDatos.Size = new System.Drawing.Size(1347, 306);
             this.DGVDatos.TabIndex = 6;
             this.DGVDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVDatos_CellDoubleClick);
             this.DGVDatos.CurrentCellChanged += new System.EventHandler(this.DGVDatos_CurrentCellChanged);
@@ -79,74 +80,6 @@ namespace ConciliacionBancaria
             this.PInformacion.Name = "PInformacion";
             this.PInformacion.Size = new System.Drawing.Size(1347, 100);
             this.PInformacion.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(765, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 22);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Buscar Dato";
-            // 
-            // Tbuscar
-            // 
-            this.Tbuscar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tbuscar.Location = new System.Drawing.Point(250, 41);
-            this.Tbuscar.Name = "Tbuscar";
-            this.Tbuscar.Size = new System.Drawing.Size(439, 32);
-            this.Tbuscar.TabIndex = 1;
-            this.Tbuscar.TextChanged += new System.EventHandler(this.Tbuscar_TextChanged);
-        //    this.Tbuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tbuscar_KeyPress);
-            // 
-            // LInformacion
-            // 
-            this.LInformacion.AutoSize = true;
-            this.LInformacion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LInformacion.Location = new System.Drawing.Point(12, 43);
-            this.LInformacion.Name = "LInformacion";
-            this.LInformacion.Size = new System.Drawing.Size(206, 22);
-            this.LInformacion.TabIndex = 0;
-            this.LInformacion.Text = "Ingrese el dato a buscar";
-            // 
-            // PBotones
-            // 
-            this.PBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
-            this.PBotones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PBotones.Controls.Add(this.BAceptar);
-            this.PBotones.Controls.Add(this.BCancelar);
-            this.PBotones.Controls.Add(this.BUltimo);
-            this.PBotones.Controls.Add(this.BSiguiente);
-            this.PBotones.Controls.Add(this.BAnterior);
-            this.PBotones.Controls.Add(this.BPrimero);
-            this.PBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PBotones.Location = new System.Drawing.Point(0, 531);
-            this.PBotones.Name = "PBotones";
-            this.PBotones.Size = new System.Drawing.Size(1347, 100);
-            this.PBotones.TabIndex = 5;
-            // 
-            // PTitulo
-            // 
-            this.PTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
-            this.PTitulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PTitulo.Controls.Add(this.LTitulo);
-            this.PTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PTitulo.Name = "PTitulo";
-            this.PTitulo.Size = new System.Drawing.Size(1347, 100);
-            this.PTitulo.TabIndex = 3;
-            // 
-            // LTitulo
-            // 
-            this.LTitulo.AutoSize = true;
-            this.LTitulo.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTitulo.ForeColor = System.Drawing.Color.White;
-            this.LTitulo.Location = new System.Drawing.Point(10, 28);
-            this.LTitulo.Name = "LTitulo";
-            this.LTitulo.Size = new System.Drawing.Size(257, 36);
-            this.LTitulo.TabIndex = 0;
-            this.LTitulo.Text = "Busqueda Bancos";
             // 
             // button2
             // 
@@ -171,6 +104,53 @@ namespace ConciliacionBancaria
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(765, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Buscar Dato";
+            // 
+            // Tbuscar
+            // 
+            this.Tbuscar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tbuscar.Location = new System.Drawing.Point(250, 41);
+            this.Tbuscar.Name = "Tbuscar";
+            this.Tbuscar.Size = new System.Drawing.Size(439, 32);
+            this.Tbuscar.TabIndex = 1;
+            this.Tbuscar.TextChanged += new System.EventHandler(this.Tbuscar_TextChanged);
+            // 
+            // LInformacion
+            // 
+            this.LInformacion.AutoSize = true;
+            this.LInformacion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LInformacion.Location = new System.Drawing.Point(12, 43);
+            this.LInformacion.Name = "LInformacion";
+            this.LInformacion.Size = new System.Drawing.Size(206, 22);
+            this.LInformacion.TabIndex = 0;
+            this.LInformacion.Text = "Ingrese el dato a buscar";
+            // 
+            // PBotones
+            // 
+            this.PBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
+            this.PBotones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PBotones.Controls.Add(this.label2);
+            this.PBotones.Controls.Add(this.LCantMov);
+            this.PBotones.Controls.Add(this.BAceptar);
+            this.PBotones.Controls.Add(this.BCancelar);
+            this.PBotones.Controls.Add(this.BUltimo);
+            this.PBotones.Controls.Add(this.BSiguiente);
+            this.PBotones.Controls.Add(this.BAnterior);
+            this.PBotones.Controls.Add(this.BPrimero);
+            this.PBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PBotones.Location = new System.Drawing.Point(0, 506);
+            this.PBotones.Name = "PBotones";
+            this.PBotones.Size = new System.Drawing.Size(1347, 125);
+            this.PBotones.TabIndex = 5;
+            // 
             // BAceptar
             // 
             this.BAceptar.AccessibleDescription = "";
@@ -185,7 +165,7 @@ namespace ConciliacionBancaria
             this.BAceptar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BAceptar.Image = ((System.Drawing.Image)(resources.GetObject("BAceptar.Image")));
             this.BAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BAceptar.Location = new System.Drawing.Point(1014, 16);
+            this.BAceptar.Location = new System.Drawing.Point(1014, 31);
             this.BAceptar.Name = "BAceptar";
             this.BAceptar.Size = new System.Drawing.Size(143, 67);
             this.BAceptar.TabIndex = 12;
@@ -209,7 +189,7 @@ namespace ConciliacionBancaria
             this.BCancelar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BCancelar.Image")));
             this.BCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BCancelar.Location = new System.Drawing.Point(834, 16);
+            this.BCancelar.Location = new System.Drawing.Point(834, 31);
             this.BCancelar.Name = "BCancelar";
             this.BCancelar.Size = new System.Drawing.Size(163, 67);
             this.BCancelar.TabIndex = 11;
@@ -233,7 +213,7 @@ namespace ConciliacionBancaria
             this.BUltimo.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BUltimo.Image = ((System.Drawing.Image)(resources.GetObject("BUltimo.Image")));
             this.BUltimo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BUltimo.Location = new System.Drawing.Point(674, 16);
+            this.BUltimo.Location = new System.Drawing.Point(674, 31);
             this.BUltimo.Name = "BUltimo";
             this.BUltimo.Size = new System.Drawing.Size(143, 67);
             this.BUltimo.TabIndex = 10;
@@ -257,7 +237,7 @@ namespace ConciliacionBancaria
             this.BSiguiente.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("BSiguiente.Image")));
             this.BSiguiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BSiguiente.Location = new System.Drawing.Point(503, 16);
+            this.BSiguiente.Location = new System.Drawing.Point(503, 31);
             this.BSiguiente.Name = "BSiguiente";
             this.BSiguiente.Size = new System.Drawing.Size(153, 67);
             this.BSiguiente.TabIndex = 9;
@@ -281,7 +261,7 @@ namespace ConciliacionBancaria
             this.BAnterior.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BAnterior.Image = ((System.Drawing.Image)(resources.GetObject("BAnterior.Image")));
             this.BAnterior.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BAnterior.Location = new System.Drawing.Point(332, 16);
+            this.BAnterior.Location = new System.Drawing.Point(332, 31);
             this.BAnterior.Name = "BAnterior";
             this.BAnterior.Size = new System.Drawing.Size(154, 67);
             this.BAnterior.TabIndex = 8;
@@ -306,7 +286,7 @@ namespace ConciliacionBancaria
             this.BPrimero.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BPrimero.Image = ((System.Drawing.Image)(resources.GetObject("BPrimero.Image")));
             this.BPrimero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BPrimero.Location = new System.Drawing.Point(152, 16);
+            this.BPrimero.Location = new System.Drawing.Point(152, 31);
             this.BPrimero.Name = "BPrimero";
             this.BPrimero.Size = new System.Drawing.Size(157, 67);
             this.BPrimero.TabIndex = 7;
@@ -316,21 +296,53 @@ namespace ConciliacionBancaria
             this.BPrimero.UseVisualStyleBackColor = false;
             this.BPrimero.Click += new System.EventHandler(this.BPrimero_Click);
             // 
+            // PTitulo
+            // 
+            this.PTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
+            this.PTitulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PTitulo.Controls.Add(this.LTitulo);
+            this.PTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PTitulo.Name = "PTitulo";
+            this.PTitulo.Size = new System.Drawing.Size(1347, 100);
+            this.PTitulo.TabIndex = 3;
+            // 
+            // LTitulo
+            // 
+            this.LTitulo.AutoSize = true;
+            this.LTitulo.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTitulo.ForeColor = System.Drawing.Color.White;
+            this.LTitulo.Location = new System.Drawing.Point(10, 28);
+            this.LTitulo.Name = "LTitulo";
+            this.LTitulo.Size = new System.Drawing.Size(257, 36);
+            this.LTitulo.TabIndex = 0;
+            this.LTitulo.Text = "Busqueda Bancos";
+            // 
             // LCantMov
             // 
             this.LCantMov.AutoSize = true;
             this.LCantMov.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCantMov.Location = new System.Drawing.Point(292, 506);
+            this.LCantMov.Location = new System.Drawing.Point(159, 0);
             this.LCantMov.Name = "LCantMov";
-            this.LCantMov.Size = new System.Drawing.Size(0, 22);
+            this.LCantMov.Size = new System.Drawing.Size(85, 22);
             this.LCantMov.TabIndex = 7;
+            this.LCantMov.Text = "cantidad:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(73, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 22);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Cantidad:";
             // 
             // BusquedaBancos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 631);
-            this.Controls.Add(this.LCantMov);
             this.Controls.Add(this.DGVDatos);
             this.Controls.Add(this.PInformacion);
             this.Controls.Add(this.PBotones);
@@ -348,10 +360,10 @@ namespace ConciliacionBancaria
             this.PInformacion.ResumeLayout(false);
             this.PInformacion.PerformLayout();
             this.PBotones.ResumeLayout(false);
+            this.PBotones.PerformLayout();
             this.PTitulo.ResumeLayout(false);
             this.PTitulo.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -373,5 +385,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Panel PTitulo;
         private System.Windows.Forms.Label LTitulo;
         private System.Windows.Forms.Label LCantMov;
+        private System.Windows.Forms.Label label2;
     }
 }

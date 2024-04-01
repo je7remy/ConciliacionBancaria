@@ -78,14 +78,38 @@ namespace CapaNegocio
         }
 
 
-
+      
 
         public static DataTable ObtenerTransaccionInternaPorID(int transaccionID)
         {
+            CDTransaccionesInternas CDTransaccionesInternas = new CDTransaccionesInternas();
             // Llamada al método estático ObtenerTransaccionInternaPorID de la clase CNTransaccionesInternas
-            DataTable dt = CNTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+            DataTable dt = CDTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
 
             // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
+
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerTransaccion()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM TransaccionesInternas";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
             return dt;
         }
 

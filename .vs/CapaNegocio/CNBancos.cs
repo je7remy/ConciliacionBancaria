@@ -14,10 +14,12 @@ namespace CapaNegocio
 {
     public class CNBancos
     {
+        //int BancoID,
         public static string Insertar(int CatalogoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
             CDBancos objBanco = new CDBancos();
             // Preparamos los datos para insertar un nuevo Banco
+            //  objBanco.BancoID = BancoID;
             objBanco.CatalogoID = CatalogoID;
             objBanco.Nombre = nombre;
             objBanco.Sucursal = sucursal;
@@ -33,10 +35,11 @@ namespace CapaNegocio
         }
 
 
-        public static string Actualizar(int bancoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
+        public static string Actualizar(int bancoID, int CatalogoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
             CDBancos objBanco = new CDBancos();
             objBanco.BancoID = bancoID;
+            objBanco.CatalogoID = CatalogoID;
             objBanco.Nombre = nombre;
             objBanco.Sucursal = sucursal;
             objBanco.Direccion = direccion;
@@ -86,8 +89,44 @@ namespace CapaNegocio
         }
 
 
+        //// Método para obtener los catálogos
+        //public static DataTable ObtenerCatalogos()
+        //{
+        //    // Establecer la conexión
+        //    string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+        //                                    AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+        //                                    Integrated Security=True;Pooling=true"; // Reemplaza con tu cadena de conexión
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        // Definir la consulta SQL
+        //        string query = "SELECT CatalogoID, Nombre FROM Catalogos";
+
+        //        // Crear un objeto DataTable para almacenar los resultados
+        //        DataTable dt = new DataTable();
+
+        //        // Utilizar un SqlDataAdapter para ejecutar la consulta y llenar el DataTable
+        //        using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+        //        {
+        //            try
+        //            {
+        //                // Abrir la conexión y llenar el DataTable
+        //                connection.Open();
+        //                adapter.Fill(dt);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                // Manejo de excepciones: podrías lanzar la excepción o registrarla según tus necesidades
+        //                throw new Exception("Error al obtener los catálogos.", ex);
+        //            }
+        //        }
+
+        //        // Devolver el DataTable con los resultados
+        //        return dt;
+        //    }
+        //}
+    
 
 
 
-    }
+}
 }

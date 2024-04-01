@@ -42,7 +42,7 @@ namespace CapaNegocio
             objEmpresa.Estado = estado;
 
             // Llamamos al método Insertar del Empresa pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
-            return objEmpresa.Insertar(objEmpresa);
+            return objEmpresa.Actualizar(objEmpresa);
         }
 
 
@@ -51,10 +51,35 @@ namespace CapaNegocio
 
         public static DataTable ObtenerEmpresaPorID(int empresaID)
         {
+
+            CDEmpresas dbBancos = new CDEmpresas();
             // Llamada al método estático ObtenerEmpresaPorID de la clase CNEmpresas
-            DataTable dt = CNEmpresas.ObtenerEmpresaPorID(empresaID);
+            DataTable dt = dbBancos.ObtenerEmpresaPorID(empresaID);
 
             // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
+
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerEmpresa()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM Empresas";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
             return dt;
         }
 

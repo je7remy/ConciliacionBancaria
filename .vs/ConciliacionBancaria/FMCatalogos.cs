@@ -234,6 +234,9 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+            BusquedaCatalogos BusquedaCatalogos = new BusquedaCatalogos();
+            BusquedaCatalogos.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -271,7 +274,7 @@ namespace ConciliacionBancaria
         public void RecuperaDatos()
        
             {
-                int CatalogoID = Program.EmpresaID;
+                int CatalogoID = Program.CatalogoID;
                 // Llamada al método estático ObtenerCuentaPorID de la clase CNCuentas
                 DataTable dt = CNCatalogos.ObtenerCatalogoPorID(CatalogoID);
 
@@ -281,7 +284,7 @@ namespace ConciliacionBancaria
 
                     textBoxbalance.Text = row["Balance"].ToString();
                     textBoxcatalogoid.Text = row["CatalogoID"].ToString();
-                    textBoxcuentaspadres.SelectedItem = row["CuentasPadres"].ToString();
+                    textBoxcuentaspadres.SelectedItem = row["Cuentas_Padres"].ToString();
                     textBoxdescripcion.Text = row["Descripcion"].ToString();
                     textBoxestado.SelectedItem = row["Estado"].ToString();
                     textBoxnombre.Text = row["Nombre"].ToString();

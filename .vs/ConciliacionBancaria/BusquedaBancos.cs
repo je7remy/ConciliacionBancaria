@@ -67,13 +67,12 @@ namespace ConciliacionBancaria
         {
             if (DGVDatos.CurrentRow != null) //Si el DataGridView no está vacío
             {
-                //variable global a toda la solución se hace verdadera y se le asigna a la variable global vidSuplidor
-                // el valor de la clave correspondiente
+                
                 Program.modificar = true;
                 Program.BancoID = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value);
                
             }
-            Close();
+            this.Close();
         }
 
         private void BPrimero_Click(object sender, EventArgs e)
@@ -220,13 +219,12 @@ namespace ConciliacionBancaria
             {
                 // Manejar el caso en el que el DataTable esté vacío
             }
+            DGVDatos.Refresh(); //Se refresca el DataGridView
+            LCantMov.Text = Convert.ToString(DGVDatos.RowCount - 1); //Se muestra la cantidad de datos
+            if (DGVDatos.RowCount <= 0) //Si no se obtienen datos de retorno
+            {
+                MessageBox.Show("Ningún dato que mostrar!"); //Se muestra un mensaje de error
+            }
         }
-
-       
-
-      
-
-
-
     }
 }

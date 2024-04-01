@@ -530,6 +530,9 @@ namespace ConciliacionBancaria
 
         private void Bbuscar_Click(object sender, EventArgs e)
         {
+            BusquedaTransaccionesInternas busquedaTransaccionesInternas = new BusquedaTransaccionesInternas();
+            busquedaTransaccionesInternas.ShowDialog();
+
             if (Program.modificar)
             {
                 RecuperaDatos();
@@ -544,12 +547,9 @@ namespace ConciliacionBancaria
 
         public void RecuperaDatos()
         {
-            int transaccionID = Program.TransaccionID; // Obtener el ID de la transacción de Program
+            int transaccionID = Program.TransaccionID;
 
-            // Crear una instancia de CDCuentas
             CDTransaccionesInternas cuentas = new CDTransaccionesInternas();
-
-            // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentas
             DataTable dt = cuentas.ObtenerTransaccionInternaPorID(transaccionID);
 
             if (dt.Rows.Count > 0)
@@ -558,37 +558,34 @@ namespace ConciliacionBancaria
 
                 textBoxtransaccionid.Text = row["TransaccionID"].ToString();
                 textBoxclienteid.Text = row["ClienteID"].ToString();
-                int tipoDeTransaccion;
-                if (int.TryParse(row.Field<string>("TipoDeTransaccion"), out tipoDeTransaccion))
-                {
-                    textBoxtipo.SelectedIndex = tipoDeTransaccion;
-                }
-                else
-                {
-                    textBoxtipo.SelectedIndex = -1;
-                }
-                // Asignación de valores recuperados a variables
-                textBoxbancoid.SelectedIndex = row.Table.Columns.Contains("BancoID") ? row.Field<int>("BancoID") : -1;
-                textBoxusuarioid.SelectedIndex = row.Table.Columns.Contains("UsuarioID") ? row.Field<int>("UsuarioID") : -1;
+                textBoxtipo.SelectedIndex = row.Table.Columns.Contains("TipoDeTransaccion") ? row.Field<int>("TipoDeTransaccion") : -1;
+                textBoxbancoid.Text = row.Table.Columns.Contains("BancoID") ? row["BancoID"].ToString() : "";
+                textBoxusuarioid.Text = row.Table.Columns.Contains("UsuarioID") ? row["UsuarioID"].ToString() : "";
                 textBoxdescripcion.Text = row["Descripcion"].ToString();
                 textBoxmonto.Text = row["Monto"].ToString();
-                textBoxfecha.Value = row.Table.Columns.Contains("Fecha") ? DateTime.Parse(row.Field<string>("Fecha")) : DateTime.MinValue;
+                textBoxfecha.Text = row.Table.Columns.Contains("Fecha") ? row["Fecha"].ToString() : "";
+                textBoxfecha.Value = row.Table.Columns.Contains("Fecha") ? DateTime.Parse(row["Fecha"].ToString()) : DateTime.MinValue;
                 textBoxobservacion.Text = row["Observacion"].ToString();
             }
             else
             {
-                textBoxtransaccionid.Text = "";
-                textBoxclienteid.Text = "";
-                textBoxtipo.SelectedIndex = -1;
-                textBoxbancoid.SelectedIndex = -1;
-                textBoxdescripcion.Text = "";
-                textBoxmonto.Text = "";
-                textBoxfecha.Value = DateTime.MinValue;
-                textBoxusuarioid.SelectedIndex = -1;
-                textBoxobservacion.Text = "";
+                ClearAllTextboxes();
             }
         }
 
+        private void ClearAllTextboxes()
+        {
+            textBoxtransaccionid.Text = "";
+            textBoxclienteid.Text = "";
+            textBoxtipo.SelectedIndex = -1;
+            textBoxbancoid.Text = "";
+            textBoxusuarioid.Text = "";
+            textBoxdescripcion.Text = "";
+            textBoxmonto.Text = "";
+            textBoxfecha.Text = "";
+            textBoxfecha.Value = DateTime.MinValue;
+            textBoxobservacion.Text = "";
+        }
 
         private void ObtenerUltimoIDInsertado()
         {
