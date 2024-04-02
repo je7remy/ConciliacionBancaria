@@ -152,6 +152,12 @@
     <Compile Include="FMCatalogos.Designer.cs">
       <DependentUpon>FMCatalogos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMPConciliacionBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMPConciliacionBancaria.Designer.cs">
+      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMCatalogos.resx">
       <DependentUpon>FMCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMPConciliacionBancaria.resx">
+      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMEmpresas.resx">
       <DependentUpon>FMEmpresas.cs</DependentUpon>
