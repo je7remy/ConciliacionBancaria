@@ -263,8 +263,9 @@ namespace ConciliacionBancaria
 
         private void btnConciliacion_Click(object sender, EventArgs e)
         {
-            FMPConciliacionBancaria FMPConciliacionBancaria = new FMPConciliacionBancaria();
-            FMPConciliacionBancaria.ShowDialog();
+            FMCB ConciliacionBancaria = new FMCB();
+            ConciliacionBancaria.Show();
+           
             hideSubMenu();
         }
 

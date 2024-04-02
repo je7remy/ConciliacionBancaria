@@ -146,6 +146,12 @@
     <Compile Include="ConciliacionBancaria.Designer.cs">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMCB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMCB.Designer.cs">
+      <DependentUpon>FMCB.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMCatalogos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMCB.resx">
+      <DependentUpon>FMCB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMCatalogos.resx">
       <DependentUpon>FMCatalogos.cs</DependentUpon>

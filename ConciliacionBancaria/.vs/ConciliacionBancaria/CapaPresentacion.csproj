@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BBC49D7-618C-4AD3-BCBA-19950AE2FCCF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ConciliacionBancaria</RootNamespace>
+    <AssemblyName>ConciliacionBancaria</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.1.5.3.2.0.0\lib\net452\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConsultaCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCatalogos.Designer.cs">
+      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaEmpresas.Designer.cs">
+      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTransaccionesInternas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaTransaccionesInternas.Designer.cs">
+      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaCuentaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCuentaBancaria.Designer.cs">
+      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaBancos.Designer.cs">
+      <DependentUpon>ConsultaBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaCatalogos.Designer.cs">
+      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaEmpresas.Designer.cs">
+      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaUsuarios.Designer.cs">
+      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaTransaccionesInternas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaTransaccionesInternas.Designer.cs">
+      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaCuentasBancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaCuentasBancarias.Designer.cs">
+      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaBancos.Designer.cs">
+      <DependentUpon>BusquedaBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConciliacionBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConciliacionBancaria.Designer.cs">
+      <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMCatalogos.Designer.cs">
+      <DependentUpon>FMCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMPConciliacionBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMPConciliacionBancaria.Designer.cs">
+      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMEmpresas.Designer.cs">
+      <DependentUpon>FMEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMUsuarios.Designer.cs">
+      <DependentUpon>FMUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMTransacciones_Internas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMTransacciones_Internas.Designer.cs">
+      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMCuentas_Bancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMCuentas_Bancarias.Designer.cs">
+      <DependentUpon>FMCuentas_Bancarias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMBancos.Designer.cs">
+      <DependentUpon>FMBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConciliacionBancariaPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConciliacionBancariaPrueba.Designer.cs">
+      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConsultaCatalogos.resx">
+      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaEmpresas.resx">
+      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaTransaccionesInternas.resx">
+      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaCuentaBancaria.resx">
+      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaBancos.resx">
+      <DependentUpon>ConsultaBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaCatalogos.resx">
+      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaEmpresas.resx">
+      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaUsuarios.resx">
+      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaTransaccionesInternas.resx">
+      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaCuentasBancarias.resx">
+      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaBancos.resx">
+      <DependentUpon>BusquedaBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConciliacionBancaria.resx">
+      <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMCatalogos.resx">
+      <DependentUpon>FMCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMPConciliacionBancaria.resx">
+      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMEmpresas.resx">
+      <DependentUpon>FMEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMUsuarios.resx">
+      <DependentUpon>FMUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMTransacciones_Internas.resx">
+      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMCuentas_Bancarias.resx">
+      <DependentUpon>FMCuentas_Bancarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMBancos.resx">
+      <DependentUpon>FMBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConciliacionBancariaPrueba.resx">
+      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculadora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{ad753ea9-e62f-4b47-b7e0-7707533a08d6}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{5b7f6a76-ea77-4c7b-99a7-6765345e2cc9}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
