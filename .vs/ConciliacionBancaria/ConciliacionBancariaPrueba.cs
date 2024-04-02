@@ -512,8 +512,8 @@ namespace ConciliacionBancaria
         private void MostrarFormularioDatosGenerales()
         {
             // Aquí puedes mostrar el formulario correspondiente a los datos generales
-            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
-            formDatosGenerales.Show();
+            ConsultaBancos ConsultaBancos = new ConsultaBancos();
+            ConsultaBancos.Show();
         }
 
         private void MostrarFormularioPorEstado()
@@ -565,7 +565,7 @@ namespace ConciliacionBancaria
                 formularioDialogo.DialogResult = DialogResult.Yes;
                 formularioDialogo.Close();
                 // Llamar al formulario correspondiente
-                MostrarFormularioDatosGenerales();
+                MostrarFormularioDatosGenerales1();
             };
 
             // Agregar hint al botón "Datos Generales"
@@ -618,8 +618,8 @@ namespace ConciliacionBancaria
         {
             // Aquí puedes mostrar el formulario correspondiente a los datos generales
             // Por ejemplo:
-            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
-            formDatosGenerales.Show();
+            ConsultaCuentaBancaria ConsultaCuentaBancaria = new ConsultaCuentaBancaria();
+            ConsultaCuentaBancaria.Show();
         }
 
         private void MostrarFormularioPorTipo()
@@ -714,8 +714,8 @@ namespace ConciliacionBancaria
             switch (nombreFormulario)
             {
                 case "Datos Generales":
-                    FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
-                    formDatosGenerales.Show();
+                    ConsultaTransaccionesInternas ConsultaTransaccionesInternas = new ConsultaTransaccionesInternas();
+                    ConsultaTransaccionesInternas.Show();
                     break;
                 case "Por Tipo":
                     FConciliacionBancaria formPorTipo = new FConciliacionBancaria();
@@ -773,7 +773,7 @@ namespace ConciliacionBancaria
                 formularioDialogo.DialogResult = DialogResult.Yes;
                 formularioDialogo.Close();
                 // Llamar al formulario correspondiente
-                MostrarFormularioDatosGenerales1();
+                MostrarFormularioDatosGenerales11();
             };
 
             // Agregar hint al botón "Datos Generales"
@@ -825,11 +825,11 @@ namespace ConciliacionBancaria
             formularioDialogo.Show();
         }
 
-        private void MostrarFormularioDatosGenerales2()
+        private void MostrarFormularioDatosGenerales11()
         {
-            // Aquí puedes mostrar el formulario correspondiente a los datos generales
-            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
-            formDatosGenerales.Show();
+          
+            ConsultaUsuarios ConsultaUsuarios = new ConsultaUsuarios();
+            ConsultaUsuarios.Show();
         }
 
         private void MostrarFormularioPorRol()
@@ -872,7 +872,7 @@ namespace ConciliacionBancaria
                 formularioDialogo.DialogResult = DialogResult.Yes;
                 formularioDialogo.Close();
                 // Llamar al formulario correspondiente
-                MostrarFormularioDatosGenerales();
+                MostrarFormularioDatosGeneralessss();
             };
 
             // Agregar hint al botón "Datos Generales"
@@ -923,11 +923,11 @@ namespace ConciliacionBancaria
             formularioDialogo.Show();
         }
 
-        private void MostrarFormularioDatosGenerale()
+        private void MostrarFormularioDatosGeneralessss()
         {
             // Aquí puedes mostrar el formulario correspondiente a los datos generales
-            FConciliacionBancaria formDatosGenerales = new FConciliacionBancaria();
-            formDatosGenerales.Show();
+            ConsultaEmpresas ConsultaEmpresas = new ConsultaEmpresas();
+            ConsultaEmpresas.Show();
         }
 
         private void MostrarFormularioPorUbicacion()
@@ -1050,8 +1050,7 @@ namespace ConciliacionBancaria
         private void MostrarFormularioConciliacionBancaria()
         {
             // Aquí puedes mostrar el formulario correspondiente a la conciliación bancaria
-            FConciliacionBancaria formConciliacion = new FConciliacionBancaria();
-            formConciliacion.Show();
+            
         }
 
         private void MostrarFormularioTransaccionesNoConciliadas()
@@ -1088,5 +1087,109 @@ namespace ConciliacionBancaria
             }
             // No es necesario cerrar el formulario aquí ya que se cerrará automáticamente si e.Cancel se mantiene como false.
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form formularioDialogo = new Form();
+            formularioDialogo.StartPosition = FormStartPosition.Manual;
+            // Obtener la ubicación del botón en la pantalla
+            Point buttonLocation = button2.PointToScreen(Point.Empty);
+            
+            // Ajustar la ubicación del formulario de diálogo para que aparezca al lado del botón
+            formularioDialogo.Location = new Point(buttonLocation.X + button7.Width, buttonLocation.Y );
+
+            formularioDialogo.FormBorderStyle = FormBorderStyle.None;
+            formularioDialogo.BackColor = Color.WhiteSmoke;
+            formularioDialogo.Size = new Size(233, 80);
+
+            // Crear botón "Datos Generales"
+            Button btnDatosGenerales = new Button();
+            btnDatosGenerales.Text = "Datos Generales";
+            btnDatosGenerales.Size = new Size(formularioDialogo.Width, 40);
+            btnDatosGenerales.Location = new Point(0, 0);
+            btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224);
+            btnDatosGenerales.ForeColor = Color.White;
+            btnDatosGenerales.FlatStyle = FlatStyle.Flat;
+            btnDatosGenerales.FlatAppearance.BorderSize = 0;
+            btnDatosGenerales.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnDatosGenerales.MouseEnter += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(45, 45, 48); };
+            btnDatosGenerales.MouseLeave += (s, args) => { btnDatosGenerales.BackColor = Color.FromArgb(75, 177, 224); };
+            btnDatosGenerales.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.Yes;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioDatosGeneralesn();
+            };
+
+            // Agregar hint al botón "Datos Generales"
+            ToolTip toolTipDatosGenerales = new ToolTip();
+            toolTipDatosGenerales.SetToolTip(btnDatosGenerales, "Visualizar e imprimir informaciones generales de los catalogos");
+
+            // Crear botón "Por Categoría"
+            Button btnPorCategoria = new Button();
+            btnPorCategoria.Text = "Por Categoría";
+            btnPorCategoria.Size = new Size(formularioDialogo.Width, 40);
+            btnPorCategoria.Location = new Point(0, 40); // Ajustar la ubicación para que esté debajo del botón "Datos Generales"
+            btnPorCategoria.BackColor = Color.FromArgb(75, 177, 224);
+            btnPorCategoria.ForeColor = Color.White;
+            btnPorCategoria.FlatStyle = FlatStyle.Flat;
+            btnPorCategoria.FlatAppearance.BorderSize = 0;
+            btnPorCategoria.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnPorCategoria.MouseEnter += (s, args) => { btnPorCategoria.BackColor = Color.FromArgb(45, 45, 48); };
+            btnPorCategoria.MouseLeave += (s, args) => { btnPorCategoria.BackColor = Color.FromArgb(75, 177, 224); };
+            btnPorCategoria.Click += (s, args) =>
+            {
+                formularioDialogo.DialogResult = DialogResult.No;
+                formularioDialogo.Close();
+                // Llamar al formulario correspondiente
+                MostrarFormularioPorCategoria();
+            };
+
+            // Agregar hint al botón "Por Categoría"
+            ToolTip toolTipPorCategoria = new ToolTip();
+            toolTipPorCategoria.SetToolTip(btnPorCategoria, "Visualizar e imprimir informaciones por categoría de los catalogos");
+
+            // Agregar botones al formulario
+            formularioDialogo.Controls.Add(btnDatosGenerales);
+            formularioDialogo.Controls.Add(btnPorCategoria);
+
+
+            formularioDialogo.Deactivate += (s, args) =>
+            {
+                formularioDialogo.Close();
+                formularioDialogo.Dispose(); // Liberar recursos
+            };
+
+            // Suscribirse al evento Click de los botones para cerrar el formulario
+            btnDatosGenerales.Click += (s, args) => formularioDialogo.Close();
+            btnPorCategoria.Click += (s, args) => formularioDialogo.Close();
+
+            // Mostrar el formulario
+            formularioDialogo.Show();
+
+
+        }
+
+        private void MostrarFormularioDatosGeneralesn()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a los datos generales
+            ConsultaCatalogos ConsultaCatalogos = new ConsultaCatalogos();
+            ConsultaCatalogos.Show();
+        }
+
+        private void MostrarFormularioPorCategoria()
+        {
+            // Aquí puedes mostrar el formulario correspondiente a la categoría
+            FConciliacionBancaria formPorCategoria = new FConciliacionBancaria();
+            formPorCategoria.Show();
+        }
+
     }
+
 }

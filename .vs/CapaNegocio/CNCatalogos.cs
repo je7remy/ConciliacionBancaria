@@ -61,6 +61,15 @@ namespace CapaNegocio
             return dt;
         }
 
+        public static DataTable ObtenerCatalogos(int catalogoID)
+        {
+            CDCatalogos dbcatalogos = new CDCatalogos();
+            // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
+            DataTable dt = dbcatalogos.ObtenerCatalogos(catalogoID);
+
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
 
         //siiiiiiiiiiiiii
         public static DataTable ObtenerCatalogo()

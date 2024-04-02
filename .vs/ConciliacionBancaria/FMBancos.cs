@@ -24,7 +24,7 @@ namespace ConciliacionBancaria
         public FMBancos()
         {
             InitializeComponent();
-         
+            
 
         }
 
@@ -38,11 +38,13 @@ namespace ConciliacionBancaria
             Program.nuevo = false;
             Program.modificar = false;
             HabilitaBotones();
-         //   CargarCatalogos();
+       
             LimpiaObjetos();
-            ObtenerCatalogos();
+           ObtenerCatalogos();
 
+            
 
+         
         }
 
 
@@ -415,7 +417,8 @@ namespace ConciliacionBancaria
 
                 textBoxbanco.Text = row["BancoID"].ToString();
 
-                textBoxcatalogoid.SelectedValue = Convert.ToInt32(row["CatalogoID"]);
+              textBoxcatalogoid.SelectedValue = Convert.ToInt32(row["CatalogoID"]);
+             //   textBoxcatalogoid = Convert.ToInt32(textBoxcatalogoid.SelectedValue);
                 textBoxcorreo.Text = row["Correo"].ToString();
                 textBoxdireccion.Text = row["Direccion"].ToString();
                 textBoxestado.Text = row["Estado"].ToString();

@@ -34,3 +34,9 @@ C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.B
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.BusquedaUsuarios.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.BusquedaEmpresas.resources
 C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.BusquedaCatalogos.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaBancos.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaCuentaBancaria.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaTransaccionesInternas.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaUsuarios.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaEmpresas.resources
+C:\c#\ConciliacionBancaria\ConciliacionBancaria\obj\Debug\ConciliacionBancaria.ConsultaCatalogos.resources

@@ -23,7 +23,7 @@ namespace ConciliacionBancaria
         public BusquedaBancos()
         {
             InitializeComponent();
-          
+         
         }
 
         private void BusquedaBancos_Load(object sender, EventArgs e)
@@ -116,12 +116,23 @@ namespace ConciliacionBancaria
 
         private void DGVDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //si se pulsa en el encabezado, RowIndex será menor que cero y no se hará nada
-            if (!(e.RowIndex > -1))
+            ////si se pulsa en el encabezado, RowIndex será menor que cero y no se hará nada
+            //if (!(e.RowIndex > -1))
+            //{
+            //    return;
+            //}
+            //BAceptar_Click(sender, e); //Se ejecuta el método del botón Aceptar
+
+            if (e.RowIndex > -1)
             {
-                return;
+                if (int.TryParse(DGVDatos.Rows[e.RowIndex].Cells["BancoID"].Value.ToString(), out int valor))
+                {
+                    Program.modificar = true;
+                    Program.BancoID= valor;
+                }
+                Close();
             }
-            BAceptar_Click(sender, e); //Se ejecuta el método del botón Aceptar
+
         }
 
 

@@ -68,6 +68,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultaCatalogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCatalogos.Designer.cs">
+      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaEmpresas.Designer.cs">
+      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTransaccionesInternas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaTransaccionesInternas.Designer.cs">
+      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaCuentaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCuentaBancaria.Designer.cs">
+      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaBancos.Designer.cs">
+      <DependentUpon>ConsultaBancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusquedaCatalogos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +190,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConsultaCatalogos.resx">
+      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaEmpresas.resx">
+      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaTransaccionesInternas.resx">
+      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaCuentaBancaria.resx">
+      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaBancos.resx">
+      <DependentUpon>ConsultaBancos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusquedaCatalogos.resx">
       <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
     </EmbeddedResource>
