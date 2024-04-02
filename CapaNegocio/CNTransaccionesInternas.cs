@@ -13,7 +13,8 @@ namespace CapaNegocio
 {
     public class CNTransaccionesInternas
     {
-        public static string Insertar(int TransaccionID, int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
+        //int TransaccionID,
+        public static string Insertar( int usuarioID, int bancoID, int cuentaID, string clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
             string mensaje = "";
             // Creamos un nuevo objeto de tipo CDBancos
@@ -22,7 +23,7 @@ namespace CapaNegocio
             try
             {
                 // Preparamos los datos para insertar una nueva transacción
-                objTransaccionesInternas.TransaccionID = TransaccionID;
+                //objTransaccionesInternas.TransaccionID = TransaccionID;
                 objTransaccionesInternas.UsuarioID = usuarioID;
                 objTransaccionesInternas.BancoID = bancoID;
                 objTransaccionesInternas.CuentaID = cuentaID;
@@ -45,7 +46,7 @@ namespace CapaNegocio
         }
 
 
-        public static string Actualizar(int TransaccionID, int usuarioID, int bancoID, int cuentaID, int clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
+        public static string Actualizar(int TransaccionID, int usuarioID, int bancoID, int cuentaID, string clienteID, DateTime fecha, string descripcion, decimal monto, string tipo, string observacion)
         {
             string mensaje = "";
             // Creamos un nuevo objeto de tipo CDBancos
@@ -77,14 +78,38 @@ namespace CapaNegocio
         }
 
 
-
+      
 
         public static DataTable ObtenerTransaccionInternaPorID(int transaccionID)
         {
+            CDTransaccionesInternas CDTransaccionesInternas = new CDTransaccionesInternas();
             // Llamada al método estático ObtenerTransaccionInternaPorID de la clase CNTransaccionesInternas
-            DataTable dt = CNTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+            DataTable dt = CDTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
 
             // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
+
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerTransaccion()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM TransaccionesInternas";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
             return dt;
         }
 

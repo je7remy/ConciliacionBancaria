@@ -18,7 +18,7 @@ namespace CapaDatos
         private int dUsuarioID;
         private int dBancoID;
         private int dCuentaID;
-        private int dClienteID;
+        private string dClienteID;
         private DateTime dFecha;
         private string dDescripcion;
         private decimal dMonto;
@@ -32,7 +32,7 @@ namespace CapaDatos
         }
 
         // Constructor con parámetros para inicializar los campos de la clase
-        public CDTransaccionesInternas(int TransaccionID, int UsuarioID, int BancoID, int CuentaID, int ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Observacion)
+        public CDTransaccionesInternas(int TransaccionID, int UsuarioID, int BancoID, int CuentaID, string ClienteID, DateTime Fecha, string Descripcion, decimal Monto, string Tipo, string Observacion)
         {
             dTransaccionID = TransaccionID;
             dUsuarioID = UsuarioID;
@@ -72,7 +72,7 @@ namespace CapaDatos
             set { dCuentaID = value; }
         }
         // Propiedad para obtener o establecer el ID del cliente asociado a la transacción interna
-        public int ClienteID
+        public string ClienteID
         {
             get { return dClienteID; }
             set { dClienteID = value; }

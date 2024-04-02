@@ -87,7 +87,7 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar una nueva configuración en la base de datos
-        public string Insertar(string NombreConfiguracion, string ValorConfiguracion, string Descripcion, string TipoConfiguracion, string TablaRelacionada, string OtrosDetalles)
+        public string Insertar(CDConfiguracion objConfiguracion)
         {
             try
             {
@@ -100,12 +100,12 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la inserción de la configuración
-                        micomando.Parameters.AddWithValue("@NombreConfiguracion", NombreConfiguracion);
-                        micomando.Parameters.AddWithValue("@ValorConfiguracion", ValorConfiguracion);
-                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
-                        micomando.Parameters.AddWithValue("@TipoConfiguracion", TipoConfiguracion);
-                        micomando.Parameters.AddWithValue("@TablaRelacionada", TablaRelacionada);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@NombreConfiguracion", objConfiguracion.dNombreConfiguracion);
+                        micomando.Parameters.AddWithValue("@ValorConfiguracion", objConfiguracion.dValorConfiguracion);
+                        micomando.Parameters.AddWithValue("@Descripcion", objConfiguracion.dDescripcion);
+                        micomando.Parameters.AddWithValue("@TipoConfiguracion", objConfiguracion.dTipoConfiguracion);
+                        micomando.Parameters.AddWithValue("@TablaRelacionada", objConfiguracion.dTablaRelacionada);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", objConfiguracion.dOtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();
@@ -126,7 +126,7 @@ namespace CapaDatos
         }
 
         // Método para actualizar los datos de una configuración en la base de datos
-        public string Actualizar(int ConfiguracionID, string NombreConfiguracion, string ValorConfiguracion, string Descripcion, string TipoConfiguracion, string TablaRelacionada, string OtrosDetalles)
+        public string Actualizar(CDConfiguracion objConfiguracion)
         {
             try
             {
@@ -139,13 +139,13 @@ namespace CapaDatos
                         // Se especifica que el comando es un procedimiento almacenado
                         micomando.CommandType = CommandType.StoredProcedure;
                         // Se añaden los parámetros necesarios para la actualización de la configuración
-                        micomando.Parameters.AddWithValue("@ConfiguracionID", ConfiguracionID);
-                        micomando.Parameters.AddWithValue("@NombreConfiguracion", NombreConfiguracion);
-                        micomando.Parameters.AddWithValue("@ValorConfiguracion", ValorConfiguracion);
-                        micomando.Parameters.AddWithValue("@Descripcion", Descripcion);
-                        micomando.Parameters.AddWithValue("@TipoConfiguracion", TipoConfiguracion);
-                        micomando.Parameters.AddWithValue("@TablaRelacionada", TablaRelacionada);
-                        micomando.Parameters.AddWithValue("@OtrosDetalles", OtrosDetalles);
+                        micomando.Parameters.AddWithValue("@ConfiguracionID", objConfiguracion.dConfiguracionID);
+                        micomando.Parameters.AddWithValue("@NombreConfiguracion", objConfiguracion.dNombreConfiguracion);
+                        micomando.Parameters.AddWithValue("@ValorConfiguracion", objConfiguracion.dValorConfiguracion);
+                        micomando.Parameters.AddWithValue("@Descripcion", objConfiguracion.dDescripcion);
+                        micomando.Parameters.AddWithValue("@TipoConfiguracion", objConfiguracion.dTipoConfiguracion);
+                        micomando.Parameters.AddWithValue("@TablaRelacionada", objConfiguracion.dTablaRelacionada);
+                        micomando.Parameters.AddWithValue("@OtrosDetalles", objConfiguracion.dOtrosDetalles);
 
                         // Se abre la conexión a la base de datos
                         sqlCon.Open();

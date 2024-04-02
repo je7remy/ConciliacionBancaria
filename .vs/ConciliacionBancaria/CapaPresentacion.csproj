@@ -48,15 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.1.5.3.2.0.0\lib\net452\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,207 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultaCatalogos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaCatalogos.Designer.cs">
-      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaEmpresas.Designer.cs">
-      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaUsuarios.Designer.cs">
-      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaTransaccionesInternas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaTransaccionesInternas.Designer.cs">
-      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaCuentaBancaria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaCuentaBancaria.Designer.cs">
-      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaBancos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaBancos.Designer.cs">
-      <DependentUpon>ConsultaBancos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaCatalogos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaCatalogos.Designer.cs">
-      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaEmpresas.Designer.cs">
-      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaUsuarios.Designer.cs">
-      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaTransaccionesInternas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaTransaccionesInternas.Designer.cs">
-      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaCuentasBancarias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaCuentasBancarias.Designer.cs">
-      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusquedaBancos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaBancos.Designer.cs">
-      <DependentUpon>BusquedaBancos.cs</DependentUpon>
-    </Compile>
     <Compile Include="ConciliacionBancaria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ConciliacionBancaria.Designer.cs">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FMCB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMCB.Designer.cs">
-      <DependentUpon>FMCB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMCatalogos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMCatalogos.Designer.cs">
-      <DependentUpon>FMCatalogos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMPConciliacionBancaria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMPConciliacionBancaria.Designer.cs">
-      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMEmpresas.Designer.cs">
-      <DependentUpon>FMEmpresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMUsuarios.Designer.cs">
-      <DependentUpon>FMUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMTransacciones_Internas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMTransacciones_Internas.Designer.cs">
-      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMCuentas_Bancarias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMCuentas_Bancarias.Designer.cs">
-      <DependentUpon>FMCuentas_Bancarias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMBancos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMBancos.Designer.cs">
-      <DependentUpon>FMBancos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConciliacionBancariaPrueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConciliacionBancariaPrueba.Designer.cs">
-      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ConsultaCatalogos.resx">
-      <DependentUpon>ConsultaCatalogos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaEmpresas.resx">
-      <DependentUpon>ConsultaEmpresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaUsuarios.resx">
-      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaTransaccionesInternas.resx">
-      <DependentUpon>ConsultaTransaccionesInternas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaCuentaBancaria.resx">
-      <DependentUpon>ConsultaCuentaBancaria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaBancos.resx">
-      <DependentUpon>ConsultaBancos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaCatalogos.resx">
-      <DependentUpon>BusquedaCatalogos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaEmpresas.resx">
-      <DependentUpon>BusquedaEmpresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaUsuarios.resx">
-      <DependentUpon>BusquedaUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaTransaccionesInternas.resx">
-      <DependentUpon>BusquedaTransaccionesInternas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaCuentasBancarias.resx">
-      <DependentUpon>BusquedaCuentasBancarias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaBancos.resx">
-      <DependentUpon>BusquedaBancos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ConciliacionBancaria.resx">
       <DependentUpon>ConciliacionBancaria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FMCB.resx">
-      <DependentUpon>FMCB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMCatalogos.resx">
-      <DependentUpon>FMCatalogos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMPConciliacionBancaria.resx">
-      <DependentUpon>FMPConciliacionBancaria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMEmpresas.resx">
-      <DependentUpon>FMEmpresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMUsuarios.resx">
-      <DependentUpon>FMUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMTransacciones_Internas.resx">
-      <DependentUpon>FMTransacciones_Internas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMCuentas_Bancarias.resx">
-      <DependentUpon>FMCuentas_Bancarias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMBancos.resx">
-      <DependentUpon>FMBancos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConciliacionBancariaPrueba.resx">
-      <DependentUpon>ConciliacionBancariaPrueba.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -277,9 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -306,13 +107,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\calculadora.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{ad753ea9-e62f-4b47-b7e0-7707533a08d6}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{5b7f6a76-ea77-4c7b-99a7-6765345e2cc9}</Project>
       <Name>CapaNegocio</Name>

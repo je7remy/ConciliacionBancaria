@@ -14,119 +14,57 @@ namespace CapaNegocio
 {
     public class CNBancos
     {
-        //int BancoID,
-        public static string Insertar(int CatalogoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
+        public static string Insertar(string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
-            CDBancos objBanco = new CDBancos();
-            // Preparamos los datos para insertar un nuevo Banco
-            //  objBanco.BancoID = BancoID;
-            objBanco.CatalogoID = CatalogoID;
-            objBanco.Nombre = nombre;
-            objBanco.Sucursal = sucursal;
-            objBanco.Direccion = direccion;
-            objBanco.Estado = estado;
-            objBanco.Telefono = telefono;
-            objBanco.Correo = correo;
-            objBanco.OficialCuentas = oficialCuentas;
-            objBanco.Observaciones = observaciones;
+            try
+            {
+                // Creamos una instancia de la clase CDBancos
+                CDBancos objBancos = new CDBancos();
 
-            // Llamamos al método Insertar del Banco pasándole el objeto creado y retornando el mensaje que indica si se pudo o no realizar la acción
-            return objBanco.Insertar(objBanco);
+                // Llamamos al método InsertarBanco de la capa de datos pasándole los parámetros recibidos
+                return objBancos.Insertar(nombre, sucursal, direccion, estado, telefono, correo, oficialCuentas, observaciones);
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción o propagarla hacia arriba según sea necesario
+                return "Error al insertar el banco: " + ex.Message;
+            }
         }
 
-
-        public static string Actualizar(int bancoID, int CatalogoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
+        public static string Actualizar(int bancoID, string nombre, string sucursal, string direccion, string estado, string telefono, string correo, string oficialCuentas, string observaciones)
         {
-            CDBancos objBanco = new CDBancos();
-            objBanco.BancoID = bancoID;
-            objBanco.CatalogoID = CatalogoID;
-            objBanco.Nombre = nombre;
-            objBanco.Sucursal = sucursal;
-            objBanco.Direccion = direccion;
-            objBanco.Estado = estado;
-            objBanco.Telefono = telefono;
-            objBanco.Correo = correo;
-            objBanco.OficialCuentas = oficialCuentas;
-            objBanco.Observaciones = observaciones;
-            return objBanco.Actualizar(objBanco);
-        }
+            try
+            {
+                // Creamos una instancia de la clase CDBancos
+                CDBancos objBancos = new CDBancos();
 
+                // Llamamos al método ActualizarBanco de la capa de datos pasándole los parámetros recibidos
+                return objBancos.Actualizar(bancoID, nombre, sucursal, direccion, estado, telefono, correo, oficialCuentas, observaciones);
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción o propagarla hacia arriba según sea necesario
+                return "Error al actualizar el banco: " + ex.Message;
+            }
+        }
 
         public static DataTable ObtenerBancoPorID(int bancoID)
         {
-            // Crear una instancia de la clase CDBancos
-            CDBancos dbBancos = new CDBancos();
-
-            // Llamada al método no estático ObtenerBancoPorID de la instancia dbBancos
-            DataTable dt = dbBancos.ObtenerBancoPorID(bancoID);
-
-            // Retornamos el DataTable con los datos adquiridos
-            return dt;
-        }
-
-
-
-        //siiiiiiiiiiiiii
-        public static DataTable ObtenerBanco()
-        {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
-                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-                                            Integrated Security=True;Pooling=true";
-            string consulta = "SELECT * FROM Bancos";
-
-            DataTable dt = new DataTable();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(consulta, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                // Creamos una instancia de la clase CDBancos
+                CDBancos objBancos = new CDBancos();
 
-                dt.Load(reader);
+                // Llamamos al método ObtenerBancoPorID de la capa de datos
+                return objBancos.ObtenerBancoPorID(bancoID);
             }
-
-            return dt;
+            catch (Exception ex)
+            {
+                // Manejar la excepción o propagarla hacia arriba según sea necesario
+                // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
+                throw new Exception("Error al obtener el banco por ID.", ex);
+            }
         }
 
-
-        //// Método para obtener los catálogos
-        //public static DataTable ObtenerCatalogos()
-        //{
-        //    // Establecer la conexión
-        //    string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
-        //                                    AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-        //                                    Integrated Security=True;Pooling=true"; // Reemplaza con tu cadena de conexión
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        // Definir la consulta SQL
-        //        string query = "SELECT CatalogoID, Nombre FROM Catalogos";
-
-        //        // Crear un objeto DataTable para almacenar los resultados
-        //        DataTable dt = new DataTable();
-
-        //        // Utilizar un SqlDataAdapter para ejecutar la consulta y llenar el DataTable
-        //        using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
-        //        {
-        //            try
-        //            {
-        //                // Abrir la conexión y llenar el DataTable
-        //                connection.Open();
-        //                adapter.Fill(dt);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                // Manejo de excepciones: podrías lanzar la excepción o registrarla según tus necesidades
-        //                throw new Exception("Error al obtener los catálogos.", ex);
-        //            }
-        //        }
-
-        //        // Devolver el DataTable con los resultados
-        //        return dt;
-        //    }
-        //}
-    
-
-
-
-}
+    }
 }

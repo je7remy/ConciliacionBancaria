@@ -14,11 +14,11 @@ namespace CapaNegocio
     public class CNCatalogos
     {
 
-        public static string Insertar(int catalogoID, string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
+        public static string Insertar( string nombre, string descripcion, string cuentasPadres, string origen, decimal balance, string estado)
         {
             CDCatalogos objCatalogo = new CDCatalogos();
             // Preparamos los datos para insertar un nuevo catálogo
-            objCatalogo.CatalogoID = catalogoID;
+           // objCatalogo.CatalogoID = catalogoID;
             objCatalogo.Nombre = nombre;
             objCatalogo.Descripcion = descripcion;
             objCatalogo.CuentasPadres = cuentasPadres;
@@ -53,13 +53,45 @@ namespace CapaNegocio
 
         public static DataTable ObtenerCatalogoPorID(int catalogoID)
         {
+            CDCatalogos dbcatalogos = new CDCatalogos();
             // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
-            DataTable dt = CNCatalogos.ObtenerCatalogoPorID(catalogoID);
+            DataTable dt = dbcatalogos.ObtenerCatalogoPorID(catalogoID);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;
         }
 
+        public static DataTable ObtenerCatalogos(int catalogoID)
+        {
+            CDCatalogos dbcatalogos = new CDCatalogos();
+            // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
+            DataTable dt = dbcatalogos.ObtenerCatalogos(catalogoID);
+
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerCatalogo()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM Catalogos";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
 
         //public static DataTable ObtenerCatalogoPorID(int catalogoID)
         //{

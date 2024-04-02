@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 
-
 namespace CapaDatos
 {
     // Clase para manejar la conexión y operaciones con la tabla de usuarios en la base de datos
@@ -80,133 +79,105 @@ namespace CapaDatos
         #endregion
 
         // Método para insertar un nuevo usuario en la base de datos
-        // Método para insertar un nuevo usuario. Recibirá el objeto objUsuario como parámetro
-        public string Insertar(CDUsuarios objUsuario)
+        public string Insertar(string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
-            string mensaje = "";
-            // Creamos un nuevo objeto de tipo SqlConnection
-            SqlConnection sqlCon = new SqlConnection();
-            // Trataremos de hacer algunas operaciones con la tabla
             try
             {
-                // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
-                sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
-                // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso InsertarUsuario
-                SqlCommand micomando = new SqlCommand("InsertarUsuario", sqlCon);
-                sqlCon.Open(); // Abrimos la conexión
-                               // Indicamos que se ejecutará un procedimiento almacenado
-                micomando.CommandType = CommandType.StoredProcedure;
+                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
+                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
+                {
+                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de inserción
+                    using (SqlCommand micomando = new SqlCommand("InsertarUsuario", sqlCon))
+                    {
+                        // Se especifica que el comando es un procedimiento almacenado
+                        micomando.CommandType = CommandType.StoredProcedure;
+                        // Se añaden los parámetros necesarios para la inserción del usuario
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
 
-                /* Enviamos los parámetros al procedimiento almacenado.
-                 * Los nombres que aparecen con el signo @ delante son los parámetros que hemos
-                 * creado en el procedimiento almacenado de la base de datos y debemos escribirlos tal cual 
-                 * aparecen en dicho procedimiento almacenado (respetar mayúsculas y minúsculas).
-                 * Los nombres que aparecen al lado son las propiedades del objeto objUsuario que se pasará 
-                 * como parámetro con los valores deseados. 
-                 */
-                micomando.Parameters.AddWithValue("@UsuarioID", objUsuario.UsuarioID);
-                micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.NombreUsuario);
-                micomando.Parameters.AddWithValue("@ContraseñaHash", objUsuario.ContraseñaHash);
-                micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.CorreoElectronico);
-                micomando.Parameters.AddWithValue("@Rol", objUsuario.Rol);
-                micomando.Parameters.AddWithValue("@Estado", objUsuario.Estado);
+                        // Se abre la conexión a la base de datos
+                        sqlCon.Open();
+                        // Se ejecuta el comando y se obtiene el número de filas afectadas
+                        int rowsAffected = micomando.ExecuteNonQuery();
 
-                // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
-                // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
-                mensaje = micomando.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
+                        // Se retorna un mensaje indicando el resultado de la operación
+                        return rowsAffected == 1 ? "Inserción de datos completada correctamente!" :
+                                                   "No se pudo insertar correctamente los nuevos datos!";
+                    }
+                }
             }
-            catch (Exception ex) // Si ocurre algún error, lo capturamos y mostramos el mensaje
+            catch (Exception ex)
             {
-                mensaje = ex.Message;
+                // Se lanza una excepción con un mensaje descriptivo y la excepción original
+                throw new Exception("Error al intentar insertar datos del usuario.", ex);
             }
-            finally // Luego de realizar el proceso de forma correcta o no 
-            {
-                // Cerramos la conexión si está abierta
-                if (sqlCon.State == ConnectionState.Open)
-                    sqlCon.Close();
-            }
-            // Devolvemos el mensaje correspondiente de acuerdo a lo que haya resultado del comando
-            return mensaje;
         }
 
         // Método para actualizar los datos de un usuario en la base de datos
-       
-        public string Actualizar(CDUsuarios objUsuario)
+        public string Actualizar(int UsuarioID, string NombreUsuario, string ContraseñaHash, string CorreoElectronico, string Rol, string Estado)
         {
-            string mensaje = "";
-            // Creamos un nuevo objeto de tipo SqlConnection
-            SqlConnection sqlCon = new SqlConnection();
-            // Trataremos de hacer algunas operaciones con la tabla
             try
             {
-                // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
-                sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
-                // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso InsertarUsuario
-                SqlCommand micomando = new SqlCommand("ActualizarUsuario", sqlCon);
-                sqlCon.Open(); // Abrimos la conexión
-                               // Indicamos que se ejecutará un procedimiento almacenado
-                micomando.CommandType = CommandType.StoredProcedure;
-
-                /* Enviamos los parámetros al procedimiento almacenado.
-                 * Los nombres que aparecen con el signo @ delante son los parámetros que hemos
-                 * creado en el procedimiento almacenado de la base de datos y debemos escribirlos tal cual 
-                 * aparecen en dicho procedimiento almacenado (respetar mayúsculas y minúsculas).
-                 * Los nombres que aparecen al lado son las propiedades del objeto objUsuario que se pasará 
-                 * como parámetro con los valores deseados. 
-                 */
-                micomando.Parameters.AddWithValue("@UsuarioID", objUsuario.UsuarioID);
-                micomando.Parameters.AddWithValue("@NombreUsuario", objUsuario.NombreUsuario);
-                micomando.Parameters.AddWithValue("@ContraseñaHash", objUsuario.ContraseñaHash);
-                micomando.Parameters.AddWithValue("@CorreoElectronico", objUsuario.CorreoElectronico);
-                micomando.Parameters.AddWithValue("@Rol", objUsuario.Rol);
-                micomando.Parameters.AddWithValue("@Estado", objUsuario.Estado);
-
-                // Ejecutamos la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente,
-                // de lo contrario, se devuelve un mensaje indicando que fue incorrecto.
-                mensaje = micomando.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" : "No se pudo insertar correctamente los nuevos datos!";
-            }
-            catch (Exception ex) // Si ocurre algún error, lo capturamos y mostramos el mensaje
-            {
-                mensaje = ex.Message;
-            }
-            finally // Luego de realizar el proceso de forma correcta o no 
-            {
-                // Cerramos la conexión si está abierta
-                if (sqlCon.State == ConnectionState.Open)
-                    sqlCon.Close();
-            }
-            // Devolvemos el mensaje correspondiente de acuerdo a lo que haya resultado del comando
-            return mensaje;
-        }
-
-        // Método para obtener los datos de un usuario por su ID
-        // Método para obtener los datos de un usuario por su ID
-        public DataTable ObtenerUsuarioPorID(int usuarioID)
-        {
-            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Usuario
-            SqlDataReader leerDatos; // Creamos el DataReader
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
+                // Se establece la conexión a la base de datos utilizando la cadena de conexión proporcionada
+                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion))
                 {
-                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
-                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
-                    sqlCon.Open(); // Se abre la conexión
-                    sqlCmd.CommandText = "ObtenerUsuarioPorID"; // Nombre del Proc. Almacenado a usar
-                    sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@usuarioID", usuarioID); // Se pasa el ID del usuario a buscar
-                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
-                    dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
-                    sqlCon.Close(); // Se cierra la conexión
+                    // Se crea un comando SQL para ejecutar el procedimiento almacenado de actualización
+                    using (SqlCommand micomando = new SqlCommand("ActualizarUsuario", sqlCon))
+                    {
+                        // Se especifica que el comando es un procedimiento almacenado
+                        micomando.CommandType = CommandType.StoredProcedure;
+                        // Se añaden los parámetros necesarios para la actualización del usuario
+                        micomando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
+                        micomando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                        micomando.Parameters.AddWithValue("@ContraseñaHash", ContraseñaHash);
+                        micomando.Parameters.AddWithValue("@CorreoElectronico", CorreoElectronico);
+                        micomando.Parameters.AddWithValue("@Rol", Rol);
+                        micomando.Parameters.AddWithValue("@Estado", Estado);
+
+                        // Se abre la conexión a la base de datos
+                        sqlCon.Open();
+                        // Se ejecuta el comando y se obtiene el número de filas afectadas
+                        int rowsAffected = micomando.ExecuteNonQuery();
+
+                        // Se retorna un mensaje indicando el resultado de la operación
+                        return rowsAffected == 1 ? "Actualización de datos completada correctamente!" :
+                                                   "No se pudo actualizar correctamente los datos!";
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                dt = null; // Si ocurre algún error se anula el DataTable
+                // Se lanza una excepción con un mensaje descriptivo y la excepción original
+                throw new Exception("Error al intentar actualizar datos del usuario.", ex);
             }
-            return dt; // Se retorna el DataTable según lo ocurrido arriba
         }
 
+        // Método utilizado para obtener un DataTable con los datos de un usuario por su ID
+        public DataTable ObtenerUsuarioPorID(int usuarioID)
+        {
+            try
+            {
+                // Se crea un objeto DataTable para almacenar los resultados de la consulta
+                DataTable dt = new DataTable();
 
+                // Se instancia un objeto de la clase CDUsuario 
+                CDUsuarios objUsuario = new CDUsuarios();
+
+                // Se llena el DataTable con los datos del usuario correspondiente al ID proporcionado
+                dt = objUsuario.ObtenerUsuarioPorID(usuarioID);
+
+                // Se retorna el DataTable con los datos adquiridos
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                // Se lanza una excepción con un mensaje descriptivo y la excepción original
+                throw new Exception("Error al intentar obtener datos del usuario por ID.", ex);
+            }
+        }
     }
+
 }
