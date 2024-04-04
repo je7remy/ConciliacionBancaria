@@ -59,6 +59,7 @@ namespace ConciliacionBancaria
             this.textBoxestado = new System.Windows.Forms.ComboBox();
             this.textBoxtelefono = new System.Windows.Forms.MaskedTextBox();
             this.textBoxcatalogoid = new System.Windows.Forms.ComboBox();
+            this.textBoxcatalogoidm = new System.Windows.Forms.ComboBox();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -426,13 +427,24 @@ namespace ConciliacionBancaria
             this.textBoxcatalogoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.textBoxcatalogoid.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxcatalogoid.FormattingEnabled = true;
-            this.textBoxcatalogoid.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.textBoxcatalogoid.Location = new System.Drawing.Point(754, 179);
             this.textBoxcatalogoid.Name = "textBoxcatalogoid";
             this.textBoxcatalogoid.Size = new System.Drawing.Size(251, 39);
             this.textBoxcatalogoid.TabIndex = 39;
+            // 
+            // textBoxcatalogoidm
+            // 
+            this.textBoxcatalogoidm.BackColor = System.Drawing.Color.White;
+            this.textBoxcatalogoidm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxcatalogoidm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxcatalogoidm.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcatalogoidm.FormattingEnabled = true;
+            this.textBoxcatalogoidm.Location = new System.Drawing.Point(754, 179);
+            this.textBoxcatalogoidm.Name = "textBoxcatalogoidm";
+            this.textBoxcatalogoidm.Size = new System.Drawing.Size(251, 39);
+            this.textBoxcatalogoidm.TabIndex = 40;
+            this.textBoxcatalogoidm.Visible = false;
+            this.textBoxcatalogoidm.Click += new System.EventHandler(this.textBoxcatalogoidm_Click);
             // 
             // FMBancos
             // 
@@ -442,6 +454,7 @@ namespace ConciliacionBancaria
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.textBoxcatalogoidm);
             this.Controls.Add(this.textBoxcatalogoid);
             this.Controls.Add(this.textBoxtelefono);
             this.Controls.Add(this.textBoxestado);
@@ -515,5 +528,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.ComboBox textBoxestado;
         private System.Windows.Forms.MaskedTextBox textBoxtelefono;
         private System.Windows.Forms.ComboBox textBoxcatalogoid;
+        private System.Windows.Forms.ComboBox textBoxcatalogoidm;
     }
 }

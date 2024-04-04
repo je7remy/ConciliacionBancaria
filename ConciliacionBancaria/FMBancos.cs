@@ -40,7 +40,7 @@ namespace ConciliacionBancaria
             HabilitaBotones();
        
             LimpiaObjetos();
-           ObtenerCatalogos();
+            ObtenerCatalogos();
 
             
 
@@ -76,14 +76,14 @@ namespace ConciliacionBancaria
                             adapter.Fill(dt);
                         }
 
+
                         // Asigna el DataTable como origen de datos para el ComboBox
+
                         textBoxcatalogoid.DisplayMember = "Nombre";
                         textBoxcatalogoid.ValueMember = "CatalogoID";
                         textBoxcatalogoid.DataSource = dt;
 
-                        // Obtiene el nombre del catálogo de Program y lo convierte a string
-                        string selectedCatalogoNombre = Program.CatalogoID.ToString();
-                        textBoxcatalogoid.Text = selectedCatalogoNombre;
+
 
                         return dt; // Devuelve el DataTable con los datos del catálogo
                     }
@@ -101,48 +101,6 @@ namespace ConciliacionBancaria
 
 
 
-
-        //public void CargarCatalogos()
-        //{
-        //    try
-        //    {
-        //        string query = "ObtenerCatalogos";
-
-        //        // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
-        //        using (SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion())
-        //        {
-        //            using (SqlCommand command = new SqlCommand(query, sqlCon))
-        //            {
-        //                command.CommandType = CommandType.StoredProcedure;
-
-        //                sqlCon.Open();
-        //                DataTable dt = new DataTable();
-
-        //                // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
-        //                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-        //                {
-        //                    adapter.Fill(dt);
-        //                }
-
-        //                // Asigna el DataTable como origen de datos para el ComboBox
-        //                textBoxcatalogoid.DisplayMember = "CatalogoID";
-        //                textBoxcatalogoid.ValueMember = "CatalogoID";
-        //                textBoxcatalogoid.DataSource = dt;
-
-
-        //                // Obtiene el nombre del catálogo de Program y lo convierte a string
-        //                string selectedCatalogoNombre = Program.CatalogoID.ToString();
-        //                textBoxcatalogoid.Text = selectedCatalogoNombre;
-
-        //            } 
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Manejo de excepciones
-        //        MessageBox.Show("Error al cargar catálogos: " + ex.Message);
-        //    }
-        //}
 
 
 
@@ -191,7 +149,7 @@ namespace ConciliacionBancaria
             textBoxtelefono.Enabled = valor;
             if (Program.nuevo)
                 textBoxestado.SelectedIndex = 0;
-            textBoxcatalogoid.SelectedIndex = 0;
+           // textBoxcatalogoid.SelectedIndex = 0;
         }
 
         private void Bnuevo_Click(object sender, EventArgs e)
@@ -359,6 +317,7 @@ namespace ConciliacionBancaria
             Program.modificar = false;
             HabilitaBotones();
             LimpiaObjetos();
+            textBoxcatalogoidm.Visible = false;
         }
 
         private void Beditar_Click(object sender, EventArgs e)
@@ -389,6 +348,7 @@ namespace ConciliacionBancaria
             if (Program.modificar)
             {
                 RecuperaDatos();
+                
                 Beditar_Click(sender, e);
             }
             else
@@ -404,37 +364,64 @@ namespace ConciliacionBancaria
            
         }
 
+        /// <summary>
+        /// Recupera los datos del banco y su catálogo asociado y los muestra en los controles correspondientes.
+        /// </summary>
         public void RecuperaDatos()
         {
-            int bancoID = Program.BancoID; // Obtener el ID del banco de Program
+            // Obtener el ID del banco de Program
+            int bancoID = Program.BancoID;
 
-            // Llamada al método estático ObtenerBancoPorID de la clase CNBancos
-            DataTable dt = CNBancos.ObtenerBancoPorID(bancoID);
+            // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
+            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
 
-            if (dt.Rows.Count > 0)
+            // Verificar si se encontraron datos del banco
+            if (dtBanco.Rows.Count > 0)
             {
-                DataRow row = dt.Rows[0]; // Obtener la primera fila de los resultados
+                // Obtener la primera fila de los resultados del banco
+                DataRow rowBanco = dtBanco.Rows[0];
 
-                textBoxbanco.Text = row["BancoID"].ToString();
+                // Mostrar los datos del banco en los controles correspondientes
+                textBoxbanco.Text = rowBanco["BancoID"].ToString();
+                textBoxcorreo.Text = rowBanco["Correo"].ToString();
+                textBoxdireccion.Text = rowBanco["Direccion"].ToString();
+                textBoxestado.Text = rowBanco["Estado"].ToString();
+                textBoxnombre.Text = rowBanco["Nombre"].ToString();
+                textBoxobservaciones.Text = rowBanco["Observaciones"].ToString();
+                textBoxoficialdecuentas.Text = rowBanco["Oficial_de_Cuentas"].ToString();
+                textBoxsucursal.Text = rowBanco["Sucursal"].ToString();
+                textBoxtelefono.Text = rowBanco["Telefono"].ToString();
 
-              textBoxcatalogoid.SelectedValue = Convert.ToInt32(row["CatalogoID"]);
-             //   textBoxcatalogoid = Convert.ToInt32(textBoxcatalogoid.SelectedValue);
-                textBoxcorreo.Text = row["Correo"].ToString();
-                textBoxdireccion.Text = row["Direccion"].ToString();
-                textBoxestado.Text = row["Estado"].ToString();
-                textBoxnombre.Text = row["Nombre"].ToString();
-                textBoxobservaciones.Text = row["Observaciones"].ToString();
-                textBoxoficialdecuentas.Text = row["Oficial_de_Cuentas"].ToString();
-                textBoxsucursal.Text = row["Sucursal"].ToString();
-                textBoxtelefono.Text = row["Telefono"].ToString();
+                // Obtener el ID del catálogo asociado al banco
+                int catalogoID = Convert.ToInt32(rowBanco["CatalogoID"]);
+
+                // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos para obtener los datos del catálogo
+                DataTable dtCatalogo = CNCatalogos.ObtenerCatalogoPorID(catalogoID);
+
+                // Verificar si se encontraron datos del catálogo
+                if (dtCatalogo.Rows.Count > 0)
+                {
+                    // Obtener la primera fila de los resultados del catálogo
+                    DataRow rowCatalogo = dtCatalogo.Rows[0];
+
+                    // Obtener el nombre del catálogo
+                    string nombreCatalogo = rowCatalogo["Nombre"].ToString();
+
+                    // Agregar el nombre del catálogo al ComboBox textBoxcatalogoid y seleccionarlo
+                    textBoxcatalogoidm.Items.Add(nombreCatalogo);
+                    textBoxcatalogoidm.SelectedIndex = textBoxcatalogoidm.Items.Count - 1;
+                    textBoxcatalogoidm.Visible = true;
+                }
+                else
+                {
+                    // Limpiar el campo si no se encontraron datos del catálogo
+                    textBoxcatalogoidm.Text = "";
+                }
             }
             else
             {
-                // Manejar el caso en el que no se encuentren datos para el ID proporcionado
-                // Por ejemplo, mostrar un mensaje de error o limpiar los campos
-                // Aquí se muestra un ejemplo de cómo limpiar los campos:
+                // Limpiar todos los controles si no se encontraron datos del banco
                 textBoxbanco.Text = "";
-                textBoxcatalogoid.Text = "";
                 textBoxcorreo.Text = "";
                 textBoxdireccion.Text = "";
                 textBoxestado.Text = "";
@@ -443,10 +430,11 @@ namespace ConciliacionBancaria
                 textBoxoficialdecuentas.Text = "";
                 textBoxsucursal.Text = "";
                 textBoxtelefono.Text = "";
+
+                // Limpiar el campo catalogonombre si no se encontraron datos del banco
+                textBoxcatalogoidm.Text = "";
             }
         }
-
-
 
 
 
@@ -515,6 +503,11 @@ namespace ConciliacionBancaria
                 Bbuscar.Enabled = true;
                 Bcancelar.Enabled = false;
             }
+        }
+
+        private void textBoxcatalogoidm_Click(object sender, EventArgs e)
+        {
+            textBoxcatalogoidm.Visible = false;
         }
     }
 }

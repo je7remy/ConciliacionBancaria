@@ -31,6 +31,7 @@ namespace ConciliacionBancaria
             valorparametro = "";
             vtieneparametro = 0;
             Program.BancoID = 0; //variable global que tomará el valor seleccionado
+            Program.CatalogoID = 0;
             MostrarDatos(); //Llamo al Método que llena el DataGrid
             Tbuscar.Focus(); //El TextBox Buscar recibe el cursor
         }
@@ -68,9 +69,11 @@ namespace ConciliacionBancaria
             if (DGVDatos.CurrentRow != null) //Si el DataGridView no está vacío
             {
                 
-                Program.modificar = true;
-                Program.BancoID = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value);
-               
+               Program.modificar = true;
+               Program.BancoID = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value);
+               Program.CatalogoID = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value);
+
+
             }
             this.Close();
         }
@@ -237,5 +240,7 @@ namespace ConciliacionBancaria
                 MessageBox.Show("Ningún dato que mostrar!"); //Se muestra un mensaje de error
             }
         }
+
+
     }
 }

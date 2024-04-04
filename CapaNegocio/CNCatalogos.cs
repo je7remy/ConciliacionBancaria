@@ -9,6 +9,7 @@ using System.Data.SqlTypes;
 using System.Data.Sql;
 using CapaDatos;
 
+
 namespace CapaNegocio
 {
     public class CNCatalogos
@@ -61,16 +62,7 @@ namespace CapaNegocio
             return dt;
         }
 
-        public static DataTable ObtenerCatalogos(int catalogoID)
-        {
-            CDCatalogos dbcatalogos = new CDCatalogos();
-            // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
-            DataTable dt = dbcatalogos.ObtenerCatalogos(catalogoID);
-
-            // Retornamos el DataTable con los datos adquiridos
-            return dt;
-        }
-
+       
         //siiiiiiiiiiiiii
         public static DataTable ObtenerCatalogo()
         {
@@ -93,23 +85,7 @@ namespace CapaNegocio
             return dt;
         }
 
-        //public static DataTable ObtenerCatalogoPorID(int catalogoID)
-        //{
-        //    try
-        //    {
-        //        // Creamos una instancia de la clase CDCatalogos
-        //        CDCatalogos objCatalogos = new CDCatalogos();
-
-        //        // Llamamos al método ObtenerCatalogoPorID de la capa de datos
-        //        return objCatalogos.ObtenerCatalogoPorID(catalogoID);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Manejar la excepción o propagarla hacia arriba según sea necesario
-        //        // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
-        //        throw new Exception("Error al obtener el catálogo por ID.", ex);
-        //    }
-        //}
+       
 
     }
 }

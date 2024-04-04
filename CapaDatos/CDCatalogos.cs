@@ -218,31 +218,6 @@ namespace CapaDatos
 
 
 
-        // Método para obtener los datos de un catálogo por su ID
-        public DataTable ObtenerCatalogos(int catalogoID)
-        {
-            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Catálogo
-            SqlDataReader leerDatos; // Creamos el DataReader
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
-                {
-                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
-                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
-                    sqlCon.Open(); // Se abre la conexión
-                    sqlCmd.CommandText = "ObtenerCatalogos"; // Nombre del Proc. Almacenado a usar
-                    sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@CatalogoID", catalogoID); // Se pasa el ID del catálogo a buscar
-                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
-                    dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
-                    sqlCon.Close(); // Se cierra la conexión
-                }
-            }
-            catch (Exception)
-            {
-                dt = null; // Si ocurre algún error se anula el DataTable
-            }
-            return dt; // Se retorna el DataTable según lo ocurrido arriba
-        }
+ 
     }
 }

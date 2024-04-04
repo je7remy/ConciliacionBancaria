@@ -32,20 +32,89 @@ namespace ConciliacionBancaria
 
         private void FMBancos_Load(object sender, EventArgs e)
         {
-           
-            
+            CargarBancos();
+            CargarCuentas();
 
-            
 
-         
+
+
+
+        }
+
+
+        private void CargarBancos()
+        {
+            try
+            {
+                string query = "ObtenerBancos";
+
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
+
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxbancoid.DisplayMember = "Nombre";
+                        textBoxbancoid.ValueMember = "BancoID";
+                        textBoxbancoid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar bancos: " + ex.Message);
+            }
         }
 
 
 
+        private void CargarCuentas()
+        {
+            try
+            {
+                string query = "ObtenerCuentas";
 
+                // Utiliza un bloque using para garantizar que la conexión se cierre correctamente
+                SqlConnection sqlCon = CapaPresentacionConexion.ObtenerConexion();
+                {
+                    using (SqlCommand command = new SqlCommand(query, sqlCon))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
 
+                        sqlCon.Open();
+                        DataTable dt = new DataTable();
 
+                        // Utiliza un SqlDataAdapter para llenar un DataTable con los resultados del procedimiento almacenado
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
 
+                        // Asigna el DataTable como origen de datos para el ComboBox
+                        textBoxcuentaid.DisplayMember = "TipoCuenta";
+                        textBoxcuentaid.ValueMember = "CuentaID";
+                        textBoxcuentaid.DataSource = dt;
+                    }
+                } // La conexión se cerrará automáticamente al salir del bloque using
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al cargar Cuentas: " + ex.Message);
+            }
+        }
 
 
 
