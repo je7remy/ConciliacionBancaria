@@ -506,6 +506,9 @@ namespace ConciliacionBancaria
             Program.modificar = false;
             HabilitaBotones(); //Habilita los objetos y botones correspondientes
             LimpiaObjetos(); //Llama al método LimpiaObjetos
+            textBoxcuentaidm.Visible = false;
+            textBoxusuarioidm.Visible = false;
+            textBoxbancoidm.Visible = false;
         }
 
         private void Beditar_Click(object sender, EventArgs e)
@@ -547,33 +550,142 @@ namespace ConciliacionBancaria
 
         public void RecuperaDatos()
         {
+            // Obtener el ID de la transacción de Program
             int transaccionID = Program.TransaccionID;
 
-            CDTransaccionesInternas cuentas = new CDTransaccionesInternas();
-            DataTable dt = cuentas.ObtenerTransaccionInternaPorID(transaccionID);
+            // Crear una instancia de CDTransaccionesInternas
+            CDTransaccionesInternas transaccionesInternas = new CDTransaccionesInternas();
 
-            if (dt.Rows.Count > 0)
+            // Llamada al método no estático ObtenerTransaccionInternaPorID de la instancia de CDTransaccionesInternas para obtener los datos de la transacción interna
+            DataTable dtTransaccion = transaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+
+            // Verificar si se encontraron datos de la transacción interna
+            if (dtTransaccion.Rows.Count > 0)
             {
-                DataRow row = dt.Rows[0];
+                // Obtener la primera fila de los resultados de la transacción interna
+                DataRow rowTransaccion = dtTransaccion.Rows[0];
 
-                textBoxtransaccionid.Text = row["TransaccionID"].ToString();
-                textBoxclienteid.Text = row["ClienteID"].ToString();
-                textBoxtipo.SelectedIndex = row.Table.Columns.Contains("TipoDeTransaccion") ? row.Field<int>("TipoDeTransaccion") : -1;
-                textBoxbancoid.Text = row.Table.Columns.Contains("BancoID") ? row["BancoID"].ToString() : "";
-                textBoxusuarioid.Text = row.Table.Columns.Contains("UsuarioID") ? row["UsuarioID"].ToString() : "";
-                textBoxdescripcion.Text = row["Descripcion"].ToString();
-                textBoxmonto.Text = row["Monto"].ToString();
-                textBoxfecha.Text = row.Table.Columns.Contains("Fecha") ? row["Fecha"].ToString() : "";
-                textBoxfecha.Value = row.Table.Columns.Contains("Fecha") ? DateTime.Parse(row["Fecha"].ToString()) : DateTime.MinValue;
-                textBoxobservacion.Text = row["Observacion"].ToString();
+                // Mostrar los datos de la transacción interna en los controles correspondientes
+                textBoxtransaccionid.Text = rowTransaccion["TransaccionID"].ToString();
+                textBoxclienteid.Text = rowTransaccion["ClienteID"].ToString();
+                textBoxtipo.SelectedIndex = rowTransaccion.Table.Columns.Contains("TipoDeTransaccion") ? rowTransaccion.Field<int>("TipoDeTransaccion") : -1;
+                textBoxbancoid.Text = rowTransaccion.Table.Columns.Contains("BancoID") ? rowTransaccion["BancoID"].ToString() : "";
+                textBoxusuarioid.Text = rowTransaccion.Table.Columns.Contains("UsuarioID") ? rowTransaccion["UsuarioID"].ToString() : "";
+                textBoxdescripcion.Text = rowTransaccion["Descripcion"].ToString();
+                textBoxmonto.Text = rowTransaccion["Monto"].ToString();
+                textBoxfecha.Text = rowTransaccion.Table.Columns.Contains("Fecha") ? rowTransaccion["Fecha"].ToString() : "";
+                textBoxfecha.Value = rowTransaccion.Table.Columns.Contains("Fecha") ? DateTime.Parse(rowTransaccion["Fecha"].ToString()) : DateTime.MinValue;
+                textBoxobservacion.Text = rowTransaccion["Observacion"].ToString();
+
+                // Obtener el ID de la cuenta bancaria de la transacción interna
+                int cuentaID = Convert.ToInt32(rowTransaccion["CuentaID"]);
+
+                // Obtener el nombre de la cuenta bancaria
+                string nombreCuentaBancaria = ObtenerNombreCuentaBancaria(cuentaID);
+                textBoxcuentaidm.Text = nombreCuentaBancaria;
+                textBoxcuentaidm.Items.Add(nombreCuentaBancaria);
+                textBoxcuentaidm.SelectedIndex = textBoxcuentaidm.Items.Count - 1;
+                textBoxcuentaidm.Visible = true;
+
+                // Obtener el ID del usuario de la transacción interna
+                int usuarioID = Convert.ToInt32(rowTransaccion["UsuarioID"]);
+
+                // Obtener el nombre del usuario
+                string nombreUsuario = ObtenerNombreUsuario(usuarioID);
+                textBoxusuarioidm.Text = nombreUsuario;
+                textBoxusuarioidm.Items.Add(nombreUsuario);
+                textBoxusuarioidm.SelectedIndex = textBoxusuarioidm.Items.Count - 1;
+                textBoxusuarioidm.Visible = true;
+
+                // Obtener el ID del banco de la transacción interna
+                int bancoID = Convert.ToInt32(rowTransaccion["BancoID"]);
+
+                // Obtener el nombre del banco
+                string nombreBanco = ObtenerNombreBanco(bancoID);
+                textBoxbancoidm.Text = nombreBanco;
+                textBoxbancoidm.Items.Add(nombreBanco);
+                textBoxbancoidm.SelectedIndex = textBoxbancoidm.Items.Count - 1;
+                textBoxbancoidm.Visible = true;
             }
             else
             {
-                ClearAllTextboxes();
+                // Manejar el caso en el que no se encuentren datos de la transacción interna para el ID proporcionado
+                MessageBox.Show("No se encontraron datos de la transacción interna para el ID proporcionado.");
+                LimpiarControlesTransaccion();
             }
         }
 
-        private void ClearAllTextboxes()
+        // Método para obtener el nombre de la cuenta bancaria
+        private string ObtenerNombreCuentaBancaria(int cuentaID)
+        {
+            // Crear una instancia de CDCuentasBancarias
+            CDCuentasBancarias cuentasBancarias = new CDCuentasBancarias();
+
+            // Llamada al método estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias para obtener los datos de la cuenta bancaria
+            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+
+            // Verificar si se encontraron datos de la cuenta bancaria
+            if (dtCuenta.Rows.Count > 0)
+            {
+                // Obtener la primera fila de los resultados de la cuenta bancaria
+                DataRow rowCuenta = dtCuenta.Rows[0];
+
+                // Devolver el nombre de la cuenta bancaria
+                return rowCuenta["TipoCuenta"].ToString(); // Reemplaza "NombreCuenta" con el nombre real de la columna que contiene el nombre de la cuenta bancaria
+            }
+            else
+            {
+                // Manejar el caso en el que no se encuentren datos de la cuenta bancaria para el ID proporcionado
+                return "Nombre de cuenta no encontrado"; // Puedes cambiar este mensaje según sea necesario
+            }
+        }
+
+        // Método para obtener el nombre del usuario
+        private string ObtenerNombreUsuario(int usuarioID)
+        {
+            // Llamada al método estático ObtenerUsuarioPorID de la clase CNUsuarios para obtener los datos del usuario
+            DataTable dtUsuario = CNUsuarios.ObtenerUsuarioPorID(usuarioID);
+
+            // Verificar si se encontraron datos del usuario
+            if (dtUsuario.Rows.Count > 0)
+            {
+                // Obtener la primera fila de los resultados del usuario
+                DataRow rowUsuario = dtUsuario.Rows[0];
+
+                // Devolver el nombre del usuario
+                return rowUsuario["NombreUsuario"].ToString(); // Reemplaza "NombreUsuario" con el nombre real de la columna que contiene el nombre del usuario
+            }
+            else
+            {
+                // Manejar el caso en el que no se encuentren datos del usuario para el ID proporcionado
+                return "Nombre de usuario no encontrado"; // Puedes cambiar este mensaje según sea necesario
+            }
+        }
+
+        // Método para obtener el nombre del banco
+        private string ObtenerNombreBanco(int bancoID)
+        {
+            // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
+            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+
+            // Verificar si se encontraron datos del banco
+            if (dtBanco.Rows.Count > 0)
+            {
+                // Obtener la primera fila de los resultados del banco
+                DataRow rowBanco = dtBanco.Rows[0];
+
+                // Devolver el nombre del banco
+                return rowBanco["Nombre"].ToString(); // Reemplaza "Nombre" con el nombre real de la columna que contiene el nombre del banco
+            }
+            else
+            {
+                // Manejar el caso en el que no se encuentren datos del banco para el ID proporcionado
+                return "Nombre de banco no encontrado"; // Puedes cambiar este mensaje según sea necesario
+            }
+        }
+
+        // Método para limpiar los controles de la transacción
+        private void LimpiarControlesTransaccion()
         {
             textBoxtransaccionid.Text = "";
             textBoxclienteid.Text = "";
@@ -585,7 +697,11 @@ namespace ConciliacionBancaria
             textBoxfecha.Text = "";
             textBoxfecha.Value = DateTime.MinValue;
             textBoxobservacion.Text = "";
+            textBoxcuentaidm.Text = "";
+            textBoxusuarioidm.Text = "";
+            textBoxbancoidm.Text = "";
         }
+
 
         private void ObtenerUltimoIDInsertado()
         {
@@ -627,5 +743,21 @@ namespace ConciliacionBancaria
                 }
             }
         }
+
+        private void textBoxcuentaidm_Click(object sender, EventArgs e)
+        {
+            textBoxcuentaidm.Visible = false;
+        }
+
+        private void textBoxusuarioidm_Click(object sender, EventArgs e)
+        {
+            textBoxusuarioidm.Visible = false;
+        }
+
+        private void textBoxbancoidm_Click(object sender, EventArgs e)
+        {
+            textBoxbancoidm.Visible = false;
+        }
     }
+   
     }

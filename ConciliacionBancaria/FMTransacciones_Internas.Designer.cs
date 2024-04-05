@@ -59,6 +59,9 @@ namespace ConciliacionBancaria
             this.textBoxbancoid = new System.Windows.Forms.ComboBox();
             this.textBoxusuarioid = new System.Windows.Forms.ComboBox();
             this.textBoxcuentaid = new System.Windows.Forms.ComboBox();
+            this.textBoxcuentaidm = new System.Windows.Forms.ComboBox();
+            this.textBoxusuarioidm = new System.Windows.Forms.ComboBox();
+            this.textBoxbancoidm = new System.Windows.Forms.ComboBox();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -457,6 +460,48 @@ namespace ConciliacionBancaria
             this.textBoxcuentaid.Size = new System.Drawing.Size(251, 39);
             this.textBoxcuentaid.TabIndex = 49;
             // 
+            // textBoxcuentaidm
+            // 
+            this.textBoxcuentaidm.BackColor = System.Drawing.Color.White;
+            this.textBoxcuentaidm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxcuentaidm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxcuentaidm.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxcuentaidm.FormattingEnabled = true;
+            this.textBoxcuentaidm.Location = new System.Drawing.Point(314, 295);
+            this.textBoxcuentaidm.Name = "textBoxcuentaidm";
+            this.textBoxcuentaidm.Size = new System.Drawing.Size(251, 39);
+            this.textBoxcuentaidm.TabIndex = 50;
+            this.textBoxcuentaidm.Visible = false;
+            this.textBoxcuentaidm.Click += new System.EventHandler(this.textBoxcuentaidm_Click);
+            // 
+            // textBoxusuarioidm
+            // 
+            this.textBoxusuarioidm.BackColor = System.Drawing.Color.White;
+            this.textBoxusuarioidm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxusuarioidm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxusuarioidm.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxusuarioidm.FormattingEnabled = true;
+            this.textBoxusuarioidm.Location = new System.Drawing.Point(814, 237);
+            this.textBoxusuarioidm.Name = "textBoxusuarioidm";
+            this.textBoxusuarioidm.Size = new System.Drawing.Size(251, 39);
+            this.textBoxusuarioidm.TabIndex = 51;
+            this.textBoxusuarioidm.Visible = false;
+            this.textBoxusuarioidm.Click += new System.EventHandler(this.textBoxusuarioidm_Click);
+            // 
+            // textBoxbancoidm
+            // 
+            this.textBoxbancoidm.BackColor = System.Drawing.Color.White;
+            this.textBoxbancoidm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxbancoidm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxbancoidm.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxbancoidm.FormattingEnabled = true;
+            this.textBoxbancoidm.Location = new System.Drawing.Point(814, 179);
+            this.textBoxbancoidm.Name = "textBoxbancoidm";
+            this.textBoxbancoidm.Size = new System.Drawing.Size(251, 39);
+            this.textBoxbancoidm.TabIndex = 52;
+            this.textBoxbancoidm.Visible = false;
+            this.textBoxbancoidm.Click += new System.EventHandler(this.textBoxbancoidm_Click);
+            // 
             // FMTransacciones_Internas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -465,6 +510,9 @@ namespace ConciliacionBancaria
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.textBoxbancoidm);
+            this.Controls.Add(this.textBoxusuarioidm);
+            this.Controls.Add(this.textBoxcuentaidm);
             this.Controls.Add(this.textBoxcuentaid);
             this.Controls.Add(this.textBoxusuarioid);
             this.Controls.Add(this.textBoxbancoid);
@@ -538,5 +586,8 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.ComboBox textBoxbancoid;
         private System.Windows.Forms.ComboBox textBoxusuarioid;
         private System.Windows.Forms.ComboBox textBoxcuentaid;
+        private System.Windows.Forms.ComboBox textBoxcuentaidm;
+        private System.Windows.Forms.ComboBox textBoxusuarioidm;
+        private System.Windows.Forms.ComboBox textBoxbancoidm;
     }
 }
