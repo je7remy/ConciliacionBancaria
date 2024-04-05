@@ -390,7 +390,7 @@ namespace ConciliacionBancaria
             Program.modificar = false;
             HabilitaBotones(); //Habilita los objetos y botones correspondientes
             LimpiaObjetos(); //Llama al método LimpiaObjetos
-
+            textBoxbancoidm.Visible = false;
         }
 
         private void Beditar_Click(object sender, EventArgs e)
@@ -434,46 +434,95 @@ namespace ConciliacionBancaria
 
         public void RecuperaDatos()
         {
-            int cuentaID = Program.CuentaID; // Obtener el ID de la cuenta de Program
+            // Obtener el ID de la cuenta de Program
+            int cuentaID = Program.CuentaID;
 
             // Crear una instancia de CDCuentasBancarias
             CDCuentasBancarias cuentasBancarias = new CDCuentasBancarias();
 
-            // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias
-            DataTable dt = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+            // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias para obtener los datos de la cuenta bancaria
+            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
 
-            if (dt.Rows.Count > 0)
+            // Verificar si se encontraron datos de la cuenta bancaria
+            if (dtCuenta.Rows.Count > 0)
             {
-                DataRow row = dt.Rows[0];
+                // Obtener la primera fila de los resultados de la cuenta bancaria
+                DataRow rowCuenta = dtCuenta.Rows[0];
 
-                textBoxclienteid.Text = row["ClienteID"].ToString();
-                textBoxcuentaid.Text = row["CuentaID"].ToString();
-                textBoxtipodecuenta.Text = row["TipoCuenta"].ToString();
-                textBoxbancoid.Text = row["BancoID"].ToString();
-                textBoxnumerodecuenta.Text = row["NumeroCuenta"].ToString();
-                textBoxsaldoinicial.Text = row["SaldoInicial"].ToString();
-                textBoxfechadeapertura.Text = row["FechaApertura"].ToString();
-                textBoxmoneda.Text = row["Moneda"].ToString();
-                textBoxdebito.Text = row["Debito"].ToString();
-                textBoxcredito.Text = row["Credito"].ToString();
-                textBoxestado.Text = row["Estado"].ToString();
-                textBoxobservacion.Text = row["Observacion"].ToString();
+                // Mostrar los datos de la cuenta bancaria en los controles correspondientes
+                textBoxclienteid.Text = rowCuenta["ClienteID"].ToString();
+                textBoxcuentaid.Text = rowCuenta["CuentaID"].ToString();
+                textBoxtipodecuenta.Text = rowCuenta["TipoCuenta"].ToString();
+                textBoxbancoid.Text = rowCuenta["BancoID"].ToString();
+                textBoxnumerodecuenta.Text = rowCuenta["NumeroCuenta"].ToString();
+                textBoxsaldoinicial.Text = rowCuenta["SaldoInicial"].ToString();
+                textBoxfechadeapertura.Text = rowCuenta["FechaApertura"].ToString();
+                textBoxmoneda.Text = rowCuenta["Moneda"].ToString();
+                textBoxdebito.Text = rowCuenta["Debito"].ToString();
+                textBoxcredito.Text = rowCuenta["Credito"].ToString();
+                textBoxestado.Text = rowCuenta["Estado"].ToString();
+                textBoxobservacion.Text = rowCuenta["Observacion"].ToString();
+
+                // Obtener el ID del banco de la cuenta bancaria
+                int bancoID = Convert.ToInt32(rowCuenta["BancoID"]);
+
+                // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
+                DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+
+                // Verificar si se encontraron datos del banco
+                if (dtBanco.Rows.Count > 0)
+                {
+                    // Obtener la primera fila de los resultados del banco
+                    DataRow rowBanco = dtBanco.Rows[0];
+
+                    // Mostrar los datos del banco en los controles correspondientes
+                    string nombreBanco = rowBanco["Nombre"].ToString();
+
+
+                    // Agregar el nombre del catálogo al ComboBox textBoxcatalogoid y seleccionarlo
+                    textBoxbancoidm.Items.Add(nombreBanco);
+                    textBoxbancoidm.SelectedIndex = textBoxbancoidm.Items.Count - 1;
+                    textBoxbancoidm.Visible = true;
+                }
+                else
+                {
+                    // Manejar el caso en el que no se encuentren datos del banco para el ID proporcionado
+                    MessageBox.Show("No se encontraron datos del banco para el ID proporcionado.");
+                    LimpiarControlesBanco(); // Limpia los controles del banco
+                }
             }
             else
             {
-                textBoxclienteid.Text = "";
-                textBoxcuentaid.Text = "";
-                textBoxtipodecuenta.Text = "";
-                textBoxbancoid.SelectedIndex = -1;
-                textBoxnumerodecuenta.Text = "";
-                textBoxsaldoinicial.Text = "";
-                textBoxfechadeapertura.Text = "";
-                textBoxmoneda.Text = "";
-                textBoxdebito.Text = "";
-                textBoxcredito.Text = "";
-                textBoxestado.Text = "";
-                textBoxobservacion.Text = "";
+                // Manejar el caso en el que no se encuentren datos de la cuenta bancaria para el ID proporcionado
+                MessageBox.Show("No se encontraron datos de la cuenta bancaria para el ID proporcionado.");
+                LimpiarControlesCuentaBancaria(); // Limpia los controles de la cuenta bancaria
+                LimpiarControlesBanco(); // Limpia los controles del banco
             }
+        }
+
+        // Método para limpiar los controles relacionados con la cuenta bancaria
+        private void LimpiarControlesCuentaBancaria()
+        {
+            textBoxclienteid.Text = "";
+            textBoxcuentaid.Text = "";
+            textBoxtipodecuenta.Text = "";
+            textBoxbancoid.Text = "";
+            textBoxnumerodecuenta.Text = "";
+            textBoxsaldoinicial.Text = "";
+            textBoxfechadeapertura.Text = "";
+            textBoxmoneda.Text = "";
+            textBoxdebito.Text = "";
+            textBoxcredito.Text = "";
+            textBoxestado.Text = "";
+            textBoxobservacion.Text = "";
+        }
+
+        // Método para limpiar los controles relacionados con el banco
+        private void LimpiarControlesBanco()
+        {
+
+            textBoxbancoidm.Text = "";
+          
         }
 
 
@@ -522,6 +571,11 @@ namespace ConciliacionBancaria
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxbancoidm_Click(object sender, EventArgs e)
+        {
+            textBoxbancoidm.Visible = false;
         }
     }
 }

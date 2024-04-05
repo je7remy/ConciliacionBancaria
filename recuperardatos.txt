@@ -73,3 +73,11 @@ el ComboBox que se usa para mostrar los datos del datagridview es distinto al de
 de manera que su propiedad visible debe estar en false en las propiedades, en el boton cancelar, 
 en su evento click y solo en true donde se muestra en el codigo, el mismo debe estar posicionado 
 justo encima del ComboBox de insertar/actualizar...
+
+
+
+
+
+quiero fusionar estos dos codigos datatables de manera que cuando carge el id banco que esta dentro 
+de cuentas bancarias este me cargue el nombre bancos que esta en bancos en un mismo formulario, 
+quiero recuperar el idbancos de cuentas bancarias para mostrar el nombre bancos de bancos

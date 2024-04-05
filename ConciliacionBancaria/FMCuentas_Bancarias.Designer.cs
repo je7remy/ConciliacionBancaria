@@ -63,6 +63,7 @@ namespace ConciliacionBancaria
             this.textBoxfechadeapertura = new System.Windows.Forms.DateTimePicker();
             this.textBoxestado = new System.Windows.Forms.ComboBox();
             this.textBoxtipodecuenta = new System.Windows.Forms.ComboBox();
+            this.textBoxbancoidm = new System.Windows.Forms.ComboBox();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -500,6 +501,23 @@ namespace ConciliacionBancaria
             this.textBoxtipodecuenta.Size = new System.Drawing.Size(251, 39);
             this.textBoxtipodecuenta.TabIndex = 45;
             // 
+            // textBoxbancoidm
+            // 
+            this.textBoxbancoidm.BackColor = System.Drawing.Color.White;
+            this.textBoxbancoidm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxbancoidm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textBoxbancoidm.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxbancoidm.FormattingEnabled = true;
+            this.textBoxbancoidm.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.textBoxbancoidm.Location = new System.Drawing.Point(814, 179);
+            this.textBoxbancoidm.Name = "textBoxbancoidm";
+            this.textBoxbancoidm.Size = new System.Drawing.Size(251, 39);
+            this.textBoxbancoidm.TabIndex = 46;
+            this.textBoxbancoidm.Visible = false;
+            this.textBoxbancoidm.Click += new System.EventHandler(this.textBoxbancoidm_Click);
+            // 
             // FMCuentas_Bancarias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -508,6 +526,7 @@ namespace ConciliacionBancaria
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1340, 749);
+            this.Controls.Add(this.textBoxbancoidm);
             this.Controls.Add(this.textBoxtipodecuenta);
             this.Controls.Add(this.textBoxestado);
             this.Controls.Add(this.textBoxfechadeapertura);
@@ -589,5 +608,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.DateTimePicker textBoxfechadeapertura;
         private System.Windows.Forms.ComboBox textBoxestado;
         private System.Windows.Forms.ComboBox textBoxtipodecuenta;
+        private System.Windows.Forms.ComboBox textBoxbancoidm;
     }
 }

@@ -82,7 +82,7 @@ namespace ConciliacionBancaria
                         textBoxcatalogoid.DisplayMember = "Nombre";
                         textBoxcatalogoid.ValueMember = "CatalogoID";
                         textBoxcatalogoid.DataSource = dt;
-
+                        
 
 
                         return dt; // Devuelve el DataTable con los datos del catálogo
@@ -282,6 +282,7 @@ namespace ConciliacionBancaria
                     }
                     else
                     {//CatalogoID
+
                         mensaje = CNBancos.Actualizar(Program.BancoID, CatalogoID, textBoxnombre.Text,
                                                        textBoxsucursal.Text, textBoxdireccion.Text,
                                                        textBoxestado.Text, textBoxtelefono.Text,
