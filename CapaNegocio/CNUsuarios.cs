@@ -46,12 +46,12 @@ namespace CapaNegocio
 
        
 
-        public static DataTable ObtenerUsuarioPorID(int usuarioID)
+        public static DataTable ObtenerUsuarioPorID(int? usuarioID, string nombreUsuario)
         {
             CDUsuarios dbUsuarios = new CDUsuarios();
 
             // Llamada al método estático ObtenerUsuarioPorID de la clase CNUsuarios
-            DataTable dt = dbUsuarios.ObtenerUsuarioPorID(usuarioID);
+            DataTable dt = dbUsuarios.ObtenerUsuarioPorID(usuarioID, nombreUsuario);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

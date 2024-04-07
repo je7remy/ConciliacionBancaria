@@ -127,72 +127,75 @@ namespace ConciliacionBancaria
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Tbuscar.Text != String.Empty) //Si se introdujo un dato en el textbox
+            if (!string.IsNullOrEmpty(Tbuscar.Text.Trim())) // Si se introdujo un dato en el textbox
             {
+                vtieneparametro = 1; // Se indica que se trabajará con parámetros
 
-
-                vtieneparametro = 1; //se indica que se trabajará con parámetros
-                                     //Se coloca el signo % para que el dato indicado se busque en cualquier parte del campo
-                valorparametro = "%" + Tbuscar.Text.Trim() + "%";
-                valorparametro = Tbuscar.Text.Trim();
-                MostrarDatos1();
+                // Verificar si el valor de búsqueda es un número
+                if (int.TryParse(Tbuscar.Text.Trim(), out int cuenta))
+                {
+                    valorparametro = Tbuscar.Text.Trim();
+                    MostrarDatos1(cuenta);
+                }
+                else // Si no es un número, se asume que es el nombre del banco
+                {
+                    valorparametro = Tbuscar.Text.Trim();
+                    MostrarDatos1(null); // Pasa null para indicar que no se busca por ID
+                }
             }
-            else //si el textbox está vacío
+            else // Si el textbox está vacío
             {
-                vtieneparametro = 0; //se indica que no se trabajará con parámetros
-                valorparametro = ""; //Se vuelve vacío la variable del parámetro.
-                MostrarDatos(); //Se llama al método MostrarDatos
+                vtieneparametro = 0; // Se indica que no se trabajarán con parámetros
+                valorparametro = ""; // Se vuelve vacía la variable del parámetro
+                MostrarDatos(); // Se llama al método MostrarDatos
             }
-           
-            Tbuscar.Focus(); //Se le pasa el cursos al textbox
+
+            Tbuscar.Focus(); // Se le pasa el cursor al textbox
         }
+
 
         private void Tbuscar_TextChanged(object sender, EventArgs e)
         {
-           
-            if (Tbuscar.Text != String.Empty) //Si se introdujo un dato en el textbox
+
+            if (!string.IsNullOrEmpty(Tbuscar.Text.Trim())) // Si se introdujo un dato en el textbox
             {
-                 
+                vtieneparametro = 1; // Se indica que se trabajará con parámetros
 
-                vtieneparametro = 1; //se indica que se trabajará con parámetros
-                                     //Se coloca el signo % para que el dato indicado se busque en cualquier parte del campo
-                valorparametro = "%" + Tbuscar.Text.Trim() + "%";
-                valorparametro = Tbuscar.Text.Trim();
-                MostrarDatos1();
-
-
-
+                // Verificar si el valor de búsqueda es un número
+                if (int.TryParse(Tbuscar.Text.Trim(), out int cuenta))
+                {
+                    valorparametro = Tbuscar.Text.Trim();
+                    MostrarDatos1(cuenta);
+                }
+                else // Si no es un número, se asume que es el nombre del banco
+                {
+                    valorparametro = Tbuscar.Text.Trim();
+                    MostrarDatos1(null); // Pasa null para indicar que no se busca por ID
+                }
             }
-            else //si el textbox está vacío
+            else // Si el textbox está vacío
             {
-                vtieneparametro = 0; //se indica que no se trabajará con parámetros
-                valorparametro = ""; //Se vuelve vacío la variable del parámetro.
+                vtieneparametro = 0; // Se indica que no se trabajarán con parámetros
+                valorparametro = ""; // Se vuelve vacía la variable del parámetro
                 MostrarDatos();
             }
-          
         }
 
-
-
-        private void MostrarDatos1()
+        private void MostrarDatos1(int? cuenta)
         {
-            if (int.TryParse(valorparametro, out int Cuenta))
+            DataTable dt = CNCuentasBancarias.ObtenerCuentaBancariaPorID(cuenta, valorparametro);
+
+            if (dt != null && dt.Rows.Count > 0)
             {
-                DataTable dt = CNCuentasBancarias.ObtenerCuentaBancariaPorID(Cuenta);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    DGVDatos.DataSource = dt;
-
-                }
+                DGVDatos.DataSource = dt;
             }
             else
             {
-                MessageBox.Show("Solo Numeros!");
+                MessageBox.Show("No se encontraron bancos."); // Mensaje si no se encontraron resultados
             }
         }
 
-      
+
 
         private void MostrarDatos()
         {

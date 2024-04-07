@@ -441,7 +441,7 @@ namespace ConciliacionBancaria
             CDCuentasBancarias cuentasBancarias = new CDCuentasBancarias();
 
             // Llamada al método no estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias para obtener los datos de la cuenta bancaria
-            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID,null);
 
             // Verificar si se encontraron datos de la cuenta bancaria
             if (dtCuenta.Rows.Count > 0)

@@ -80,11 +80,11 @@ namespace CapaNegocio
 
       
 
-        public static DataTable ObtenerTransaccionInternaPorID(int transaccionID)
+        public static DataTable ObtenerTransaccionInternaPorID(int? TransaccionID, string Tipo)
         {
             CDTransaccionesInternas CDTransaccionesInternas = new CDTransaccionesInternas();
             // Llamada al método estático ObtenerTransaccionInternaPorID de la clase CNTransaccionesInternas
-            DataTable dt = CDTransaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+            DataTable dt = CDTransaccionesInternas.ObtenerTransaccionInternaPorID(TransaccionID, Tipo);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

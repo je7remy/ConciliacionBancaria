@@ -63,12 +63,12 @@ namespace CapaNegocio
 
 
 
-        public static DataTable ObtenerCuentaBancariaPorID(int cuentaID)
+        public static DataTable ObtenerCuentaBancariaPorID(int? cuentaID, string tipoCuenta)
         {
             CDCuentasBancarias dbcuentas = new CDCuentasBancarias();
             // Llamada al método estático ObtenerBancoPorID de la clase CNBancos
             // y se cambia el nombre del método y parámetro por los correspondientes a Cuenta
-            DataTable dt = dbcuentas.ObtenerCuentaBancariaPorID(cuentaID);
+            DataTable dt = dbcuentas.ObtenerCuentaBancariaPorID(cuentaID, tipoCuenta);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

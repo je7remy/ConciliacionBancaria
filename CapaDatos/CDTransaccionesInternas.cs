@@ -198,7 +198,7 @@ namespace CapaDatos
         }
 
         // Método para obtener los datos de una transacción interna por su ID
-        public DataTable ObtenerTransaccionInternaPorID(int TransaccionID)
+        public DataTable ObtenerTransaccionInternaPorID(int? TransaccionID, string Tipo)
         {
             DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos de la transacción interna
             SqlDataReader leerDatos; // Creamos el DataReader
@@ -211,8 +211,9 @@ namespace CapaDatos
                     sqlCon.Open(); // Se abre la conexión
                     sqlCmd.CommandText = "ObtenerTransaccionInternaPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@TransaccionID", TransaccionID); // Se pasa el ID de la transacción interna a buscar
-                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
+                    sqlCmd.Parameters.AddWithValue("@TransaccionID", TransaccionID ?? (object)DBNull.Value); // Se pasa el ID de la transacción interna a buscar
+                    sqlCmd.Parameters.AddWithValue("@Tipo", Tipo ?? (object)DBNull.Value); // Se pasa el tipo de transacción interna a buscar                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
+                    leerDatos = sqlCmd.ExecuteReader();
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión
                 }

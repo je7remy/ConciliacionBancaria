@@ -60,6 +60,7 @@ namespace ConciliacionBancaria
             this.btnEditor = new System.Windows.Forms.Button();
             this.btnUtilidades = new System.Windows.Forms.Button();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -73,7 +74,6 @@ namespace ConciliacionBancaria
             this.btnCatalogo = new System.Windows.Forms.Button();
             this.btnEmpresa = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.BtnTransacciones = new System.Windows.Forms.Button();
             this.btnCuentas = new System.Windows.Forms.Button();
             this.btnBancos = new System.Windows.Forms.Button();
             this.lblcorreo = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@ namespace ConciliacionBancaria
             this.lblhora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuToolTip1 = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnTransacciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
@@ -315,7 +315,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel7.Controls.Add(this.btnAcerca);
             this.bunifuPanel7.Controls.Add(this.btnContenido);
             this.bunifuPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel7.Location = new System.Drawing.Point(0, 1317);
+            this.bunifuPanel7.Location = new System.Drawing.Point(0, 1319);
             this.bunifuPanel7.Name = "bunifuPanel7";
             this.bunifuPanel7.ShowBorders = true;
             this.bunifuPanel7.Size = new System.Drawing.Size(233, 90);
@@ -378,7 +378,7 @@ namespace ConciliacionBancaria
             this.btnAyuda.ForeColor = System.Drawing.Color.White;
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
             this.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAyuda.Location = new System.Drawing.Point(0, 1277);
+            this.btnAyuda.Location = new System.Drawing.Point(0, 1279);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(233, 40);
             this.btnAyuda.TabIndex = 40;
@@ -402,7 +402,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel6.Controls.Add(this.btnRestaurar);
             this.bunifuPanel6.Controls.Add(this.btnCopia);
             this.bunifuPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel6.Location = new System.Drawing.Point(0, 1098);
+            this.bunifuPanel6.Location = new System.Drawing.Point(0, 1100);
             this.bunifuPanel6.Name = "bunifuPanel6";
             this.bunifuPanel6.ShowBorders = true;
             this.bunifuPanel6.Size = new System.Drawing.Size(233, 179);
@@ -509,7 +509,7 @@ namespace ConciliacionBancaria
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
             this.btnSeguridad.Image = ((System.Drawing.Image)(resources.GetObject("btnSeguridad.Image")));
             this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(0, 1058);
+            this.btnSeguridad.Location = new System.Drawing.Point(0, 1060);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Size = new System.Drawing.Size(233, 40);
             this.btnSeguridad.TabIndex = 39;
@@ -534,7 +534,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel5.Controls.Add(this.btnCalculadora);
             this.bunifuPanel5.Controls.Add(this.btnEditor);
             this.bunifuPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel5.Location = new System.Drawing.Point(0, 835);
+            this.bunifuPanel5.Location = new System.Drawing.Point(0, 837);
             this.bunifuPanel5.Name = "bunifuPanel5";
             this.bunifuPanel5.ShowBorders = true;
             this.bunifuPanel5.Size = new System.Drawing.Size(233, 223);
@@ -663,7 +663,7 @@ namespace ConciliacionBancaria
             this.btnUtilidades.ForeColor = System.Drawing.Color.White;
             this.btnUtilidades.Image = ((System.Drawing.Image)(resources.GetObject("btnUtilidades.Image")));
             this.btnUtilidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUtilidades.Location = new System.Drawing.Point(0, 795);
+            this.btnUtilidades.Location = new System.Drawing.Point(0, 797);
             this.btnUtilidades.Name = "btnUtilidades";
             this.btnUtilidades.Size = new System.Drawing.Size(233, 40);
             this.btnUtilidades.TabIndex = 36;
@@ -689,7 +689,7 @@ namespace ConciliacionBancaria
             this.bunifuPanel1.Controls.Add(this.button4);
             this.bunifuPanel1.Controls.Add(this.button3);
             this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel1.Location = new System.Drawing.Point(0, 532);
+            this.bunifuPanel1.Location = new System.Drawing.Point(0, 534);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(233, 263);
@@ -697,6 +697,28 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.SetToolTip(this.bunifuPanel1, "");
             this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel1, null);
             this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel1, "");
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 200);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.button2.Size = new System.Drawing.Size(233, 40);
+            this.button2.TabIndex = 48;
+            this.button2.Text = "Catalogos";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.button2, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.button2, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.button2, "");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button7
             // 
@@ -818,7 +840,7 @@ namespace ConciliacionBancaria
             this.btnConsultas.ForeColor = System.Drawing.Color.White;
             this.btnConsultas.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultas.Image")));
             this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.Location = new System.Drawing.Point(0, 492);
+            this.btnConsultas.Location = new System.Drawing.Point(0, 494);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(233, 40);
             this.btnConsultas.TabIndex = 35;
@@ -837,12 +859,13 @@ namespace ConciliacionBancaria
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 3;
             this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this.BtnTransacciones);
             this.bunifuPanel2.Controls.Add(this.btnConciliacion);
             this.bunifuPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel2.Location = new System.Drawing.Point(0, 435);
+            this.bunifuPanel2.Location = new System.Drawing.Point(0, 403);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(233, 57);
+            this.bunifuPanel2.Size = new System.Drawing.Size(233, 91);
             this.bunifuPanel2.TabIndex = 34;
             this.bunifuToolTip1.SetToolTip(this.bunifuPanel2, "");
             this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel2, null);
@@ -880,7 +903,7 @@ namespace ConciliacionBancaria
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 395);
+            this.button1.Location = new System.Drawing.Point(0, 363);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 40);
             this.button1.TabIndex = 33;
@@ -902,14 +925,13 @@ namespace ConciliacionBancaria
             this.bunifuPanelSubmenu.Controls.Add(this.btnCatalogo);
             this.bunifuPanelSubmenu.Controls.Add(this.btnEmpresa);
             this.bunifuPanelSubmenu.Controls.Add(this.btnUsuario);
-            this.bunifuPanelSubmenu.Controls.Add(this.BtnTransacciones);
             this.bunifuPanelSubmenu.Controls.Add(this.btnCuentas);
             this.bunifuPanelSubmenu.Controls.Add(this.btnBancos);
             this.bunifuPanelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuPanelSubmenu.Location = new System.Drawing.Point(0, 148);
             this.bunifuPanelSubmenu.Name = "bunifuPanelSubmenu";
             this.bunifuPanelSubmenu.ShowBorders = true;
-            this.bunifuPanelSubmenu.Size = new System.Drawing.Size(233, 247);
+            this.bunifuPanelSubmenu.Size = new System.Drawing.Size(233, 215);
             this.bunifuPanelSubmenu.TabIndex = 32;
             this.bunifuToolTip1.SetToolTip(this.bunifuPanelSubmenu, "");
             this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanelSubmenu, null);
@@ -924,7 +946,7 @@ namespace ConciliacionBancaria
             this.btnCatalogo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCatalogo.ForeColor = System.Drawing.Color.White;
             this.btnCatalogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCatalogo.Location = new System.Drawing.Point(0, 200);
+            this.btnCatalogo.Location = new System.Drawing.Point(0, 160);
             this.btnCatalogo.Name = "btnCatalogo";
             this.btnCatalogo.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnCatalogo.Size = new System.Drawing.Size(233, 40);
@@ -946,7 +968,7 @@ namespace ConciliacionBancaria
             this.btnEmpresa.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpresa.ForeColor = System.Drawing.Color.White;
             this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpresa.Location = new System.Drawing.Point(0, 160);
+            this.btnEmpresa.Location = new System.Drawing.Point(0, 120);
             this.btnEmpresa.Name = "btnEmpresa";
             this.btnEmpresa.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnEmpresa.Size = new System.Drawing.Size(233, 40);
@@ -968,7 +990,7 @@ namespace ConciliacionBancaria
             this.btnUsuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(0, 120);
+            this.btnUsuario.Location = new System.Drawing.Point(0, 80);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
             this.btnUsuario.Size = new System.Drawing.Size(233, 40);
@@ -980,28 +1002,6 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.SetToolTipTitle(this.btnUsuario, "");
             this.btnUsuario.UseVisualStyleBackColor = true;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
-            // BtnTransacciones
-            // 
-            this.BtnTransacciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnTransacciones.FlatAppearance.BorderSize = 0;
-            this.BtnTransacciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.BtnTransacciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTransacciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTransacciones.ForeColor = System.Drawing.Color.White;
-            this.BtnTransacciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTransacciones.Location = new System.Drawing.Point(0, 80);
-            this.BtnTransacciones.Name = "BtnTransacciones";
-            this.BtnTransacciones.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
-            this.BtnTransacciones.Size = new System.Drawing.Size(233, 40);
-            this.BtnTransacciones.TabIndex = 4;
-            this.BtnTransacciones.Text = "Transacciones Internas";
-            this.BtnTransacciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.BtnTransacciones, "Crear y Modificar datos de las transacciones internas");
-            this.bunifuToolTip1.SetToolTipIcon(this.BtnTransacciones, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.BtnTransacciones, "");
-            this.BtnTransacciones.UseVisualStyleBackColor = true;
-            this.BtnTransacciones.Click += new System.EventHandler(this.BtnTransacciones_Click);
             // 
             // btnCuentas
             // 
@@ -1271,27 +1271,27 @@ namespace ConciliacionBancaria
             this.bunifuToolTip1.ToolTipPosition = new System.Drawing.Point(0, 0);
             this.bunifuToolTip1.ToolTipTitle = null;
             // 
-            // button2
+            // BtnTransacciones
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 200);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
-            this.button2.Size = new System.Drawing.Size(233, 40);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "Catalogos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuToolTip1.SetToolTip(this.button2, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.button2, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.button2, "");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.BtnTransacciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnTransacciones.FlatAppearance.BorderSize = 0;
+            this.BtnTransacciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.BtnTransacciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTransacciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTransacciones.ForeColor = System.Drawing.Color.White;
+            this.BtnTransacciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTransacciones.Location = new System.Drawing.Point(0, 40);
+            this.BtnTransacciones.Name = "BtnTransacciones";
+            this.BtnTransacciones.Padding = new System.Windows.Forms.Padding(55, 4, 4, 4);
+            this.BtnTransacciones.Size = new System.Drawing.Size(233, 40);
+            this.BtnTransacciones.TabIndex = 9;
+            this.BtnTransacciones.Text = "Transacciones Internas";
+            this.BtnTransacciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuToolTip1.SetToolTip(this.BtnTransacciones, "Crear y Modificar datos de las transacciones internas");
+            this.bunifuToolTip1.SetToolTipIcon(this.BtnTransacciones, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.BtnTransacciones, "");
+            this.BtnTransacciones.UseVisualStyleBackColor = true;
+            this.BtnTransacciones.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // FConciliacionBancariaPrueba
             // 
@@ -1367,7 +1367,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button btnCatalogo;
         private System.Windows.Forms.Button btnEmpresa;
         private System.Windows.Forms.Button btnUsuario;
-        private System.Windows.Forms.Button BtnTransacciones;
         private System.Windows.Forms.Button btnCuentas;
         private System.Windows.Forms.Button btnBancos;
         private System.Windows.Forms.Button button1;
@@ -1403,5 +1402,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnTransacciones;
     }
 }

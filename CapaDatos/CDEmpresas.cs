@@ -196,7 +196,7 @@ namespace CapaDatos
         }
 
         // Método para obtener los datos de una empresa por su ID
-        public DataTable ObtenerEmpresaPorID(int empresaID)
+        public DataTable ObtenerEmpresaPorID(int? empresaID, string nombreEmpresa)
         {
             DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos de la Empresa
             SqlDataReader leerDatos; // Creamos el DataReader
@@ -209,7 +209,9 @@ namespace CapaDatos
                     sqlCon.Open(); // Se abre la conexión
                     sqlCmd.CommandText = "ObtenerEmpresaPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@empresaID", empresaID); // Se pasa el ID del banco a buscar
+                    sqlCmd.Parameters.AddWithValue("@EmpresaID", empresaID ?? (object)DBNull.Value); // Se pasa el ID de la empresa a buscar
+                    sqlCmd.Parameters.AddWithValue("@NombreEmpresa", nombreEmpresa); // Se pasa el nombre de la empresa a buscar
+
                     leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión

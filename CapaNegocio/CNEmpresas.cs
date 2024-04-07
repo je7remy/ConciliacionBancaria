@@ -49,12 +49,12 @@ namespace CapaNegocio
 
 
 
-        public static DataTable ObtenerEmpresaPorID(int empresaID)
+        public static DataTable ObtenerEmpresaPorID(int? empresaID, string nombreEmpresa)
         {
 
             CDEmpresas dbBancos = new CDEmpresas();
             // Llamada al método estático ObtenerEmpresaPorID de la clase CNEmpresas
-            DataTable dt = dbBancos.ObtenerEmpresaPorID(empresaID);
+            DataTable dt = dbBancos.ObtenerEmpresaPorID(empresaID, nombreEmpresa);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

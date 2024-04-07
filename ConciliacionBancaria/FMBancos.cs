@@ -397,7 +397,7 @@ namespace ConciliacionBancaria
                 int catalogoID = Convert.ToInt32(rowBanco["CatalogoID"]);
 
                 // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos para obtener los datos del catálogo
-                DataTable dtCatalogo = CNCatalogos.ObtenerCatalogoPorID(catalogoID);
+                DataTable dtCatalogo = CNCatalogos.ObtenerCatalogoPorID(catalogoID, null);
 
                 // Verificar si se encontraron datos del catálogo
                 if (dtCatalogo.Rows.Count > 0)

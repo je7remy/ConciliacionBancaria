@@ -181,7 +181,7 @@ namespace CapaDatos
 
         // Método para obtener los datos de un usuario por su ID
         // Método para obtener los datos de un usuario por su ID
-        public DataTable ObtenerUsuarioPorID(int usuarioID)
+        public DataTable ObtenerUsuarioPorID(int? usuarioID, string nombreUsuario)
         {
             DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Usuario
             SqlDataReader leerDatos; // Creamos el DataReader
@@ -194,7 +194,9 @@ namespace CapaDatos
                     sqlCon.Open(); // Se abre la conexión
                     sqlCmd.CommandText = "ObtenerUsuarioPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@usuarioID", usuarioID); // Se pasa el ID del usuario a buscar
+                    sqlCmd.Parameters.AddWithValue("@UsuarioID", usuarioID ?? (object)DBNull.Value);
+                    sqlCmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario ?? (object)DBNull.Value);
+
                     leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión

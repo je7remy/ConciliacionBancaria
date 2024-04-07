@@ -102,7 +102,7 @@ namespace ConciliacionBancaria
             this.button2.Tag = "";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+           this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -121,7 +121,7 @@ namespace ConciliacionBancaria
             this.Tbuscar.Name = "Tbuscar";
             this.Tbuscar.Size = new System.Drawing.Size(439, 32);
             this.Tbuscar.TabIndex = 1;
-            this.Tbuscar.TextChanged += new System.EventHandler(this.Tbuscar_TextChanged);
+          this.Tbuscar.TextChanged += new System.EventHandler(this.Tbuscar_TextChanged);
             // 
             // LInformacion
             // 

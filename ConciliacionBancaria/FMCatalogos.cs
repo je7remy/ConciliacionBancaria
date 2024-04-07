@@ -276,7 +276,7 @@ namespace ConciliacionBancaria
             {
                 int CatalogoID = Program.CatalogoID;
                 // Llamada al método estático ObtenerCuentaPorID de la clase CNCuentas
-                DataTable dt = CNCatalogos.ObtenerCatalogoPorID(CatalogoID);
+                DataTable dt = CNCatalogos.ObtenerCatalogoPorID(CatalogoID, null);
 
                 if (dt.Rows.Count > 0)
                 {

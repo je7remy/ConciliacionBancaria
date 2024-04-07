@@ -557,7 +557,7 @@ namespace ConciliacionBancaria
             CDTransaccionesInternas transaccionesInternas = new CDTransaccionesInternas();
 
             // Llamada al método no estático ObtenerTransaccionInternaPorID de la instancia de CDTransaccionesInternas para obtener los datos de la transacción interna
-            DataTable dtTransaccion = transaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID);
+            DataTable dtTransaccion = transaccionesInternas.ObtenerTransaccionInternaPorID(transaccionID,null);
 
             // Verificar si se encontraron datos de la transacción interna
             if (dtTransaccion.Rows.Count > 0)
@@ -623,7 +623,7 @@ namespace ConciliacionBancaria
             CDCuentasBancarias cuentasBancarias = new CDCuentasBancarias();
 
             // Llamada al método estático ObtenerCuentaPorID de la instancia de CDCuentasBancarias para obtener los datos de la cuenta bancaria
-            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID);
+            DataTable dtCuenta = cuentasBancarias.ObtenerCuentaBancariaPorID(cuentaID,null);
 
             // Verificar si se encontraron datos de la cuenta bancaria
             if (dtCuenta.Rows.Count > 0)
@@ -645,7 +645,7 @@ namespace ConciliacionBancaria
         private string ObtenerNombreUsuario(int usuarioID)
         {
             // Llamada al método estático ObtenerUsuarioPorID de la clase CNUsuarios para obtener los datos del usuario
-            DataTable dtUsuario = CNUsuarios.ObtenerUsuarioPorID(usuarioID);
+            DataTable dtUsuario = CNUsuarios.ObtenerUsuarioPorID(usuarioID,null);
 
             // Verificar si se encontraron datos del usuario
             if (dtUsuario.Rows.Count > 0)

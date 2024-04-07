@@ -251,7 +251,7 @@ namespace CapaDatos
 
      
 
-        public DataTable ObtenerCuentaBancariaPorID(int cuentaID)
+        public DataTable ObtenerCuentaBancariaPorID(int? cuentaID, string tipoCuenta)
         {
             DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos de la cuenta bancaria
             SqlDataReader leerDatos; // Creamos el DataReader
@@ -264,7 +264,8 @@ namespace CapaDatos
                     sqlCon.Open(); // Se abre la conexión
                     sqlCmd.CommandText = "ObtenerCuentaBancariaPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@CuentaID", cuentaID); // Se pasa el ID de la cuenta bancaria a buscar
+                    sqlCmd.Parameters.AddWithValue("@CuentaID", cuentaID ?? (object)DBNull.Value); // Se pasa el ID de la cuenta bancaria a buscar
+                    sqlCmd.Parameters.AddWithValue("@TipoCuenta", tipoCuenta ?? (object)DBNull.Value); // Se pasa el Tipo de Cuenta a buscar
                     leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión

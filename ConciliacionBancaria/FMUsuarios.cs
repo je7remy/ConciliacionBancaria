@@ -249,7 +249,7 @@ namespace ConciliacionBancaria
         {
             int usuarioID = Program.UsuarioID;
 
-            DataTable dt = CNUsuarios.ObtenerUsuarioPorID(usuarioID);
+            DataTable dt = CNUsuarios.ObtenerUsuarioPorID(usuarioID,null);
 
             if (dt.Rows.Count > 0)
             {

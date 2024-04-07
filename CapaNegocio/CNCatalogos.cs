@@ -52,11 +52,11 @@ namespace CapaNegocio
 
 
 
-        public static DataTable ObtenerCatalogoPorID(int catalogoID)
+        public static DataTable ObtenerCatalogoPorID(int? catalogoID, string nombre)
         {
             CDCatalogos dbcatalogos = new CDCatalogos();
             // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos
-            DataTable dt = dbcatalogos.ObtenerCatalogoPorID(catalogoID);
+            DataTable dt = dbcatalogos.ObtenerCatalogoPorID(catalogoID, nombre);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

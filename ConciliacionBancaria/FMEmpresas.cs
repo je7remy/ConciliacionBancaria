@@ -259,7 +259,7 @@ namespace ConciliacionBancaria
         {
             int empresaID = Program.EmpresaID;
             // Llamada al método estático ObtenerBancoPorID de la clase CNBancos
-            DataTable dt = CNEmpresas.ObtenerEmpresaPorID(empresaID);
+            DataTable dt = CNEmpresas.ObtenerEmpresaPorID(empresaID,null);
 
             if (dt.Rows.Count > 0)
             {

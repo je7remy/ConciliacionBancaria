@@ -1190,6 +1190,15 @@ namespace ConciliacionBancaria
             formPorCategoria.Show();
         }
 
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            // Instanciar el formulario FMBancos
+            FMTransacciones_Internas formularioFMTransacciones_Internas = new FMTransacciones_Internas();
+
+            // Mostrar el formulario
+            formularioFMTransacciones_Internas.Show();
+            hideSubMenu();
+        }
     }
 
 }
