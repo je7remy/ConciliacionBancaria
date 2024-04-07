@@ -35,6 +35,9 @@ namespace ConciliacionBancaria
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.Pbotones = new System.Windows.Forms.Panel();
+            this.Bsalir = new System.Windows.Forms.Button();
+            this.Bcancelar = new System.Windows.Forms.Button();
+            this.Bguardar = new System.Windows.Forms.Button();
             this.textBoxbancoid = new System.Windows.Forms.ComboBox();
             this.textBoxfechadeapertura = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -55,9 +58,6 @@ namespace ConciliacionBancaria
             this.btncargarsaldobancario = new System.Windows.Forms.Button();
             this.btncalcularsaldocontable = new System.Windows.Forms.Button();
             this.btnregistrarconciliacion = new System.Windows.Forms.Button();
-            this.Bsalir = new System.Windows.Forms.Button();
-            this.Bcancelar = new System.Windows.Forms.Button();
-            this.Bguardar = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Pbotones.SuspendLayout();
@@ -116,6 +116,70 @@ namespace ConciliacionBancaria
             this.Pbotones.Name = "Pbotones";
             this.Pbotones.Size = new System.Drawing.Size(1340, 100);
             this.Pbotones.TabIndex = 35;
+            // 
+            // Bsalir
+            // 
+            this.Bsalir.BackColor = System.Drawing.SystemColors.Window;
+            this.Bsalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bsalir.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.Bsalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Bsalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Bsalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.Bsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bsalir.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bsalir.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Bsalir.Image = ((System.Drawing.Image)(resources.GetObject("Bsalir.Image")));
+            this.Bsalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Bsalir.Location = new System.Drawing.Point(1009, 30);
+            this.Bsalir.Name = "Bsalir";
+            this.Bsalir.Size = new System.Drawing.Size(94, 43);
+            this.Bsalir.TabIndex = 5;
+            this.Bsalir.Text = "&Salir";
+            this.Bsalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Bsalir.UseVisualStyleBackColor = false;
+            this.Bsalir.Click += new System.EventHandler(this.Bsalir_Click);
+            // 
+            // Bcancelar
+            // 
+            this.Bcancelar.BackColor = System.Drawing.SystemColors.Window;
+            this.Bcancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bcancelar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.Bcancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Bcancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Bcancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.Bcancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bcancelar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bcancelar.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Bcancelar.Image = ((System.Drawing.Image)(resources.GetObject("Bcancelar.Image")));
+            this.Bcancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Bcancelar.Location = new System.Drawing.Point(698, 30);
+            this.Bcancelar.Name = "Bcancelar";
+            this.Bcancelar.Size = new System.Drawing.Size(130, 43);
+            this.Bcancelar.TabIndex = 3;
+            this.Bcancelar.Text = "&Cancelar";
+            this.Bcancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Bcancelar.UseVisualStyleBackColor = false;
+            // 
+            // Bguardar
+            // 
+            this.Bguardar.BackColor = System.Drawing.SystemColors.Window;
+            this.Bguardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bguardar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.Bguardar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Bguardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Bguardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.Bguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bguardar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bguardar.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Bguardar.Image = ((System.Drawing.Image)(resources.GetObject("Bguardar.Image")));
+            this.Bguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Bguardar.Location = new System.Drawing.Point(384, 30);
+            this.Bguardar.Name = "Bguardar";
+            this.Bguardar.Size = new System.Drawing.Size(130, 43);
+            this.Bguardar.TabIndex = 1;
+            this.Bguardar.Text = "&Guardar";
+            this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Bguardar.UseVisualStyleBackColor = false;
             // 
             // textBoxbancoid
             // 
@@ -315,70 +379,6 @@ namespace ConciliacionBancaria
             this.btnregistrarconciliacion.TabIndex = 69;
             this.btnregistrarconciliacion.Text = "Registrar";
             this.btnregistrarconciliacion.UseVisualStyleBackColor = true;
-            // 
-            // Bsalir
-            // 
-            this.Bsalir.BackColor = System.Drawing.SystemColors.Window;
-            this.Bsalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bsalir.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.Bsalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.Bsalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.Bsalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.Bsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bsalir.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bsalir.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Bsalir.Image = ((System.Drawing.Image)(resources.GetObject("Bsalir.Image")));
-            this.Bsalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Bsalir.Location = new System.Drawing.Point(1009, 30);
-            this.Bsalir.Name = "Bsalir";
-            this.Bsalir.Size = new System.Drawing.Size(94, 43);
-            this.Bsalir.TabIndex = 5;
-            this.Bsalir.Text = "&Salir";
-            this.Bsalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Bsalir.UseVisualStyleBackColor = false;
-            this.Bsalir.Click += new System.EventHandler(this.Bsalir_Click);
-            // 
-            // Bcancelar
-            // 
-            this.Bcancelar.BackColor = System.Drawing.SystemColors.Window;
-            this.Bcancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bcancelar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.Bcancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.Bcancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.Bcancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.Bcancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bcancelar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bcancelar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Bcancelar.Image = ((System.Drawing.Image)(resources.GetObject("Bcancelar.Image")));
-            this.Bcancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Bcancelar.Location = new System.Drawing.Point(698, 30);
-            this.Bcancelar.Name = "Bcancelar";
-            this.Bcancelar.Size = new System.Drawing.Size(130, 43);
-            this.Bcancelar.TabIndex = 3;
-            this.Bcancelar.Text = "&Cancelar";
-            this.Bcancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Bcancelar.UseVisualStyleBackColor = false;
-            // 
-            // Bguardar
-            // 
-            this.Bguardar.BackColor = System.Drawing.SystemColors.Window;
-            this.Bguardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bguardar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.Bguardar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.Bguardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.Bguardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.Bguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bguardar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bguardar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Bguardar.Image = ((System.Drawing.Image)(resources.GetObject("Bguardar.Image")));
-            this.Bguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Bguardar.Location = new System.Drawing.Point(384, 30);
-            this.Bguardar.Name = "Bguardar";
-            this.Bguardar.Size = new System.Drawing.Size(130, 43);
-            this.Bguardar.TabIndex = 1;
-            this.Bguardar.Text = "&Guardar";
-            this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Bguardar.UseVisualStyleBackColor = false;
             // 
             // BarraTitulo
             // 

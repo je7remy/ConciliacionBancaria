@@ -52,13 +52,13 @@ namespace CapaNegocio
         }
 
 
-        public static DataTable ObtenerBancoPorID(int bancoID)
+        public static DataTable ObtenerBancoPorID(int? bancoID, string nombre)
         {
             // Crear una instancia de la clase CDBancos
             CDBancos dbBancos = new CDBancos();
 
             // Llamada al método no estático ObtenerBancoPorID de la instancia dbBancos
-            DataTable dt = dbBancos.ObtenerBancoPorID(bancoID);
+            DataTable dt = dbBancos.ObtenerBancoPorID(bancoID, nombre);
 
             // Retornamos el DataTable con los datos adquiridos
             return dt;

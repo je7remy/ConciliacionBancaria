@@ -110,7 +110,7 @@ namespace ConciliacionBancaria
         {
             if (indice < this.DGVDatos.RowCount - 1) //Si no estamos al final del DataGridView
             {
-                indice = DGVDatos.Rows.Count - 1; //vamos a la última fila del DataGridView
+                indice = DGVDatos.Rows.Count - 2; //vamos a la última fila del DataGridView
                 DGVDatos.CurrentCell =
                DGVDatos.Rows[indice].Cells[DGVDatos.CurrentCell.ColumnIndex];
             }
@@ -191,7 +191,7 @@ namespace ConciliacionBancaria
         {
             if (int.TryParse(valorparametro, out int Banco))
             {
-                DataTable dt = CNBancos.ObtenerBancoPorID(Banco);
+                DataTable dt = CNBancos.ObtenerBancoPorID(Banco, valorparametro);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {

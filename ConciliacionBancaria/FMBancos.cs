@@ -372,9 +372,9 @@ namespace ConciliacionBancaria
         {
             // Obtener el ID del banco de Program
             int bancoID = Program.BancoID;
-
+            string nombre = ""; 
             // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
-            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID,nombre);
 
             // Verificar si se encontraron datos del banco
             if (dtBanco.Rows.Count > 0)

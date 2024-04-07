@@ -32,7 +32,7 @@ namespace ConciliacionBancaria
 
         private void FMBancos_Load(object sender, EventArgs e)
         {
-            CargarBancos();
+            //CargarBancos();
             CargarCuentas();
 
 
@@ -103,7 +103,7 @@ namespace ConciliacionBancaria
                         }
 
                         // Asigna el DataTable como origen de datos para el ComboBox
-                        textBoxcuentaid.DisplayMember = "TipoCuenta";
+                        textBoxcuentaid.DisplayMember = "CuentaID";
                         textBoxcuentaid.ValueMember = "CuentaID";
                         textBoxcuentaid.DataSource = dt;
                     }
@@ -144,6 +144,11 @@ namespace ConciliacionBancaria
         {
           
         }
+
+
+
+
+
 
       
 

@@ -568,7 +568,8 @@ namespace ConciliacionBancaria
                 // Mostrar los datos de la transacción interna en los controles correspondientes
                 textBoxtransaccionid.Text = rowTransaccion["TransaccionID"].ToString();
                 textBoxclienteid.Text = rowTransaccion["ClienteID"].ToString();
-                textBoxtipo.SelectedIndex = rowTransaccion.Table.Columns.Contains("TipoDeTransaccion") ? rowTransaccion.Field<int>("TipoDeTransaccion") : -1;
+                textBoxtipo.Text = rowTransaccion["Tipo"].ToString();
+              //  textBoxtipo.Text = rowTransaccion.Table.Columns.Contains("TipoDeTransaccion") ? rowTransaccion.Field<int>("TipoDeTransaccion") : "";
                 textBoxbancoid.Text = rowTransaccion.Table.Columns.Contains("BancoID") ? rowTransaccion["BancoID"].ToString() : "";
                 textBoxusuarioid.Text = rowTransaccion.Table.Columns.Contains("UsuarioID") ? rowTransaccion["UsuarioID"].ToString() : "";
                 textBoxdescripcion.Text = rowTransaccion["Descripcion"].ToString();
@@ -666,7 +667,7 @@ namespace ConciliacionBancaria
         private string ObtenerNombreBanco(int bancoID)
         {
             // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
-            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID, null);
 
             // Verificar si se encontraron datos del banco
             if (dtBanco.Rows.Count > 0)

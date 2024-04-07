@@ -467,7 +467,7 @@ namespace ConciliacionBancaria
                 int bancoID = Convert.ToInt32(rowCuenta["BancoID"]);
 
                 // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
-                DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+                DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID, null);
 
                 // Verificar si se encontraron datos del banco
                 if (dtBanco.Rows.Count > 0)

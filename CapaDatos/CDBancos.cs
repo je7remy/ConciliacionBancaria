@@ -201,8 +201,38 @@ namespace CapaDatos
         }
 
 
+        //// Método para obtener los datos de un banco por su ID
+        //public DataTable ObtenerBancoPorID(int bancoID)
+        //{
+        //    DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Banco
+        //    SqlDataReader leerDatos; // Creamos el DataReader
+        //    try
+        //    {
+        //        using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
+        //        {
+        //            SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
+        //            sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
+        //            sqlCon.Open(); // Se abre la conexión
+        //            sqlCmd.CommandText = "ObtenerBancoPorID"; // Nombre del Proc. Almacenado a usar
+        //            sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
+        //            sqlCmd.Parameters.AddWithValue("@bancoID", bancoID); // Se pasa el ID del banco a buscar
+        //            leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
+        //            dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
+        //            sqlCon.Close(); // Se cierra la conexión
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        dt = null; // Si ocurre algún error se anula el DataTable
+        //    }
+        //    return dt; // Se retorna el DataTable según lo ocurrido arriba
+        //}
+
+
+
+
         // Método para obtener los datos de un banco por su ID
-        public DataTable ObtenerBancoPorID(int bancoID)
+        public DataTable ObtenerBancoPorID(int? bancoID, string nombre)
         {
             DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Banco
             SqlDataReader leerDatos; // Creamos el DataReader
@@ -215,37 +245,8 @@ namespace CapaDatos
                     sqlCon.Open(); // Se abre la conexión
                     sqlCmd.CommandText = "ObtenerBancoPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@bancoID", bancoID); // Se pasa el ID del banco a buscar
-                    leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
-                    dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
-                    sqlCon.Close(); // Se cierra la conexión
-                }
-            }
-            catch (Exception)
-            {
-                dt = null; // Si ocurre algún error se anula el DataTable
-            }
-            return dt; // Se retorna el DataTable según lo ocurrido arriba
-        }
-
-
-
-
-        // Método para obtener los datos de un banco por su ID
-        public DataTable ObtenerBanco(int bancoID)
-        {
-            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Banco
-            SqlDataReader leerDatos; // Creamos el DataReader
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
-                {
-                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
-                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
-                    sqlCon.Open(); // Se abre la conexión
-                    sqlCmd.CommandText = "ObtenerBancoPorID"; // Nombre del Proc. Almacenado a usar
-                    sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@bancoID", bancoID); // Se pasa el ID del banco a buscar
+                    sqlCmd.Parameters.AddWithValue("@BancoID", bancoID ?? (object)DBNull.Value);
+                    sqlCmd.Parameters.AddWithValue("@Nombre", nombre ?? (object)DBNull.Value); 
                     leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión
