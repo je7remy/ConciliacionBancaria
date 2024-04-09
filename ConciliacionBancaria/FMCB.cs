@@ -36,10 +36,10 @@ namespace ConciliacionBancaria
         {
            
             int ultimoIDInsertado = ObtenerUltimoIDInsertado("ConciliacionBancaria");
-            textBoxconciliacionid.Text = (ultimoIDInsertado ).ToString();
+            textBoxconciliacionid.Text = (ultimoIDInsertado +1).ToString();
 
             button2.Focus();
-
+            Program.nuevo = true;
 
         }
 
@@ -241,7 +241,7 @@ namespace ConciliacionBancaria
                     MessageBox.Show(mensaje, "Mensaje de Conciliacion Bancaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Program.nuevo = false;
-                    Program.modificar = false;
+                 // Program.modificar = false;
 
                 }
 
@@ -261,7 +261,8 @@ namespace ConciliacionBancaria
 
         private void Bcancelar_Click(object sender, EventArgs e)
         {
-           
+            Program.nuevo = false;
+            Program.modificar = false;
             Limpiar();
             btncalcularsaldo.Enabled = false;
         }
