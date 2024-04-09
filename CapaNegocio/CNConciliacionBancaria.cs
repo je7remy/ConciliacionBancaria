@@ -13,7 +13,7 @@ namespace CapaNegocio
 {
     public class CNConciliacionBancaria
     {//int conciliacionID
-        public static string Insertar( int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario, decimal diferencia)
+        public static string Insertar( int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario)
         {
             CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
             // Preparamos los datos para insertar una nueva conciliación bancaria
@@ -29,7 +29,7 @@ namespace CapaNegocio
             return objConciliacionBancaria.Insertar(objConciliacionBancaria);
         }
 
-        public static string Actualizar(int conciliacionID, int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario, decimal diferencia)
+        public static string Actualizar(int conciliacionID, int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario)
         {
             CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
             // Preparamos los datos para insertar una nueva conciliación bancaria

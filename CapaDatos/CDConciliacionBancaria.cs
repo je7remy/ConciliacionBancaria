@@ -94,7 +94,7 @@ namespace CapaDatos
                 // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
                 sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
                 // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso ConciliacionInsertar
-                SqlCommand micomando = new SqlCommand("InsertarConciliacion", sqlCon);
+                SqlCommand micomando = new SqlCommand("InsertarConciliacionBancaria", sqlCon);
                 sqlCon.Open(); // Abrimos la conexión
                                // Indicamos que se ejecutará un procedimiento almacenado
                 micomando.CommandType = CommandType.StoredProcedure;
@@ -144,7 +144,7 @@ namespace CapaDatos
                 // Asignamos a sqlCon la conexión con la base de datos a través de la clase que creamos
                 sqlCon.ConnectionString = CapaPresentacionConexion.miconexion;
                 // Escribimos el nombre del procedimiento almacenado que utilizaremos, en este caso ConciliacionInsertar
-                SqlCommand micomando = new SqlCommand("ActualizarConciliacion", sqlCon);
+                SqlCommand micomando = new SqlCommand("ActualizarConciliacionBancaria", sqlCon);
                 sqlCon.Open(); // Abrimos la conexión
                                // Indicamos que se ejecutará un procedimiento almacenado
                 micomando.CommandType = CommandType.StoredProcedure;

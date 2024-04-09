@@ -196,6 +196,7 @@ namespace ConciliacionBancaria
             this.textBoxsaldocontable.Name = "textBoxsaldocontable";
             this.textBoxsaldocontable.Size = new System.Drawing.Size(251, 39);
             this.textBoxsaldocontable.TabIndex = 76;
+            this.textBoxsaldocontable.TextChanged += new System.EventHandler(this.textBoxsaldocontable_TextChanged);
             // 
             // textBoxfechadeconcilicacion
             // 
@@ -217,6 +218,7 @@ namespace ConciliacionBancaria
             // 
             // btncalcularsaldo
             // 
+            this.btncalcularsaldo.Enabled = false;
             this.btncalcularsaldo.Location = new System.Drawing.Point(759, 214);
             this.btncalcularsaldo.Name = "btncalcularsaldo";
             this.btncalcularsaldo.Size = new System.Drawing.Size(251, 39);
@@ -269,6 +271,7 @@ namespace ConciliacionBancaria
             this.textBoxdiferencia.Name = "textBoxdiferencia";
             this.textBoxdiferencia.Size = new System.Drawing.Size(251, 39);
             this.textBoxdiferencia.TabIndex = 97;
+            this.textBoxdiferencia.TextChanged += new System.EventHandler(this.textBoxdiferencia_TextChanged);
             // 
             // label3
             // 

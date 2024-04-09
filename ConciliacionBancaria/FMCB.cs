@@ -21,6 +21,8 @@ namespace ConciliacionBancaria
         // Variables globales
         public string mensaje = "";
 
+      
+
         public FMCB()
         {
             InitializeComponent();
@@ -34,9 +36,9 @@ namespace ConciliacionBancaria
         {
            
             int ultimoIDInsertado = ObtenerUltimoIDInsertado("ConciliacionBancaria");
-            textBoxconciliacionid.Text = (ultimoIDInsertado + 1).ToString();
+            textBoxconciliacionid.Text = (ultimoIDInsertado ).ToString();
 
-
+            button2.Focus();
 
 
         }
@@ -106,25 +108,25 @@ namespace ConciliacionBancaria
                 string mensaje = "";
 
 
-                // Obteniendo el CatalogoID
+                //// Obteniendo el CatalogoID
 
-                int ConciliacionID;
-                Program.ConciliacionID = ConciliacionID = 0;
+                //int ConciliacionID;
+                //Program.ConciliacionID = ConciliacionID = 0;
 
-                // Obteniendo BancoID
-                if (textBoxconciliacionid.Text != "")
-                {
-                    if (int.TryParse(textBoxconciliacionid.Text, out ConciliacionID))
-                    {
-                        // La conversión fue exitosa
-                    }
-                    else
-                    {
-                        // Manejar el error de conversión
-                        MessageBox.Show("Error al convertir el ID del Saldo Contable.");
-                        return;
-                    }
-                }
+                //// Obteniendo BancoID
+                //if (textBoxconciliacionid.Text != "")
+                //{
+                //    if (int.TryParse(textBoxconciliacionid.Text, out ConciliacionID))
+                //    {
+                //        // La conversión fue exitosa
+                //    }
+                //    else
+                //    {
+                //        // Manejar el error de conversión
+                //        MessageBox.Show("Error al convertir el ID del Saldo Contable.");
+                //        return;
+                //    }
+                //}
 
 
 
@@ -209,7 +211,7 @@ namespace ConciliacionBancaria
                     {
                         mensaje = CNConciliacionBancaria.Insertar(CuentaID, textBoxfechadeconcilicacion.Value,
                                                       comboBoxestado.Text, SaldoBancario,
-                                                      SaldoContable, Diferencia);
+                                                      SaldoContable);
 
                         int ultimoIDInsertado;
                         if (int.TryParse(textBoxconciliacionid.Text, out ultimoIDInsertado))
@@ -217,7 +219,7 @@ namespace ConciliacionBancaria
                             if (ultimoIDInsertado > 0)
                             {
                                 textBoxconciliacionid.Text = ultimoIDInsertado.ToString();
-                                textBoxconciliacionid.Text = (ultimoIDInsertado + 1).ToString();
+                                textBoxconciliacionid.Text = (ultimoIDInsertado +1).ToString();
                             }
                             else
                             {
@@ -232,7 +234,7 @@ namespace ConciliacionBancaria
 
                         mensaje = CNConciliacionBancaria.Actualizar(Program.ConciliacionID, CuentaID, textBoxfechadeconcilicacion.Value,
                                                           comboBoxestado.Text, SaldoBancario,
-                                                          SaldoContable, Diferencia);
+                                                          SaldoContable);
 
                     }
 
@@ -259,9 +261,9 @@ namespace ConciliacionBancaria
 
         private void Bcancelar_Click(object sender, EventArgs e)
         {
-            Program.nuevo = false;
-            Program.modificar = false;
+           
             Limpiar();
+            btncalcularsaldo.Enabled = false;
         }
 
 
@@ -270,11 +272,11 @@ namespace ConciliacionBancaria
         {
 
             textBoxdiferencia.Clear();
-            textBoxconciliacionid.Text = null;
-            textBoxcuentaid.Text = null;
-            textBoxbancoid.Text = null;
-            comboBoxestado.Text = null;
-            textBoxsaldobancario = null;
+          //  textBoxconciliacionid.Clear();
+            textBoxcuentaid.SelectedIndex = -1;
+            textBoxbancoid.SelectedIndex = -1;
+            comboBoxestado.SelectedIndex = -1;
+            textBoxsaldobancario.SelectedIndex = -1;
             textBoxsaldocontable.Clear();
             textBoxfechadeconcilicacion.Value = System.DateTime.Now.Date;
           
@@ -314,39 +316,6 @@ namespace ConciliacionBancaria
 
 
 
-
-        public void CalcularSaldoContable(SqlConnection cn, string TransaccionesInternas)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("CalcularSaldoContable", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@TransaccionesInternas", TransaccionesInternas);
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
-                    {
-                        // Aquí va el código para leer los datos del SqlDataReader
-                        string CodigoCuenta = dr["CuentaID"].ToString();
-                        string NombreCuenta = dr["Nombre"].ToString();
-                        decimal Saldo = Convert.ToDecimal(dr["Saldo"]);
-
-                        MessageBox.Show($"Codigo Cuenta: {CodigoCuenta}, Nombre Cuenta: {NombreCuenta}, Saldo: {Saldo}");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron registros.");
-                }
-                cn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al calcular el saldo contable: " + ex.Message);
-            }
-        }
 
 
         public void RecuperaDatos()
@@ -428,22 +397,164 @@ namespace ConciliacionBancaria
             BusquedaCuentasBancarias busqueda_Bancos = new BusquedaCuentasBancarias();
             busqueda_Bancos.ShowDialog();
             RecuperaDatos();
+            btncalcularsaldo.Enabled = true;
+          
         }
 
         private void btncalcularsaldo_Click(object sender, EventArgs e)
         {
+
             try
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;
-                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-                                            Integrated Security=True;Pooling=true");
-                string TransaccionesInternas = "DEP, TRS";
-                CalcularSaldoContable(cn, TransaccionesInternas);
+                int CuentaID = 0;
+
+                // Obteniendo SaldoBancario
+                if (textBoxcuentaid.Text != "")
+                {
+                    if (int.TryParse(textBoxcuentaid.Text, out CuentaID))
+                    {
+                        // La conversión fue exitosa
+                    }
+                    else
+                    {
+                        // Manejar el error de conversión
+                        MessageBox.Show("Error al convertir el ID de la cuenta.");
+                        return;
+                    }
+                }
+
+                string selectedItemString = textBoxcuentaid.SelectedItem.ToString();
+
+                if (int.TryParse(selectedItemString, out int selectedItem))
+                {
+                 //   string result = ObtenerSaldoContable(selectedItem);
+                    decimal result = ObtenerSaldoContable(selectedItem);
+                    string saldoContableString = result.ToString();
+
+                    textBoxsaldocontable.Text = result.ToString(); ;
+                }
+                else
+                {
+                    MessageBox.Show("Error al convertir el ID de la cuenta.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al calcular el saldo contable: " + ex.Message);
             }
+
+            
         }
+
+        decimal ObtenerSaldoContable(int selectedItem)
+        {
+            decimal saldoContable = 0;
+
+            try
+            {
+                // Establece la conexión con la base de datos
+                using (SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;
+                AttachDbFilename = C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security = True; Pooling = true"))
+                {
+                    // Crea el comando SQL para llamar al procedimiento almacenado
+                    using (SqlCommand command = new SqlCommand("CalcularSaldoContable", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Establece el parámetro del procedimiento almacenado
+                        command.Parameters.AddWithValue("@CuentaID", selectedItem);
+
+                        // Abre la conexión y ejecuta el comando
+                        connection.Open();
+
+                        // Ejecuta el comando y obtén el resultado (saldo contable)
+                        object result = command.ExecuteScalar();
+
+                        // Verifica si el resultado es nulo y, si no lo es, conviértelo a decimal
+                        if (result != DBNull.Value)
+                        {
+                            saldoContable = Convert.ToDecimal(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al obtener el saldo contable: " + ex.Message);
+            }
+
+            return saldoContable;
+       
+        }
+
+        private void textBoxdiferencia_TextChanged(object sender, EventArgs e)
+        {
+         
+
+        }
+
+        private void CalcularDiferencia(object sender, EventArgs e)
+        {
+
+            // Verificar si ambos textBox tienen valores
+            if (!string.IsNullOrEmpty(textBoxsaldocontable.Text) && !string.IsNullOrEmpty(textBoxsaldobancario.Text))
+            {
+                // Variables para almacenar los saldos convertidos a decimal
+                decimal saldoContable;
+                decimal saldoBancario;
+
+                // Verificar si los valores ingresados son números decimales válidos
+                if (decimal.TryParse(textBoxsaldocontable.Text, out saldoContable) && decimal.TryParse(textBoxsaldobancario.Text, out saldoBancario))
+                {
+                    // Calcular la diferencia restando el saldo bancario del saldo contable
+                    decimal diferencia = saldoContable - saldoBancario;
+
+                    // Mostrar el resultado en el textBox de diferencia
+                    textBoxdiferencia.Text = diferencia.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, asegúrese de ingresar números válidos en ambos campos.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ambos campos deben estar llenos para realizar el cálculo.");
+            }
+
+
+        }
+
+        private void textBoxsaldocontable_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si ambos textBox tienen valores
+            if (!string.IsNullOrEmpty(textBoxsaldocontable.Text) && !string.IsNullOrEmpty(textBoxsaldobancario.Text))
+            {
+                // Variables para almacenar los saldos convertidos a decimal
+                decimal saldoContable;
+                decimal saldoBancario;
+
+                // Verificar si los valores ingresados son números decimales válidos
+                if (decimal.TryParse(textBoxsaldocontable.Text, out saldoContable) && decimal.TryParse(textBoxsaldobancario.Text, out saldoBancario))
+                {
+                    // Calcular la diferencia restando el saldo bancario del saldo contable
+                    decimal diferencia = saldoContable - saldoBancario;
+
+                    // Mostrar el resultado en el textBox de diferencia
+                    textBoxdiferencia.Text = diferencia.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, asegúrese de ingresar números válidos en ambos campos.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ambos campos deben estar llenos para realizar el cálculo.");
+            }
+        }
+    
     }
 }
