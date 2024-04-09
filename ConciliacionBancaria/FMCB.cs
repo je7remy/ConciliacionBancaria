@@ -399,7 +399,9 @@ namespace ConciliacionBancaria
             busqueda_Bancos.ShowDialog();
             RecuperaDatos();
             btncalcularsaldo.Enabled = true;
-          
+            Program.nuevo = true;
+            Program.modificar = false;
+
         }
 
         private void btncalcularsaldo_Click(object sender, EventArgs e)
