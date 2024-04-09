@@ -224,5 +224,11 @@ namespace CapaDatos
             }
             return dt; // Se retorna el DataTable según lo ocurrido arriba
         }
+
+
+
+
+    
+
     }
 }

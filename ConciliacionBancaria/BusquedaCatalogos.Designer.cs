@@ -37,6 +37,8 @@ namespace ConciliacionBancaria
             this.Tbuscar = new System.Windows.Forms.TextBox();
             this.LInformacion = new System.Windows.Forms.Label();
             this.PBotones = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LCantMov = new System.Windows.Forms.Label();
             this.BAceptar = new System.Windows.Forms.Button();
             this.BCancelar = new System.Windows.Forms.Button();
             this.BUltimo = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@ namespace ConciliacionBancaria
             this.BPrimero = new System.Windows.Forms.Button();
             this.PTitulo = new System.Windows.Forms.Panel();
             this.LTitulo = new System.Windows.Forms.Label();
-            this.LCantMov = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.PInformacion.SuspendLayout();
             this.PBotones.SuspendLayout();
@@ -55,7 +55,7 @@ namespace ConciliacionBancaria
             // 
             // DGVDatos
             // 
-            this.DGVDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGVDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DGVDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVDatos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -150,6 +150,26 @@ namespace ConciliacionBancaria
             this.PBotones.Name = "PBotones";
             this.PBotones.Size = new System.Drawing.Size(1347, 128);
             this.PBotones.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 22);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Cantidad:";
+            // 
+            // LCantMov
+            // 
+            this.LCantMov.AutoSize = true;
+            this.LCantMov.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantMov.Location = new System.Drawing.Point(148, 0);
+            this.LCantMov.Name = "LCantMov";
+            this.LCantMov.Size = new System.Drawing.Size(90, 22);
+            this.LCantMov.TabIndex = 7;
+            this.LCantMov.Text = "Cantidad:";
             // 
             // BAceptar
             // 
@@ -317,26 +337,6 @@ namespace ConciliacionBancaria
             this.LTitulo.Size = new System.Drawing.Size(294, 36);
             this.LTitulo.TabIndex = 0;
             this.LTitulo.Text = "Busqueda Catalogos";
-            // 
-            // LCantMov
-            // 
-            this.LCantMov.AutoSize = true;
-            this.LCantMov.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCantMov.Location = new System.Drawing.Point(148, 0);
-            this.LCantMov.Name = "LCantMov";
-            this.LCantMov.Size = new System.Drawing.Size(90, 22);
-            this.LCantMov.TabIndex = 7;
-            this.LCantMov.Text = "Cantidad:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 22);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Cantidad:";
             // 
             // BusquedaCatalogos
             // 

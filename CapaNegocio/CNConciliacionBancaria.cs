@@ -12,12 +12,12 @@ using CapaDatos;
 namespace CapaNegocio
 {
     public class CNConciliacionBancaria
-    {
-        public static string Insertar(int conciliacionID, int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario, decimal diferencia)
+    {//int conciliacionID
+        public static string Insertar( int cuentaID, DateTime fecha, string estado, decimal saldoContable, decimal saldoBancario, decimal diferencia)
         {
             CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
             // Preparamos los datos para insertar una nueva conciliación bancaria
-            objConciliacionBancaria.ConciliacionID = conciliacionID;
+        //    objConciliacionBancaria.ConciliacionID = conciliacionID;
             objConciliacionBancaria.CuentaID = cuentaID;
             objConciliacionBancaria.Fecha = fecha;
             objConciliacionBancaria.Estado = estado;
