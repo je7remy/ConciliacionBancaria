@@ -1,0 +1,83 @@
+       /// <summary>
+        /// Recupera los datos del banco y su catálogo asociado y los muestra en los controles correspondientes.
+        /// </summary>
+        public void RecuperaDatos()
+        {
+            // Obtener el ID del banco de Program
+            int bancoID = Program.BancoID;
+
+            // Llamada al método estático ObtenerBancoPorID de la clase CNBancos para obtener los datos del banco
+            DataTable dtBanco = CNBancos.ObtenerBancoPorID(bancoID);
+
+            // Verificar si se encontraron datos del banco
+            if (dtBanco.Rows.Count > 0)
+            {
+                // Obtener la primera fila de los resultados del banco
+                DataRow rowBanco = dtBanco.Rows[0];
+
+                // Mostrar los datos del banco en los controles correspondientes
+                textBoxbanco.Text = rowBanco["BancoID"].ToString();
+                textBoxcorreo.Text = rowBanco["Correo"].ToString();
+                textBoxdireccion.Text = rowBanco["Direccion"].ToString();
+                textBoxestado.Text = rowBanco["Estado"].ToString();
+                textBoxnombre.Text = rowBanco["Nombre"].ToString();
+                textBoxobservaciones.Text = rowBanco["Observaciones"].ToString();
+                textBoxoficialdecuentas.Text = rowBanco["Oficial_de_Cuentas"].ToString();
+                textBoxsucursal.Text = rowBanco["Sucursal"].ToString();
+                textBoxtelefono.Text = rowBanco["Telefono"].ToString();
+
+                // Obtener el ID del catálogo asociado al banco
+                int catalogoID = Convert.ToInt32(rowBanco["CatalogoID"]);
+
+                // Llamada al método estático ObtenerCatalogoPorID de la clase CNCatalogos para obtener los datos del catálogo
+                DataTable dtCatalogo = CNCatalogos.ObtenerCatalogoPorID(catalogoID);
+
+                // Verificar si se encontraron datos del catálogo
+                if (dtCatalogo.Rows.Count > 0)
+                {
+                    // Obtener la primera fila de los resultados del catálogo
+                    DataRow rowCatalogo = dtCatalogo.Rows[0];
+
+                    // Obtener el nombre del catálogo
+                    string nombreCatalogo = rowCatalogo["Nombre"].ToString();
+
+                    // Agregar el nombre del catálogo al ComboBox textBoxcatalogoid y seleccionarlo
+                    textBoxcatalogoidm.Items.Add(nombreCatalogo);
+                    textBoxcatalogoidm.SelectedIndex = textBoxcatalogoidm.Items.Count - 1;
+                    textBoxcatalogoidm.Visible = true;
+                }
+                else
+                {
+                    // Limpiar el campo si no se encontraron datos del catálogo
+                    textBoxcatalogoidm.Text = "";
+                }
+            }
+            else
+            {
+                // Limpiar todos los controles si no se encontraron datos del banco
+                textBoxbanco.Text = "";
+                textBoxcorreo.Text = "";
+                textBoxdireccion.Text = "";
+                textBoxestado.Text = "";
+                textBoxnombre.Text = "";
+                textBoxobservaciones.Text = "";
+                textBoxoficialdecuentas.Text = "";
+                textBoxsucursal.Text = "";
+                textBoxtelefono.Text = "";
+
+                // Limpiar el campo catalogonombre si no se encontraron datos del banco
+                textBoxcatalogoidm.Text = "";
+            }
+        }
+el ComboBox que se usa para mostrar los datos del datagridview es distinto al de insertar/actualizar
+de manera que su propiedad visible debe estar en false en las propiedades, en el boton cancelar, 
+en su evento click y solo en true donde se muestra en el codigo, el mismo debe estar posicionado 
+justo encima del ComboBox de insertar/actualizar...
+
+
+
+
+
+quiero fusionar estos dos codigos datatables de manera que cuando carge el id banco que esta dentro 
+de cuentas bancarias este me cargue el nombre bancos que esta en bancos en un mismo formulario, 
+quiero recuperar el idbancos de cuentas bancarias para mostrar el nombre bancos de bancos
