@@ -65,13 +65,13 @@ namespace CapaNegocio
         }
 
 
-
         //siiiiiiiiiiiiii
         public static DataTable ObtenerBanco()
         {
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
                                             AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
                                             Integrated Security=True;Pooling=true";
+
             string consulta = "SELECT * FROM Bancos";
 
             DataTable dt = new DataTable();
@@ -87,46 +87,5 @@ namespace CapaNegocio
 
             return dt;
         }
-
-
-        //// Método para obtener los catálogos
-        //public static DataTable ObtenerCatalogos()
-        //{
-        //    // Establecer la conexión
-        //    string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
-        //                                    AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-        //                                    Integrated Security=True;Pooling=true"; // Reemplaza con tu cadena de conexión
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        // Definir la consulta SQL
-        //        string query = "SELECT CatalogoID, Nombre FROM Catalogos";
-
-        //        // Crear un objeto DataTable para almacenar los resultados
-        //        DataTable dt = new DataTable();
-
-        //        // Utilizar un SqlDataAdapter para ejecutar la consulta y llenar el DataTable
-        //        using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
-        //        {
-        //            try
-        //            {
-        //                // Abrir la conexión y llenar el DataTable
-        //                connection.Open();
-        //                adapter.Fill(dt);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                // Manejo de excepciones: podrías lanzar la excepción o registrarla según tus necesidades
-        //                throw new Exception("Error al obtener los catálogos.", ex);
-        //            }
-        //        }
-
-        //        // Devolver el DataTable con los resultados
-        //        return dt;
-        //    }
-        //}
-    
-
-
-
 }
 }

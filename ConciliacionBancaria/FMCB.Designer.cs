@@ -33,6 +33,7 @@ namespace ConciliacionBancaria
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Pbotones = new System.Windows.Forms.Panel();
+            this.Bbuscar = new System.Windows.Forms.Button();
             this.Bsalir = new System.Windows.Forms.Button();
             this.Bcancelar = new System.Windows.Forms.Button();
             this.Bguardar = new System.Windows.Forms.Button();
@@ -48,7 +49,7 @@ namespace ConciliacionBancaria
             this.textBoxdiferencia = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btncargartransacciones = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGVDatos = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@ namespace ConciliacionBancaria
             this.label6 = new System.Windows.Forms.Label();
             this.BarraTitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraTitulo
@@ -88,6 +89,7 @@ namespace ConciliacionBancaria
             // 
             this.Pbotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(214)))));
             this.Pbotones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Pbotones.Controls.Add(this.Bbuscar);
             this.Pbotones.Controls.Add(this.Bsalir);
             this.Pbotones.Controls.Add(this.Bcancelar);
             this.Pbotones.Controls.Add(this.Bguardar);
@@ -97,6 +99,28 @@ namespace ConciliacionBancaria
             this.Pbotones.Name = "Pbotones";
             this.Pbotones.Size = new System.Drawing.Size(1294, 100);
             this.Pbotones.TabIndex = 35;
+            // 
+            // Bbuscar
+            // 
+            this.Bbuscar.BackColor = System.Drawing.SystemColors.Window;
+            this.Bbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bbuscar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.Bbuscar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Bbuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Bbuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.Bbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bbuscar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bbuscar.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Bbuscar.Image = ((System.Drawing.Image)(resources.GetObject("Bbuscar.Image")));
+            this.Bbuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Bbuscar.Location = new System.Drawing.Point(814, 30);
+            this.Bbuscar.Name = "Bbuscar";
+            this.Bbuscar.Size = new System.Drawing.Size(112, 43);
+            this.Bbuscar.TabIndex = 6;
+            this.Bbuscar.Text = "&Buscar";
+            this.Bbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Bbuscar.UseVisualStyleBackColor = false;
+            this.Bbuscar.Click += new System.EventHandler(this.Bbuscar_Click);
             // 
             // Bsalir
             // 
@@ -133,7 +157,7 @@ namespace ConciliacionBancaria
             this.Bcancelar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.Bcancelar.Image = ((System.Drawing.Image)(resources.GetObject("Bcancelar.Image")));
             this.Bcancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Bcancelar.Location = new System.Drawing.Point(698, 30);
+            this.Bcancelar.Location = new System.Drawing.Point(596, 30);
             this.Bcancelar.Name = "Bcancelar";
             this.Bcancelar.Size = new System.Drawing.Size(130, 43);
             this.Bcancelar.TabIndex = 3;
@@ -291,14 +315,15 @@ namespace ConciliacionBancaria
             this.btncargartransacciones.TabIndex = 103;
             this.btncargartransacciones.Text = "Cargar";
             this.btncargartransacciones.UseVisualStyleBackColor = true;
+            this.btncargartransacciones.Click += new System.EventHandler(this.btncargartransacciones_Click);
             // 
-            // dataGridView1
+            // DGVDatos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(81, 413);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1210, 189);
-            this.dataGridView1.TabIndex = 102;
+            this.DGVDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVDatos.Location = new System.Drawing.Point(81, 413);
+            this.DGVDatos.Name = "DGVDatos";
+            this.DGVDatos.Size = new System.Drawing.Size(1210, 189);
+            this.DGVDatos.TabIndex = 102;
             // 
             // label15
             // 
@@ -338,6 +363,7 @@ namespace ConciliacionBancaria
             this.button1.TabIndex = 107;
             this.button1.Text = "Cargar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxbancoid
             // 
@@ -413,7 +439,7 @@ namespace ConciliacionBancaria
             this.Controls.Add(this.textBoxbancoid);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btncargartransacciones);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGVDatos);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxestado);
@@ -443,7 +469,7 @@ namespace ConciliacionBancaria
             this.Load += new System.EventHandler(this.FMBancos_Load);
             this.BarraTitulo.ResumeLayout(false);
             this.Pbotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,7 +494,7 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.TextBox textBoxdiferencia;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btncargartransacciones;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGVDatos;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
@@ -478,5 +504,6 @@ namespace ConciliacionBancaria
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox textBoxsaldobancario;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Bbuscar;
     }
 }

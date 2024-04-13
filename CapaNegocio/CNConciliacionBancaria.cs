@@ -57,24 +57,90 @@ namespace CapaNegocio
             return dt;
         }
 
-    
 
-    //public static DataTable ObtenerConciliacionBancariaPorID(int conciliacionID)
-    //{
-    //    try
-    //    {
-    //        // Creamos una instancia de la clase CDConciliacionBancaria
-    //        CDConciliacionBancaria objConciliacionBancaria = new CDConciliacionBancaria();
 
-    //        // Llamamos al método ObtenerConciliacionBancariaPorID de la capa de datos
-    //        return objConciliacionBancaria.ObtenerConciliacionBancariaPorID(conciliacionID);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // Manejar la excepción o propagarla hacia arriba según sea necesario
-    //        // En este caso, podrías lanzar la excepción o devolver un DataTable vacío
-    //        throw new Exception("Error al obtener la conciliación bancaria por ID.", ex);
-    //    }
-    //}
-}
+        public static DataTable ObtenerConciliacionBancariaPorID( string estado, int? ConciliacionID)
+        {
+            // Crear una instancia de la clase CDBancos
+            CDConciliacionBancaria ConciliacionBancaria = new CDConciliacionBancaria();
+
+            // Llamada al método no estático ObtenerBancoPorID de la instancia dbBancos
+            DataTable dt = ConciliacionBancaria.ObtenerConciliacionBancariaPorID( estado, ConciliacionID);
+
+            // Retornamos el DataTable con los datos adquiridos
+            return dt;
+        }
+
+
+
+     
+            public static DataTable ObtenerConciliacionBancariaPorFecha(DateTime? fechaInicio, DateTime? fechaFin)
+            {
+                // Crear una instancia de la clase CDCConciliacionBancaria
+                CDConciliacionBancaria cdConciliacionBancaria = new CDConciliacionBancaria();
+
+                // Llamar al método ObtenerConciliacionBancariaPorFecha de la instancia cdConciliacionBancaria
+                DataTable dt = cdConciliacionBancaria.ObtenerConciliacionBancariaPorFecha(fechaInicio, fechaFin);
+
+                // Retornar el DataTable con los datos obtenidos
+                return dt;
+            }
+        
+
+
+
+
+        //siiiiiiiiiiiiii
+        public static DataTable ObtenerConciliacion()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                            AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security=True;Pooling=true";
+            string consulta = "SELECT * FROM ConciliacionBancaria";
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
+
+        public static DataTable ObtenerConciliacionE()
+        {
+            // Cadena de conexión a la base de datos
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                AttachDbFilename=C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                Integrated Security=True;Pooling=true";
+
+            // Consulta SQL para obtener las conciliaciones no conciliadas
+            string consulta = "SELECT * FROM ConciliacionBancaria WHERE Estado = 'No Conciliado'";
+
+            // DataTable para almacenar los resultados
+            DataTable dt = new DataTable();
+
+            // Establecer la conexión y ejecutar la consulta
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+
+                // Abrir la conexión y ejecutar la consulta
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Cargar los resultados en el DataTable
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
+
+
+    }
 }

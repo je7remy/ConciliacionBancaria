@@ -21,7 +21,8 @@ namespace ConciliacionBancaria
         // Variables globales
         public string mensaje = "";
 
-      
+        public int indice = 0, vtieneparametro = 0;
+        public string valorparametro = "";
 
         public FMCB()
         {
@@ -40,7 +41,8 @@ namespace ConciliacionBancaria
 
             button2.Focus();
             Program.nuevo = true;
-
+            valorparametro = "";
+            vtieneparametro = 0;
         }
 
 
@@ -103,7 +105,12 @@ namespace ConciliacionBancaria
                     textBoxdiferencia.Focus();
                     return;
                 }
-
+                else if (string.IsNullOrEmpty(comboBoxestado.Text))
+                {
+                    MessageBox.Show("Debe indicar el estado!");
+                    comboBoxestado.Focus();
+                    return;
+                }
 
                 string mensaje = "";
 
@@ -558,6 +565,71 @@ namespace ConciliacionBancaria
                 MessageBox.Show("Ambos campos deben estar llenos para realizar el cálculo.");
             }
         }
+
+        private void Bbuscar_Click(object sender, EventArgs e)
+        {
+            ConsultaFMCB ConsultaFMCB = new ConsultaFMCB();
+            ConsultaFMCB.Show();
+        }
+        private void MostrarDatos()
+        {
+            //  valorparametro = Tbuscar.Text.Trim();
+            //string valorparametro = Tbuscar.Text.Trim();
+            DataTable dt = CNConciliacionBancaria.ObtenerConciliacion(); // Acceder al método estático
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DGVDatos.DataSource = dt;
+
+                DGVDatos.Columns[0].Width = 140;
+                DGVDatos.Columns[1].Width = 140;
+                DGVDatos.Columns[2].Width = 150;
+                DGVDatos.Columns[3].Width = 170;
+                DGVDatos.Columns[4].Width = 130;
+                DGVDatos.Columns[5].Width = 140;
+                DGVDatos.Columns[6].Width = 90;
+
+            }
+            else
+            {
+                // Manejar el caso en el que el DataTable esté vacío
+            }
+            DGVDatos.Refresh(); //Se refresca el DataGridView
+          //  LCantMov.Text = Convert.ToString(DGVDatos.RowCount - 1); //Se muestra la cantidad de datos
+            if (DGVDatos.RowCount <= 0) //Si no se obtienen datos de retorno
+            {
+                MessageBox.Show("Ningún dato que mostrar!"); //Se muestra un mensaje de error
+            }
+        }
+
+
+
+        private void MostrarDatos1()
+        {
+            DataTable dt = CNConciliacionBancaria.ObtenerConciliacionE();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DGVDatos.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron transacciones no conciliadas."); // Mensaje si no se encontraron resultados
+            }
+        }
     
+
+        private void btncargartransacciones_Click(object sender, EventArgs e)
+        {
+            MostrarDatos();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MostrarDatos1();
+        }
+
+    
+        
     }
 }

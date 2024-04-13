@@ -184,9 +184,10 @@ namespace CapaDatos
 
 
 
-        public DataTable ObtenerConciliacionBancariaPorID(int ConciliacionID)
+        // Método para obtener los datos de un banco por su ID o estado
+        public DataTable ObtenerConciliacionBancariaPorID(string estado, int?ConciliacionID)
         {
-            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos de la conciliación
+            DataTable dt = new DataTable(); // Se crea DataTable que tomará los datos del Banco
             SqlDataReader leerDatos; // Creamos el DataReader
             try
             {
@@ -195,9 +196,10 @@ namespace CapaDatos
                     SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando
                     sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
                     sqlCon.Open(); // Se abre la conexión
-                    sqlCmd.CommandText = "ObtenerConciliacionBancariaPorID"; // Nombre del Proc. Almacenado a usar
+                    sqlCmd.CommandText = "ObtenerBancoPorID"; // Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; // Se trata de un proc. almacenado
-                    sqlCmd.Parameters.AddWithValue("@ConciliacionID", ConciliacionID); // Se pasa el ID de la conciliación a buscar
+                    sqlCmd.Parameters.AddWithValue("@ConciliacionID", ConciliacionID ?? (object)DBNull.Value);
+                    sqlCmd.Parameters.AddWithValue("@Estado", estado ?? (object)DBNull.Value);
                     leerDatos = sqlCmd.ExecuteReader(); // Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); // Se cargan los registros devueltos al DataTable
                     sqlCon.Close(); // Se cierra la conexión
@@ -212,8 +214,33 @@ namespace CapaDatos
 
 
 
-
-
+        // Método para obtener los datos de conciliación bancaria por fecha
+        public DataTable ObtenerConciliacionBancariaPorFecha(DateTime? fechaInicio, DateTime? fechaFin)
+        {
+            DataTable dt = new DataTable(); // Se crea un DataTable que almacenará los datos de conciliación bancaria
+            SqlDataReader leerDatos; // Creamos el SqlDataReader para leer los datos
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(CapaPresentacionConexion.miconexion)) // Se crea una nueva instancia de SqlConnection utilizando la cadena de conexión
+                {
+                    SqlCommand sqlCmd = new SqlCommand(); // Establecer el comando SQL
+                    sqlCmd.Connection = sqlCon; // Asignar la conexión al comando
+                    sqlCon.Open(); // Se abre la conexión
+                    sqlCmd.CommandText = "ObtenerConciliacionBancariaPorFecha"; // Nombre del procedimiento almacenado a utilizar
+                    sqlCmd.CommandType = CommandType.StoredProcedure; // Indicar que es un procedimiento almacenado
+                    sqlCmd.Parameters.AddWithValue("@FechaInicio", fechaInicio ?? (object)DBNull.Value); // Parámetro para la fecha de inicio
+                    sqlCmd.Parameters.AddWithValue("@FechaFin", fechaFin ?? (object)DBNull.Value); // Parámetro para la fecha de fin
+                    leerDatos = sqlCmd.ExecuteReader(); // Llenar el SqlDataReader con los datos resultantes
+                    dt.Load(leerDatos); // Cargar los registros devueltos en el DataTable
+                    sqlCon.Close(); // Cerrar la conexión
+                }
+            }
+            catch (Exception)
+            {
+                dt = null; // En caso de error, se asigna null al DataTable
+            }
+            return dt; // Se devuelve el DataTable con los datos obtenidos
+        }
 
 
 
