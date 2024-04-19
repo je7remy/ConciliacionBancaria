@@ -405,7 +405,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Diferencia.Value</Value>
+                              <Value>=IIF(Fields!Diferencia.Value &lt; 0, -Fields!Diferencia.Value, Fields!Diferencia.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

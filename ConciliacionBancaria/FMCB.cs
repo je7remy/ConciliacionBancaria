@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
@@ -113,27 +112,6 @@ namespace ConciliacionBancaria
                 }
 
                 string mensaje = "";
-
-
-                //// Obteniendo el CatalogoID
-
-                //int ConciliacionID;
-                //Program.ConciliacionID = ConciliacionID = 0;
-
-                //// Obteniendo BancoID
-                //if (textBoxconciliacionid.Text != "")
-                //{
-                //    if (int.TryParse(textBoxconciliacionid.Text, out ConciliacionID))
-                //    {
-                //        // La conversión fue exitosa
-                //    }
-                //    else
-                //    {
-                //        // Manejar el error de conversión
-                //        MessageBox.Show("Error al convertir el ID del Saldo Contable.");
-                //        return;
-                //    }
-                //}
 
 
 
@@ -457,48 +435,7 @@ namespace ConciliacionBancaria
             
         }
 
-        decimal ObtenerSaldoContable(int selectedItem)
-        {
-            decimal saldoContable = 0;
-
-            try
-            {
-                // Establece la conexión con la base de datos
-                using (SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;
-                AttachDbFilename = C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
-                                            Integrated Security = True; Pooling = true"))
-                {
-                    // Crea el comando SQL para llamar al procedimiento almacenado
-                    using (SqlCommand command = new SqlCommand("CalcularSaldoContable", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        // Establece el parámetro del procedimiento almacenado
-                        command.Parameters.AddWithValue("@CuentaID", selectedItem);
-
-                        // Abre la conexión y ejecuta el comando
-                        connection.Open();
-
-                        // Ejecuta el comando y obtén el resultado (saldo contable)
-                        object result = command.ExecuteScalar();
-
-                        // Verifica si el resultado es nulo y, si no lo es, conviértelo a decimal
-                        if (result != DBNull.Value)
-                        {
-                            saldoContable = Convert.ToDecimal(result);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de excepciones
-                MessageBox.Show("Error al obtener el saldo contable: " + ex.Message);
-            }
-
-            return saldoContable;
        
-        }
 
         private void textBoxdiferencia_TextChanged(object sender, EventArgs e)
         {
@@ -652,7 +589,65 @@ namespace ConciliacionBancaria
             MostrarDatos1();
         }
 
-    
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        decimal ObtenerSaldoContable(int selectedItem)
+        {
+            decimal saldoContable = 0;
+
+            try
+            {
+                // Establece la conexión con la base de datos
+                using (SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;
+                AttachDbFilename = C:\c#\ConciliacionBancaria\CapaDatos\ConciliacionBancaria.mdf;
+                                            Integrated Security = True; Pooling = true"))
+                {
+                    // Crea el comando SQL para llamar al procedimiento almacenado
+                    using (SqlCommand command = new SqlCommand("CalcularSaldoContable", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Establece el parámetro del procedimiento almacenado
+                        command.Parameters.AddWithValue("@CuentaID", selectedItem);
+
+                        // Abre la conexión y ejecuta el comando
+                        connection.Open();
+
+                        // Ejecuta el comando y obtén el resultado (saldo contable)
+                        object result = command.ExecuteScalar();
+
+                        // Verifica si el resultado es nulo y, si no lo es, conviértelo a decimal
+                        if (result != DBNull.Value)
+                        {
+                            saldoContable = Convert.ToDecimal(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                MessageBox.Show("Error al obtener el saldo contable: " + ex.Message);
+            }
+
+            return saldoContable;
+
+        }
+
     }
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using CapaDatos;
@@ -400,23 +399,6 @@ namespace ConciliacionBancaria
                         MessageBox.Show("El valor ingresado para el Monto no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-
-
-
-                //string ClienteID = string.Empty;
-                //if (textBoxclienteid.SelectedItem != null && textBoxclienteid.SelectedItem is DataRowView)
-                //{
-                //    DataRowView selectedRow = textBoxclienteid.SelectedItem as DataRowView;
-                //    if (selectedRow.Row["ClienteID"] != null)
-                //    {
-                //        ClienteID = selectedRow.Row["ClienteID"].ToString();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("El ID del Cliente seleccionado no es válido.");
-                //        return;
-                //    }
-                //}
 
 
                 if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos

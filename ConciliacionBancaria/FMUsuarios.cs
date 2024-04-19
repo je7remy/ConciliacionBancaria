@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using CapaDatos;

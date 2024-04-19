@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Agregamos lo siguiente para utilizar SQL
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
@@ -24,8 +23,7 @@ namespace ConciliacionBancaria
         public FMBancos()
         {
             InitializeComponent();
-            
-
+           
         }
 
         private void iconminimizar_Click(object sender, EventArgs e)
