@@ -113,6 +113,6 @@ public void ConciliarCuenta(int cuentaID)
 ---
 
 ## 📜 Licencia  
-Este proyecto está bajo la licencia **MIT**, puedes modificarlo y adaptarlo libremente.  
+Este proyecto está bajo la licencia **[MIT](LICENSE)**, puedes modificarlo y adaptarlo libremente.  
 
 📌 **¡Optimiza la conciliación bancaria con este poderoso sistema contable!** 🚀 
